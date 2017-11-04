@@ -1,4 +1,4 @@
 # millhouseblog
-Blog with CMS
+Blog with CMS.
 
 Here lives the documentation for the project.

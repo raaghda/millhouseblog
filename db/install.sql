@@ -1,128 +1,172 @@
--- -----------------------------------------------------
--- Schema millhouse
--- -----------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Nov 06, 2017 at 11:39 AM
+-- Server version: 5.7.19
+-- PHP Version: 5.6.31
 
--- -----------------------------------------------------
--- Schema millhouse
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `millhouse` DEFAULT CHARACTER SET utf8 ;
-USE `millhouse` ;
-
--- -----------------------------------------------------
--- Table `millhouse`.`user`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `millhouse`.`user` (
-  `userid` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(50) NOT NULL,
-  `password` VARCHAR(200) NOT NULL,
-  `email` VARCHAR(200) NOT NULL,
-  `registertime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `role` VARCHAR(20) NOT NULL DEFAULT 'user',
-  `name` VARCHAR(60) NOT NULL,
-  PRIMARY KEY (`userid`))
-ENGINE = InnoDB
-
--- -----------------------------------------------------
--- Table `millhouse`.`category`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `millhouse`.`category` (
-  `categoryid` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`categoryid`))
-ENGINE = InnoDB;
-
--- Inserting categories --
-INSERT INTO `category` (`name`) VALUES ('Solglasögon');
-INSERT INTO `category` (`name`) VALUES ('Klockor');
-INSERT INTO `category` (`name`) VALUES ('Inredningsartiklar');
-INSERT INTO `category` (`name`) VALUES ('Lifestyle');
-INSERT INTO `category` (`name`) VALUES ('Övrigt');
-
--- -----------------------------------------------------
--- Table `millhouse`.`post`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `millhouse`.`post` (
-  `postid` INT NOT NULL AUTO_INCREMENT,
-  `userid` INT NOT NULL,
-  `title` VARCHAR(100) NOT NULL,
-  `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `text` TEXT NOT NULL,
-  `thumbnail` VARCHAR(250) NULL,
-  `categoryid` INT NOT NULL,
-  PRIMARY KEY (`postid`),
-  INDEX `userid_idx` (`userid` ASC),
-  INDEX `fpost_categoryid_idx` (`categoryid` ASC),
-  CONSTRAINT `fpost_userid`
-    FOREIGN KEY (`userid`)
-    REFERENCES `millhouse`.`user` (`userid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fpost_categoryid`
-    FOREIGN KEY (`categoryid`)
-    REFERENCES `millhouse`.`category` (`categoryid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
--- -----------------------------------------------------
--- Table `millhouse`.`comment`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `millhouse`.`comment` (
-  `commentid` INT NOT NULL AUTO_INCREMENT,
-  `userid` INT NOT NULL,
-  `postid` INT NOT NULL,
-  `comment` VARCHAR(300) NOT NULL,
-  `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `millhouse`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
+  `categoryid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`categoryid`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`categoryid`, `name`) VALUES
+(1, 'Solglasögon'),
+(2, 'Klockor'),
+(3, 'Inredningsartiklar'),
+(4, 'Lifestyle'),
+(5, 'Övrigt');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `commentid` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `postid` int(11) NOT NULL,
+  `comment` varchar(500) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`commentid`),
-  INDEX `f_userid_idx` (`userid` ASC),
-  INDEX `f_postid_idx` (`postid` ASC),
-  CONSTRAINT `fcomment_userid`
-    FOREIGN KEY (`userid`)
-    REFERENCES `millhouse`.`user` (`userid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fcomment_postid`
-    FOREIGN KEY (`postid`)
-    REFERENCES `millhouse`.`post` (`postid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  KEY `f_userid_idx` (`userid`),
+  KEY `f_postid_idx` (`postid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `millhouse`.`page`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `millhouse`.`page` (
-  `pageid` INT NOT NULL AUTO_INCREMENT,
-  `userid` INT NOT NULL,
-  `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `title` VARCHAR(45) NOT NULL,
-  `content` TEXT NOT NULL,
+--
+-- Table structure for table `page`
+--
+
+DROP TABLE IF EXISTS `page`;
+CREATE TABLE IF NOT EXISTS `page` (
+  `pageid` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `title` varchar(45) NOT NULL,
+  `content` text NOT NULL,
   PRIMARY KEY (`pageid`),
-  INDEX `f_userid_idx` (`userid` ASC),
-  CONSTRAINT `fpage_userid`
-    FOREIGN KEY (`userid`)
-    REFERENCES `millhouse`.`user` (`userid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  KEY `f_userid_idx` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `millhouse`.`profile`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `millhouse`.`profile` (
-  `profileid` INT NOT NULL AUTO_INCREMENT,
-  `userid` INT NOT NULL,
-  `photo` VARCHAR(255) NULL,
-  `name` VARCHAR(60) NULL,
-  `about` VARCHAR(200) NULL,
+--
+-- Table structure for table `post`
+--
+
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE IF NOT EXISTS `post` (
+  `postid` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `text` text NOT NULL,
+  `thumbnail` varchar(250) DEFAULT NULL,
+  `categoryid` int(11) NOT NULL,
+  PRIMARY KEY (`postid`),
+  KEY `userid_idx` (`userid`),
+  KEY `fpost_categoryid_idx` (`categoryid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profile`
+--
+
+DROP TABLE IF EXISTS `profile`;
+CREATE TABLE IF NOT EXISTS `profile` (
+  `profileid` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `name` varchar(60) DEFAULT NULL,
+  `about` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`profileid`),
-  INDEX `f_userid_idx` (`userid` ASC),
-  CONSTRAINT `fprofile_userid`
-    FOREIGN KEY (`userid`)
-    REFERENCES `millhouse`.`user` (`userid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  KEY `f_userid_idx` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `registertime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `role` varchar(20) NOT NULL DEFAULT 'user',
+  `name` varchar(70) NOT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `fcomment_postid` FOREIGN KEY (`postid`) REFERENCES `post` (`postid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fcomment_userid` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `page`
+--
+ALTER TABLE `page`
+  ADD CONSTRAINT `fpage_userid` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `post`
+--
+ALTER TABLE `post`
+  ADD CONSTRAINT `fpost_categoryid` FOREIGN KEY (`categoryid`) REFERENCES `category` (`categoryid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fpost_userid` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `profile`
+--
+ALTER TABLE `profile`
+  ADD CONSTRAINT `fprofile_userid` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

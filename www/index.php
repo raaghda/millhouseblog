@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Millhouse</title>
 
-    
 </head>
 <body>
-   
-   <?php
+<?php
+    $pagename = "home";
+    if(isset($_GET['page'])) {
+        $pagename = $_GET ['page'];
+    }
     
-    require 'parts/loginform.php';
-    
-    ?>
-    
+    if (file_exists("pages/$pagename.php")) {
+        include "pages/$pagename.php";
+    } else {
+        include "pages/404.php";
+    }
+?>
 </body>
 </html>

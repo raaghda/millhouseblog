@@ -16,7 +16,7 @@
     
 ?>
    
-<form action="parts/login.php" method="post">
+<form action="/millhouseblog/www/parts/login.php" method="post">
     <input type="username" name ="username" placeholder="Användarnamn"> 
     <input type="password" name ="password" placeholder="Lösenord">
     <input type="submit" value="Logga in">

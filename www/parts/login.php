@@ -18,10 +18,12 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 if(password_verify($password, $fetched_user["password"])){
     
-    /*----- Har gjort echo inloggad bara för att se att den fungera, man ska redirectas i " header (" "); -----*/
+    $_SESSION["user"] = $fetched_user;
+    $_SESSION["loggedIn"] = true;
+    header("Location: /millhouseblog/www/index.php?success=true");
     
-    
-    /* header("    "); */ echo "inloggad";
 } else {
+    
     header("Location: /millhouseblog/www/parts/loginform.php/?wrongpass=".$message_wrongpass);
+
 }

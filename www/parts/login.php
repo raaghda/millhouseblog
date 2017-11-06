@@ -17,7 +17,11 @@ $statement->execute(array(
 $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 if(password_verify($password, $fetched_user["password"])){
-    header("    ");
+    
+    /*----- Har gjort echo inloggad bara för att se att den fungera, man ska redirectas i " header (" "); -----*/
+    
+    
+    /* header("    "); */ echo "inloggad";
 } else {
-    header("Location: http://localhost:8888/millhouseblog/www/parts/loginform.php/?wrongpass=".$message_wrongpass);
+    header("Location: /millhouseblog/www/parts/loginform.php/?wrongpass=".$message_wrongpass);
 }

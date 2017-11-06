@@ -16,12 +16,12 @@
     
 ?>
    
-<form action="http://localhost:8888/millhouseblog/www/parts/login.php" method="post">
+<form action="parts/login.php" method="post">
     <input type="username" name ="username" placeholder="Användarnamn"> 
     <input type="password" name ="password" placeholder="Lösenord">
     <input type="submit" value="Logga in">
 </form>
     
-<a href="http://localhost:8888/millhouseblog/www/parts/register.php">Registrera ny användare</a>
+<a href="/millhouseblog/www/parts/register.php">Registrera ny användare</a>
 
 <!-------- LOGIN-FORM ENDS ---------->

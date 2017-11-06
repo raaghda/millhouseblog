@@ -18,10 +18,9 @@ CREATE TABLE IF NOT EXISTS `millhouse`.`user` (
   `email` VARCHAR(200) NOT NULL,
   `registertime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `role` VARCHAR(20) NOT NULL DEFAULT 'user',
-  `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-  PRIMARY KEY (`userid`));
-
+  `name` VARCHAR(60) NOT NULL,
+  PRIMARY KEY (`userid`))
+ENGINE = InnoDB
 
 -- -----------------------------------------------------
 -- Table `millhouse`.`category`

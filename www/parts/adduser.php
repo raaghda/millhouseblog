@@ -24,13 +24,13 @@
             ":email" => $email
         ));
 
-        header ("Location: http://localhost:8888/millhouseblog/index.php/?newuser=".$message_newuser);
+        header ("Location: http://localhost:8888/millhouseblog/www/index.php/?newuser=".$message_newuser);
 
     } else {
 
-        header ("Location: http://localhost:8888/millhouseblog/parts/register.php/?nouser=".$message_nouser);
+        header ("Location: http://localhost:8888/millhouseblog/www/parts/register.php/?nouser=".$message_nouser);
         
     }} else {
-        header ("Location: http://localhost:8888/millhouseblog/parts/register.php/?notValid=".$message_notValid);
+        header ("Location: http://localhost:8888/millhouseblog/www/parts/register.php/?notValid=".$message_notValid);
     }
 

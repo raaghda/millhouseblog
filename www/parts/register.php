@@ -16,15 +16,15 @@
     
 ?>
        
-<form action="parts/adduser.php" method="post">
+<form action="adduser.php" method="post">
     <input type="name" name="name" placeholder="Ditt namn">
-    <input type="email" name="email" placeholder="Epost">
-    <input type="username" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <input type="password" name="validPassword" placeholder="Valid Password">
-    <input type="submit" value="Register">
+    <input type="email" name="email" placeholder="E-post">
+    <input type="username" name="username" placeholder="Användarnamn">
+    <input type="password" name="password" placeholder="Lösenord">
+    <input type="password" name="validPassword" placeholder="Bekräfta lösenord">
+    <input type="submit" value="Registrera">
 </form>
       
-<a href="http://localhost:8888/millhouseblog/index.php">Gå tillbaka till login</a>
+<a href="http://localhost:8888/millhouseblog/www/index.php">Gå tillbaka till login</a>
      
 <!------------ REG-FORM ENDS ------------>

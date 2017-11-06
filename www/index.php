@@ -1,5 +1,16 @@
-<?php
-
-echo "Hello world!";
-
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <?php
+    
+    require 'parts/regform.php';
+    
+    ?>
+    
+</body>
+</html>

@@ -16,7 +16,7 @@
     
 ?>
        
-<form action="adduser.php" method="post">
+<form action="parts/adduser.php" method="post">
     <input type="name" name="name" placeholder="Ditt namn">
     <input type="email" name="email" placeholder="Epost">
     <input type="username" name="username" placeholder="Username">
@@ -25,6 +25,6 @@
     <input type="submit" value="Register">
 </form>
       
-<a href="http://localhost:8888/millhouse/index.php">Gå tillbaka till login</a>
+<a href="http://localhost:8888/millhouseblog/index.php">Gå tillbaka till login</a>
      
 <!------------ REG-FORM ENDS ------------>

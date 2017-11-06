@@ -15,7 +15,7 @@
     if($_POST["password"] == $validPassword){
 
     if(!empty($username && $password && $name && $email)){
-        $statement = $pdo->prepare("INSERT INTO users (username, password, name, email) VALUES (:username, :password, :name, :email)");
+        $statement = $pdo->prepare("INSERT INTO user (username, password, name, email) VALUES (:username, :password, :name, :email)");
 
         $statement->execute(array(
             ":username" => $username,
@@ -24,12 +24,13 @@
             ":email" => $email
         ));
 
-        header ("Location: http://localhost:8888/millhouse/index.php/?newuser=".$message_newuser);
+        header ("Location: http://localhost:8888/millhouseblog/index.php/?newuser=".$message_newuser);
 
     } else {
 
-        header ("Location: http://localhost:8888/millhouse/parts/register.php/?nouser=".$message_nouser);
+        header ("Location: http://localhost:8888/millhouseblog/parts/register.php/?nouser=".$message_nouser);
         
     }} else {
-        header ("Location: http://localhost:8888/millhouse/parts/register.php/?notValid=".$message_notValid);
+        header ("Location: http://localhost:8888/millhouseblog/parts/register.php/?notValid=".$message_notValid);
     }
+

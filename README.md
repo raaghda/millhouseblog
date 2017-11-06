@@ -23,4 +23,4 @@ Copy the content inside this repisitory's www folder to your local www folder.
 ## Structure
 
 ### Database
-![alt Database](https://raw.githubusercontent.com/raaghda/millhouseblog/master/db/model.png)
+![alt Database](https://github.com/raaghda/millhouseblog/blob/master/db/modell.png?raw=true)

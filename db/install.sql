@@ -18,8 +18,9 @@ CREATE TABLE IF NOT EXISTS `millhouse`.`user` (
   `email` VARCHAR(200) NOT NULL,
   `registertime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `role` VARCHAR(20) NOT NULL DEFAULT 'user',
-  PRIMARY KEY (`userid`))
-ENGINE = InnoDB;
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`userid`));
 
 
 -- -----------------------------------------------------
@@ -35,6 +36,7 @@ ENGINE = InnoDB;
 INSERT INTO `category` (`name`) VALUES ('Solglasögon');
 INSERT INTO `category` (`name`) VALUES ('Klockor');
 INSERT INTO `category` (`name`) VALUES ('Inredningsartiklar');
+INSERT INTO `category` (`name`) VALUES ('Lifestyle');
 INSERT INTO `category` (`name`) VALUES ('Övrigt');
 
 -- -----------------------------------------------------
@@ -71,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `millhouse`.`comment` (
   `commentid` INT NOT NULL AUTO_INCREMENT,
   `userid` INT NOT NULL,
   `postid` INT NOT NULL,
-  `comment` VARCHAR(500) NOT NULL,
+  `comment` VARCHAR(300) NOT NULL,
   `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`commentid`),
   INDEX `f_userid_idx` (`userid` ASC),

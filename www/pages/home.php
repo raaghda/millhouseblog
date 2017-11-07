@@ -8,14 +8,7 @@ include "components/navbar.php";
         if(isset($_SESSION["user"])){
 
             echo '<h1>' . "Welcome " . $_SESSION["user"]["username"] . '!' . '</h1>';
-
-    ?>
-            
-            <form action="parts/logout.php">
-                <input type="submit" name="logout" value="Logga ut">
-            </form>
-       
-    <?php
+            echo '<h2>' . "THIS IS THE HOMEPAGE" . '</h2>';
         
     /*------     EVERYTHING THAT HAPPENS BEFORE ELSE, IS IF USER LOGGED IN    ------*/
     
@@ -26,7 +19,7 @@ include "components/navbar.php";
             if(isset($_GET['logout'])){
                 echo $_GET['logout'];
             }
-       
+            
         require 'parts/loginform.php';
         
         }

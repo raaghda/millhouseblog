@@ -1,3 +1,6 @@
+<? session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,7 @@
 
 </head>
 <body>
+
 <?php
     $pagename = "home";
     if(isset($_GET['page'])) {
@@ -19,5 +23,6 @@
         include "pages/404.php";
     }
 ?>
+
 </body>
 </html>

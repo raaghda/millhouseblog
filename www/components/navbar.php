@@ -1,4 +1,4 @@
-        <div>
+    <div>
     <a href="?page=home">Start</a>
     <a href="?page=categories">Kategorier</a>
     <a href="?page=faq">FAQ</a>
@@ -7,7 +7,7 @@
             echo '<a href="parts/logout.php">Logga ut</a>';
         }
         else{
-            echo '<a href="?page=login">Logga in</a>';   
+            echo '<a href="?page=home">Logga in</a>';   
         }
     ?>
 </div>

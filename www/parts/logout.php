@@ -8,7 +8,7 @@
 
     $message_logout = urldecode("Du är utloggad!");
 
-    header("Location: /millhouseblog/www/?page=login&logout=".$message_logout);
+    header("Location: /millhouseblog/www/index.php?page=login&logout=".$message_logout);
 
 
 

@@ -6,7 +6,7 @@
     <?php
         session_start();
         if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
-            echo '<a href="?page=logout">Logga ut</a>';
+            echo '<a href="parts/logout.php">Logga ut</a>';
         }
         else{
             echo '<a href="?page=login">Logga in</a>';   

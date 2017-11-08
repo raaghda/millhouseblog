@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css" >
 </head>
 
+<body>
 <header>
 <?php require('navbar.php'); ?>
 </header>
-
-<body>

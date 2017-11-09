@@ -1,3 +1,5 @@
+</main>
+
 <footer>
 </footer>
 <!-- jQuery -->

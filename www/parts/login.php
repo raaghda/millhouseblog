@@ -20,10 +20,10 @@ if(password_verify($password, $fetched_user["password"])){
     
     $_SESSION["user"] = $fetched_user;
     $_SESSION["loggedIn"] = true;
-    header("Location: /millhouseblog/www/?page=login&success=true");
+    header("Location: /millhouseblog/www/?page=home&success=true");
     
 } else {
     
-    header("Location: /millhouseblog/www/?page=login&wrongpass=".$message_wrongpass);
+    header("Location: /millhouseblog/www/index.php?wrongpass".$message_wrongpass);
 
 }

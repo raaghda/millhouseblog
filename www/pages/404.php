@@ -1,6 +1,1 @@
-<?php 
-include "components/navbar.php";
-
-?>
-
-404 errooor!!!!
+ERR000000000000RRR

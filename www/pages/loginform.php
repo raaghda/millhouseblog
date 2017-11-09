@@ -13,6 +13,7 @@
     if(isset($_GET['wrongpass'])){
         echo $_GET['wrongpass'];
     }
+
     
 ?>
    
@@ -22,6 +23,6 @@
     <input type="submit" value="Logga in">
 </form>
     
-<a href="/millhouseblog/www/parts/register.php">Registrera ny användare</a>
+<a href="/millhouseblog/www/?page=register">Registrera ny användare</a>
 
 <!-------- LOGIN-FORM ENDS ---------->

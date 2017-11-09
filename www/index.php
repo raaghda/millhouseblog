@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   
-    <meta charset="UTF-8">
-    <title>Millhouse</title>
+<? session_start();
 
-</head>
-<body>
-<?php
+    include 'components/head.php';
+
     $pagename = "home";
     if(isset($_GET['page'])) {
         $pagename = $_GET ['page'];
@@ -18,6 +12,5 @@
     } else {
         include "pages/404.php";
     }
-?>
-</body>
-</html>
+
+    include 'components/footer.php';

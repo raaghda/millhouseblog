@@ -28,11 +28,13 @@
 
     } else {
 
-        header ("Location: /millhouseblog/www/parts/register.php/?nouser=".$message_nouser);
+        header ("Location: /millhouseblog/www/?page=register");
         
     }} else {
         
-        header ("Location: /millhouseblog/www/parts/register.php/?notValid=".$message_notValid);
+        header ("Location: /millhouseblog/www/?page=register");
         
     }
 
+//header ("Location: /millhouseblog/www/parts/register.php/?nouser=".$message_nouser);
+//header ("Location: /millhouseblog/www/parts/register.php/?notValid=".$message_notValid);

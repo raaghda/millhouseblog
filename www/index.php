@@ -1,4 +1,5 @@
-<? session_start();
+<?php
+session_start();
 
     include 'components/head.php';
 
@@ -14,3 +15,4 @@
     }
 
     include 'components/footer.php';
+?>

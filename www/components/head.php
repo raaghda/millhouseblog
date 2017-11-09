@@ -12,5 +12,7 @@
 
 <body>
 <header>
-<?php require('navbar.php'); ?>
+<?php require 'navbar.php'; ?>
 </header>
+    <!--Sidebar here-->
+    <!--Main here and before <footer> in footer.php-->

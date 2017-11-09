@@ -1,8 +1,4 @@
-<?php 
-include "components/navbar.php";
-
-?>
-    <?php
+<?php
         /*------     IF ISSET = IF USER IS LOGGED IN     ------*/
 
         if(isset($_SESSION["user"])){
@@ -20,7 +16,7 @@ include "components/navbar.php";
                 echo $_GET['logout'];
             }
             
-        require 'parts/loginform.php';
+        require 'pages/loginform.php';
         
         }
     

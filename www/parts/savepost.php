@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'database.php';
 
 
@@ -9,11 +9,10 @@ if (isset($_POST["title"], $_POST["text"], $_POST["categoryid"])){
 $title = $_POST["title"];
 $text = $_POST["text"];
 $categoryid = $_POST["categoryid"];
+
     
 //userid comes from the session, not the form
 $userid = $_SESSION["user"]["userid"];
-
-//if (!empty($title && $body_text)){
 
 
 $statement = $pdo->prepare("INSERT INTO post (title, text, userid, categoryid) VALUES (:title, :text, :userid, :categoryid)");
@@ -27,10 +26,12 @@ $statement = $pdo->prepare("INSERT INTO post (title, text, userid, categoryid) V
             ":categoryid" => $categoryid          
         ));
     
+ //var_dump($result);
     
-    if ($result == false){
+    if (empty($result)){
         //reports error, if error occurs (temporary ugly error message - needs handling!)
         print_r($statement->errorInfo());
+        echo 'Doh!';
     }else{
         echo 'Success!';
     }

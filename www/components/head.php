@@ -15,6 +15,4 @@
     <?php require 'navbar.php'; ?>
 </header>
 
-<?php require 'sidebar.php'; ?>
-
 <main>

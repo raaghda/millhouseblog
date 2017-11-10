@@ -21,3 +21,4 @@
         }
     
     ?>
+    <!--SIDEBAR(components) GOES HERE-->

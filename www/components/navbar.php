@@ -16,10 +16,19 @@
     <div class="collapse navbar-collapse" id="collapsedNav">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="?page=home">Start</a></li>
-        <li><a href="?page=profile">Min profil</a></li>
+        <li>
+            <!-- Displays "My Profile" if user is logged in -->
+            <?php
+                if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) 
+                    {
+                        echo '<a href="?page=profile">Min profil</a>';
+                    }
+            ?>    
+        </li>
         <li><a href="?page=categories">Kategorier</a></li>
         <li><a href="?page=faq">FAQ</a></li>
         <li>
+            <!-- Displays "Log in to logged out/unregistered user, and vice versa -->
             <?php
                 if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
                     echo '<a href="parts/logout.php">Logga ut</a>';

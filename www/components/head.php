@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" type="text/css" >
 </head>
-
 <body>
+
 <header>
-<?php require 'navbar.php'; ?>
+    <?php require 'navbar.php'; ?>
 </header>
-    <!--Sidebar here-->
-    <!--Main here and before <footer> in footer.php-->
+
+<main>

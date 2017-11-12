@@ -2,6 +2,7 @@
 session_start();
 require 'database.php';
 
+var_dump($_POST);
 
 if (isset($_POST["title"], $_POST["text"], $_POST["categoryid"])){
 
@@ -25,19 +26,17 @@ $statement = $pdo->prepare("INSERT INTO post (title, text, userid, categoryid) V
             ":userid" => $userid,
             ":categoryid" => $categoryid          
         ));
+
+
+if (empty($result)){
+    //reports error, if error occurs (temporary ugly error message - needs handling!)  
+    print_r($statement->errorInfo());
     
- //var_dump($result);
-    
-    if (empty($result)){
-        //reports error, if error occurs (temporary ugly error message - needs handling!)
-        print_r($statement->errorInfo());
-        echo 'Doh!';
-    }else{
-        echo 'Success!';
+}else{
+        echo 'Success!';   
     }
 }
-
-
+    
 
 //https://www.w3schools.com/php/php_mysql_insert.asp
 

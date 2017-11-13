@@ -1,21 +1,18 @@
 <?php
 session_start();
-
-    include 'components/head.php';
-
     
-
     if (!isset($_SESSION['CREATED'])) {
         $_SESSION['CREATED'] = time();
-    } else if (time() - $_SESSION['CREATED'] > 60) {
-        
+    } else if (time() - $_SESSION['CREATED'] > 10) {
         session_destroy();
-        //header("Location: /millhouse/www/?page=home");
-        echo 'Du har blivit utloggad, du måste <a href="?page=home">Logga in</a> igen';
+        header("Location: /millhouseblog/www/?page=home");
+        //echo 'Du har blivit utloggad, du måste <a href="?page=home">Logga in</a> igen';
         
     }
 
-    $pagename = "home";
+include 'components/head.php';
+    
+    $pagename = "loginform";
     if(isset($_GET['page'])) {
         $pagename = $_GET ['page'];
     }

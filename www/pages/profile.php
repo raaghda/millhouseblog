@@ -33,6 +33,6 @@ if ($fetched_user["role"]=="admin"){
 <br><br>Joined on: <?php echo $fetched_user["registertime"]; 
 
 } else {
-    //header("Location: /millhouse/www/?page=home");
-    echo 'Du måste <a href="?page=home">Logga in</a>';
+    header("Location: /millhouse/www/index.php");
+    //echo 'Du måste <a href="?page=home">Logga in</a>';
 }?>

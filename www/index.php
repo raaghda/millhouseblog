@@ -12,7 +12,7 @@ session_start();
         session_destroy();
         //header("Location: /millhouse/www/?page=home");
         echo 'Du har blivit utloggad, du måste <a href="?page=home">Logga in</a> igen';
-        
+        exit();
     }
 
     $pagename = "home";

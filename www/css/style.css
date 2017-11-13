@@ -1,17 +1,61 @@
-/* --------------- Mobile styling goes here ------------- */
+/* --------------------------------- Mobile styling goes here ----------------------------- */
+
+/*  Body */
+body{
+background-color: #f2f2f2;
+}
+
+main{
+height: 70vh; /* Obs tillfällig höjd på main innan content fyller sidan!!!*/
+}
 
 
-/*  Navbar-styling */
+/*  Genreal text-styling */
+a{
+color: darkslateblue;
+}
+
+
+/*  Navbar */
+.navbar{
+height: 60px;
+border-radius: 0px;
+border: 0px;
+}
+
 .navbar-nav li a{
-    text-align: right;
-    }
+text-align: right;
+}
 
 
+/* Footer */
+footer{
+background-color: rgb(125, 125, 125);
+padding: 20px;
+}
+
+footer a{
+color: #fff;
+font-size: 1em;
+}
+
+footer a:hover{
+color: rgb(255, 203, 82);
+}
+
+li{
+list-style: none;
+text-align: center;
+margin: 10px;
+}
+
+li .fa{
+margin: 5px;
+font-size: 2em;
+}
 
 
-
-
-/* --------------- Tablet styling goes here ------------- */
+/* ---------------------------------- Tablet styling goes here ------------------------------ */
 @media screen and (min-width: 768px){
 
 
@@ -24,7 +68,7 @@
 
 
 
-/* --------------- Desktop styling goes here ------------- */
+/* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
 
 

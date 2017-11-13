@@ -1,24 +1,21 @@
 /* --------------------------------- Mobile styling goes here ----------------------------- */
 
+
 /*  Body */
 body{
 background-color: #f2f2f2;
-}
-
-main{
-height: 70vh; /* Obs tillfällig höjd på main innan content fyller sidan!!!*/
+margin: 0px;
 }
 
 
 /*  Genreal text-styling */
-a{
-color: darkslateblue;
-}
+
 
 
 /*  Navbar */
 .navbar{
 height: 60px;
+margin-bottom: 60px;
 border-radius: 0px;
 border: 0px;
 }
@@ -28,9 +25,42 @@ text-align: right;
 }
 
 
+/*  Styling for login/logout */
+.login_container{
+width: 400px;
+background-color: #fff;
+padding:60px;
+margin-bottom: 200px;
+margin: auto;
+text-align: center;
+border-radius: 15px;
+}
+
+input[type=username], input[type=password]{
+background-color: #f2f2f2;
+border: 1px solid #f2f2f2;
+font-size: 0.9em;
+padding: 15px;
+margin: 10px;
+border-radius: 10px;
+display: inline-block;
+}
+
+input[type=submit]{
+background-color: #97C9C6;
+border: 1px solid #97C9C6;
+font-size: 0.9em;
+padding: 15px;
+margin: 10px;
+border-radius: 10px;
+display: inline-block;
+}
+
+
 /* Footer */
 footer{
 background-color: rgb(125, 125, 125);
+margin-top: 60px;
 padding: 20px;
 }
 
@@ -41,6 +71,10 @@ font-size: 1em;
 
 footer a:hover{
 color: rgb(255, 203, 82);
+}
+
+ul{
+padding: 0px;
 }
 
 li{
@@ -55,12 +89,17 @@ font-size: 2em;
 }
 
 
+
+
+
+
 /* ---------------------------------- Tablet styling goes here ------------------------------ */
 @media screen and (min-width: 768px){
 
 
 
 } /* Closing Tablet */
+
 
 
 

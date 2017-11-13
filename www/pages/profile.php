@@ -34,5 +34,5 @@ if ($fetched_user["role"]=="admin"){
 
 } else {
     //header("Location: /millhouse/www/?page=home");
-    echo 'Du måste <a href="?page=home">Logga in</a>'
+    echo 'Du måste <a href="?page=home">Logga in</a>';
 }?>

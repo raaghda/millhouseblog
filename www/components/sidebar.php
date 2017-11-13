@@ -1,5 +1,4 @@
 <aside class="">
-DISPLAY CATEGORIE-links IN NAV
+<? require 'pages/categories.php'; ?>
 FETCH AND LOOP OUT 5 LATEST COMMENT-LINKS IN NAV
-<?php require 'pages/categories.php'; ?>
 </aside>

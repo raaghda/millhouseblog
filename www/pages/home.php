@@ -46,7 +46,9 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
             $statement->execute();
             $userinfo = $statement->fetch(PDO::FETCH_ASSOC);
             $username = $userinfo['username'];
-            
+            //slut på hämta username
+
+
       //join comments och postid. lagra i array ..??
       //$number_of_comments = count() på arrayen comments som man hämta ut förra.
       ?>
@@ -60,9 +62,7 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
           <span class=""><?=$username?></span>
       </header>
       <p class=””><?=$post[$keys[$i]]['text'];?></p>
-      <footer class=””>
       <nav class=””><a href="">Läs hela inlägget.. skicka värde postid?</a></nav>
-      </footer>
           <article class=””>(comment)</article>    
   </article>
   --------------< hr >--------------

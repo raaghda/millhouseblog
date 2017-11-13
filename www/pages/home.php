@@ -32,16 +32,22 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
 ?>
 
   <h1>Senaste blogginläggen</h1>
-  ::::just nu displayas inte dom senaste av någon anledning..
+  ::::just nu displayas inte dom senaste av någon anledning..<br>
+  koden ska städas upp....:P tex göra funktion av hämta username i loopen..
 
 <?php
 //LOOPING OUT THE POSTS THROUGH $post
 //en liten detalj: hur ska man göra ifall det endast skulle finnas mindre än 5 inlägg inte skrivs ut felmeddelande "unknown offset..."
   for($i=0; $i<5; $i++){
-      $user_id = $post[$keys[$i]]['userid'];
-
       //spara $user_id. loopa igenom user tabell och hämta ut name FROM user där $userid == $userid och lagra i $user_name.
-      //join userid och postid. lagra i array 
+      $user_id = $post[$keys[$i]]['userid'];
+            //ska göras till funktion
+            $statement = $pdo->prepare("SELECT username FROM user WHERE userid = '$user_id'");
+            $statement->execute();
+            $userinfo = $statement->fetch(PDO::FETCH_ASSOC);
+            $username = $userinfo['username'];
+            
+      //join comments och postid. lagra i array ..??
       //$number_of_comments = count() på arrayen comments som man hämta ut förra.
       ?>
       <article class="">
@@ -51,7 +57,7 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
           <time class=""><?=$post[$keys[$i]]['date'];?></time> 
           <span>Categories</span>
           <span class="">$number_of_comments</span> 
-          <span class="">$user_name</span>
+          <span class=""><?=$username?></span>
       </header>
       <p class=””><?=$post[$keys[$i]]['text'];?></p>
       <footer class=””>
@@ -60,7 +66,10 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
           <article class=””>(comment)</article>    
   </article>
   --------------< hr >--------------
-  <?php } ?>
+  <?php } 
+  
+  require 'components/sidebar.php';
+  ?>
 
 
 <!--Blogpost skeleton to be looped out
@@ -80,4 +89,3 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
 <article class=””>(comment)</article>    
 </article>
 -->
-<br>SIDEBAR(components) GOES HERE

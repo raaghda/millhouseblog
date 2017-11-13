@@ -17,24 +17,29 @@
             }
             
         require 'pages/loginform.php';
+        //if false/not loggedin dont show blog-posts
+        exit();
         
         }
     
 //FETCH POSTS FROM 
 //PUT THIS IN PARTS...? AS FETCH_POST T.EX..
 require 'parts/database.php';
-$statement = $pdo->prepare("SELECT * FROM post ORDER BY 'date' DESC");
+$statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
   $statement->execute();
   $post = $statement->fetchAll(PDO::FETCH_ASSOC);
   $keys = array_keys($post);
 ?>
 
   <h1>Senaste blogginläggen</h1>
+  ::::just nu displayas inte dom senaste av någon anledning..
 
 <?php
 //LOOPING OUT THE POSTS THROUGH $post
-//hur ska man göra ifall det endast skulle finnas mindre än 5 inlägg inte skrivs ut felmeddelande "unknown offset..."
+//en liten detalj: hur ska man göra ifall det endast skulle finnas mindre än 5 inlägg inte skrivs ut felmeddelande "unknown offset..."
   for($i=0; $i<5; $i++){
+      $user_id = $post[$keys[$i]]['userid'];
+
       //spara $user_id. loopa igenom user tabell och hämta ut name FROM user där $userid == $userid och lagra i $user_name.
       //join userid och postid. lagra i array 
       //$number_of_comments = count() på arrayen comments som man hämta ut förra.

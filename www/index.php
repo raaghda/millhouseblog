@@ -5,9 +5,10 @@ session_start();
         $_SESSION['CREATED'] = time();
     } else if (time() - $_SESSION['CREATED'] > 10) {
         session_destroy();
+        
         header("Location: /millhouseblog/www/?page=home");
         //echo 'Du har blivit utloggad, du måste <a href="?page=home">Logga in</a> igen';
-        
+        exit();
     }
 
 include 'components/head.php';

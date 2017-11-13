@@ -3,10 +3,9 @@ require 'parts/database.php';
 
 // 1. VI BEHÖVER HÄMTA USERID (KOPIERA SAMMA LOGIK SOM VI HAR GET PARAMETERN PAGE OCH ÄNDRA DEN TILL USERID)
 
-$userid= 3;
-if(isset($_GET['userid'])) {
-    $userid = $_GET ['userid'];
-}
+if(isset($_SESSION["user"])) {
+    $userid = $_SESSION["user"]["userid"];
+
 
 // 2. HÄMTA EN ANVÄNDARE FRÅN DATABASEN SOM HAR DET USERID SOM VI FICK FRÅN GET-PARAMETERN (SE KODEN I LOGIN HUR VI HÄMTAR USERINFORMATION FRÅN DATABASEN)
 
@@ -29,7 +28,11 @@ if ($fetched_user["role"]=="admin"){
 
 
 <br><br><strong><?php echo $fetched_user["name"]; ?></strong>
-<br><br><strong><?php echo $fetched_user["name"]; ?></strong>
 <br><br><strong><?php echo $fetched_user["email"]; ?></strong>
 <br><br><i><?php echo $fetched_user["role"]; ?></i>
-<br><br>Joined on: <?php echo $fetched_user["registertime"]; ?>
+<br><br>Joined on: <?php echo $fetched_user["registertime"]; 
+
+} else {
+    //header("Location: /millhouse/www/?page=home");
+    echo 'Du måste <a href="?page=home">Logga in</a>'
+}?>

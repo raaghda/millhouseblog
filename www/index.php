@@ -34,6 +34,6 @@ include 'components/head.php';
     } else {
         include "pages/404.php";
     }
-
+    
     include 'components/footer.php';
 ?>

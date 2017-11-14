@@ -24,5 +24,4 @@
 </form>
     
 <a href="/millhouseblog/www/?page=register">Registrera ny användare</a>
-
 <!-------- LOGIN-FORM ENDS ---------->

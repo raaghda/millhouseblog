@@ -51,12 +51,11 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
             //hämta ut comments som har detta post_id genom INNER JOIN
             //lagra i array och loopa ut nedanför post
             //här vill jag även få ut användarnament fr user genom comment-tabell
-            $statement = $pdo->prepare("SELECT 'comment', 'userid', 'date', commentid FROM comment INNER JOIN post ON comment.postid = $post_id");
+            $statement = $pdo->prepare("SELECT 'comment', 'userid', 'date', 'commentid' FROM comment INNER JOIN post ON comment.postid = $post_id");
             $statement->execute();
             $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
             $fetch_comment = $comments['comment'];
             $number_of_comments = count($comments);
-
 
 
             //räkna array och lagra i number_comments

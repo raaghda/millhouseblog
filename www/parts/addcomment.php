@@ -7,38 +7,35 @@
     $email = $_POST["email"];
     $nocomment = urlencode("Fyll i fälten korrekt!");
         
-        var_dump($_POST["name"]);
-        var_dump($_POST["email"]);
-        
     } else {
         
         $name = $_SESSION["user"]["name"];
-        $name = $_SESSION["user"]["email"];
+        $email = $_SESSION["user"]["email"];
         
-        var_dump($_SESSION["user"]["name"]);
-        var_dump($_SESSION["user"]["email"]);
+        //var_dump($_SESSION["user"]["name"]);
+        //var_dump($_SESSION["user"]["email"]);
     }
 
     $comment = $_POST["comment"];
+    $postid = $_POST["id"];
 
-    var_dump($_POST["comment"]);
+    //var_dump($_POST["id"]);
 
-    if(!empty($username && $password && $name && $email)){
+    if(!empty($name && $email && $comment)){
         
-        $statement = $pdo->prepare("INSERT INTO user (username, password, name, email) VALUES (:username, :password, :name, :email)");
+        $statement = $pdo->prepare("INSERT INTO comment (postid, comment, email, name) VALUES (:postid, :comment, :email, :name)");
 
         $statement->execute(array(
-            ":username" => $username,
-            ":password" => $password,
-            ":name" => $name,
-            ":email" => $email
-        )); 
+            ":postid" => $postid,
+            ":comment" => $comment,
+            ":email" => $email,
+            ":name" => $name
+        ));
+        
+        header ("Location: /millhouseblog/www/?page=post&nocomment=Tack för din kommentar!&id=".$postid);
     
         } else {
         
-        echo "inga kommentarer!";
+        header ("Location: /millhouseblog/www/?page=post&nocomment=Fyll i fälten korrekt!&id=".$postid);
         
         }
-        
-        */
-        

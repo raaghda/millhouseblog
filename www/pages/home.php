@@ -25,17 +25,11 @@
 //FETCH POSTS FROM 
 //PUT THIS IN PARTS...? AS FETCH_POST T.EX..
 require 'parts/database.php';
-$statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
+$statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
   $statement->execute();
   $post = $statement->fetchAll(PDO::FETCH_ASSOC);
   $keys = array_keys($post);
-?>
 
-  <h1>Senaste blogginläggen</h1>
-  ::::just nu displayas inte dom senaste av någon anledning..<br>
-  koden ska städas upp....:P tex göra funktion av hämta username i loopen..
-
-<?php
 //LOOPING OUT THE POSTS THROUGH $post
 //en liten detalj: hur ska man göra ifall det endast skulle finnas mindre än 5 inlägg inte skrivs ut felmeddelande "unknown offset..."
   for($i=0; $i<5; $i++){
@@ -50,19 +44,12 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
 
             //hämta ut comments som har detta post_id genom INNER JOIN
             //lagra i array och loopa ut nedanför post
-            //här vill jag även få ut användarnament fr user genom comment-tabell
-            $statement = $pdo->prepare("SELECT 'comment', 'userid', 'date', 'commentid' FROM comment INNER JOIN post ON comment.postid = $post_id");
+            $statement = $pdo->prepare("SELECT * FROM comment INNER JOIN post ON comment.postid = post.postid WHERE comment.postid = $post_id");
             $statement->execute();
             $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
-            $fetch_comment = $comments['comment'];
             $number_of_comments = count($comments);
-
-
-            //räkna array och lagra i number_comments
-
-            
-      //$number_of_comments = count() på arrayen comments som man hämta ut förra.
       ?>
+      
       <article class="">
       <header class=””>
           <!--<meta>kategorierna som meta???-->
@@ -73,14 +60,25 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
           <span class=""><?= $username ?></span>
       </header>
       <p class=””><?=$post[$keys[$i]]['text'];?></p>
-      <nav class=””><a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Läs hela inlägget...</a>
+
+        <nav class=””><a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Läs hela inlägget...</a>
           <a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Kommentera</a>
-          </nav>
+        </nav>
 
-          <article class=””>
-              
-          </article>    
-
+      <?php
+        //looping out comments
+        foreach($comments as $comment_info){?>
+          <article class=””> 
+            <header class="">
+                <time class=""><?=$comment_info['date']?></time> 
+                <span>av <?=$comment_info["userid"]?></span>
+            </header>
+            <p class=""><?=$comment_info["comment"]?></p>    
+            <?php
+            }
+            ?>
+           </article><!--/comment article-->    
+  </article><!--/blogpost article-->
   --------------< hr >--------------
   <?php } 
   

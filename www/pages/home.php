@@ -41,6 +41,7 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
   for($i=0; $i<5; $i++){
       //spara $user_id. loopa igenom user tabell och hämta ut name FROM user där $userid == $userid och lagra i $user_name.
       $user_id = $post[$keys[$i]]['userid'];
+      $post_id = $post[$keys[$i]]['postid'];
             //ska göras till funktion
             $statement = $pdo->prepare("SELECT username FROM user WHERE userid = '$user_id'");
             $statement->execute();
@@ -63,7 +64,11 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
       <footer class=””>
       <nav class=””><a href="">Läs hela inlägget.. skicka värde postid?</a></nav>
       </footer>
-          <article class=””>(comment)</article>    
+          <article class=””>
+             
+             <? require 'components/comment.php'?>
+              
+          </article>    
   </article>
   --------------< hr >--------------
   <?php } 

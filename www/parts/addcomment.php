@@ -21,6 +21,8 @@
 
     //var_dump($_POST["id"]);
 
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
     if(!empty($name && $email && $comment)){
         
         $statement = $pdo->prepare("INSERT INTO comment (postid, comment, email, name) VALUES (:postid, :comment, :email, :name)");
@@ -34,7 +36,7 @@
         
         header ("Location: /millhouseblog/www/?page=post&nocomment=Tack för din kommentar!&id=".$postid);
     
-        } else {
+    } } else {
         
         header ("Location: /millhouseblog/www/?page=post&nocomment=Fyll i fälten korrekt!&id=".$postid);
         

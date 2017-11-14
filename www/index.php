@@ -29,7 +29,6 @@ include 'components/head.php';
     }
     
     if (file_exists("pages/$pagename.php")) {
-        echo '<br />';
         include "pages/$pagename.php";
     } else {
         include "pages/404.php";

@@ -16,9 +16,9 @@
                 echo $_GET['logout'];
             }
             
-        require 'pages/loginform.php';
-        //if false/not loggedin dont show blog-posts
-        exit();
+            if(isset($_GET['expired'])){
+                echo $_GET['expired'];
+            }
         
         }
     

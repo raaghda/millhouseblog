@@ -15,7 +15,7 @@
 
     <div class="collapse navbar-collapse" id="collapsedNav">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="?page=home">Start</a></li>
+        <li><a href="?page=home">Hem</a></li>
         <li>
             <!-- Displays "My Profile" if user is logged in -->
             <?php
@@ -34,7 +34,7 @@
                     echo '<a href="parts/logout.php">Logga ut</a>';
                 }
                 else{
-                    echo '<a href="?page=home">Logga in</a>';   
+                    echo '<a href="?page=loginform">Logga in</a>';   
                 }
             ?>
         </li>

@@ -1,17 +1,95 @@
-/* --------------- Mobile styling goes here ------------- */
+/* --------------------------------- Mobile styling goes here ----------------------------- */
 
 
-/*  Navbar-styling */
-.navbar-nav li a{
-    text-align: right;
-    }
+/*  Body */
+body{
+background-color: #f2f2f2;
+margin: 0px;
+}
+
+main{
+min-height: 70vh;
+}
+
+/*  Navbar */
+.navbar-collapse>ul>li{
+text-align: right;
+} 
+
+
+/*  Styling for login container */
+.login{
+width: 400px;
+background-color: #fff;
+padding:60px;
+padding-top: 40px;
+margin-top: 60px;
+margin-bottom: 100px;
+text-align: center;
+border-radius: 15px;
+}
+
+input[type=username], input[type=password]{
+background-color: #f2f2f2;
+border: 1px solid #f2f2f2;
+width: 200px;
+font-size: 0.9em;
+padding: 15px;
+margin: 10px;
+border-radius: 10px;
+display: inline-block;
+}
+
+input[type=submit]{
+background-color: #97C9C6;
+border: 1px solid #97C9C6;
+width: 200px;
+font-size: 0.9em;
+padding: 15px;
+margin: 10px;
+margin-bottom: 20px;
+border-radius: 10px;
+display: inline-block;
+}
+
+
+/* Footer */
+footer{
+background-color: rgb(125, 125, 125);
+margin-top: 90px;
+padding: 20px;
+}
+
+footer a{
+color: #fff;
+font-size: 1em;
+}
+
+footer a:hover{
+color: rgb(255, 203, 82);
+}
+
+ul{
+padding: 0px;
+}
+
+li{
+list-style: none;
+text-align: center;
+margin: 10px;
+}
+
+li .fa{
+margin: 5px;
+font-size: 2em;
+}
 
 
 
 
 
 
-/* --------------- Tablet styling goes here ------------- */
+/* ---------------------------------- Tablet styling goes here ------------------------------ */
 @media screen and (min-width: 768px){
 
 
@@ -24,7 +102,8 @@
 
 
 
-/* --------------- Desktop styling goes here ------------- */
+
+/* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
 
 

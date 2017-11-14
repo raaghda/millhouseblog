@@ -59,7 +59,7 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
           <span class=""><?= $number_of_comments ?></span> 
           <span class=""><?= $username ?></span>
       </header>
-      <p class=””><?=$post[$keys[$i]]['text'];?></p>
+      <p><?=$post[$keys[$i]]['text'];?></p>
 
         <nav class=””><a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Läs hela inlägget...</a>
           <a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Kommentera</a>

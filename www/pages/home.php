@@ -47,12 +47,6 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
             $statement->execute();
             $userinfo = $statement->fetch(PDO::FETCH_ASSOC);
             $username = $userinfo['username'];
-<<<<<<< HEAD
-            //slut på hämta username
-
-
-      //join comments och postid. lagra i array ..??
-=======
 
             //hämta ut comments som har detta post_id genom INNER JOIN
             //lagra i array och loopa ut nedanför post
@@ -67,7 +61,6 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
             //räkna array och lagra i number_comments
 
             
->>>>>>> a473844ff27cc9806104c2986bfd21b93813683e
       //$number_of_comments = count() på arrayen comments som man hämta ut förra.
       ?>
       <article class="">
@@ -80,11 +73,6 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
           <span class=""><?= $username ?></span>
       </header>
       <p class=””><?=$post[$keys[$i]]['text'];?></p>
-<<<<<<< HEAD
-      <nav class=””><a href="">Läs hela inlägget.. skicka värde postid?</a></nav>
-          <article class=””>(comment)</article>    
-  </article>
-=======
       <nav class=””><a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Läs hela inlägget...</a>
           <a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Kommentera</a>
           </nav>
@@ -93,7 +81,6 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
               
           </article>    
 
->>>>>>> a473844ff27cc9806104c2986bfd21b93813683e
   --------------< hr >--------------
   <?php } 
   

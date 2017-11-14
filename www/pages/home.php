@@ -39,17 +39,35 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
 //LOOPING OUT THE POSTS THROUGH $post
 //en liten detalj: hur ska man göra ifall det endast skulle finnas mindre än 5 inlägg inte skrivs ut felmeddelande "unknown offset..."
   for($i=0; $i<5; $i++){
-      //spara $user_id. loopa igenom user tabell och hämta ut name FROM user där $userid == $userid och lagra i $user_name.
       $user_id = $post[$keys[$i]]['userid'];
+      $post_id = $post[$keys[$i]]['postid'];
             //ska göras till funktion
+            //hämta ut username FROM user där $userid == $userid och lagra i $user_name.
             $statement = $pdo->prepare("SELECT username FROM user WHERE userid = '$user_id'");
             $statement->execute();
             $userinfo = $statement->fetch(PDO::FETCH_ASSOC);
             $username = $userinfo['username'];
+<<<<<<< HEAD
             //slut på hämta username
 
 
       //join comments och postid. lagra i array ..??
+=======
+
+            //hämta ut comments som har detta post_id genom INNER JOIN
+            //lagra i array och loopa ut nedanför post
+            //här vill jag även få ut användarnament fr user genom comment-tabell
+            $statement = $pdo->prepare("SELECT 'comment', 'userid', 'date', 'commentid' FROM comment INNER JOIN post ON comment.postid = $post_id");
+            $statement->execute();
+            $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $fetch_comment = $comments['comment'];
+            $number_of_comments = count($comments);
+
+
+            //räkna array och lagra i number_comments
+
+            
+>>>>>>> a473844ff27cc9806104c2986bfd21b93813683e
       //$number_of_comments = count() på arrayen comments som man hämta ut förra.
       ?>
       <article class="">
@@ -58,13 +76,24 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by 'date' DESC");
           <h2 class=””><?=$post[$keys[$i]]['title'];?></h2>
           <time class=""><?=$post[$keys[$i]]['date'];?></time> 
           <span>Categories</span>
-          <span class="">$number_of_comments</span> 
-          <span class=""><?=$username?></span>
+          <span class=""><?= $number_of_comments ?></span> 
+          <span class=""><?= $username ?></span>
       </header>
       <p class=””><?=$post[$keys[$i]]['text'];?></p>
+<<<<<<< HEAD
       <nav class=””><a href="">Läs hela inlägget.. skicka värde postid?</a></nav>
           <article class=””>(comment)</article>    
   </article>
+=======
+      <nav class=””><a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Läs hela inlägget...</a>
+          <a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Kommentera</a>
+          </nav>
+
+          <article class=””>
+              
+          </article>    
+
+>>>>>>> a473844ff27cc9806104c2986bfd21b93813683e
   --------------< hr >--------------
   <?php } 
   

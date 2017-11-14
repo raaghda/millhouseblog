@@ -8,33 +8,57 @@
 
 /* --------------------------------- Mobile styling goes here ----------------------------- */
 
-
 /*  Body */
 body{
 background-color: #f2f2f2;
-margin: 0px;
 }
+
+
 
 /*  Main */
 main{
 min-height: 70vh;
 }
 
-/*  Navbar */
-.navbar-collapse>ul>li{
-text-align: right;
-} 
+
 
 /*  Links (genreal) */
 a{
 color: #4D7E95;
 }
 
-/*  Styling for login and register */
-.login_register{
+a:hover{
+color: #4D7E95;
+}
+
+
+
+/*  Navbar */
+.navbar-collapse>ul>li{
+    text-align: right;
+    }
+    
+    .navbar-collapse>ul>li>a{
+    color: #6D6D6D;
+    }
+
+
+
+
+/* Loginpage-styling, also applies to register page */  
+.background_loginpage{  
+background-image: url('../images/background_lightblue.jpg');
+margin: 0px;
+height: 100%;
+background-position: center;
+background-size: fill;
+background-repeat: no-repeat;
+display: -webkit-box;
+}
+
+.login{
 width: 400px;
 background-color: #fff;
-opacity 0.5;
 padding:60px;
 padding-top: 40px;
 margin-top: 60px;
@@ -43,7 +67,8 @@ text-align: center;
 border-radius: 15px;
 }
 
-input[type=username], input[type=password], input[type=email], input[type=name]{
+input[type=username], input[type=password], 
+input[type=email], input[type=name], input[type=submit]{
 background-color: #f2f2f2;
 border: 1px solid #f2f2f2;
 width: 200px;
@@ -55,28 +80,33 @@ display: inline-block;
 }
 
 input[type=submit]{
-background-color: #97C9C6;
-border: 1px solid #97C9C6;
-width: 200px;
-font-size: 0.9em;
-padding: 15px;
-margin: 10px;
+background-color: #0E3147;
+border: 1px solid #0E3147;
 margin-bottom: 20px;
-border-radius: 10px;
-display: inline-block;
 }
+
+input[type=submit], p{
+color: #fff;
+}
+
+input[type=submit]:hover{
+background-color: #C5B2AB;
+border: 1px solid #C5B2AB;
+margin-bottom: 20px;
+}
+
 
 
 /* Footer */
 footer{
 background-color: #0E3147;
-margin-top: 90px;
 padding: 20px;
 }
 
 footer a{
-color: #fff;
+color: #f2f2f2;
 font-size: 1em;
+text-decoration: none;
 }
 
 footer a:hover{
@@ -97,6 +127,11 @@ li .fa{
 margin: 5px;
 font-size: 2em;
 }
+
+
+
+
+
 
 
 

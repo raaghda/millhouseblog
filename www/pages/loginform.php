@@ -16,20 +16,18 @@
 
 ?>
 
-<div class="container login_register">
-    <div class="row">
-        <div class="col-sm-12">
-            <img src="images/millhouse_logo.svg" width="230px">
-            <form action="/millhouseblog/www/parts/login.php" method="post">
-                <input type="username" name ="username" placeholder="Användarnamn"></br>
-                <input type="password" name ="password" placeholder="Lösenord"></br>
-                <input type="submit" value="Logga in">
-            </form>       
-            <a href="/millhouseblog/www/?page=register">Registrera ny användare</a>
+<div class="background_loginpage">
+    <div class="container login">
+        <div class="row">
+            <div class="col-sm-12">
+                <img src="images/millhouse_logo.svg" width="230px">
+                <form action="/millhouseblog/www/parts/login.php" method="post">
+                    <input type="username" name ="username" placeholder="Användarnamn"></br>
+                    <input type="password" name ="password" placeholder="Lösenord"></br>
+                    <input type="submit" value="Logga in">
+                </form>       
+                <a href="/millhouseblog/www/?page=register">Registrera ny användare</a>
+            </div>
         </div>
     </div>
-</div>
-
-<!-------- LOGIN-FORM ENDS ---------->
-
-
+</div> 

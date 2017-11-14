@@ -7,6 +7,9 @@ background-color: #f2f2f2;
 margin: 0px;
 }
 
+main{
+min-height: 70vh;
+}
 
 /*  Navbar */
 .navbar-collapse>ul>li{

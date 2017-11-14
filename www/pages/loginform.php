@@ -16,7 +16,7 @@
 
 ?>
 
-<div class="container login">
+<div class="container login_register">
     <div class="row">
         <div class="col-sm-12">
             <img src="images/millhouse_logo.svg" width="230px">

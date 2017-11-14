@@ -15,16 +15,24 @@
     }
     
 ?>
-       
-<form action="/millhouseblog/www/parts/adduser.php" method="post">
-    <input type="name" name="name" placeholder="Ditt namn">
-    <input type="email" name="email" placeholder="E-post">
-    <input type="username" name="username" placeholder="Användarnamn">
-    <input type="password" name="password" placeholder="Lösenord">
-    <input type="password" name="validPassword" placeholder="Bekräfta lösenord">
-    <input type="submit" value="Registrera">
-</form>
+<div class="container login_register">
+    <div class="row">
+        <div class="col-sm-12">     
+            <img src="images/millhouse_logo.svg" width="230px">  
+            <form action="/millhouseblog/www/parts/adduser.php" method="post">
+                <input type="name" name="name" placeholder="Ditt namn"></br>
+                <input type="email" name="email" placeholder="E-post"></br>
+                <input type="username" name="username" placeholder="Användarnamn"></br>
+                <input type="password" name="password" placeholder="Lösenord"></br>
+                <input type="password" name="validPassword" placeholder="Bekräfta lösenord"></br>
+                <input type="submit" value="Registrera"></br>
+                <a href="/millhouseblog/www/index.php">Gå tillbaka till login</a>
+            </form>
+        </div>
+    </div>
+</div>
+
       
-<a href="/millhouseblog/www/index.php">Gå tillbaka till login</a>
+
      
 <!------------ REG-FORM ENDS ------------>

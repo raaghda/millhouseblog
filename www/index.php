@@ -3,7 +3,7 @@ session_start();
     
     if (!isset($_SESSION['loginExpire'])) {
         $_SESSION['loginExpire'] = time();
-    } else if (time() - $_SESSION['loginExpire'] > 60) {
+    } else if (time() - $_SESSION['loginExpire'] > 3600) {
         session_destroy();
         
         $expired = urldecode('Du har blivit utloggad, du måste ' . '<a href="?page=loginform">' . 'Logga in' . '</a>' . ' igen!');

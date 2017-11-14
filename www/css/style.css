@@ -21,12 +21,6 @@ min-height: 70vh;
 }
 
 
-
-/*  Links (genreal) */
-a{
-color: #4D7E95;
-}
-
 a:hover{
 color: #4D7E95;
 }
@@ -129,6 +123,18 @@ font-size: 2em;
 }
 
 
+
+/* General text styling */
+
+/*  Paragraphs */
+p{
+color: #2d2d2d;
+}
+
+/*  Links */
+a{
+color: #4D7E95;
+}
 
 
 

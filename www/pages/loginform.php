@@ -14,17 +14,20 @@
         echo $_GET['wrongpass'];
     }
 
-    
 ?>
-<div class="login_container">   
-    <img src="images/millhouse_logo.svg" width="200px">
-        <form action="/millhouseblog/www/parts/login.php" method="post">
-            <input type="username" name ="username" placeholder="Användarnamn"></br>
-            <input type="password" name ="password" placeholder="Lösenord"></br>
-            <input type="submit" value="Logga in">
-        </form>
-        
-    <a href="/millhouseblog/www/?page=register">Registrera ny användare</a>
+
+<div class="container login">
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="images/millhouse_logo.svg" width="230px">
+            <form action="/millhouseblog/www/parts/login.php" method="post">
+                <input type="username" name ="username" placeholder="Användarnamn"></br>
+                <input type="password" name ="password" placeholder="Lösenord"></br>
+                <input type="submit" value="Logga in">
+            </form>       
+            <a href="/millhouseblog/www/?page=register">Registrera ny användare</a>
+        </div>
+    </div>
 </div>
 
 <!-------- LOGIN-FORM ENDS ---------->

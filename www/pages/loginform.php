@@ -29,4 +29,4 @@
 
 <!-------- LOGIN-FORM ENDS ---------->
 
-<?php include 'components/footer.php'; ?>
+

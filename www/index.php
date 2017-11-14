@@ -1,21 +1,29 @@
 <?php
 session_start();
-
-    include 'components/head.php';
-
-    if (!isset($_SESSION['CREATED'])) {
-        $_SESSION['CREATED'] = time();
-    } else if (time() - $_SESSION['CREATED'] > 60) {
-        
+    
+    if (!isset($_SESSION['loginExpire'])) {
+        $_SESSION['loginExpire'] = time();
+    } else if (time() - $_SESSION['loginExpire'] > 60) {
         session_destroy();
-        //header("Location: /millhouse/www/?page=home");
-        echo 'Du har blivit utloggad, du måste <a href="?page=home">Logga in</a> igen';
-        //Includes footer when user is logged out due to session ending
-        include 'components/footer.php';
-        exit();
-    } 
+        
+        $expired = urldecode('Du har blivit utloggad, du måste ' . '<a href="?page=loginform">' . 'Logga in' . '</a>' . ' igen!');
+        
+        header("Location: /millhouseblog/www/?page=home&expired=".$expired);
+    }
 
-    $pagename = "home";
+include 'components/head.php';
+
+
+    if(isset($_SESSION['loggedIn'])){
+        
+        $pagename = "home";
+        
+    } else {
+        
+        $pagename = "loginform";
+        
+    }
+
     if(isset($_GET['page'])) {
         $pagename = $_GET ['page'];
     }

@@ -2,15 +2,15 @@
 
     require 'database.php';
 
-    $message_newuser = urldecode("Ny användare registrerad!");
-    $message_nouser = urldecode("Fyll i alla fält korrekt!");
-    $message_notValid = urldecode("Lösenorden stämmer ej!");
-
     $username = $_POST["username"];
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $validPassword = $_POST["validPassword"];
     $name = $_POST["name"];
     $email = $_POST["email"];
+
+    $notValid = urlencode("Lösenorden stämmer ej!");
+    $nouser = urldecode("Fyll i alla fält korrekt!");
+    $newuser = urldecode("Ny användare registrerad!");
 
     if($_POST["password"] == $validPassword){
 
@@ -24,17 +24,14 @@
             ":email" => $email
         ));
 
-        header ("Location: /millhouseblog/www/index.php/?newuser=".$message_newuser);
+        header ("Location: /millhouseblog/www/?page=home&newuser=".$newuser);
 
     } else {
 
-        header ("Location: /millhouseblog/www/?page=register");
+        header ("Location: /millhouseblog/www/?page=register&nouser=".$nouser);
         
     }} else {
         
-        header ("Location: /millhouseblog/www/?page=register");
+        header ("Location: /millhouseblog/www/?page=register&notValid=".$notValid);
         
     }
-
-//header ("Location: /millhouseblog/www/parts/register.php/?nouser=".$message_nouser);
-//header ("Location: /millhouseblog/www/parts/register.php/?notValid=".$message_notValid);

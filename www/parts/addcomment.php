@@ -1,29 +1,23 @@
 <?php session_start();
     require 'database.php';
 
+    $nocomment = urlencode("Fyll i fälten korrekt!");
+
     if(!isset($_SESSION['loggedIn'])){
 
     $name = $_POST["name"];
     $email = $_POST["email"];
-    $nocomment = urlencode("Fyll i fälten korrekt!");
         
     } else {
         
         $name = $_SESSION["user"]["name"];
         $email = $_SESSION["user"]["email"];
-        
-        //var_dump($_SESSION["user"]["name"]);
-        //var_dump($_SESSION["user"]["email"]);
     }
 
     $comment = $_POST["comment"];
     $postid = $_POST["id"];
 
-    //var_dump($_POST["id"]);
-
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-
-    if(!empty($name && $email && $comment)){
+    if(!empty($name && $email && $comment) && filter_var($email, FILTER_VALIDATE_EMAIL)){
         
         $statement = $pdo->prepare("INSERT INTO comment (postid, comment, email, name) VALUES (:postid, :comment, :email, :name)");
 
@@ -36,7 +30,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         
         header ("Location: /millhouseblog/www/?page=post&nocomment=Tack för din kommentar!&id=".$postid);
     
-    } } else {
+ } else {
         
         header ("Location: /millhouseblog/www/?page=post&nocomment=Fyll i fälten korrekt!&id=".$postid);
         

@@ -49,6 +49,7 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
             $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
             $number_of_comments = count($comments);
       ?>
+      
       <article class="">
       <header class=””>
           <!--<meta>kategorierna som meta???-->
@@ -59,7 +60,11 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
           <span class=""><?= $username ?></span>
       </header>
       <p class=””><?=$post[$keys[$i]]['text'];?></p>
-      <nav class=””><a href="">Läs hela inlägget.. skicka värde postid?</a></nav>
+
+        <nav class=””><a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Läs hela inlägget...</a>
+          <a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Kommentera</a>
+        </nav>
+
       <?php
         //looping out comments
         foreach($comments as $comment_info){?>

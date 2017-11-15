@@ -36,12 +36,12 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
       $user_id = $post[$keys[$i]]['userid'];
       $post_id = $post[$keys[$i]]['postid'];
             //ska göras till funktion
-            //hämta ut username FROM user där $userid == $userid och lagra i $user_name.
+            //hämta ut username FROM user där $userid == $userid och lagra i $username.
             //GÖRA FUNKTION
             $statement = $pdo->prepare("SELECT username FROM user WHERE userid = '$user_id'");
             $statement->execute();
-            $userinfo = $statement->fetch(PDO::FETCH_ASSOC);
-            $username = $userinfo['username'];
+            $user_info = $statement->fetch(PDO::FETCH_ASSOC);
+            $username = $user_info['username'];
 
             //hämta ut comments som har detta post_id genom INNER JOIN
             //lagra i array och loopa ut nedanför post
@@ -58,12 +58,12 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
           <time class=""><?=$post[$keys[$i]]['date'];?></time> 
           <span>Categories</span>
           <span class=""><?= $number_of_comments ?></span> 
-          <span class=""><?= $username ?></span>
+          <span class=""><?= $username?></span>
       </header>
       <p><?=$post[$keys[$i]]['text'];?></p>
 
-        <nav class=””><a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Läs hela inlägget...</a>
-          <a href="/millhouseblog/www/?page=post&id=<?= $post_id ?>">Kommentera</a>
+        <nav class=””><a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget...</a>
+          <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Kommentera</a>
         </nav>
 
       <?php
@@ -74,7 +74,7 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
             $statement = $pdo->prepare("SELECT username FROM user WHERE userid = '$user_id'");
             $statement->execute();
             $userinfo = $statement->fetch(PDO::FETCH_ASSOC);
-            $username = $userinfo['username'];
+            $username = $user_info['username'];
             ?>
           <article class=””> 
             <header class="">

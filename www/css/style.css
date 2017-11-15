@@ -17,26 +17,23 @@ background-color: #f2f2f2;
 
 /*  Main */
 main{
-min-height: 70vh;
-}
-
-
-a:hover{
-color: #4D7E95;
+min-height: 70vh; /* OBS! Temporary*/
 }
 
 
 
 /*  Navbar */
+.navbar-toggler{
+    border: 0px;
+}
+
 .navbar-collapse>ul>li{
     text-align: right;
     }
     
-    .navbar-collapse>ul>li>a{
-    color: #6D6D6D;
-    }
-
-
+.navbar-collapse>ul>li>a{
+color: #6D6D6D;
+}
 
 
 /* Loginpage-styling, also applies to register page */  
@@ -44,17 +41,17 @@ color: #4D7E95;
 background-image: url('../images/background_lightblue.jpg');
 margin: 0px;
 height: 100%;
-background-position: center;
-background-size: fill;
+background-size: cover;
 background-repeat: no-repeat;
+background-position: right 0;
 display: -webkit-box;
 }
 
-.login{
-width: 400px;
+.login{ 
+width: 260px;
 background-color: #fff;
-padding:60px;
 padding-top: 40px;
+padding-bottom: 40px; 
 margin-top: 60px;
 margin-bottom: 100px;
 text-align: center;
@@ -65,7 +62,7 @@ input[type=username], input[type=password],
 input[type=email], input[type=name], input[type=submit]{
 background-color: #f2f2f2;
 border: 1px solid #f2f2f2;
-width: 200px;
+width: 180px;
 font-size: 0.9em;
 padding: 15px;
 margin: 10px;
@@ -125,14 +122,18 @@ font-size: 2em;
 
 
 /* General text styling */
-
 /*  Paragraphs */
 p{
 color: #2d2d2d;
 }
 
+
 /*  Links */
 a{
+color: #4D7E95;
+}
+
+a:hover{
 color: #4D7E95;
 }
 
@@ -143,9 +144,14 @@ color: #4D7E95;
 
 
 
-
 /* ---------------------------------- Tablet styling goes here ------------------------------ */
 @media screen and (min-width: 768px){
+
+
+/* Loginpage-styling, also applies to register page */  
+.login{ 
+width: 320px;
+}
 
 
 

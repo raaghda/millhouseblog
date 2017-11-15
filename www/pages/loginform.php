@@ -17,9 +17,9 @@
 ?>
 
 <div class="background_loginpage">
-    <div class="container login">
+    <div class="container login"> 
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-12">
                 <img src="images/millhouse_logo.svg" width="230px">
                 <form action="/millhouseblog/www/parts/login.php" method="post">
                     <input type="username" name ="username" placeholder="Användarnamn"></br>

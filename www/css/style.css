@@ -21,11 +21,6 @@ min-height: 70vh;
 }
 
 
-a:hover{
-color: #4D7E95;
-}
-
-
 
 /*  Navbar */
 .navbar-collapse>ul>li{
@@ -126,6 +121,7 @@ font-size: 2em;
 
 /* General text styling */
 
+
 /*  Paragraphs */
 p{
 color: #2d2d2d;
@@ -136,6 +132,9 @@ a{
 color: #4D7E95;
 }
 
+a:hover{
+color: #4D7E95;
+}
 
 
 

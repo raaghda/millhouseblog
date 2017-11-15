@@ -35,7 +35,7 @@ $userid = $_SESSION["user"]["userid"];
         
         //header("Location: /millhouseblog/www/components/viewpost.php?postid=".$last_id);
         
-        header("Location: /millhouseblog/www/?page=post&id=".$last_id);
+        header("Location: /millhouseblog/www/?page=viewpost&id=".$last_id);
         
         
         

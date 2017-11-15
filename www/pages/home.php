@@ -37,6 +37,7 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
       $post_id = $post[$keys[$i]]['postid'];
             //ska göras till funktion
             //hämta ut username FROM user där $userid == $userid och lagra i $user_name.
+            //GÖRA FUNKTION
             $statement = $pdo->prepare("SELECT username FROM user WHERE userid = '$user_id'");
             $statement->execute();
             $userinfo = $statement->fetch(PDO::FETCH_ASSOC);
@@ -67,11 +68,18 @@ $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
 
       <?php
         //looping out comments
-        foreach($comments as $comment_info){?>
+        foreach($comments as $comment_info){
+            $user_id = $comment_info['userid'];
+            //göra funktion
+            $statement = $pdo->prepare("SELECT username FROM user WHERE userid = '$user_id'");
+            $statement->execute();
+            $userinfo = $statement->fetch(PDO::FETCH_ASSOC);
+            $username = $userinfo['username'];
+            ?>
           <article class=””> 
             <header class="">
                 <time class=""><?=$comment_info['date']?></time> 
-                <span>av <?=$comment_info["userid"]?></span>
+                <span>av <?=$username?></span>
             </header>
             <p class=""><?=$comment_info["comment"]?></p>    
             <?php

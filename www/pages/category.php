@@ -4,7 +4,7 @@
 
 <?
 
-$categoryid = isset($_GET["categoryid"]);
+$categoryid = ($_GET["categoryid"]);
 
     $statement = $pdo->prepare(
         "SELECT userid, title, date, text, category.name as category_name FROM post INNER JOIN category ON post.categoryid = category.categoryid WHERE post.categoryid = :categoryid" 

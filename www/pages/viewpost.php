@@ -33,10 +33,11 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
             <header class=””>
                 <!--<meta>kategorierna som meta???-->
                 <h2 class=””><?=$post_info['title']?></h2>
-                <time class="date"><?=$post_info['date']?></time> 
-                <span class=""><?=$category_name?></span>
-                <span class=""><?= $number_of_comments?></span> 
-                <span class=""><?= $username?></span>
+                <span>Publicerat av <?= $username ?> den <time class="date"><?=$post_info['date']?></time></span>
+                <form action="/millhouseblog/www/?page=category" method="post">
+                    <button name="categoryid" value="<?=$category_id?>"><?=$category_name?></button>
+                </form>
+                <span class=""><?= $number_of_comments?> Kommentarer</span> 
             </header>
             
             <p><?=$post_info['text'];?></p>

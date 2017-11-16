@@ -22,8 +22,8 @@ require 'parts/functions.php';
             if(isset($_GET['expired'])){
                 echo $_GET['expired'];
             }
-        }
-?>
+        }?>
+
 <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -48,14 +48,14 @@ $keys = array_keys($post);
 
     //LOOPING OUT THE POSTS
     ?>  
-      <article class="">
-      <header class=””> 
+      <article class="post">
+      <header> 
         <form action="/millhouseblog/www/?page=category" method="post">  
             <button name="categoryid" value="<?=$category_id?>"><?=$category_name?></button>
         </form>
         <!--<meta>kategorierna som meta???-->
-        <h2 class=””><?=$post[$keys[$i]]['title'];?></h2>
-        <time class=""><?=$post[$keys[$i]]['date'];?></time>
+        <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
+        <time><?=$post[$keys[$i]]['date'];?></time>
         <span class=""><?= $username?></span>
         <span class=""><?= $number_of_comments ?> kommentarer</span> 
       </header>
@@ -65,17 +65,16 @@ $keys = array_keys($post);
             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
         </nav>   
   </article><!--/post article-->
-  --------------< hr >--------------
-  <?php } 
-  ?>
+  <?php } ?>
+
     </div><!--/col-md-8-->
 
-    <div class="col-lg-4 sidebar hidden-xs">
-    gege
-  <?php
-  require 'components/sidebar.php';
-  ?>
+    <div class="col-lg-4 sidebar hidden-xs-down">
+        <?php
+        require 'components/sidebar.php';
+        ?>
     </div><!--/sidebar-->
+
   </div><!--/row-->
 </div><!--/container-->
 

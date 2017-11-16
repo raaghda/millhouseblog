@@ -45,13 +45,15 @@ $keys = array_keys($post);
     //LOOPING OUT THE POSTS
     ?>  
       <article class="">
-      <header class=””>
-          <!--<meta>kategorierna som meta???-->
-          <h2 class=””><?=$post[$keys[$i]]['title'];?></h2>
-          <time class=""><?=$post[$keys[$i]]['date'];?></time> 
-          <span class=""><?=$category_name?></span>
-          <span class=""><?= $number_of_comments ?></span> 
-          <span class=""><?= $username?></span>
+      <header class=””> 
+        <form action="/millhouseblog/www/?page=category" method="post">  
+            <button name="categoryid" value="<?=$category_id?>"><?=$category_name?></button>
+        </form>
+        <!--<meta>kategorierna som meta???-->
+        <h2 class=””><?=$post[$keys[$i]]['title'];?></h2>
+        <time class=""><?=$post[$keys[$i]]['date'];?></time>
+        <span class=""><?= $username?></span>
+        <span class=""><?= $number_of_comments ?> kommentarer</span> 
       </header>
       <p><?=$post[$keys[$i]]['text'];?></p>
 

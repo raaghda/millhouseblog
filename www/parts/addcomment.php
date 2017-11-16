@@ -2,6 +2,7 @@
     require 'database.php';
 
     $nocomment = urlencode("Fyll i fälten korrekt!");
+    $userid = null;
 
     if(!isset($_SESSION['loggedIn'])){
 
@@ -12,6 +13,7 @@
         
         $name = $_SESSION["user"]["name"];
         $email = $_SESSION["user"]["email"];
+        $userid = $_SESSION["user"]["userid"];
     }
 
     $comment = $_POST["comment"];
@@ -19,9 +21,10 @@
 
     if(!empty($name && $email && $comment) && filter_var($email, FILTER_VALIDATE_EMAIL)){
         
-        $statement = $pdo->prepare("INSERT INTO comment (postid, comment, email, name) VALUES (:postid, :comment, :email, :name)");
+        $statement = $pdo->prepare("INSERT INTO comment (userid, postid, comment, email, name) VALUES (:userid, :postid, :comment, :email, :name)");
 
         $statement->execute(array(
+            ":userid" => $userid,
             ":postid" => $postid,
             ":comment" => $comment,
             ":email" => $email,

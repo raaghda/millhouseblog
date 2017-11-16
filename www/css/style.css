@@ -18,6 +18,7 @@ background-color: #f2f2f2;
 /*  Main */
 main{
 min-height: 70vh;
+margin: auto;
 }
 
 
@@ -89,6 +90,35 @@ border: 1px solid #C5B2AB;
 margin-bottom: 20px;
 }
 
+/* categories*/
+
+.categories{
+    margin-bottom: 100px;
+    max-width: 800px;
+}
+
+.categories a{
+    width: 100%;
+}
+
+.category_imgwrap{
+    overflow: hidden;
+    height: 250px;
+    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.categories img{
+    width: 100%;
+    margin-top: -70px;
+}
+
+.categories h3{
+    color: white;
+    margin-top: -150px;
+    position: absolute;
+}
 
 
 /* Footer */
@@ -136,6 +166,12 @@ a{
 color: #4D7E95;
 }
 
+/*headings*/
+h2{
+    text-align: center;
+    margin: 70px;
+}
+
 
 
 
@@ -147,7 +183,9 @@ color: #4D7E95;
 /* ---------------------------------- Tablet styling goes here ------------------------------ */
 @media screen and (min-width: 768px){
 
-
+    .category_imgwrap{
+        margin-bottom: 30px;
+    }    
 
 } /* Closing Tablet */
 
@@ -160,7 +198,8 @@ color: #4D7E95;
 
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
-
-
+    
+    .categories{
+    }
    
 } /* Closing Desktop */

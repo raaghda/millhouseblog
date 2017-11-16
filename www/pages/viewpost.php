@@ -93,3 +93,8 @@ if(isset($_GET['nocomment'])){
     
 </form>
 
+<form action="../www/parts/deletepost.php" method="POST">
+    <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
+    <input type="hidden" name="action" value="delete">
+    <input type="submit" name="delete" value="Delete">   
+</form>

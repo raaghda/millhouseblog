@@ -51,12 +51,12 @@ $keys = array_keys($post);
       <article class="post">
       <header> 
         <form action="/millhouseblog/www/?page=category" method="post">  
-            <button name="categoryid" value="<?=$category_id?>"><?=$category_name?></button>
+            <button class="uppercase" name="categoryid" value="<?=$category_id?>"><?=$category_name?></button>
         </form>
         <!--<meta>kategorierna som meta???-->
         <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
         <time><?=$post[$keys[$i]]['date'];?></time>
-        <span class=""><?= $username?></span>
+        <span class="uppercase grey"><?= $username?></span>
         <span class=""><?= $number_of_comments ?> kommentarer</span> 
       </header>
       <p><?=$post[$keys[$i]]['text'];?></p>

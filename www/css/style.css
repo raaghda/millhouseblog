@@ -193,8 +193,13 @@ color: #4D7E95;
 }
 
 
+.uppercase {
+    text-transform: uppercase;
+}
 
-
+.grey {
+    color:grey;
+}
 
 
 

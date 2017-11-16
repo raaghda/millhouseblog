@@ -34,9 +34,11 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <!--<meta>kategorierna som meta???-->
                 <h2><?=$post_info['title']?></h2>
                 <span>Publicerat av <?= $username ?> den <time><?=$post_info['date']?></time></span>
+
                 <form action="/millhouseblog/www/?page=category" method="post">
                     <button name="categoryid" value="<?=$category_id?>"><?=$category_name?></button>
                 </form>
+                
                 <a href=""><?= $number_of_comments?> Kommentarer</a> 
             </header>
             

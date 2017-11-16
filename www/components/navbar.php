@@ -13,17 +13,14 @@
     <div class="collapse navbar-collapse justify-content-end" id="hamburgerMenu">
         <ul class="navbar-nav justify-content-end">
             <li><a href="?page=home">Hem</a></li>
-            <li>
 
             <!-- Displays "My Profile" if user is logged in -->
             <?php
             if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) 
             {
-            echo '<a href="?page=profile">Min profil</a>';
+            echo '<li><a href="?page=profile">Min profil</a></li>';
             }
-            ?>  
-
-            </li>
+            ?> 
             <li><a href="?page=categories">Kategorier</a></li>
             <li><a href="?page=faq">FAQ</a></li>
             <li>

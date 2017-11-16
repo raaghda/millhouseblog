@@ -1,7 +1,10 @@
-<? require 'parts/database.php';
+<? require 'parts/database.php'; ?>
 
+<a href="/millhouseblog/www/?page=categories">Gå tillbaka till alla kategorier</a><br><br><br>
 
-$categoryid = $_POST["categoryid"];
+<?
+
+$categoryid = $_GET["categoryid"];
 
     $statement = $pdo->prepare(
         "SELECT userid, title, date, text, category.name as category_name FROM post INNER JOIN category ON post.categoryid = category.categoryid WHERE post.categoryid = :categoryid" 
@@ -12,12 +15,9 @@ $categoryid = $_POST["categoryid"];
     ));
 
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-    //var_dump($statement->errorInfo());
     
 
 foreach($posts as $postinfo){
-        //var_dump($postinfo);
         echo $postinfo["title"] . '<br />' . 
              $postinfo["category_name"]  . '<br />' . 
              $postinfo["date"] . '<br />' . 

@@ -17,7 +17,13 @@ background-color: #f2f2f2;
 
 /*  Main */
 main{
-min-height: 70vh; /* OBS! Temporary*/
+min-height: 70vh;
+margin: auto;
+}
+
+
+a:hover{
+color: #4D7E95; /* OBS! Temporary*/
 }
 
 
@@ -86,6 +92,49 @@ border: 1px solid #C5B2AB;
 margin-bottom: 20px;
 }
 
+/* categories*/
+
+.categories{
+    margin-bottom: 100px;
+    max-width: 900px;
+}
+
+.categories a{
+    border: 10px solid #f2f2f2;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    text-decoration: none;
+}
+
+#categoryid1{
+    background-image: url('../images/sunglasses.jpg');
+}
+
+#categoryid2{
+    background-image: url('../images/watches.jpg');
+}
+
+#categoryid3{
+    background-image: url('../images/interior.jpg');
+}
+
+#categoryid4{
+    background-image: url('../images/other.jpg');
+}
+
+.categories h3{
+    margin-top: 85px;
+    margin-left: 15%;
+    text-align: center;
+    color: white;
+    width: 70%;
+    padding: 15px;
+    background-color: rgba(000,0,0,0.6);
+  
+}
 
 /* Profile Page */
 .admin_header{
@@ -155,6 +204,14 @@ a{
 color: #4D7E95;
 }
 
+
+/*headings*/
+h2{
+    text-align: center;
+    margin: 70px;
+}
+
+
 a:hover{
 color: #4D7E95;
 }
@@ -183,12 +240,14 @@ color: #4D7E95;
 @media screen and (min-width: 768px){
 
 
+    .category_imgwrap{
+        margin-bottom: 30px;
+    }
+
 /* Loginpage-styling, also applies to register page */  
 .login{ 
 width: 320px;
 }
-
-
 
 } /* Closing Tablet */
 
@@ -201,7 +260,8 @@ width: 320px;
 
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
-
-
+    
+    .categories{
+    }
    
 } /* Closing Desktop */

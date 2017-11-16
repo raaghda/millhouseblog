@@ -137,7 +137,7 @@ a:hover{
 color: #4D7E95;
 }
 
-
+/*camilla på home.php*/
 .uppercase {
     text-transform: uppercase;
 }
@@ -145,6 +145,14 @@ color: #4D7E95;
 .grey {
     color:grey;
 }
+
+.landingpage .post {
+    background:white;
+    margin-bottom:1em;
+    padding:1em;
+}
+
+/*/camilla*/
 
 
 

@@ -24,7 +24,7 @@ require 'parts/functions.php';
             }
         }?>
 
-<div class="container">
+<div class="container landingpage">
         <div class="row">
             <div class="col-lg-8">
 <?php

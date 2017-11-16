@@ -23,11 +23,36 @@ if ($fetched_user["role"]=="admin"){
 }
 
 ?>
+<div class="container-fluid admin_wrapper_image">
+     <div clas="row">
+        <div class="col-4 offset-4">
+                <img src="images/lifestyle.jpg" id=profile_avatar alt="Avatar för användare" class="rounded-circle" width="150px" height="150px">
+                <h1> <?php echo $fetched_user["name"]; ?> </h1>
+                <p>XX inlägg med XX kommentarer </p>
+                <p> Joined on: <?php echo $fetched_user["registertime"];?> </p>
+        </div>
+    </div>
+</div>
 
 
-<br><br><strong><?php echo $fetched_user["name"]; ?></strong>
-<br><br><strong><?php echo $fetched_user["email"]; ?></strong>
-<br><br><i><?php echo $fetched_user["role"]; ?></i>
-<br><br>Joined on: <?php echo $fetched_user["registertime"];
 
-?>
+
+<div class="container-fluid admin_profile_content">
+    <div clas="row">
+        <div class="col-8 offset-4">
+
+<h2> for loop som visar 5 st: </h2></br>
+    Kategori </br>
+    X antal kommentarer </br>
+    Datum det är publicerat </br>
+    Titel på inlägg </br>
+    lorem ipsum </br>
+    Läs hela inlägget </br>
+
+        
+
+        </div>
+    </div>
+</div>
+
+<div class=""

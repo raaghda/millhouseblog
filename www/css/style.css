@@ -87,6 +87,28 @@ margin-bottom: 20px;
 }
 
 
+/* Profile Page */
+.admin_wrapper_image{
+background-image: url('../images/background_lightblue.jpg');
+padding-top: 20px;
+padding-bottom: 20px;
+margin: 0px;
+text-align: center;
+}
+
+.admin_profile_content{
+background-color: #fff;
+height: auto;
+padding: 40px;
+margin: 0px;
+}
+
+#profile_avatar{
+margin-top: 20px;
+margin-bottom: 10px;
+}
+
+
 
 /* Footer */
 footer{

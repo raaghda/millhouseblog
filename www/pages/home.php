@@ -55,7 +55,7 @@ $keys = array_keys($post);
         </form>
         <!--<meta>kategorierna som meta???-->
         <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
-        <time><?=$post[$keys[$i]]['date'];?></time>
+        <time class="grey"><?=$post[$keys[$i]]['date'];?></time>
         <span class="uppercase grey"><?= $username?></span>
         <span class=""><?= $number_of_comments ?> kommentarer</span> 
       </header>

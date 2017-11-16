@@ -30,13 +30,16 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         //LOOPING OUT POST
         ?>
         <article class="post">
-            <header class=””>
+            <header>
                 <!--<meta>kategorierna som meta???-->
-                <h2 class=””><?=$post_info['title']?></h2>
-                <time class="date"><?=$post_info['date']?></time> 
-                <span class=""><?=$category_name?></span>
-                <span class=""><?= $number_of_comments?></span> 
-                <span class=""><?= $username?></span>
+                <h2><?=$post_info['title']?></h2>
+                <span>Publicerat av <?= $username ?> den <time><?=$post_info['date']?></time></span>
+
+                <form action="/millhouseblog/www/?page=category" method="post">
+                    <button name="categoryid" value="<?=$category_id?>"><?=$category_name?></button>
+                </form>
+                
+                <a href=""><?= $number_of_comments?> Kommentarer</a> 
             </header>
             
             <p><?=$post_info['text'];?></p>
@@ -48,13 +51,13 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                     
                 //LOOPING OUT COMMENTS
                 ?>
-                <article class=””> 
-                    <header class="">
-                        <time class=""><?=$comment_info['date']?></time> 
+                <article class=”comment”> 
+                    <header>
+                        <time><?=$comment_info['date']?></time> 
                         <span> av <?=$username?></span>
                     </header>
                     
-                    <p class=""><?=$comment_info["comment"]?></p>    
+                    <p><?=$comment_info["comment"]?></p>    
                     
                     <?php
                     }

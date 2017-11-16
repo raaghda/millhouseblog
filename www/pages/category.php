@@ -16,6 +16,7 @@ $categoryid = $_GET["categoryid"];
     //var_dump($statement->errorInfo());
     
 
+
 foreach($posts as $postinfo){
         //var_dump($postinfo);
         echo $postinfo["title"] . '<br />' . 

@@ -136,6 +136,28 @@ margin-bottom: 20px;
   
 }
 
+/* Profile Page */
+.admin_header{
+background-color: #4D7E95;
+padding-top: 20px;
+padding-bottom: 20px;
+margin: 0px;
+text-align: center;
+}
+
+.admin_profile_content{
+background-color: #fff;
+height: auto;
+padding: 40px;
+margin: 0px;
+}
+
+#profile_avatar{
+margin-top: 20px;
+margin-bottom: 10px;
+}
+
+
 
 /* Footer */
 footer{
@@ -194,7 +216,7 @@ a:hover{
 color: #4D7E95;
 }
 
-
+/*camilla på home.php*/
 .uppercase {
     text-transform: uppercase;
 }
@@ -202,6 +224,14 @@ color: #4D7E95;
 .grey {
     color:grey;
 }
+
+.landingpage .post {
+    background:white;
+    margin-bottom:1em;
+    padding:1em;
+}
+
+/*/camilla*/
 
 
 

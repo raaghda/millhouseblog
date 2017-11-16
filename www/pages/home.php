@@ -24,7 +24,7 @@ require 'parts/functions.php';
             }
         }?>
 
-<div class="container">
+<div class="container landingpage">
         <div class="row">
             <div class="col-lg-8">
 <?php
@@ -49,13 +49,11 @@ $keys = array_keys($post);
     //LOOPING OUT THE POSTS
     ?>  
       <article class="post">
-      <header> 
-        <form action="/millhouseblog/www/?page=category" method="post">  
-            <button class="uppercase" name="categoryid" value="<?=$category_id?>"><?=$category_name?></button>
-        </form>
+      <header>  
+            <span class="uppercase grey"><?=$category_name?></span>
         <!--<meta>kategorierna som meta???-->
         <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
-        <time><?=$post[$keys[$i]]['date'];?></time>
+        <time class="grey"><?=$post[$keys[$i]]['date'];?></time>
         <span class="uppercase grey"><?= $username?></span>
         <span class=""><?= $number_of_comments ?> kommentarer</span> 
       </header>
@@ -77,21 +75,3 @@ $keys = array_keys($post);
 
   </div><!--/row-->
 </div><!--/container-->
-
-<!--Blogpost skeleton
-<article class="">
-<header class=””>
-<meta kategorierna som meta???
-<h2 class=””>titel</h2>
-<time class="">date</time> 
-<span>Categories</span>
-<span class="">number comments</span> 
-<span class="">user</span>
-</header>
-<p class=””>post text häär</p>
-<footer class=””>
-<nav class=””>link to more comments</nav>
-</footer>
-<article class=””>(comment)</article>    
-</article>
--->

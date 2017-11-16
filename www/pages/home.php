@@ -53,8 +53,8 @@ $keys = array_keys($post);
             <span class="uppercase grey"><?=$category_name?></span>
         <!--<meta>kategorierna som meta???-->
         <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
-        <time><?=$post[$keys[$i]]['date'];?></time>
-        <span class=""><?= $username?></span>
+        <time class="grey"><?=$post[$keys[$i]]['date'];?></time>
+        <span class="uppercase grey"><?= $username?></span>
         <span class=""><?= $number_of_comments ?> kommentarer</span> 
       </header>
       <p><?=$post[$keys[$i]]['text'];?></p>

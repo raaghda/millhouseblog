@@ -1,5 +1,8 @@
-<? require 'parts/database.php';
+<? require 'parts/database.php'; ?>
 
+<a href="/millhouseblog/www/?page=categories">Gå tillbaka till alla kategorier</a><br><br><br>
+
+<?
 
 $categoryid = $_GET["categoryid"];
 
@@ -12,13 +15,9 @@ $categoryid = $_GET["categoryid"];
     ));
 
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-    //var_dump($statement->errorInfo());
     
 
-
 foreach($posts as $postinfo){
-        //var_dump($postinfo);
         echo $postinfo["title"] . '<br />' . 
              $postinfo["category_name"]  . '<br />' . 
              $postinfo["date"] . '<br />' . 

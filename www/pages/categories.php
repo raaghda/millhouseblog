@@ -2,7 +2,7 @@
     <h2>Kategorier</h2>   
 
     <div class="row">
-
+    
         <a href="/millhouseblog/www/?page=category&categoryid=1" id="categoryid1" class="col-sm-12 col-md-6">
             <h3>SOLGLASÖGON</h3>
         </a>

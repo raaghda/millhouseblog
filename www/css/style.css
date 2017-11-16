@@ -17,8 +17,8 @@ background-color: #f2f2f2;
 
 /*  Main */
 main{
-min-height: 70vh;
 margin: auto;
+font-family: "Helvetica Neue";
 }
 
 
@@ -99,6 +99,10 @@ margin-bottom: 20px;
     max-width: 900px;
 }
 
+.categories h2{
+    text-align: center;
+    margin: 70px;
+}
 .categories a{
     border: 10px solid #f2f2f2;
     box-sizing: border-box;
@@ -126,13 +130,12 @@ margin-bottom: 20px;
 }
 
 .categories h3{
-    margin-top: 85px;
-    margin-left: 15%;
+    margin: 30px;
+    margin-top: 70px;
     text-align: center;
     color: white;
-    width: 70%;
-    padding: 15px;
-    background-color: rgba(000,0,0,0.6);
+    padding: 30px;
+    background-color: rgba(000,0,0,0.7);
   
 }
 
@@ -206,10 +209,7 @@ color: #4D7E95;
 
 
 /*headings*/
-h2{
-    text-align: center;
-    margin: 70px;
-}
+
 
 
 a:hover{

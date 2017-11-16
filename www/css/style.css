@@ -88,8 +88,8 @@ margin-bottom: 20px;
 
 
 /* Profile Page */
-.admin_wrapper_image{
-background-image: url('../images/background_lightblue.jpg');
+.admin_header{
+background-color: #4D7E95;
 padding-top: 20px;
 padding-bottom: 20px;
 margin: 0px;

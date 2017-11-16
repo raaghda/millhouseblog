@@ -23,7 +23,11 @@ require 'parts/functions.php';
                 echo $_GET['expired'];
             }
         }
-
+?>
+<div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+<?php
 //FETCH POSTS
 //MAYBE PUT THIS IN PARTS...? AS FETCH_POST T.EX..
 $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
@@ -57,16 +61,23 @@ $keys = array_keys($post);
       </header>
       <p><?=$post[$keys[$i]]['text'];?></p>
 
-        <nav class=””><a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget..</a>
-          <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Kommentera</a>
+        <nav class=””>
+            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
         </nav>   
   </article><!--/post article-->
   --------------< hr >--------------
   <?php } 
-  
+  ?>
+    </div><!--/col-md-8-->
+
+    <div class="col-lg-4 sidebar hidden-xs">
+    gege
+  <?php
   require 'components/sidebar.php';
   ?>
-
+    </div><!--/sidebar-->
+  </div><!--/row-->
+</div><!--/container-->
 
 <!--Blogpost skeleton
 <article class="">

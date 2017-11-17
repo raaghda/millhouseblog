@@ -24,7 +24,7 @@
             ":email" => $email
         ));
 
-        header ("Location: /millhouseblog/www/?page=home&newuser=".$newuser);
+        header ("Location: /millhouseblog/www/?page=loginform&newuser=".$newuser);
 
     } else {
 

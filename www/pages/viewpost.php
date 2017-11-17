@@ -17,6 +17,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         $user_id = $post_info['userid'];
         $post_id = $post_info['postid'];
         $category_id = $post_info['categoryid'];
+        $image = $post_info['image'];
               
         $username = get_row_with_input('username', 'user', 'userid', $user_id);
         $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
@@ -31,8 +32,10 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <article class="post">
             <header>
+               
                 <!--<meta>kategorierna som meta???-->
                 <h2><?=$post_info['title']?></h2>
+                
                 <span>Publicerat av <?= $username ?> den <time><?=$post_info['date']?></time></span>
 
                 <a href="/millhouseblog/www/?page=category&categoryid=<?=$category_id?>"><?=$category_name?></a>
@@ -40,6 +43,8 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 
                 <a href=""><?= $number_of_comments?> Kommentarer</a> 
             </header>
+            
+            <img src="/millhouseblog/www/postimages/<?=$image?>" alt="Inlägg bild">
             
             <p><?=$post_info['text'];?></p>
         
@@ -88,3 +93,8 @@ if(isset($_GET['nocomment'])){
     
 </form>
 
+<form action="../www/parts/deletepost.php" method="POST">
+    <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
+    <input type="hidden" name="action" value="delete">
+    <input type="submit" name="delete" value="Delete">   
+</form>

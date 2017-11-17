@@ -6,9 +6,9 @@ session_start();
     } else if (time() - $_SESSION['loginExpire'] > 3600) {
         session_destroy();
         
-        $expired = urldecode('Du har blivit utloggad, du måste ' . '<a href="?page=loginform">' . 'Logga in' . '</a>' . ' igen!');
+        $expired = urldecode('Du har blivit utloggad');
         
-        header("Location: /millhouseblog/www/?page=home&expired=".$expired);
+        header("Location: /millhouseblog/www/?page=loginform&expired=".$expired);
     }
 
 include 'components/head.php';

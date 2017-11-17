@@ -41,6 +41,14 @@ color: #4D7E95; /* OBS! Temporary*/
 color: #6D6D6D;
 }
 
+/* Sidebar */
+
+aside{
+    background: white;
+    width: 200px;
+    text-align: center;
+}
+
 
 /* Loginpage-styling, also applies to register page */  
 .background_loginpage{  
@@ -240,10 +248,6 @@ color: #4D7E95;
 @media screen and (min-width: 768px){
 
 
-    .category_imgwrap{
-        margin-bottom: 30px;
-    }
-
 /* Loginpage-styling, also applies to register page */  
 .login{ 
 width: 320px;
@@ -261,7 +265,6 @@ width: 320px;
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
     
-    .categories{
-    }
+
    
 } /* Closing Desktop */

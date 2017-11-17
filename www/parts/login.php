@@ -23,5 +23,5 @@ if(password_verify($password, $fetched_user["password"])){
     header("Location: /millhouseblog/www/?page=home&success=true");
     
 } else {
-    header("Location: /millhouseblog/www/index.php?wrongpass=".$message_wrongpass);
+    header("Location: /millhouseblog/www/?page=loginform&wrongpass=".$message_wrongpass);
 }

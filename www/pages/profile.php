@@ -31,7 +31,7 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 <div class="container profile_content">
     <div class="row">
-        <div class="col-4 offset-4">
+        <div class="mx-auto">
             <a class="btn" href="/millhouseblog/www/?page=createpost">Skriv nytt inlägg
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
         </div> 

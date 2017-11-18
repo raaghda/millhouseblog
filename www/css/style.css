@@ -10,15 +10,15 @@
 
 /*  Body */
 body{
-background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
 
 
 
 /*  Main */
 main{
-margin: auto;
-font-family: "Helvetica Neue";
+    margin: auto;
+    font-family: "Helvetica Neue";
 }
 
 
@@ -38,7 +38,7 @@ color: #4D7E95; /* OBS! Temporary*/
     }
     
 .navbar-collapse>ul>li>a{
-color: #6D6D6D;
+    color: #6D6D6D;
 }
 
 /* Sidebar */
@@ -52,52 +52,52 @@ aside{
 
 /* Loginpage-styling, also applies to register page */  
 .background_loginpage{  
-background-image: url('../images/background_lightblue.jpg');
-margin: 0px;
-height: 100%;
-background-size: cover;
-background-repeat: no-repeat;
-background-position: right 0;
-display: -webkit-box;
+    background-image: url('../images/background_lightblue.jpg');
+    margin: 0px;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right 0;
+    display: -webkit-box;
 }
 
 .login{ 
-width: 260px;
-background-color: #fff;
-padding-top: 40px;
-padding-bottom: 40px; 
-margin-top: 60px;
-margin-bottom: 100px;
-text-align: center;
-border-radius: 15px;
+    width: 260px;
+    background-color: #fff;
+    padding-top: 40px;
+    padding-bottom: 40px; 
+    margin-top: 60px;
+    margin-bottom: 100px;
+    text-align: center;
+    border-radius: 15px;
 }
 
 input[type=username], input[type=password], 
 input[type=email], input[type=name], input[type=submit]{
-background-color: #f2f2f2;
-border: 1px solid #f2f2f2;
-width: 180px;
-font-size: 0.9em;
-padding: 15px;
-margin: 10px;
-border-radius: 10px;
-display: inline-block;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    width: 180px;
+    font-size: 0.9em;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    display: inline-block;
 }
 
 input[type=submit]{
-background-color: #0E3147;
-border: 1px solid #0E3147;
-margin-bottom: 20px;
+    background-color: #0E3147;
+    border: 1px solid #0E3147;
+    margin-bottom: 20px;
 }
 
 input[type=submit], p{
-color: #fff;
+    color: #fff;
 }
 
 input[type=submit]:hover{
-background-color: #C5B2AB;
-border: 1px solid #C5B2AB;
-margin-bottom: 20px;
+    background-color: #C5B2AB;
+    border: 1px solid #C5B2AB;
+    margin-bottom: 20px;
 }
 
 /* categories*/
@@ -144,61 +144,67 @@ margin-bottom: 20px;
     color: white;
     padding: 30px;
     background-color: rgba(000,0,0,0.7);
-  
 }
 
 /* Profile Page */
-.admin_header{
-background-color: #4D7E95;
-padding-top: 20px;
-padding-bottom: 20px;
-margin: 0px;
-text-align: center;
+.profile_header{
+    background-color: #4D7E95;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0px;
+    text-align: center;
 }
 
-.admin_profile_content{
-background-color: #fff;
-height: auto;
-padding: 40px;
-margin: 0px;
+.btn{
+    background-color: #4D7E95;
+    color: #fff;
+    text-align: center;
+    margin: 40px;
+}
+
+
+.profile_content .post{
+    background:white;
+    padding:2em;
+    margin-bottom:1em;
 }
 
 #profile_avatar{
-margin-top: 20px;
-margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 
 
 /* Footer */
 footer{
-background-color: #0E3147;
-padding: 20px;
+    background-color: #0E3147;
+    padding: 20px;
 }
 
 footer a{
-color: #f2f2f2;
-font-size: 1em;
-text-decoration: none;
+    color: #f2f2f2;
+    font-size: 1em;
+    text-decoration: none;
 }
 
 footer a:hover{
-color: #97C9C6;
+    color: #97C9C6;
 }
 
 ul{
-padding: 0px;
+    padding: 0px;
 }
 
 li{
-list-style: none;
-text-align: center;
-margin: 10px;
+    list-style: none;
+    text-align: center;
+    margin: 10px;
 }
 
 li .fa{
-margin: 5px;
-font-size: 2em;
+    margin: 5px;
+    font-size: 2em;
 }
 
 
@@ -206,13 +212,17 @@ font-size: 2em;
 /* General text styling */
 /*  Paragraphs */
 p{
-color: #2d2d2d;
+    color: #2d2d2d;
 }
 
 
 /*  Links */
 a{
-color: #4D7E95;
+    color: #4D7E95;
+}
+
+a:hover{
+    color: #4D7E95;
 }
 
 
@@ -220,9 +230,7 @@ color: #4D7E95;
 
 
 
-a:hover{
-color: #4D7E95;
-}
+
 
 /*camilla på home.php*/
 .uppercase {

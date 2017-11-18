@@ -19,7 +19,8 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         $category_id = $post_info['categoryid'];
         $image = $post_info['image'];
         $title = $post_info['title'];
-              
+        $date_of_post = $post_info['date'];
+        
         $username = get_row_with_input('username', 'user', 'userid', $user_id);
         $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
 
@@ -31,24 +32,28 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         
         //LOOPING OUT POST
         ?>
+        <div class="container viewpost">
         <article class="post">
             <header>
                
                 <!--<meta>kategorierna som meta???-->
                 <h2><?=$post_info['title']?></h2>
                 
-                <span>Publicerat av <?= $username ?> den <time><?=$post_info['date']?></time></span>
-
-                <a href="/millhouseblog/www/?page=category&categoryid=<?=$category_id?>"><?=$category_name?></a>
-            
                 
+                <span>Publicerat av <?= $username ?> den <time><?=$date_of_post;?></time></span>
+                <h6 #id="category">
+                <a href="/millhouseblog/www/?page=category&categoryid=<?=$category_id?>"><?=$category_name?></a>
+                </h6>
+                
+                <h6 id="comments">
                 <a href=""><?= $number_of_comments?> Kommentarer</a> 
+                </h6>
             </header>
             
             <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-fluid" alt="<?=$title;?>">
-            
-            <p><?=$post_info['text'];?></p>
-        
+            <div class="text_container">
+                <p><?=$post_info['text'];?></p>
+            </div>
               <?php
                 foreach($comments as $comment_info){
                     $user_id = $comment_info['userid'];
@@ -88,7 +93,7 @@ if(isset($_GET['nocomment'])){
         
     <?  } else {} ?>
     
-    <input type="hidden" name="id" value="<?= $postid ?>">
+    <input type="hidden" name="id" value="<?= $post_id ?>">
     <input type="text" name="comment" placeholder="Kommentar">
     <input type="submit" name="addcomment" value="Skicka">
     
@@ -99,3 +104,4 @@ if(isset($_GET['nocomment'])){
     <input type="hidden" name="action" value="delete">
     <input type="submit" name="delete" value="Delete">   
 </form>
+</div>

@@ -147,6 +147,36 @@ margin-bottom: 20px;
   
 }
 
+
+/* Create Post Form */
+.form{
+    padding-top: 30px;
+    background-color: white;
+    border: 1px solid #bdbdbd;    
+}
+
+.createpost h2{
+    text-align: center;
+    margin: 25px 0 25px 0;
+}
+
+.createpost{
+    width: 100%;
+}
+input, textarea, select{
+    width: 100%;
+}
+
+#title{
+    height: 40px;
+    border: 1px solid #bdbdbd;
+}
+
+textarea{
+    border: 1px solid #bdbdbd;
+}
+
+
 /* Profile Page */
 .admin_header{
 background-color: #4D7E95;
@@ -264,6 +294,10 @@ width: 320px;
 
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
+    
+    .createpost{
+    width: 60%;
+}
     
 
    

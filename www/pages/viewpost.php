@@ -18,6 +18,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         $post_id = $post_info['postid'];
         $category_id = $post_info['categoryid'];
         $image = $post_info['image'];
+        $title = $post_info['title'];
               
         $username = get_row_with_input('username', 'user', 'userid', $user_id);
         $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
@@ -44,7 +45,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <a href=""><?= $number_of_comments?> Kommentarer</a> 
             </header>
             
-            <img src="/millhouseblog/www/postimages/<?=$image?>" alt="Inlägg bild">
+            <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-fluid" alt="<?=$title;?>">
             
             <p><?=$post_info['text'];?></p>
         

@@ -46,7 +46,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </h6>
                 
                 <h6 id="comments">
-                <a href=""><?= $number_of_comments?> Kommentarer</a> 
+                <a href="#comments"><?= $number_of_comments?> Kommentarer</a> 
                 </h6>
             </header>
             
@@ -54,6 +54,9 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
             <div class="text_container">
                 <p><?=$post_info['text'];?></p>
             </div>
+            
+            
+            <a name="comments"></a><!--anchor to comments section.#comments will bring use to this line-->
               <?php
                 foreach($comments as $comment_info){
                     $user_id = $comment_info['userid'];
@@ -99,9 +102,15 @@ if(isset($_GET['nocomment'])){
     
 </form>
 
+<? if(isset($_SESSION['loggedIn'])){ ?>
 <form action="../www/parts/deletepost.php" method="POST">
     <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
     <input type="hidden" name="action" value="delete">
     <input type="submit" name="delete" value="Delete">   
 </form>
+
+<?php
+    }
+?>
+                            
 </div>

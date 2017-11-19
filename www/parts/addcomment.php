@@ -31,10 +31,10 @@
             ":name" => $name
         ));
         
-        header ("Location: /millhouseblog/www/?page=post&nocomment=Tack för din kommentar!&id=".$postid);
+        header ("Location: /millhouseblog/www/?page=viewpost&nocomment=Tack för din kommentar!&id=".$postid);
     
  } else {
         
-        header ("Location: /millhouseblog/www/?page=post&nocomment=Fyll i fälten korrekt!&id=".$postid);
+        header ("Location: /millhouseblog/www/?page=viewpost&nocomment=Fyll i fälten korrekt!&id=".$postid);
         
         }

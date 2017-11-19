@@ -146,6 +146,61 @@ input[type=submit]:hover{
     background-color: rgba(000,0,0,0.7);
 }
 
+
+/* Create Post Form */
+.form{
+    padding-top: 30px;
+    background-color: white;
+    border: 1px solid #bdbdbd;    
+}
+
+.createpost h2{
+    text-align: center;
+    margin: 25px 0 25px 0;
+}
+
+.createpost{
+    width: 100%;
+}
+input, textarea, select{
+    width: 100%;
+}
+
+#title{
+    height: 40px;
+    border: 1px solid #bdbdbd;
+}
+
+textarea{
+    border: 1px solid #bdbdbd;
+}
+
+/* View Post Page */
+
+.viewpost h2{
+    margin: 25px 0 10px 0;
+}
+.viewpost span{
+    float: left;
+    width: 100%;
+    padding: 10px 0 10px 0;
+}
+.viewpost h6{
+    padding: 10px 0 10px 0;
+    width: 50%;
+    float: left;
+}
+#comments{
+    text-align: right;
+    padding: 10px 0 10px 0;
+    width: 50%;   
+}
+.viewpost .text_container{
+    background-color: white;
+    padding: 20px;
+    margin-top: 10px;
+}
+
 /* Profile Page */
 .profile_header{
     background-color: #4D7E95;
@@ -273,6 +328,10 @@ width: 320px;
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
     
+    .viewpost, .createpost{
+    width: 60%;
+}
+ 
 
    
 } /* Closing Desktop */

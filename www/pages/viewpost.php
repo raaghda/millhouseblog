@@ -47,7 +47,17 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </h6>
                 
                 <h6 id="comments">
-                <a href="#comments"><?= $number_of_comments?> Kommentarer</a> 
+                <a href="#comments">
+                    <?= '(' . $number_of_comments . ')'; 
+        
+                    if($number_of_comments == 1){
+                        echo ' kommentar'; } else{
+                        echo ' kommentarer';
+                    } 
+                    
+                    ?> 
+               
+                </a> 
                 </h6>
             </header>
             

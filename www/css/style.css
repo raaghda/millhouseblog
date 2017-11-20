@@ -297,6 +297,17 @@ textarea{
     margin-bottom:1em;
 }
 
+.user_comments_wrapper{
+    margin-top: 50px;
+}
+
+.comment_box{
+    background:#bdbdbd;
+    padding:2em;
+    margin-bottom:1em;
+}
+
+
 
 
 

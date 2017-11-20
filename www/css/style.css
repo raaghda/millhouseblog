@@ -8,6 +8,17 @@
 
 /* --------------------------------- Mobile styling goes here ----------------------------- */
 
+/*General styling*/
+ul{
+    list-style: none;
+    padding: 0px;
+}
+
+header li, footer li{
+    text-align: center;
+    margin: 10px;
+}
+
 /*  Body */
 body{
     background-color: #f2f2f2;
@@ -28,6 +39,7 @@ color: #4D7E95; /* OBS! Temporary*/
 
 
 
+
 /*  Navbar */
 .navbar-toggler{
     border: 0px;
@@ -43,10 +55,26 @@ color: #4D7E95; /* OBS! Temporary*/
 
 /* Sidebar */
 
-aside{
+.sidebar{
     background: white;
-    width: 200px;
-    text-align: center;
+    padding-top: 20px;
+}
+
+.sidebar h3 {
+    text-transform: uppercase;
+}
+.sidebar ul{
+    text-align:left;
+    list-style: none;
+    margin-bottom:40px;
+}
+
+.sidebar ul li {
+    margin-bottom:10px;
+}
+
+.sidebar a {
+    color:grey;
 }
 
 
@@ -247,17 +275,17 @@ footer a:hover{
     color: #97C9C6;
 }
 
-ul{
+footer ul{
     padding: 0px;
 }
 
-li{
+footer li{
     list-style: none;
     text-align: center;
     margin: 10px;
 }
 
-li .fa{
+footer li .fa{
     margin: 5px;
     font-size: 2em;
 }

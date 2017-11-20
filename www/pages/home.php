@@ -24,7 +24,12 @@ $keys = array_keys($post);
 
     $number_of_comments = count_comments($post_id);
 
-
+    if($post_id == NULL)
+    {
+        //Don't display "empty" posts if posts < 5
+    }
+    else
+    { 
     //LOOPING OUT THE POSTS
     ?>  
       <article class="post">
@@ -42,7 +47,8 @@ $keys = array_keys($post);
             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
         </nav>   
   </article><!--/post article-->
-  <?php } ?>
+  <?php } 
+}?>
 
     </div><!--/col-md-8-->
 

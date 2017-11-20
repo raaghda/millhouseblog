@@ -81,15 +81,14 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
                 <header>  
                 <span class="uppercase grey"><?=$category_name?></span>
                 <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
-                <time class="grey"><?=$post[$keys[$i]]['date'];?></time>
-                <span class="uppercase grey"><?= $username?></span>
+                <time class="grey">Publicerat den: <?=$post[$keys[$i]]['date'];?></time>
                 <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>"><?= $number_of_comments ?> kommentarer</a>
                 </header>
                 <p><?=$post[$keys[$i]]['text'];?></p>
                 <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
                 <a href="#">Redigera inlägg</a>
                 
-                <!-- DELETE IS CURRENTLY NOT WORKING -->
+                <!-- DELETE IS NOT WORKING -->
                 <form action="../www/parts/deletepost.php" method="POST">
                     <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
                     <input type="submit" name="delete" value="Delete">   
@@ -122,7 +121,6 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
         $comment = $comments[$keys][$i]['comment'];
 
         $post_title = get_row_with_input("title", "post", "postid", $post_id);
-        $username = get_row_with_input("username", "user", "userid", $user_id);
 
         if($comment_id == NULL)
         {
@@ -132,13 +130,14 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
         else
         { 
         ?>  
+
+    
         <div class="row">
             <div class="col-12 col-lg-8 offset-lg-2">    
                 <article class="comment_box">
                     
                     <span class="uppercase grey"><?=$category_name?></span>
-                    <h3><?=$post[$keys[$i]]['title'];?></h3>
-                    
+                    <h3><?=$post_title?></h3>                    
                     <p>Din kommentar: 
                     <?=$comments[$keys[$i]]['comment'];?></p>
                     <time class="grey">Kommenterades den: <?=$comments[$keys[$i]]['date']?></time>

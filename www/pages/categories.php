@@ -1,5 +1,5 @@
 <div class="container categories">
-    <h2>Kategorier</h2>   
+    <h1 class="category_heading">Kategorier</h1>   
 
     <div class="row">
     
@@ -21,7 +21,7 @@
         </a>
         
         <a href="/millhouseblog/www/?page=category&categoryid=4" id="categoryid4" class="col-sm-12 col-md-6">
-            <h3>ÖVRIGT</h3>
+            <h3>LIFESTYLE</h3>
         </a>
 
     </div>

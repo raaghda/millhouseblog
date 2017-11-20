@@ -107,7 +107,7 @@ input[type=submit]:hover{
     max-width: 900px;
 }
 
-.categories h2{
+.category_heading{
     text-align: center;
     margin: 70px;
 }
@@ -144,6 +144,21 @@ input[type=submit]:hover{
     color: white;
     padding: 30px;
     background-color: rgba(000,0,0,0.7);
+}
+
+.dateorder{
+    text-align: right;
+    margin-bottom: 7px;
+}
+
+.dateorder a{
+    background-color: white;
+    color: black;
+    padding: 10px;
+}
+
+.dateorder_active{
+    text-decoration: underline;
 }
 
 

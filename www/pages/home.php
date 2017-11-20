@@ -21,10 +21,16 @@ $keys = array_keys($post);
 
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
     $username = get_row_with_input('username', 'user', 'userid', $user_id);
+    $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
 
     $number_of_comments = count_comments($post_id);
 
-
+    if($post_id == NULL)
+    {
+        //Don't display "empty" posts if posts < 5
+    }
+    else
+    { 
     //LOOPING OUT THE POSTS
     ?>  
       <article class="post">
@@ -34,7 +40,15 @@ $keys = array_keys($post);
         <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
         <time class="grey"><?=$post[$keys[$i]]['date'];?></time>
         <span class="uppercase grey"><?= $username?></span>
-        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments"><?= $number_of_comments ?> kommentarer</a><!--added comments anchor-->
+        <span class=""><?=$user_email?></span>
+        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
+        <?= '(' . $number_of_comments . ')'; 
+        
+        if($number_of_comments == 1){
+            echo ' kommentar'; } else{
+            echo ' kommentarer';
+        } ?> 
+        </a><!--added comments anchor-->
       </header>
       <p><?=$post[$keys[$i]]['text'];?></p>
 
@@ -42,7 +56,8 @@ $keys = array_keys($post);
             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
         </nav>   
   </article><!--/post article-->
-  <?php } ?>
+  <?php } 
+}?>
 
     </div><!--/col-md-8-->
 

@@ -56,7 +56,8 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
     
     if($post_id == NULL)
     {
-        //Don't display "empty" posts if posts < 5
+        //Fixes problem with "empty posts" showing if there are less than five posts
+        break; 
     }
     else
     { 
@@ -74,6 +75,7 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
                 </header>
                 <p><?=$post[$keys[$i]]['text'];?></p>
                 <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+                <a href="#">Redigera inlägg</a>
             </article>
         </div> <!-- Closing row for each post-->
     </div> <!-- Closing col for each post -->
@@ -81,3 +83,7 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
     <?php } ?>
     <?php endfor; ?>
 </div> <!-- Closing container profile content -->
+
+
+<h2>Dina fem senaste kommentarer på Millhouse</h2>
+    

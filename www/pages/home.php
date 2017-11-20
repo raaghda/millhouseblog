@@ -52,8 +52,6 @@ $keys = array_keys($post);
         <time class="grey"><?=$post[$keys[$i]]['date'];?></time>
         <span class="uppercase grey"><?= $username?></span>
 
-        <span class="uppercase grey"><?= $user_email?></span>
-
         <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments"><?= $number_of_comments ?> kommentarer</a><!--added comments anchor-->
       </header>
       <p><?=$post[$keys[$i]]['text'];?></p>

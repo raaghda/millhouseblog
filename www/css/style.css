@@ -277,14 +277,6 @@ textarea{
     letter-spacing: 0.07em;
 }
 
-#my_latest_posts{
-    text-align: left;
-    font-size: 2em;
-    font-weight: light;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
 .profile_header .fa{
     font-size: 1.3em;
     vertical-align: bottom;
@@ -316,7 +308,7 @@ textarea{
 }
 
 .user_comments_wrapper{
-    margin-top: 50px;
+    margin-top: 40px; 
 }
 
 .comment_box{
@@ -324,7 +316,6 @@ textarea{
     padding:2em;
     margin-bottom:1em;
 }
-
 
 
 

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'database.php';
+include 'uploadimage.php';
 
 
 if (isset($_POST["title"],$_POST["text"],$_POST["categoryid"])){
@@ -8,6 +9,7 @@ if (isset($_POST["title"],$_POST["text"],$_POST["categoryid"])){
 $title = $_POST["title"];
 $text = $_POST["text"];
 $categoryid = $_POST["categoryid"];
+$image = $fileNameNew;   
     
 //userid comes from the session, not the form
 $userid = $_SESSION["user"]["userid"];
@@ -19,7 +21,7 @@ $userid = $_SESSION["user"]["userid"];
             //want to go back to create post page here
     }else{
         
-        $statement = $pdo->prepare("INSERT INTO post (title, text, userid, categoryid) VALUES (:title, :text, :userid, :categoryid)");
+        $statement = $pdo->prepare("INSERT INTO post (title, text, userid, categoryid, image) VALUES (:title, :text, :userid, :categoryid, :image)");
         
         //if a statement is successful, it returns as TRUE (stack overflow)
         //created variable $result to test if insert succeeded
@@ -27,7 +29,8 @@ $userid = $_SESSION["user"]["userid"];
             ":title" => $title,
             ":text" => $text,
             ":userid" => $userid,
-            ":categoryid" => $categoryid 
+            ":categoryid" => $categoryid,
+            ":image" => $image
         ));
 
         $last_id = $pdo->lastInsertId();
@@ -40,7 +43,7 @@ $userid = $_SESSION["user"]["userid"];
     }   
 }
 
-include 'uploadimage.php';
+
 
     
 

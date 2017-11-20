@@ -5,7 +5,7 @@ $categoryid = ($_GET["categoryid"]);
 $number_of_comments = count_comments($categoryid);
 
     $statement = $pdo->prepare(
-        "SELECT userid, title, date, text, category.name as category_name FROM post INNER JOIN category ON post.categoryid = category.categoryid WHERE post.categoryid = :categoryid" 
+        "SELECT userid, title, date, text, postid, category.name as category_name FROM post INNER JOIN category ON post.categoryid = category.categoryid WHERE post.categoryid = :categoryid" 
     );
 
     $statement->execute(array(
@@ -38,7 +38,7 @@ $number_of_comments = count_comments($categoryid);
         
         <span class="uppercase grey">ANVÄNDARNAMN</span>
         
-        <a href="/millhouseblog/www/?page=viewpost&id=<?= $postid ?>">
+        <a href="/millhouseblog/www/?page=viewpost&id=<?= $postinfo["postid"]; ?>#comments"><!--#comments anchor-->
         
         <?= '(' . $number_of_comments . ')'; 
         
@@ -50,7 +50,7 @@ $number_of_comments = count_comments($categoryid);
        
        <p> <?= $postinfo["text"] ?> </p>
        <nav class=””>
-            <a href="/millhouseblog/www/?page=viewpost&id=<?= $postid ?>">Läs hela inlägget</a>
+            <a href="/millhouseblog/www/?page=viewpost&id=<?= $postinfo["postid"]; ?>">Läs hela inlägget</a>
         </nav> 
         
         

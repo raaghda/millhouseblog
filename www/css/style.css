@@ -277,13 +277,6 @@ textarea{
     letter-spacing: 0.07em;
 }
 
-#my_latest_posts{
-    color: #0E3147;
-    text-align: left;
-    font-size: 2em;
-    font-weight: light;
-}
-
 .profile_header .fa{
     font-size: 1.3em;
     vertical-align: bottom;
@@ -297,6 +290,11 @@ textarea{
     margin-bottom: 20px;
 }
 
+.btn:hover{
+    background-color: #C5B2AB;
+    color: #fff;
+}
+
 
 .profile_content{
     margin-top: 40px; 
@@ -305,6 +303,16 @@ textarea{
 
 .post{
     background:white;
+    padding:2em;
+    margin-bottom:1em;
+}
+
+.user_comments_wrapper{
+    margin-top: 40px; 
+}
+
+.comment_box{
+    background:#fff;
     padding:2em;
     margin-bottom:1em;
 }

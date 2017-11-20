@@ -51,6 +51,7 @@ require 'parts/fetch_posts.php';
         <time class="grey"><?=$posts[$keys[$i]]['date'];?></time>
         <span class="uppercase grey"><?= $username?></span>
 
+        <span class=""><?=$user_email?></span>
         <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
         <?= '(' . $number_of_comments . ')'; 
         

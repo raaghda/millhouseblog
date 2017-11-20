@@ -23,6 +23,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         
         $username = get_row_with_input('username', 'user', 'userid', $user_id);
         $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
+        $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
 
         //FETCH COMMENTS
         $statement = $pdo->prepare("SELECT * FROM comment INNER JOIN post ON comment.postid = post.postid WHERE comment.postid = $post_id");
@@ -40,7 +41,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <h2><?=$post_info['title']?></h2>
                 
                 
-                <span>Publicerat av <?= $username ?> den <time><?=$date_of_post;?></time></span>
+                <span>Publicerat av <?= $username.' '. '('.$user_email.')'; ?> den <time><?=$date_of_post;?></time></span>
                 <h6 #id="category">
                 <a href="/millhouseblog/www/?page=category&categoryid=<?=$category_id?>"><?=$category_name?></a>
                 </h6>
@@ -115,12 +116,20 @@ if(isset($_GET['nocomment'])){
 <? if(isset($_SESSION['loggedIn'])){ ?>
 <form action="../www/parts/deletepost.php" method="POST">
     <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
-    <input type="hidden" name="action" value="delete">
     <input type="submit" name="delete" value="Delete">   
 </form>
 
 <?php
     }
 ?>
+                           
+<? if(isset($_SESSION['loggedIn'])){ ?>
+<form action="../www/pages/editpost.php" method="POST" >
+<input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
+<input type="submit" name="edit" value="Edit">  
+</form> 
+<?php
+    }
+?>                          
                             
 </div>

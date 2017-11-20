@@ -21,7 +21,7 @@
         </a>
         
         <a href="/millhouseblog/www/?page=category&categoryid=4" id="categoryid4" class="col-sm-12 col-md-6">
-            <h3>ÖVRIGT</h3>
+            <h3>LIFESTYLE</h3>
         </a>
 
     </div>

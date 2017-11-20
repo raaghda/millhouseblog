@@ -234,31 +234,66 @@ textarea{
 
 /* Profile Page */
 .profile_header{
-    background-color: #4D7E95;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    background-image: url('../images/background_profilepage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
     margin: 0px;
     text-align: center;
 }
 
-.btn{
-    background-color: #4D7E95;
+#profile_avatar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#user_name{
     color: #fff;
-    text-align: center;
-    margin: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+#user_stats{
+    color: #fff;
+    font-weight: lighter;
+    line-height: 190%;
+    letter-spacing: 0.07em;
+}
+
+#my_latest_posts{
+    color: #0E3147;
+    text-align: left;
+    font-size: 2em;
+    font-weight: light;
+}
+
+.profile_header .fa{
+    font-size: 1.3em;
+    vertical-align: bottom;
+}
+
+/* Write post-button */
+.btn{
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
-.profile_content .post{
+.profile_content{
+    margin-top: 40px; 
+    margin-bottom: 40px;
+}
+
+.post{
     background:white;
     padding:2em;
     margin-bottom:1em;
 }
 
-#profile_avatar{
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
 
 
 
@@ -353,16 +388,15 @@ width: 320px;
 
 
 
-
-
-
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
     
-    .viewpost, .createpost{
+.viewpost, .createpost{
     width: 60%;
 }
  
+
+
 
    
 } /* Closing Desktop */

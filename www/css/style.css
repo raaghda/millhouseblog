@@ -260,10 +260,11 @@ textarea{
 }
 
 #my_latest_posts{
-    color: #0E3147;
     text-align: left;
     font-size: 2em;
     font-weight: light;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .profile_header .fa{
@@ -277,6 +278,11 @@ textarea{
     padding: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.btn:hover{
+    background-color: #C5B2AB;
+    color: #fff;
 }
 
 

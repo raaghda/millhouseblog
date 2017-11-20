@@ -55,17 +55,20 @@ color: #4D7E95; /* OBS! Temporary*/
 
 /* Sidebar */
 
-.sidebar{
+.sidebar {
     background: white;
-    padding-top: 20px;
 }
 
+aside {
+    margin-top: 1.6em;
+}
 .sidebar h3 {
     text-transform: uppercase;
+    font-size: 1.2em;
+    margin-bottom:0.5em;
 }
 .sidebar ul{
     text-align:left;
-    list-style: none;
     margin-bottom:40px;
 }
 
@@ -74,7 +77,7 @@ color: #4D7E95; /* OBS! Temporary*/
 }
 
 .sidebar a {
-    color:grey;
+    color:#6D6D6D;
 }
 
 
@@ -321,13 +324,13 @@ a:hover{
 }
 
 .grey {
-    color:grey;
+    color:#6D6D6D;
 }
 
 .landingpage .post {
     background:white;
     margin-bottom:1em;
-    padding:1em;
+    padding:1.5em;
 }
 
 /*/camilla*/

@@ -5,7 +5,7 @@ require 'parts/functions.php';
 
 <div class="container landingpage">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
 <?php
 //Looping out the 5 latest posts from posts table.
 //Information about the author of the post=user.
@@ -52,8 +52,6 @@ $keys = array_keys($post);
         <time class="grey"><?=$post[$keys[$i]]['date'];?></time>
         <span class="uppercase grey"><?= $username?></span>
 
-        <span class="uppercase grey"><?= $user_email?></span>
-
         <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments"><?= $number_of_comments ?> kommentarer</a><!--added comments anchor-->
       </header>
       <p><?=$post[$keys[$i]]['text'];?></p>
@@ -67,7 +65,7 @@ $keys = array_keys($post);
 
     </div><!--/col-md-8-->
 
-    <div class="col-lg-4 sidebar hidden-xs-down">
+    <div class="col-lg-3 sidebar hidden-xs-down">
         <?php
         require 'components/sidebar.php';
         ?>

@@ -20,21 +20,33 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 <div class="container-fluid profile_header">
      <div class="row">
-        <div class="col-4 offset-4">
-                <img src="images/clocks.jpg" id=profile_avatar alt="Avatar för användare" class="rounded-circle" width="150px" height="150px">
-                <h1> <?php echo $fetched_user["name"]; ?> </h1>
-                <p>XX inlägg med XX kommentarer </p>
-                <p> Gick med <?php echo $fetched_user["registertime"];?> </p>
+        <div class="col-6 offset-3">
+            <img src="images/empty_avatar.png" id=profile_avatar alt="Avatar för användare" class="rounded-circle" width="150px" height="150px">
+            <h1 id=user_name> <?php echo $fetched_user["name"]; ?> </h1>
         </div>
     </div>
-</div>
-
-<div class="container profile_content">
+              
+    <div class="row">
+        <div class="col-6 offset-3 d-none d-md-block"> 
+            <p id=user_stats>XX inlägg med XX kommentarer </br>
+            Medlem sedan <?php echo $fetched_user["registertime"];?> </p>
+        </div>
+    </div>
+    
     <div class="row">
         <div class="mx-auto">
             <a class="btn" href="/millhouseblog/www/?page=createpost">Skriv nytt inlägg
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-        </div> 
+        </div>
+    </div>
+</div> <!-- Closing profile_header container -->
+
+
+<div class="container profile_content">
+    <div class="row">
+    <div class="col-12 col-lg-8 offset-lg-2">    
+            <h1 id=my_latest_posts>Mina senaste inlägg:</h1>
+        </div>
     </div>
      
     <?php
@@ -85,5 +97,5 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 </div> <!-- Closing container profile content -->
 
 
-<h2>Dina fem senaste kommentarer på Millhouse</h2>
+<h2>Mina senaste kommentarer:</h2>
     

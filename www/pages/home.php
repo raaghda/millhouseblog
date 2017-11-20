@@ -7,6 +7,11 @@ require 'parts/functions.php';
         <div class="row">
             <div class="col-lg-8">
 <?php
+//Looping out the 5 latest posts from posts table.
+//Information about the author of the post=user.
+//How many comments there is on each post. 
+//Link to each specific post
+
 //FETCH POSTS
 //MAYBE PUT THIS IN PARTS...? AS FETCH_POST T.EX..
 $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC");
@@ -15,19 +20,25 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
 $keys = array_keys($post);
 
  for($i=0; $i<5; $i++){
+    //storing user_id to get to get user_name from user-table
     $user_id = $post[$keys[$i]]['userid'];
+    //storing post_id for the link to view the specific post
+    //storing post_id to count how many comments it has, stored in number_of_comments
     $post_id = $post[$keys[$i]]['postid'];
+    //storing category_id to get the category_name from category table
     $category_id = $post[$keys[$i]]['categoryid'];
 
+    //FUNCTIONS is in functions.php
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
     $username = get_row_with_input('username', 'user', 'userid', $user_id);
-    $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
 
     $number_of_comments = count_comments($post_id);
 
+    //fixes the empty post. if theres not enough post to be looped out.
     if($post_id == NULL)
-    {
-        //Don't display "empty" posts if posts < 5
+    {  
+      //Don't display "empty" posts if posts < 5
+      break;
     }
     else
     { 

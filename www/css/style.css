@@ -135,7 +135,7 @@ input[type=submit]:hover{
     max-width: 900px;
 }
 
-.categories h2{
+.category_heading{
     text-align: center;
     margin: 70px;
 }
@@ -172,6 +172,21 @@ input[type=submit]:hover{
     color: white;
     padding: 30px;
     background-color: rgba(000,0,0,0.7);
+}
+
+.dateorder{
+    text-align: right;
+    margin-bottom: 7px;
+}
+
+.dateorder a{
+    background-color: white;
+    color: black;
+    padding: 10px;
+}
+
+.dateorder_active{
+    text-decoration: underline;
 }
 
 
@@ -360,9 +375,9 @@ a:hover{
 }
 
 .landingpage .post {
-    background:white;
-    margin-bottom:1em;
-    padding:1em;
+    background: white;
+    margin-bottom: 1em;
+    padding: 1em;
 }
 
 /*/camilla*/
@@ -374,16 +389,13 @@ a:hover{
 @media screen and (min-width: 768px){
 
 
-/* Loginpage-styling, also applies to register page */  
+/* Loginpage-styling, also applies to register page */
+    
 .login{ 
 width: 320px;
 }
 
 } /* Closing Tablet */
-
-
-
-
 
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){

@@ -4,8 +4,15 @@
 $categoryid = ($_GET["categoryid"]);
 $number_of_comments = count_comments($categoryid);
 
+
+$dateorder = "DESC";
+
+    if(isset($_GET["dateorder"])){
+        $dateorder = $_GET["dateorder"];
+    }
+
     $statement = $pdo->prepare(
-        "SELECT userid, title, date, text, postid, category.name as category_name FROM post INNER JOIN category ON post.categoryid = category.categoryid WHERE post.categoryid = :categoryid" 
+        "SELECT userid, title, date, text, postid, category.name as category_name FROM post INNER JOIN category ON post.categoryid = category.categoryid WHERE post.categoryid = :categoryid ORDER by date $dateorder" 
     );
 
     $statement->execute(array(
@@ -13,14 +20,40 @@ $number_of_comments = count_comments($categoryid);
     ));
 
     $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    
 
 ?>
 
 <div class="container landingpage">
 <div class="row">
     <div class="col-lg-8">
+    
+    <h1 class="category_heading"> <?= $posts[0]["category_name"] ?> </h1>
+    
+<div class="dateorder">
+    
+    Sortera kategorin efter:
+    
+   <? if($dateorder == "ASC"){ ?>
+    
+    <a class="dateorder_active" href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=ASC">Stigande</a>
+    <a href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=DESC">Fallande</a>
 
-<? foreach($posts as $postinfo){ ?>
+   <? } else {?>
+   
+   <a href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=ASC">Stigande</a>
+    <a class="dateorder_active" href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=DESC">Fallande</a>
+   
+   <? } ?>
+    
+    
+
+</div>
+
+<? foreach($posts as $postinfo){ 
+        $userid = $postinfo["userid"];
+        $username = get_row_with_input("username", "user", "userid", $userid);
+        ?>
 
 <article class="post">
     
@@ -36,7 +69,7 @@ $number_of_comments = count_comments($categoryid);
             <?= $postinfo["date"] ?>
         </time>
         
-        <span class="uppercase grey">ANVÄNDARNAMN</span>
+        <span class="uppercase grey"> <?= $username ?></span>
         
         <a href="/millhouseblog/www/?page=viewpost&id=<?= $postinfo["postid"]; ?>#comments"><!--#comments anchor-->
         
@@ -78,4 +111,3 @@ if (empty($posts)){
     </div><!--/sidebar-->
     
 </div><!--/col-md-8-->
-

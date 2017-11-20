@@ -70,15 +70,21 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
             <a name="comments"></a><!--anchor to comments section.#comments will bring use to this line-->
               <?php
                 foreach($comments as $comment_info){
-                    $user_id = $comment_info['userid'];
-                    $username = get_row_with_input('username', 'user', 'userid', $user_id);
-                    
+                    //if a person that made a comment isnt a user, and therefore has no userid..
+                    //..get email from comment table.
+                    //else store user id and get username from user table
+                    if($comment_info['userid'] == NULL){
+                        $comment_name = $comment_info['email'];
+                    } else {
+                        $user_id = $comment_info['userid'];
+                        $comment_name = get_row_with_input('username', 'user', 'userid', $user_id);
+                        }
                 //LOOPING OUT COMMENTS
                 ?>
                 <article class=”comment”> 
                     <header>
                         <time><?=$comment_info['date']?></time> 
-                        <span> av <?=$username?></span>
+                        <span> av <?=$comment_name?></span>
                     </header>
                     
                     <p><?=$comment_info["comment"]?></p>    

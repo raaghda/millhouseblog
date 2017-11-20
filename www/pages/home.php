@@ -7,7 +7,7 @@ require 'parts/fetch_posts.php';
 <div class="container landingpage">
 <h1>Senaste inläggen</h1>
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
 <?php
 //Looping out the 5 latest posts from posts table.
 //Information about the author of the post=user.
@@ -73,7 +73,7 @@ require 'parts/fetch_posts.php';
 
     </div><!--/col-md-8-->
 
-    <div class="col-lg-4 sidebar hidden-xs-down">
+    <div class="col-lg-3 sidebar hidden-xs-down">
         <?php
         require 'components/sidebar.php';
         ?>

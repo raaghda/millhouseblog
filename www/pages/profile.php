@@ -50,7 +50,7 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
     </div>
      
     <?php
-    //FETCH POSTS BY LOGGED IN USER, USING THE SAME STRUCTURE AS IN HOME
+    //Fetches posts made by logged in user, using the same display posts-strucutre as in home
     $statement = $pdo->prepare("SELECT * FROM post WHERE userid = {$userid} ORDER by date DESC");
     $statement->execute();
     $post = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -73,8 +73,8 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
     }
     else
     { 
+        //Loop through and display latest post (max 5)
     ?>  
-
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2">    
             <article class="post">
@@ -88,14 +88,59 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
                 <p><?=$post[$keys[$i]]['text'];?></p>
                 <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
                 <a href="#">Redigera inlägg</a>
+                
+                <!-- DELETE IS NOT WORKING -->
+                <form action="../www/parts/deletepost.php" method="POST">
+                    <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
+                    <input type="submit" name="delete" value="Delete">   
+                </form>
+                
             </article>
         </div> <!-- Closing row for each post-->
     </div> <!-- Closing col for each post -->
-
-    <?php } ?>
-    <?php endfor; ?>
+    <?php } endfor; ?>
 </div> <!-- Closing container profile content -->
 
 
 <h2>Mina senaste kommentarer:</h2>
+<?php
+$statement = $pdo->prepare("SELECT * FROM comment WHERE userid = {$userid} ORDER by date DESC");
+$statement->execute();
+$comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+$keys = array_keys($comments);
+
+for ($i = 0; $i < 5; $i++):
+    //store post_id to get post_title
+    //store post_id to be able to link to that specific post
+    //user_id to getuser_name from user table
+    $post_id = $comments[$keys[$i]]['postid'];
+    $user_id = $comments[$keys[$i]]['userid'];
+    $comment = $comments[$keys][$i]['comment'];
+
+    //use the stored variables to get info from each table
+    //FUNCTIONS is in function.php
+    $post_title = get_row_with_input("title", "post", "postid", $post_id);
+    $username = get_row_with_input("username", "user", "userid", $user_id);
+
+    
+ 
+        //Loop through and display latest comments (max 5)
+    ?>  
+    <div class="row">
+        <div class="col-12 col-lg-8 offset-lg-2">    
+            <article class="post">
+                <header>  
+                <span class="uppercase grey"><?=$category_name?></span>
+                <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
+                <div class=comment_box>
+                <p>Din kommentar:</p>
+                <p><?=$comments[$keys[$i]]['comment'];?></p>
+                </div>
+                </header>
+            </article>
+        </div> <!-- Closing row for each post-->
+    </div> <!-- Closing col for each post -->
+    
+    <?php endfor; ?>
+</div> <!-- Closing container profile content -->
     

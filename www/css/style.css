@@ -234,9 +234,9 @@ color: #4D7E95;
 }
 
 .landingpage .post {
-    background:white;
-    margin-bottom:1em;
-    padding:1em;
+    background: white;
+    margin-bottom: 1em;
+    padding: 1em;
 }
 
 /*/camilla*/
@@ -248,18 +248,13 @@ color: #4D7E95;
 @media screen and (min-width: 768px){
 
 
-/* Loginpage-styling, also applies to register page */  
+/* Loginpage-styling, also applies to register page */
+    
 .login{ 
 width: 320px;
 }
 
 } /* Closing Tablet */
-
-
-
-
-
-
 
 
 /* -------------------------------- Desktop styling goes here ----------------------------------- */

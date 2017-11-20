@@ -1,5 +1,5 @@
 <div class="container categories">
-    <h2>Kategorier</h2>   
+    <h1 class="category_heading">Kategorier</h1>   
 
     <div class="row">
     

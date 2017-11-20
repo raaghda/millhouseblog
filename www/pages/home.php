@@ -27,14 +27,17 @@ require 'parts/fetch_posts.php';
     //FUNCTIONS is in functions.php
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
     $username = get_row_with_input('username', 'user', 'userid', $user_id);
+    $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
 
     $number_of_comments = count_comments($post_id);
+
 
     //fixes the empty post. if theres not enough post to be looped out.
     if($post_id == NULL)
     {  
       //Don't display "empty" posts if posts < 5
       break;
+
     }
     else
     { 
@@ -48,7 +51,16 @@ require 'parts/fetch_posts.php';
         <time class="grey"><?=$posts[$keys[$i]]['date'];?></time>
         <span class="uppercase grey"><?= $username?></span>
 
-        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments"><?= $number_of_comments ?> kommentarer</a><!--added comments anchor-->
+        <span class=""><?=$user_email?></span>
+        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
+        <?= '(' . $number_of_comments . ')'; 
+        
+        if($number_of_comments == 1){
+            echo ' kommentar'; } else{
+            echo ' kommentarer';
+        } ?> 
+        </a><!--added comments anchor-->
+
       </header>
       <p><?=$posts[$keys[$i]]['text'];?></p>
 

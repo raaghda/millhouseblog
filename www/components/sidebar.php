@@ -1,25 +1,82 @@
-<div class="col-12 sidebar">
+<aside class="sidebar">
+<h3>Kategorier</h3>
+<ul class="categories_in_sidebar">
 
-    <aside>
-        <h3>Kategorier</h3>
-        <ul class="categories_in_sidebar">
-            <li>
-                <a href="/millhouseblog/www/?page=category&categoryid=1">
-                Solglasögon</a>
-            </li>
-            <li>
-                <a href="/millhouseblog/www/?page=category&categoryid=2">
-                    Klockor</a>
-            </li>
-            <li>
-                <a href="/millhouseblog/www/?page=category&categoryid=3">
-                    Inredning</a>
-            </li>
-            <li>
-                <a href="/millhouseblog/www/?page=category&categoryid=4">
-                    Lifestyle</a>
-            </li>
-        </ul>
+    <li>
+        <a href="/millhouseblog/www/?page=category&categoryid=1">
+        Solglasögon</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=category&categoryid=2">
+            Klockor</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=category&categoryid=3">
+            Inredning</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=category&categoryid=4">
+
+            Lifestyle</a>
+    </li>
+</ul>
+
+
+<ul>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=01">
+        Januari</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=02">
+        Februari</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=03">
+        Mars</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=04">
+        April</a>
+    </li>
+     <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=05">
+        Maj</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=06">
+        Juni</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=07">
+        Juli</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=08">
+        Augusti</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=09">
+        September</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=10">
+        Oktober</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=11">
+        November</a>
+    </li>
+    <li>
+        <a href="/millhouseblog/www/?page=displaymonth&month=12">
+        December</a>
+    </li>
+</ul>
+
+<h3>Senaste kommentarerna</h3>
+<ul class="comments_in_sidebar">
+<?php
+//loop out from the latest 5 comments: username and postname. link to that post
 
         <h3>Senaste kommentarerna</h3>
         <ul class="comments_in_sidebar">

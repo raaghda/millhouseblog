@@ -7,6 +7,8 @@
             <div class="col-12">
                 <img src="images/millhouse_logo.svg" width="230px">
                 
+                <div class="messagebox">
+                
                 <?php
       
                 /* NEW REG MESSAGE BELOW */
@@ -34,6 +36,8 @@
                 }
 
                 ?>
+                
+                </div>
                
                 <form action="/millhouseblog/www/parts/login.php" method="post">
                     <input type="username" name ="username" placeholder="Användarnamn"></br>

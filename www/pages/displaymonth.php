@@ -57,6 +57,8 @@ $months = $statement->fetchAll(PDO::FETCH_ASSOC);
         $username = get_row_with_input("username", "user", "userid", $userid);
         $category_id = $monthpost["categoryid"];
         $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
+        $date = $monthpost["date"];
+        $dt = new datetime($date);
         ?>
 
 <article class="post">
@@ -70,7 +72,7 @@ $months = $statement->fetchAll(PDO::FETCH_ASSOC);
             <?= $monthpost["title"] ?>
         </h2>
         <time>
-            <?= $monthpost["date"] ?>
+            <?= $dt->format('Y-m-d'); ?>
         </time>
         
         <span class="uppercase grey"> <?= $username ?></span>

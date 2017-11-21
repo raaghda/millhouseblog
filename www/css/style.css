@@ -321,6 +321,17 @@ textarea{
     margin-bottom:1em;
 }
 
+.page404{
+    text-align: center;
+    background: white;
+    max-width: 600px;
+    padding:2em;
+    margin: 1em auto;
+}
+
+.page404 img{
+    margin: 2em;
+}
 
 
 

@@ -28,6 +28,8 @@ require 'parts/fetch_posts.php';
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
     $username = get_row_with_input('username', 'user', 'userid', $user_id);
     $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
+    $date = $posts[$keys[$i]]['date'];
+    $dt = new datetime($date);
 
     $number_of_comments = count_comments($post_id);
 
@@ -48,7 +50,9 @@ require 'parts/fetch_posts.php';
             <span class="uppercase grey"><?=$category_name?></span>
         <!--<meta>kategorierna som meta???-->
         <h2 class=”postheading”><?=$posts[$keys[$i]]['title'];?></h2>
-        <time class="grey"><?=$posts[$keys[$i]]['date'];?></time>
+        <time>
+            <?= $dt->format('Y-m-d'); ?>
+        </time>
         <span class="uppercase grey"><?= $username?></span>
         <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
         <?= '(' . $number_of_comments . ')'; 

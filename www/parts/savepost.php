@@ -13,12 +13,13 @@ $image = $fileNameNew;
     
 //userid comes from the session, not the form
 $userid = $_SESSION["user"]["userid"];
-    
-    
-    if ($title == '' || $text == ''){
-            //reports error, if error occurs (temporary ugly error message - needs handling!)
-            echo 'failed';
-            //want to go back to create post page here
+$no_comment = urlencode("Fyll i fälten korrekt!");
+ 
+    if ($title == '' || $text == '' ||$categoryid == null){
+            
+            //tells the user to complete all fields
+            header("Location: /millhouseblog/www/?page=createpost&nocomment=".$no_comment);
+            
     }else{
         
         $statement = $pdo->prepare("INSERT INTO post (title, text, userid, categoryid, image) VALUES (:title, :text, :userid, :categoryid, :image)");

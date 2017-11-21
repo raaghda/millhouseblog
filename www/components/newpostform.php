@@ -9,10 +9,24 @@ require './parts/database.php';
 
     $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
+
 ?>
 
 <div class="container createpost">
     <h2>Skriv nytt inlägg</h2>
+    
+    
+    <?php
+    //if any of the fields not filled, an error message will be returned (see savepost.php for message)
+    if (isset($_GET['nocomment'])){?>
+    
+    <p><?= $_GET['nocomment'];?></p>
+    
+    <?php
+    }
+    ?>
+    
     <form action="parts/savepost.php" method="POST" enctype="multipart/form-data">
 
         <div class="container form">

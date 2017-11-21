@@ -5,7 +5,7 @@ require 'parts/fetch_posts.php';
 ?>
 
 <div class="container landingpage">
-<h1>Senaste inläggen</h1>
+<h1 class="heading">Senaste inläggen</h1>
         <div class="row">
             <div class="col-lg-9">
 <?php
@@ -50,8 +50,6 @@ require 'parts/fetch_posts.php';
         <h2 class=”postheading”><?=$posts[$keys[$i]]['title'];?></h2>
         <time class="grey"><?=$posts[$keys[$i]]['date'];?></time>
         <span class="uppercase grey"><?= $username?></span>
-
-        <span class=""><?=$user_email?></span>
         <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
         <?= '(' . $number_of_comments . ')'; 
         

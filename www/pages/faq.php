@@ -1,1 +1,1 @@
-FAQ GOES HERE
+<h1 class="heading">FAQ</h1>

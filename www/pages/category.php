@@ -25,24 +25,26 @@ $dateorder = "DESC";
 ?>
 
 <div class="container landingpage">
+
+<h1 class="heading"> <?= $posts[0]["category_name"] ?> </h1>
+
 <div class="row">
-    <div class="col-lg-8">
-    
-    <h1 class="category_heading"> <?= $posts[0]["category_name"] ?> </h1>
+    <div class="col-lg-9">
     
 <div class="dateorder">
     
-    Sortera kategorin efter:
+    Sortera efter:
     
    <? if($dateorder == "ASC"){ ?>
     
-    <a class="dateorder_active" href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=ASC">Stigande</a>
-    <a href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=DESC">Fallande</a>
+    <a class="dateorder_active" href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=ASC">Äldst först</a>
+    <a href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=DESC">Senaste först</a>
 
    <? } else {?>
    
-   <a href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=ASC">Stigande</a>
-    <a class="dateorder_active" href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=DESC">Fallande</a>
+   
+    <a class="dateorder_active" href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=DESC">Senaste först</a>
+   <a href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=ASC">Äldst först</a>
    
    <? } ?>
     
@@ -104,7 +106,7 @@ if (empty($posts)){
         
 </div><!--/col-md-8-->
 
-<div class="col-lg-4 sidebar hidden-xs-down">
+<div class="col-lg-3 sidebar hidden-xs-down">
         <?php
         require 'components/sidebar.php';
         ?>

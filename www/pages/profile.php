@@ -44,13 +44,13 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 <div class="container profile_content">
     <div class="row">
-    <div class="col-12 col-lg-8 offset-lg-2">    
-            <h1 id=my_latest_posts>Mina senaste inlägg:</h1>
+        <div class="col-12 col-lg-8 offset-lg-2">    
+            <h1>Senaste inläggen:</h1>
         </div>
     </div>
-     
+    
     <?php
-    //FETCH POSTS BY LOGGED IN USER, USING THE SAME STRUCTURE AS IN HOME
+    //Fetches posts made by logged in user, using the same display posts-strucutre as in home
     $statement = $pdo->prepare("SELECT * FROM post WHERE userid = {$userid} ORDER by date DESC");
     $statement->execute();
     $post = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -73,29 +73,87 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
     }
     else
     { 
+        //Loop through and display latest post (max 5)
     ?>  
-
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2">    
             <article class="post">
                 <header>  
                 <span class="uppercase grey"><?=$category_name?></span>
                 <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
-                <time class="grey"><?=$post[$keys[$i]]['date'];?></time>
-                <span class="uppercase grey"><?= $username?></span>
-                <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>"><?= $number_of_comments ?> kommentarer</a>
+                <time class="grey">Publicerat den: <?=$post[$keys[$i]]['date'];?></time>
+                <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
+                <?= 
+                '(' . $number_of_comments . ')'; 
+                if($number_of_comments == 1)
+                {
+                    echo ' kommentar'; 
+                } 
+                else
+                {
+                    echo ' kommentarer';
+                } 
+                ?>
+                </a>
                 </header>
                 <p><?=$post[$keys[$i]]['text'];?></p>
                 <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
                 <a href="#">Redigera inlägg</a>
+                <form action="../www/parts/deletepost.php" method="POST">
+                    <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                    <input type="submit" name="delete" value="Delete">   
+                </form>
+                
             </article>
         </div> <!-- Closing row for each post-->
     </div> <!-- Closing col for each post -->
+    <?php } endfor; ?>
 
-    <?php } ?>
-    <?php endfor; ?>
+    
+
+    <div class="row">
+        <div class="user_comments_wrapper col-12 col-lg-8 offset-lg-2">    
+            <h1>Dina senaste kommentarer:</h1>
+        </div>
+    </div>
+
+    <?php
+    $statement = $pdo->prepare("SELECT * FROM comment WHERE userid = {$userid} ORDER by date DESC");
+    $statement->execute();
+    $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $keys = array_keys($comments);
+
+    for ($i = 0; $i < 5; $i++):
+        $post_id = $comments[$keys[$i]]['postid'];
+        $user_id = $comments[$keys[$i]]['userid'];
+        $comment_date = $comments[$keys[$i]]['date'];
+        $comment_id = $comments[$keys[$i]]['commentid'];
+        $comment = $comments[$keys][$i]['comment'];
+
+        $post_title = get_row_with_input("title", "post", "postid", $post_id);
+
+        if($comment_id == NULL)
+        {
+            //Same fix as posts - fixes problem with "empty comments" showing if there are less than five
+            break; 
+        }
+        else
+        {
+        ?>  
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">    
+                <article class="comment_box">
+                    
+                    <span class="uppercase grey"><?=$category_name?></span>
+                    <h3><?=$post_title?></h3>                    
+                    <p>Din kommentar: 
+                    <?=$comments[$keys[$i]]['comment'];?></p>
+                    <time class="grey">Kommenterades den: <?=$comments[$keys[$i]]['date']?></time>
+                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+                    
+                </article>
+            </div> <!-- Closing row for each comment-->
+        </div> <!-- Closing col for each post -->
+        <?php } endfor; ?>
 </div> <!-- Closing container profile content -->
-
-
-<h2>Mina senaste kommentarer:</h2>
     

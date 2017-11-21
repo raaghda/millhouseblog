@@ -15,8 +15,12 @@ $statement->execute(array(
 //We save the profile details in an array, called fetched user
 $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
+//Variable for formating date and time correctly
+$date = $fetcheduser["registertime"];
+$dt = new datetime($date);
 
-//Fetching number of total posts made by user
+
+//Fetching total number of posts made by user
 $statement = $pdo->prepare("SELECT COUNT(post.postid) 
                             AS total 
                             FROM post INNER JOIN user 
@@ -41,8 +45,8 @@ $posts = $statement->fetch(PDO::FETCH_ASSOC);
               
     <div class="row">
         <div class="col-6 offset-3 d-none d-md-block"> 
-            <p id=user_stats> <?= $posts['total'] ?> inlägg med XX kommentarer </br>
-            Medlem sedan <?php echo $fetched_user["registertime"];?> </p>
+            <p id=user_stats> <?= $posts['total'] ?> inlägg med XX kommentarer </br> Medlem sedan 
+            <time> <?= $dt->format('Y-m-d'); ?> </time></p>
         </div>
     </div>
     

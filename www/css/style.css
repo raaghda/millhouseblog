@@ -103,6 +103,10 @@ aside {
     border-radius: 15px;
 }
 
+.messagebox{
+    margin-bottom: 20px;
+}
+
 input[type=username], input[type=password], 
 input[type=email], input[type=name], input[type=submit]{
     background-color: #f2f2f2;
@@ -138,7 +142,7 @@ input[type=submit]:hover{
     max-width: 900px;
 }
 
-.category_heading{
+.heading{
     text-align: center;
     margin: 70px;
 }
@@ -291,7 +295,7 @@ textarea{
 }
 
 .btn:hover{
-    background-color: #C5B2AB;
+    background-color: #0E3147;
     color: #fff;
 }
 

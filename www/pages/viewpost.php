@@ -135,17 +135,18 @@ if(isset($_GET['nocomment'])){
     
 </form>
 
-<? if(isset($_SESSION['loggedIn'])){ ?>
+
+<?php
+    //If-statement to check if a user is logged in and if that user is the author.
+    //If both conditions are true, the user can delete and edit posts.
+    if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id ){ ?>
+
 <form action="../www/parts/deletepost.php" method="POST">
     <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
     <input type="submit" name="delete" value="Delete">   
 </form>
 
-<?php
-    }
-?>
-                           
-<? if(isset($_SESSION['loggedIn'])){ ?>
+                        
 <!--action sends to editpost via MVC(?) in order to pick up the css sheet. -->
 <form action="./?page=editpost" method="POST">
 <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
@@ -153,6 +154,8 @@ if(isset($_GET['nocomment'])){
 </form> 
 <?php
     }
+            
+//var_dump((int)$_SESSION['user']['userid']);            
 ?>                          
                             
 </div>

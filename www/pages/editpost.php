@@ -22,7 +22,9 @@ foreach ($posts as $post){
 $statement = $pdo->prepare("SELECT * FROM category");
 $statement->execute();
 $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+     
+//If statement checking if user is logged in and if user is author of post
+if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id){   
 ?>
 
 <div class="container createpost">
@@ -84,5 +86,9 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
     </form>
 </div>
 <?php
-  }
+  }else{
+    //can't use a header here as already echoed out, therefore need to echo not-authorized message
+    echo "You are not authorized to edit this post.";
+ }
+} 
 ?>

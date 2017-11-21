@@ -3,21 +3,29 @@ require 'parts/database.php';
 require 'parts/functions.php';
 
 // 1. VI BEHÖVER HÄMTA USERID (KOPIERA SAMMA LOGIK SOM VI HAR GET PARAMETERN PAGE OCH ÄNDRA DEN TILL USERID)
-
 $userid = $_SESSION["user"]["userid"];
 
 // 2. HÄMTA EN ANVÄNDARE FRÅN DATABASEN SOM HAR DET USERID SOM VI FICK FRÅN GET-PARAMETERN (SE KODEN I LOGIN HUR VI HÄMTAR USERINFORMATION FRÅN DATABASEN)
-$statement = $pdo->prepare("SELECT username, userid, email, name, role, registertime FROM user WHERE userid = :userid");
+$statement = $pdo->prepare("SELECT username, userid, email, name, role, registertime 
+                            FROM user 
+                            WHERE userid = :userid");
 $statement->execute(array(
 ":userid" => $userid
 ));
-
 //We save the profile details in an array, called fetched user
 $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 
-
-//Fetch count hur många comments som är gjorda av userid = userid
+//Fetching number of total posts made by user
+$statement = $pdo->prepare("SELECT COUNT(post.postid) 
+                            AS total 
+                            FROM post INNER JOIN user 
+                            ON post.userid = user.userid 
+                            WHERE USER.userid = $userid");
+$statement->execute(array(
+    ":total" => $posts
+    ));
+$posts = $statement->fetch(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -25,14 +33,15 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 <div class="container-fluid profile_header">
      <div class="row">
         <div class="col-6 offset-3">
-            <img src="images/empty_avatar.png" id=profile_avatar alt="Avatar för användare" class="rounded-circle" width="150px" height="150px">
+            <img src="images/empty_avatar.png" id=profile_avatar alt="Avatar för användare" 
+            class="rounded-circle" width="150px" height="150px">
             <h1 id=user_name> <?php echo $fetched_user["name"]; ?> </h1>
         </div>
     </div>
               
     <div class="row">
         <div class="col-6 offset-3 d-none d-md-block"> 
-            <p id=user_stats>XX inlägg med XX kommentarer </br>
+            <p id=user_stats> <?= $posts['total'] ?> inlägg med XX kommentarer </br>
             Medlem sedan <?php echo $fetched_user["registertime"];?> </p>
         </div>
     </div>

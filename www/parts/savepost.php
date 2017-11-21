@@ -15,7 +15,7 @@ $image = $fileNameNew;
 $userid = $_SESSION["user"]["userid"];
 $no_comment = urlencode("Fyll i fälten korrekt!");
  
-    if ($title == '' || $text == '' ||$categoryid == null){
+    if ($title == '' || $text == '' || $categoryid == null){
             
             //tells the user to complete all fields
             header("Location: /millhouseblog/www/?page=createpost&nocomment=".$no_comment);

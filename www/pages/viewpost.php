@@ -60,8 +60,17 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </a> 
                 </h6>
             </header>
+             
+            <?php
+            //if NOT no image (i.e. if there is an image)
+            if (!is_null($image)){?>
             
+            <!--display image and title as alt tag-->
             <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-fluid" alt="<?=$title;?>">
+            <?php
+            }
+            ?>
+            
             <div class="text_container">
                 <p><?=$post_info['text'];?></p>
             </div>

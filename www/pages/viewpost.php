@@ -20,6 +20,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         $image = $post_info['image'];
         $title = $post_info['title'];
         $date_of_post = $post_info['date'];
+        $dt = new datetime($date_of_post);
         
         $username = get_row_with_input('username', 'user', 'userid', $user_id);
         $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
@@ -41,7 +42,9 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <h2><?=$post_info['title']?></h2>
                 
                 
-                <span>Publicerat av <?= $username.' '. '('.$user_email.')'; ?> den <time><?=$date_of_post;?></time></span>
+                <span>Publicerat av <?= $username.' '. '('.$user_email.')'; ?> den <time>
+            <?= $dt->format('Y-m-d'); ?>
+        </time></span>
                 <h6 #id="category">
                 <a href="/millhouseblog/www/?page=category&categoryid=<?=$category_id?>"><?=$category_name?></a>
                 </h6>
@@ -79,6 +82,8 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
             <a name="comments"></a><!--anchor to comments section.#comments will bring use to this line-->
               <?php
                 foreach($comments as $comment_info){
+                    $date = $comment_info["date"]; 
+                    $dt = new datetime($date);
                     //if a person that made a comment isnt a user, and therefore has no userid..
                     //..get email from comment table.
                     //else store user id and get username from user table
@@ -92,7 +97,9 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <article class=”comment”> 
                     <header>
-                        <time><?=$comment_info['date']?></time> 
+                        <time>
+            <?= $dt->format('Y-m-d'); ?>
+        </time>
                         <span> av <?=$comment_name?></span>
                     </header>
                     

@@ -55,6 +55,8 @@ $dateorder = "DESC";
 <? foreach($posts as $postinfo){ 
         $userid = $postinfo["userid"];
         $username = get_row_with_input("username", "user", "userid", $userid);
+        $date = $postinfo["date"]; 
+        $dt = new datetime($date);
         ?>
 
 <article class="post">
@@ -68,7 +70,7 @@ $dateorder = "DESC";
             <?= $postinfo["title"] ?>
         </h2>
         <time>
-            <?= $postinfo["date"] ?>
+            <?= $dt->format('Y-m-d'); ?>
         </time>
         
         <span class="uppercase grey"> <?= $username ?></span>

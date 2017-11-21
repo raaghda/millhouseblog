@@ -4,11 +4,11 @@
 
 <div class="page404">
 
-<h3>Sorry, this page is not<br>what you are looking for :(</h3>
+    <h1>Ledsen!</h1>
 
-<img src="/millhouseblog/www/images/IndelibleAliveAmericancrow-max-1mb.gif">
-
-<h4>Please head back to <a href="/millhouseblog/www/?page=home">Home</a></h4>
+<img src="/millhouseblog/www/images/sorry.png">
+    <p>Det här är inte sidan du är ute efter!</p>
+    <p><a href="/millhouseblog/www/?page=home">Klicka här för att återvänta till Startsidan</a></p>
 
 </div>
 

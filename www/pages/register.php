@@ -12,13 +12,13 @@
                         /* UNVALID DETAILS MESSAGE BELOW */
 
                         if(isset($_GET['nouser'])){
-                            echo $_GET['nouser'];
+                            echo '<div class="messagebox_fail">' . $_GET['nouser'] . '</div>';
                         }
 
                         /* UNVALID PASSWORD MESSAGE BELOW */
 
                         if(isset($_GET['notValid'])){
-                            echo $_GET['notValid'];
+                            echo '<div class="messagebox_fail">' . $_GET['notValid'] . '</div>';
                         }
 
                     ?>

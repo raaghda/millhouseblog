@@ -37,7 +37,19 @@ a:hover{
 color: #4D7E95; /* OBS! Temporary*/
 }
 
+.messagebox_fail{
+    color: #F03434;
+    font-style: italic;
+    text-decoration: underline;
+    margin-bottom: 20px; 
+}
 
+.messagebox_success{
+    color: #2ECC71;
+    font-style: italic;
+    text-decoration: underline;
+    margin-bottom: 20px; 
+}
 
 
 /*  Navbar */
@@ -101,10 +113,6 @@ aside {
     margin-bottom: 100px;
     text-align: center;
     border-radius: 15px;
-}
-
-.messagebox{
-    margin-bottom: 20px;
 }
 
 input[type=username], input[type=password], 
@@ -330,10 +338,14 @@ textarea{
 }
 
 .page404 img{
+    opacity: 0.2;
     margin: 2em;
     width: 300px;
 }
 
+.page404 a{
+    text-decoration: underline;
+}
 
 
 /* Footer */

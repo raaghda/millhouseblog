@@ -42,7 +42,7 @@
     //boolean in_array checks the file extention ($file_ActualExt) against the types listed in the array   
     if (in_array($fileActualExt, $allowed)){
         if ($fileError === 0){
-            if($fileSize < 500000){
+            if($fileSize < 5000000){
                 
                 //start uploading the file
                 //variable created for new file name in order to avoid overwriting (unique id function using time stamp and file ext)

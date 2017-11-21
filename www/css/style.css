@@ -318,6 +318,24 @@ textarea{
 }
 
 
+/* FAQ-page */
+
+.faq{
+    background-image: url('../images/background_lightblue.jpg');
+    margin: 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right 0;
+}
+
+.faq_box{
+    background-color: #fff;
+    padding-top: 40px;
+    padding-bottom: 40px; 
+    margin-top: 160px;
+    margin-bottom: 160px;
+    border-radius: 15px;
+}
 
 
 /* Footer */

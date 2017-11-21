@@ -21,7 +21,7 @@ require './parts/database.php';
     //if any of the fields not filled, an error message will be returned (see savepost.php for message)
     if (isset($_GET['nocomment'])){?>
     
-    <p><?= $_GET['nocomment'];?></p>
+    <p style="color: red; text-align:center"><?= $_GET['nocomment'];?></p>
     
     <?php
     }

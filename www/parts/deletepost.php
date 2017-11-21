@@ -22,8 +22,8 @@ $statement->execute(array(":postid" => $post_id,));
     
 
 
-//Should the user be redirected to the homepage?
-header ("Location: /millhouseblog/www/?page=home");
+//redirected to user's profile
+header ("Location: /millhouseblog/www/?page=profile");
 
 
 }   

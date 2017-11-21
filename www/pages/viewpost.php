@@ -139,7 +139,8 @@ if(isset($_GET['nocomment'])){
 ?>
                            
 <? if(isset($_SESSION['loggedIn'])){ ?>
-<form action="./?page=editpost" method="POST" >
+<!--action sends to editpost via MVC(?) in order to pick up the css sheet. -->
+<form action="./?page=editpost" method="POST">
 <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
 <input type="submit" name="edit" value="Edit">  
 </form> 

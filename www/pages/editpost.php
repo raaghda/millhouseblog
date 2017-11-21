@@ -3,20 +3,19 @@ require './parts/database.php';
 
 $post_id = $_POST["post_id"]; //Post sent from edit button input on viewpost.php
 
+//query pulling posts out by $post_id sent from edit button in viewpost
 $statement = $pdo->prepare("SELECT * FROM post WHERE postid = $post_id");
-
-//$statement = $pdo->prepare("SELECT * FROM post WHERE postid = :postid");
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($posts as $post){    
-$title = $post['title'];
-$user_id = $post['userid'];
-$post_id = $post['postid'];
-$category_id = $post['categoryid'];
-$image = $post['image'];
-$date_of_post = $post['date'];
-$text = $post['text'];
+    $title = $post['title'];
+    $user_id = $post['userid'];
+    $post_id = $post['postid'];
+    $category_id = $post['categoryid'];
+    $image = $post['image'];
+    $date_of_post = $post['date'];
+    $text = $post['text'];
 
 
 
@@ -45,10 +44,10 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="form-group row">
                 <div class="col-sm-3">
-                   <!--input type="text" name="categoryid" value="<?=$category_name;?>"-->
+                   
+                   <!--category dropdown list-->
                     <select required name="categoryid"> 
-                        <!--option value="" >Välja Kategori</option-->  
-      
+                         
                           <?php
                             foreach ($categories as $category){
                                 

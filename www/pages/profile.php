@@ -7,14 +7,18 @@ require 'parts/functions.php';
 $userid = $_SESSION["user"]["userid"];
 
 // 2. HÄMTA EN ANVÄNDARE FRÅN DATABASEN SOM HAR DET USERID SOM VI FICK FRÅN GET-PARAMETERN (SE KODEN I LOGIN HUR VI HÄMTAR USERINFORMATION FRÅN DATABASEN)
-
 $statement = $pdo->prepare("SELECT username, userid, email, name, role, registertime FROM user WHERE userid = :userid");
-
 $statement->execute(array(
 ":userid" => $userid
 ));
 
+//We save the profile details in an array, called fetched user
 $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
+
+
+
+//Fetch count hur många comments som är gjorda av userid = userid
+
 
 ?>
 
@@ -112,7 +116,8 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
     
 
     <div class="row">
-        <div class="user_comments_wrapper col-12 col-lg-8 offset-lg-2">    
+        <div class="user_comments_wrapper col-12 col-lg-8 offset-lg-2">   
+            <!-- Put this in if-statement? Showing something different when comments == 0-->
             <h1>Dina senaste kommentarer:</h1>
         </div>
     </div>

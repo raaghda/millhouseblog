@@ -95,7 +95,7 @@
                 //..get email from comment table
                 //else store user_id and get username from user table
                 if ($comments[$keys[$i]]['userid'] == NULL){
-                    $username = $comments[$keys[$i]]['email'];
+                    $username = $comments[$keys[$i]]['name'];
                 } else {
                     $user_id = $comments[$keys[$i]]['userid'];
                     $username = get_row_with_input("username", "user", "userid", $user_id);

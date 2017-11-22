@@ -19,8 +19,12 @@ $statement->execute(array(
 $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 //Variable for formating date and time correctly
-$date = $fetcheduser["registertime"];
+$date = $fetched_user["registertime"];
 $dt = new datetime($date);
+
+//Fixes bug showing unknown offset when database has no posts/comments
+$post_by_user = '';
+$comments_on_user_post = '';
 
 
 //SQL-query fetching total number of POSTS made by user
@@ -31,9 +35,9 @@ $statement = $pdo->prepare(
     ON post.userid = user.userid 
     WHERE user.userid = $userid");
 $statement->execute(array(
-    ":total" => $posts
+    ":total" => $post_by_user
     ));
-$posts = $statement->fetch(PDO::FETCH_ASSOC);
+$post_by_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 
 //SQL-query fetching total number of COMMENTS on posts made by user
@@ -45,9 +49,9 @@ $statement = $pdo->prepare(
     ON comment.postid = post.postid
     WHERE post.userid = $userid");
 $statement->execute(array(
-":total" => $comments
+":total" => $comments_on_user_post
 ));
-$comments = $statement->fetch(PDO::FETCH_ASSOC);
+$comments_on_user_post = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -63,14 +67,14 @@ $comments = $statement->fetch(PDO::FETCH_ASSOC);
               
     <div class="row">
         <div class="col-6 offset-3 d-none d-md-block"> 
-            <p id=user_stats> <?= $posts['total'] ?> inlägg på bloggen </br>
-            <?php if($comments['total'] == 1)
+            <p id=user_stats> <?= $post_by_user['total'] ?> inlägg på bloggen </br>
+            <?php if($comments_on_user_post['total'] == 1)
                         {
-                        echo $comments['total'] . ' mottagen kommentar'; 
+                        echo $comments_on_user_post['total'] . ' mottagen kommentar'; 
                         } 
                         else
                         {
-                            echo $comments['total'] . ' mottagna kommentarer';
+                            echo $comments_on_user_post['total'] . ' mottagna kommentarer';
                         } ?>
             </br> Medlem sedan 
             <time> <?= $dt->format('Y-m-d'); ?> </time></p>
@@ -94,9 +98,6 @@ $comments = $statement->fetch(PDO::FETCH_ASSOC);
     </div>
     
     <?php
-    //Fixes bug showing unknown offset when database has no posts/comments
-    $post = '';
-    $comments = '';
 
     //Fetches posts made by logged in user, using the same display posts-strucutre as in home
     $statement = $pdo->prepare("SELECT * FROM post WHERE userid = $userid ORDER by date DESC");
@@ -105,16 +106,15 @@ $comments = $statement->fetch(PDO::FETCH_ASSOC);
     $keys = array_keys($post);
 
     for($i=0; $i<5; $i++):
-    $user_id = $post[$keys[$i]]['userid'];
-    $post_id = $post[$keys[$i]]['postid'];
-    $category_id = $post[$keys[$i]]['categoryid'];
+    $single_post_id = $post[$keys[$i]]['postid'];
+    $single_category_id = $post[$keys[$i]]['categoryid'];
 
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
     $username = get_row_with_input('username', 'user', 'userid', $user_id);
 
     $number_of_comments = count_comments($post_id);
     
-    if($post_id == NULL)
+    if($single_post_id == NULL)
     {
         //Fixes problem with "empty posts" showing if there are less than five posts
         break; 
@@ -146,6 +146,7 @@ $comments = $statement->fetch(PDO::FETCH_ASSOC);
                 </header>
                 <p><?=$post[$keys[$i]]['text'];?></p>
                 <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+                <!-- Link to edit-post will be added -->
                 <a href="#">Redigera inlägg</a>
                 <form action="../www/parts/deletepost.php" method="POST">
                     <input type="hidden" name="post_id" value="<?= $post_id ?>">
@@ -167,14 +168,12 @@ $comments = $statement->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <?php
-    $statement = $pdo->prepare("SELECT * FROM comment WHERE userid = {$userid} ORDER by date DESC");
+    $statement = $pdo->prepare("SELECT * FROM comment WHERE userid = $userid ORDER by date DESC");
     $statement->execute();
     $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
     $keys = array_keys($comments);
 
     for ($i = 0; $i < 5; $i++):
-        $post_id = $comments[$keys[$i]]['postid'];
-        $user_id = $comments[$keys[$i]]['userid'];
         $comment_date = $comments[$keys[$i]]['date'];
         $comment_id = $comments[$keys[$i]]['commentid'];
         $comment = $comments[$keys][$i]['comment'];

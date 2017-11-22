@@ -88,10 +88,10 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                     $role = '';
                     $post_id = get_row_with_input('postid', 'comment', 'postid', $comment_info["postid"]);
                     //if a person that made a comment isnt a user, and therefore has no userid..
-                    //..get name from comment table.
+                    //..get email from comment table.
                     //else store user id and get username from user table
                     if($comment_info['userid'] == NULL){
-                        $comment_name = $comment_info['name'];
+                        $comment_name = $comment_info['email'];
                     } else {
                         $user_id = $comment_info['userid'];
                         $comment_name = get_row_with_input('username', 'user', 'userid', $user_id);

@@ -14,7 +14,7 @@
 
     if($_POST["password"] == $validPassword){
 
-    if(!empty($username && $password && $name && $email)){
+    if(!empty($username && $password && $validPassword && $name && $email)){
         $statement = $pdo->prepare("INSERT INTO user (username, password, name, email) VALUES (:username, :password, :name, :email)");
 
         $statement->execute(array(

@@ -37,7 +37,19 @@ a:hover{
 color: #4D7E95; /* OBS! Temporary*/
 }
 
+.messagebox_fail{
+    color: #F03434;
+    font-style: italic;
+    text-decoration: underline;
+    margin-bottom: 20px; 
+}
 
+.messagebox_success{
+    color: #2ECC71;
+    font-style: italic;
+    text-decoration: underline;
+    margin-bottom: 20px; 
+}
 
 
 /*  Navbar */
@@ -321,6 +333,19 @@ textarea{
     margin-bottom:1em;
 }
 
+.page404{
+    text-align: center;
+    background: white;
+    max-width: 600px;
+    padding:2em;
+    margin: 1em auto;
+}
+
+.page404 img{
+    opacity: 0.2;
+    margin: 2em;
+    width: 300px;
+}
 
 /* FAQ-page */
 
@@ -339,6 +364,9 @@ textarea{
     margin-top: 160px;
     margin-bottom: 160px;
     border-radius: 15px;
+    
+.page404 a{
+    text-decoration: underline;
 }
 
 

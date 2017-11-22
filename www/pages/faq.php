@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="container-fluid faq">
     <div class="row">
         <div class="faq_box col-6 offset-3">
@@ -11,6 +10,3 @@
         </div>
     </div>
 </div>
-=======
-<h1 class="heading">FAQ</h1>
->>>>>>> profile-page

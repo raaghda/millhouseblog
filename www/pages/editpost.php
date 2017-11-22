@@ -3,27 +3,28 @@ require './parts/database.php';
 
 $post_id = $_POST["post_id"]; //Post sent from edit button input on viewpost.php
 
+//query pulling posts out by $post_id sent from edit button in viewpost
 $statement = $pdo->prepare("SELECT * FROM post WHERE postid = $post_id");
-
-//$statement = $pdo->prepare("SELECT * FROM post WHERE postid = :postid");
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($posts as $post){    
-$title = $post['title'];
-$user_id = $post['userid'];
-$post_id = $post['postid'];
-$category_id = $post['categoryid'];
-$image = $post['image'];
-$date_of_post = $post['date'];
-$text = $post['text'];
+    $title = $post['title'];
+    $user_id = $post['userid'];
+    $post_id = $post['postid'];
+    $category_id = $post['categoryid'];
+    $image = $post['image'];
+    $date_of_post = $post['date'];
+    $text = $post['text'];
 
 
 
 $statement = $pdo->prepare("SELECT * FROM category");
 $statement->execute();
 $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+     
+//If statement checking if user is logged in and if user is author of post
+if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id){   
 ?>
 
 <div class="container createpost">
@@ -45,10 +46,10 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="form-group row">
                 <div class="col-sm-3">
-                   <!--input type="text" name="categoryid" value="<?=$category_name;?>"-->
+                   
+                   <!--category dropdown list-->
                     <select required name="categoryid"> 
-                        <!--option value="" >Välja Kategori</option-->  
-      
+                         
                           <?php
                             foreach ($categories as $category){
                                 
@@ -85,5 +86,9 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
     </form>
 </div>
 <?php
-  }
+  }else{
+    //can't use a header here as already echoed out, therefore need to echo not-authorized message
+    echo "You are not authorized to edit this post.";
+ }
+} 
 ?>

@@ -22,9 +22,6 @@ $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 $date = $fetched_user["registertime"];
 $dt = new datetime($date);
 
-//Fixes bug showing unknown offset when database has no posts/comments
-$post = '';
-$comments = '';
 
 
 //SQL-query fetching total number of POSTS made by user
@@ -35,9 +32,9 @@ $statement = $pdo->prepare(
     ON post.userid = user.userid 
     WHERE user.userid = $userid");
 $statement->execute(array(
-    ":total" => $posts
+    ":total" => $posts_by_user
     ));
-$posts = $statement->fetch(PDO::FETCH_ASSOC);
+$posts_by_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 
 //SQL-query fetching total number of COMMENTS on posts made by user
@@ -49,9 +46,9 @@ $statement = $pdo->prepare(
     ON comment.postid = post.postid
     WHERE post.userid = $userid");
 $statement->execute(array(
-":total" => $comments
+":total" => $comments_on_users_posts
 ));
-$comments = $statement->fetch(PDO::FETCH_ASSOC);
+$comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -67,14 +64,14 @@ $comments = $statement->fetch(PDO::FETCH_ASSOC);
               
     <div class="row">
         <div class="col-6 offset-3 d-none d-md-block"> 
-            <p id=user_stats> <?= $posts['total'] ?> inlägg på bloggen </br>
-            <?php if($comments['total'] == 1)
+            <p id=user_stats> <?= $posts_by_user['total'] ?> inlägg på bloggen </br>
+            <?php if($comments_on_users_posts['total'] == 1)
                         {
-                        echo $comments['total'] . ' mottagen kommentar'; 
+                        echo $comments_on_users_posts['total'] . ' mottagen kommentar'; 
                         } 
                         else
                         {
-                            echo $comments['total'] . ' mottagna kommentarer';
+                            echo $comments_on_users_posts['total'] . ' mottagna kommentarer';
                         } ?>
             </br> Medlem sedan 
             <time> <?= $dt->format('Y-m-d'); ?> </time></p>
@@ -106,15 +103,16 @@ $comments = $statement->fetch(PDO::FETCH_ASSOC);
     $keys = array_keys($post);
 
     for($i=0; $i<5; $i++):
-    $post_id = $post[$keys[$i]]['postid'];
+    $single_post_id = $post[$keys[$i]]['postid'];
     $category_id = $post[$keys[$i]]['categoryid'];
-
-    $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
-    $username = get_row_with_input('username', 'user', 'userid', $user_id);
+    $category_name = $post[$keys[$i]]['name'];
+    $username = $post[$keys[$i]]['username'];
+    $date = $post[$keys[$i]]['date'];
+    $dt = new datetime($date);
 
     $number_of_comments = count_comments($post_id);
     
-    if($post_id == NULL)
+    if($single_post_id == NULL)
     {
         //Fixes problem with "empty posts" showing if there are less than five posts
         break; 
@@ -129,7 +127,9 @@ $comments = $statement->fetch(PDO::FETCH_ASSOC);
                 <header>  
                 <span class="uppercase grey"><?=$category_name?></span>
                 <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
-                <time class="grey">Publicerat den: <?=$post[$keys[$i]]['date'];?></time>
+                <time class="grey">Publicerat den:  
+                    <?= $dt->format('Y-m-d'); ?>
+                </time>
                 <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
                 <?= 
                 '(' . $number_of_comments . ')'; 
@@ -175,11 +175,12 @@ $comments = $statement->fetch(PDO::FETCH_ASSOC);
 
     for ($i = 0; $i < 5; $i++):
         $post_id = $comments[$keys[$i]]['postid'];
+        $post_title = $comments[$keys[$i]]['title'];
         $comment_date = $comments[$keys[$i]]['date'];
         $comment_id = $comments[$keys[$i]]['commentid'];
         $comment = $comments[$keys][$i]['comment'];
-
-        $post_title = get_row_with_input("title", "post", "postid", $post_id);
+        $date = $comments[$keys[$i]]['date'];
+        $dt = new datetime($date);
 
         if($comment_id == NULL)
         {
@@ -197,7 +198,9 @@ $comments = $statement->fetch(PDO::FETCH_ASSOC);
                     <h3><?=$post_title?></h3>                    
                     <p>Din kommentar: 
                     <?=$comments[$keys[$i]]['comment'];?></p>
-                    <time class="grey">Kommenterades den: <?=$comments[$keys[$i]]['date']?></time>
+                    <time class="grey">Kommenterades den: 
+                    <?= $dt->format('Y-m-d'); ?>
+                    </time>
                     <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
                     
                 </article>

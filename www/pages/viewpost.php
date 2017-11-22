@@ -27,7 +27,8 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
 
         //FETCH COMMENTS
-        $statement = $pdo->prepare("SELECT * FROM comment INNER JOIN post ON comment.postid = post.postid WHERE comment.postid = $post_id");
+        //Select all from comments table where postid = $post_id from query above
+        $statement = $pdo->prepare("SELECT * FROM comment WHERE postid = $post_id");
         $statement->execute();
         $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
         $number_of_comments = count($comments);
@@ -87,10 +88,10 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                     $role = '';
                     $post_id = get_row_with_input('postid', 'comment', 'postid', $comment_info["postid"]);
                     //if a person that made a comment isnt a user, and therefore has no userid..
-                    //..get email from comment table.
+                    //..get name from comment table.
                     //else store user id and get username from user table
                     if($comment_info['userid'] == NULL){
-                        $comment_name = $comment_info['email'];
+                        $comment_name = $comment_info['name'];
                     } else {
                         $user_id = $comment_info['userid'];
                         $comment_name = get_row_with_input('username', 'user', 'userid', $user_id);

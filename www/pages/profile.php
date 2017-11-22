@@ -7,9 +7,10 @@ require 'parts/logincheck.php';
 $userid = $_SESSION["user"]["userid"];
 
 // 2. HÄMTA EN ANVÄNDARE FRÅN DATABASEN SOM HAR DET USERID SOM VI FICK FRÅN GET-PARAMETERN (SE KODEN I LOGIN HUR VI HÄMTAR USERINFORMATION FRÅN DATABASEN)
-$statement = $pdo->prepare("SELECT username, userid, email, name, role, registertime 
-                            FROM user 
-                            WHERE userid = :userid");
+$statement = $pdo->prepare(
+    "SELECT username, userid, email, name, role, registertime 
+    FROM user 
+    WHERE userid = :userid");
 $statement->execute(array(
 ":userid" => $userid
 ));
@@ -22,19 +23,34 @@ $date = $fetcheduser["registertime"];
 $dt = new datetime($date);
 
 
-//Fetching total number of posts made by user
-$statement = $pdo->prepare("SELECT COUNT(post.postid) 
-                            AS total 
-                            FROM post INNER JOIN user 
-                            ON post.userid = user.userid 
-                            WHERE user.userid = $userid");
+//SQL-query fetching total number of POSTS made by user
+$statement = $pdo->prepare(
+    "SELECT COUNT(post.postid) 
+    AS total 
+    FROM post INNER JOIN user 
+    ON post.userid = user.userid 
+    WHERE user.userid = $userid");
 $statement->execute(array(
     ":total" => $posts
     ));
 $posts = $statement->fetch(PDO::FETCH_ASSOC);
 
 
+//SQL-query fetching total number of COMMENTS on posts made by user
+$statement = $pdo->prepare(
+    "SELECT COUNT(comment.commentid)
+    AS total
+    FROM comment
+    LEFT JOIN post
+    ON comment.postid = post.postid
+    WHERE post.userid = $userid");
+$statement->execute(array(
+":total" => $comments
+));
+$comments = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
+
+
 
 <div class="container-fluid profile_header">
      <div class="row">
@@ -47,7 +63,16 @@ $posts = $statement->fetch(PDO::FETCH_ASSOC);
               
     <div class="row">
         <div class="col-6 offset-3 d-none d-md-block"> 
-            <p id=user_stats> <?= $posts['total'] ?> inlägg med XX kommentarer </br> Medlem sedan 
+            <p id=user_stats> <?= $posts['total'] ?> inlägg på bloggen </br>
+            <?php if($comments['total'] == 1)
+                        {
+                        echo $comments['total'] . ' mottagen kommentar'; 
+                        } 
+                        else
+                        {
+                            echo $comments['total'] . ' mottagna kommentarer';
+                        } ?>
+            </br> Medlem sedan 
             <time> <?= $dt->format('Y-m-d'); ?> </time></p>
         </div>
     </div>
@@ -69,8 +94,12 @@ $posts = $statement->fetch(PDO::FETCH_ASSOC);
     </div>
     
     <?php
+    //Fixes bug showing unknown offset when database has no posts/comments
+    $post = '';
+    $comments = '';
+
     //Fetches posts made by logged in user, using the same display posts-strucutre as in home
-    $statement = $pdo->prepare("SELECT * FROM post WHERE userid = {$userid} ORDER by date DESC");
+    $statement = $pdo->prepare("SELECT * FROM post WHERE userid = $userid ORDER by date DESC");
     $statement->execute();
     $post = $statement->fetchAll(PDO::FETCH_ASSOC);
     $keys = array_keys($post);

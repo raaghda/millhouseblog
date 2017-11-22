@@ -89,8 +89,11 @@
             for ($i = 0; $i < 5; $i++){
                 //store post_id to get post_title
                 //store post_id to be able to link to that specific post
-                //user_id to getuser_name from user table
                 $post_id = $comments[$keys[$i]]['postid'];
+
+                //if who made a comment wasnt logged in and therefore has no userid..
+                //..get email from comment table
+                //else store user_id and get username from user table
                 if ($comments[$keys[$i]]['userid'] == NULL){
                     $username = $comments[$keys[$i]]['email'];
                 } else {

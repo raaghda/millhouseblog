@@ -26,8 +26,15 @@ require 'parts/fetch_posts.php';
 //How many comments there is on each post. 
 //Link to each specific post
 
-//$post is in fetch_posts
+//$post is in fetch_posts                
+            
  for($i=0; $i<5; $i++){
+     
+     //if the index $i is less than the total number of posts
+     if ($i < count($posts)){
+     
+     //var_dump(count($keys), count($posts));
+     
     //storing user_id to get to get user_name from user-table
     $user_id = $posts[$keys[$i]]['userid'];
     //storing post_id for the link to view the specific post
@@ -82,7 +89,7 @@ require 'parts/fetch_posts.php';
             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
         </nav>   
   </article><!--/post article-->
-  <?php } 
+  <?php }} 
 }?>
 
     </div><!--/col-md-8-->

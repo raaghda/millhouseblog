@@ -19,6 +19,7 @@ $statement->execute(array(
 //We save the profile details in an array, called fetched user
 $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
+//Declares empty variables to avoid them being "undefined" before value is set
 $posts_by_user = '';
 $comments_on_users_posts = '';
 
@@ -107,25 +108,24 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
     $post = $statement->fetchAll(PDO::FETCH_ASSOC);
     $keys = array_keys($post);
 
+
+     //Loop through and display latest post (max 5)
     for($i=0; $i<5; $i++):
-    $single_post_id = $post[$keys[$i]]['postid'];
+    $post_id = $post[$keys[$i]]['postid'];
     $category_id = $post[$keys[$i]]['categoryid'];
-    $username = $post[$keys[$i]]['username'];
     $date = $post[$keys[$i]]['date'];
     $dt = new datetime($date);
 
-    $number_of_comments = count_comments($post_id);
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
-
-    if($single_post_id == NULL)
+    $number_of_comments = count_comments($post_id);
+    
+    // DISPLAYS UNDEFINED OFFSET AND INDEX, FIX PROBLEM
+    if(!isset($post_id))
     {
-        //Fixes problem with "empty posts" showing if there are less than five posts
         break; 
     }
-    else
-    { 
-        //Loop through and display latest post (max 5)
-    ?>  
+    else 
+    { ?>
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2">    
             <article class="post">
@@ -182,15 +182,15 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
         $post_id = $comments[$keys[$i]]['postid'];
         $comment_date = $comments[$keys[$i]]['date'];
         $comment_id = $comments[$keys[$i]]['commentid'];
-        $comment = $comments[$keys][$i]['comment'];
+        $comment = $comments[$keys[$i]]['comment'];
         $date = $comments[$keys[$i]]['date'];
         $dt = new datetime($date);
 
         $post_title = get_row_with_input("title", "post", "postid", $post_id);
 
-        if($comment_id == NULL)
+        // DISPLAYS UNDEFINED OFFSET AND INDEX, FIX PROBLEM
+        if(!isset($comment_id))
         {
-            //Same fix as posts - fixes problem with "empty comments" showing if there are less than five
             break; 
         }
         else

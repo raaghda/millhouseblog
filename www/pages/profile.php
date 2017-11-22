@@ -109,8 +109,11 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
     $keys = array_keys($post);
 
 
-     //Loop through and display latest post (max 5)
+     //Loop through and display latest post (max 5)     
     for($i=0; $i<5; $i++):
+    //if the index $i is less than the total number of posts
+    if ($i < count($post))
+    {
     $post_id = $post[$keys[$i]]['postid'];
     $category_id = $post[$keys[$i]]['categoryid'];
     $date = $post[$keys[$i]]['date'];
@@ -118,14 +121,8 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
 
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
     $number_of_comments = count_comments($post_id);
-    
-    // DISPLAYS UNDEFINED OFFSET AND INDEX, FIX PROBLEM
-    if(!isset($post_id))
-    {
-        break; 
-    }
-    else 
-    { ?>
+
+    ?>
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2">    
             <article class="post">
@@ -177,24 +174,19 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
     $statement->execute();
     $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
     $keys = array_keys($comments);
-
+    
+    //Loop through and display latest comments by user (max 5)     
     for ($i = 0; $i < 5; $i++):
+        //if the index $i is less than the total number of posts
+        if ($i < count($comments))
+        {
         $post_id = $comments[$keys[$i]]['postid'];
         $comment_date = $comments[$keys[$i]]['date'];
         $comment_id = $comments[$keys[$i]]['commentid'];
         $comment = $comments[$keys[$i]]['comment'];
         $date = $comments[$keys[$i]]['date'];
         $dt = new datetime($date);
-
         $post_title = get_row_with_input("title", "post", "postid", $post_id);
-
-        // DISPLAYS UNDEFINED OFFSET AND INDEX, FIX PROBLEM
-        if(!isset($comment_id))
-        {
-            break; 
-        }
-        else
-        {
         ?>  
         <div class="row">
             <div class="col-12 col-lg-8 offset-lg-2">    

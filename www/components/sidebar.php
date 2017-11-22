@@ -86,7 +86,8 @@
             $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
             $keys = array_keys($comments);
 
-            for ($i = 0; $i < 5; $i++){
+            for ($i = 0; $i < 5; $i++):
+                if ($i < count($comments)){
                 //store post_id to get post_title
                 //store post_id to be able to link to that specific post
                 $post_id = $comments[$keys[$i]]['postid'];
@@ -114,7 +115,7 @@
                 </li>
 
         <?php
-        }?>
+        } endfor; ?>
             </ul>
         </aside>
     </div>

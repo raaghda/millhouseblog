@@ -1,6 +1,7 @@
 <?php
 require 'parts/database.php';
 require 'parts/functions.php';
+require 'parts/logincheck.php';
 
 // 1. VI BEHÖVER HÄMTA USERID (KOPIERA SAMMA LOGIK SOM VI HAR GET PARAMETERN PAGE OCH ÄNDRA DEN TILL USERID)
 $userid = $_SESSION["user"]["userid"];
@@ -12,6 +13,7 @@ $statement = $pdo->prepare("SELECT username, userid, email, name, role, register
 $statement->execute(array(
 ":userid" => $userid
 ));
+
 //We save the profile details in an array, called fetched user
 $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -25,7 +27,7 @@ $statement = $pdo->prepare("SELECT COUNT(post.postid)
                             AS total 
                             FROM post INNER JOIN user 
                             ON post.userid = user.userid 
-                            WHERE USER.userid = $userid");
+                            WHERE user.userid = $userid");
 $statement->execute(array(
     ":total" => $posts
     ));

@@ -23,8 +23,8 @@ $date = $fetched_user["registertime"];
 $dt = new datetime($date);
 
 //Fixes bug showing unknown offset when database has no posts/comments
-$post_by_user = '';
-$comments_on_user_post = '';
+$post = '';
+$comments = '';
 
 
 //SQL-query fetching total number of POSTS made by user
@@ -35,9 +35,9 @@ $statement = $pdo->prepare(
     ON post.userid = user.userid 
     WHERE user.userid = $userid");
 $statement->execute(array(
-    ":total" => $post_by_user
+    ":total" => $posts
     ));
-$post_by_user = $statement->fetch(PDO::FETCH_ASSOC);
+$posts = $statement->fetch(PDO::FETCH_ASSOC);
 
 
 //SQL-query fetching total number of COMMENTS on posts made by user
@@ -49,9 +49,9 @@ $statement = $pdo->prepare(
     ON comment.postid = post.postid
     WHERE post.userid = $userid");
 $statement->execute(array(
-":total" => $comments_on_user_post
+":total" => $comments
 ));
-$comments_on_user_post = $statement->fetch(PDO::FETCH_ASSOC);
+$comments = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -67,14 +67,14 @@ $comments_on_user_post = $statement->fetch(PDO::FETCH_ASSOC);
               
     <div class="row">
         <div class="col-6 offset-3 d-none d-md-block"> 
-            <p id=user_stats> <?= $post_by_user['total'] ?> inlägg på bloggen </br>
-            <?php if($comments_on_user_post['total'] == 1)
+            <p id=user_stats> <?= $posts['total'] ?> inlägg på bloggen </br>
+            <?php if($comments['total'] == 1)
                         {
-                        echo $comments_on_user_post['total'] . ' mottagen kommentar'; 
+                        echo $comments['total'] . ' mottagen kommentar'; 
                         } 
                         else
                         {
-                            echo $comments_on_user_post['total'] . ' mottagna kommentarer';
+                            echo $comments['total'] . ' mottagna kommentarer';
                         } ?>
             </br> Medlem sedan 
             <time> <?= $dt->format('Y-m-d'); ?> </time></p>
@@ -106,15 +106,15 @@ $comments_on_user_post = $statement->fetch(PDO::FETCH_ASSOC);
     $keys = array_keys($post);
 
     for($i=0; $i<5; $i++):
-    $single_post_id = $post[$keys[$i]]['postid'];
-    $single_category_id = $post[$keys[$i]]['categoryid'];
+    $post_id = $post[$keys[$i]]['postid'];
+    $category_id = $post[$keys[$i]]['categoryid'];
 
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
     $username = get_row_with_input('username', 'user', 'userid', $user_id);
 
     $number_of_comments = count_comments($post_id);
     
-    if($single_post_id == NULL)
+    if($post_id == NULL)
     {
         //Fixes problem with "empty posts" showing if there are less than five posts
         break; 
@@ -174,6 +174,7 @@ $comments_on_user_post = $statement->fetch(PDO::FETCH_ASSOC);
     $keys = array_keys($comments);
 
     for ($i = 0; $i < 5; $i++):
+        $post_id = $comments[$keys[$i]]['postid'];
         $comment_date = $comments[$keys[$i]]['date'];
         $comment_id = $comments[$keys[$i]]['commentid'];
         $comment = $comments[$keys][$i]['comment'];

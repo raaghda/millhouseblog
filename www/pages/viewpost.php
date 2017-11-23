@@ -50,7 +50,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                         </h2>
 
 
-                        <span>Publicerat av <?= $username.' '. '('.$user_email.')'; ?> den <time>
+                        <span id="viewpost_span">Publicerat av <?= $username.' '. '('.$user_email.')'; ?> den <time>
                             <?= $dt->format('Y-m-d'); ?>
                             </time>
                        </span>
@@ -141,7 +141,6 @@ if(isset($_SESSION['loggedIn'])){
                         </form>
 
 
-                        <!--action sends to editpost via MVC(?) in order to pick up the css sheet. -->
 
                         <?php
     }
@@ -160,7 +159,7 @@ if(isset($_SESSION['loggedIn'])){
         <div class="row">
             <div class="user_comments_wrapper col-12 col-lg-8 ">
                 <!-- Put this in if-statement? Showing something different when comments == 0-->
-                <h2>Kommentarar</h2>
+                <h2>Kommentarer</h2>
             </div>
         </div>
         
@@ -185,12 +184,11 @@ if(isset($_SESSION['loggedIn'])){
                         }
                 //LOOPING OUT COMMENTS
                 ?>
-            <article class="comment">
+            <article class="comment_box">
                 <header>
-                    <time>
-            <?= $dt->format('Y-m-d'); ?>
-        </time>
-                    <span> av <?=$comment_name?></span>
+                    <time id="commentbox"><?=$dt->format('Y-m-d'); ?></time>
+                    <p id="commentbox">av</p>
+                    <span id="commentbox" class="uppercase grey"><?=$comment_name?></span>
                 </header>
 
                 <p>

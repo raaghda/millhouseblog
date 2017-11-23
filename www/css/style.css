@@ -115,6 +115,10 @@ aside {
     border-radius: 15px;
 }
 
+.messagebox{
+    margin-bottom: 20px;
+}
+
 input[type=username], input[type=password], 
 input[type=email], input[type=name], input[type=submit]{
     background-color: #f2f2f2;
@@ -343,6 +347,24 @@ textarea{
     width: 300px;
 }
 
+/* FAQ-page */
+
+.faq_container{
+    background-image: url('../images/background_lightblue.jpg');
+    margin: 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right 0;
+}
+
+.faq_box{
+    background-color: #fff;
+    padding: 40px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    border-radius: 15px;
+}
+    
 .page404 a{
     text-decoration: underline;
 }
@@ -404,9 +426,14 @@ a:hover{
 
 
 
-/*camilla på home.php*/
+/*Span Classes*/
 .uppercase {
     text-transform: uppercase;
+}
+
+.smallcaps{
+    text-transform: lowercase;
+    font-variant: small-caps;
 }
 
 .grey {

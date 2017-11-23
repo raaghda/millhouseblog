@@ -36,6 +36,8 @@
                 }
 
                 ?>
+                
+                </div>
                
                 <form action="/millhouseblog/www/parts/login.php" method="post">
                     <input type="username" name ="username" placeholder="Användarnamn"><br>

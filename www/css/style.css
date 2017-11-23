@@ -245,7 +245,7 @@ textarea{
 .viewpost h2{
     margin: 25px 0 10px 0;
 }
-.viewpost span{
+#viewpost_span{
     float: left;
     width: 100%;
     padding: 10px 0 10px 0;
@@ -305,6 +305,12 @@ textarea{
 #edit_button{
     background: #2196f3;
     border: #1e88e5;
+}
+
+#commentbox{
+    padding:0;
+    margin:0;
+    display: inline-block;
 }
 
 
@@ -468,7 +474,13 @@ a:hover{
 /*headings*/
 
 
+/* time */
 
+time{
+    color: #607d8b;
+    font-weight: 500;
+    
+}
 
 
 /*Span Classes*/
@@ -521,8 +533,8 @@ width: 320px;
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
     
-.viewpost, .createpost{
-    //width: 60%;
+.createpost{
+    width: 60%;
 }
 .viewpost h6{
     font-size: 1em;

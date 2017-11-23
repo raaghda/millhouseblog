@@ -52,16 +52,6 @@ require 'parts/fetch_posts.php';
 
     $number_of_comments = count_comments($post_id);
 
-
-    //fixes the empty post. if theres not enough post to be looped out.
-    if($post_id == NULL)
-    {  
-      //Don't display "empty" posts if posts < 5
-      break;
-
-    }
-    else
-    { 
     //LOOPING OUT THE POSTS
     ?>  
       <article class="post">
@@ -90,7 +80,7 @@ require 'parts/fetch_posts.php';
         </nav>   
   </article><!--/post article-->
   <?php }} 
-}?>
+?>
 
     </div><!--/col-md-8-->
 

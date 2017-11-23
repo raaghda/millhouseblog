@@ -18,3 +18,18 @@ function count_comments($post_id){
     return $number_of_comments;
 }
 
+//takes in the string you want to shorten and the max-length you want
+function make_string_shorter($string, $max_length){
+    $string = strip_tags($string);
+
+    //checking if string is longer than max-length
+    if (strlen($string) > $max_length) {
+    
+        //make the string no more than max-length
+        $shortened_string = substr($string, 0, $max_length);
+        
+        //cut the string in after a word and add ... after string
+        $string = substr($shortened_string, 0, strrpos($shortened_string, ' ')).'...'; 
+    }
+    return $string;}
+

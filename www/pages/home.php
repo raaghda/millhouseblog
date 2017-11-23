@@ -29,8 +29,15 @@ require 'parts/fetch_posts.php';
 //How many comments there is on each post. 
 //Link to each specific post
 
-//$post is in fetch_posts
+//$post is in fetch_posts                
+            
  for($i=0; $i<5; $i++){
+     
+     //if the index $i is less than the total number of posts
+     if ($i < count($posts)){
+     
+     //var_dump(count($keys), count($posts));
+     
     //storing user_id to get to get user_name from user-table
     $user_id = $posts[$keys[$i]]['userid'];
     //storing post_id for the link to view the specific post
@@ -38,6 +45,7 @@ require 'parts/fetch_posts.php';
     $post_id = $posts[$keys[$i]]['postid'];
     //storing category_id to get the category_name from category table
     $category_id = $posts[$keys[$i]]['categoryid'];
+    
 
     //FUNCTIONS is in functions.php
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
@@ -46,18 +54,12 @@ require 'parts/fetch_posts.php';
     $date = $posts[$keys[$i]]['date'];
     $dt = new datetime($date);
 
+    //if post-text is longer than 500ch, shorten it
+    $post_text = make_string_shorter($posts[$keys[$i]]['text'], 500);
+
+    //count comments of this post
     $number_of_comments = count_comments($post_id);
 
-
-    //fixes the empty post. if theres not enough post to be looped out.
-    if($post_id == NULL)
-    {  
-      //Don't display "empty" posts if posts < 5
-      break;
-
-    }
-    else
-    { 
     //LOOPING OUT THE POSTS
     ?>  
       <article class="post">
@@ -79,14 +81,14 @@ require 'parts/fetch_posts.php';
         </a><!--added comments anchor-->
 
       </header>
-      <p><?=$posts[$keys[$i]]['text'];?></p>
+      <p><?=$post_text?></p>
 
         <nav class=””>
             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
         </nav>   
   </article><!--/post article-->
-  <?php } 
-}?>
+  <?php }} 
+?>
 
     </div><!--/col-md-8-->
 

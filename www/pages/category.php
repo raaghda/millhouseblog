@@ -57,6 +57,7 @@ $dateorder = "DESC";
         $username = get_row_with_input("username", "user", "userid", $userid);
         $date = $postinfo["date"]; 
         $dt = new datetime($date);
+        $post_text = make_string_shorter($postinfo["text"], 500);
         ?>
 
 <article class="post">
@@ -85,7 +86,7 @@ $dateorder = "DESC";
         } ?> 
         </a>
        
-       <p> <?= $postinfo["text"] ?> </p>
+       <p> <?= $post_text; ?> </p>
        <nav class=””>
             <a href="/millhouseblog/www/?page=viewpost&id=<?= $postinfo["postid"]; ?>">Läs hela inlägget</a>
         </nav> 

@@ -349,7 +349,7 @@ textarea{
 
 /* FAQ-page */
 
-.faq{
+.faq_container{
     background-image: url('../images/background_lightblue.jpg');
     margin: 0px;
     background-size: cover;
@@ -359,11 +359,11 @@ textarea{
 
 .faq_box{
     background-color: #fff;
-    padding-top: 40px;
-    padding-bottom: 40px; 
-    margin-top: 160px;
-    margin-bottom: 160px;
+    padding: 40px;
+    margin-top: 150px;
+    margin-bottom: 150px;
     border-radius: 15px;
+}
     
 .page404 a{
     text-decoration: underline;
@@ -426,9 +426,14 @@ a:hover{
 
 
 
-/*camilla på home.php*/
+/*Span Classes*/
 .uppercase {
     text-transform: uppercase;
+}
+
+.smallcaps{
+    text-transform: lowercase;
+    font-variant: small-caps;
 }
 
 .grey {

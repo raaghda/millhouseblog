@@ -122,6 +122,10 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
     $number_of_comments = count_comments($post_id);
 
+    //Puts post text into new variable, and uses a function for 
+    //limiting the number of characters to be displayed to 300
+    $post_text = make_string_shorter($post[$keys[$i]]['text'], 300);
+
     ?>
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2">    
@@ -146,7 +150,7 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
                 ?>
                 </a>
                 </header>
-                <p><?=$post[$keys[$i]]['text'];?></p>
+                <p><?=$post_text?></p>
                 <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
                 <!-- Link to edit-post will be added -->
                 <a href="#">Redigera inlägg</a>

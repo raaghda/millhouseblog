@@ -70,7 +70,9 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
             if (!is_null($image)){?>
             
             <!--display image and title as alt tag-->
-            <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-fluid" alt="<?=$title;?>">
+            <div class="blogpost_image">
+                <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-fluid" alt="<?=$title;?>">
+            </div>
             <?php
             }
             ?>
@@ -79,8 +81,11 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <p><?=$post_info['text'];?></p>
             </div>
             
-            
+        
+            <?php //COMMENTS ?>
+            <h2>Kommentar</h2>
             <a name="comments"></a><!--anchor to comments section.#comments will bring use to this line-->
+             
               <?php
                 foreach($comments as $comment_info){
                     $date = $comment_info["date"]; 

@@ -5,8 +5,6 @@ require 'parts/fetch_posts.php';
 ?>
 
 <div class="container landingpage">
-<<<<<<< HEAD
-=======
 
 
 <?php
@@ -19,7 +17,6 @@ require 'parts/fetch_posts.php';
     }
     ?>   
     
->>>>>>> master
 <h1 class="heading">Senaste inläggen</h1>
         <div class="row">
             <div class="col-lg-9">

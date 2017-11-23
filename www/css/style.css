@@ -263,6 +263,11 @@ textarea{
     margin-top: 10px;
 }
 
+.viewpost .img-fluid{
+    object-fit: cover;
+    width: 100%;
+}
+
 /* Profile Page */
 .profile_header{
     background-image: url('../images/background_profilepage.jpg');

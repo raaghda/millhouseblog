@@ -69,7 +69,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
             //if NOT no image (i.e. if there is an image)
             if (!is_null($image)){?>
             
-            <!--display image and title as alt tag-->
+            <!--display image, and display title as alt tag-->
             <div class="blogpost_image">
                 <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-fluid" alt="<?=$title;?>">
             </div>
@@ -81,8 +81,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <p><?=$post_info['text'];?></p>
             </div>
             
-        
-            <?php //COMMENTS ?>
+    
             <h2>Kommentar</h2>
             <a name="comments"></a><!--anchor to comments section.#comments will bring use to this line-->
              

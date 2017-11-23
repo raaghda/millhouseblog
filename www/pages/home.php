@@ -42,6 +42,7 @@ require 'parts/fetch_posts.php';
     $post_id = $posts[$keys[$i]]['postid'];
     //storing category_id to get the category_name from category table
     $category_id = $posts[$keys[$i]]['categoryid'];
+    
 
     //FUNCTIONS is in functions.php
     $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
@@ -50,6 +51,10 @@ require 'parts/fetch_posts.php';
     $date = $posts[$keys[$i]]['date'];
     $dt = new datetime($date);
 
+    //if post-text is longer than 500ch, shorten it
+    $post_text = make_string_shorter($posts[$keys[$i]]['text'], 500);
+
+    //count comments of this post
     $number_of_comments = count_comments($post_id);
 
     //LOOPING OUT THE POSTS
@@ -73,7 +78,7 @@ require 'parts/fetch_posts.php';
         </a><!--added comments anchor-->
 
       </header>
-      <p><?=$posts[$keys[$i]]['text'];?></p>
+      <p><?=$post_text?></p>
 
         <nav class=””>
             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>

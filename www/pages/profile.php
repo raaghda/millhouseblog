@@ -79,7 +79,7 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
                         {
                             echo $comments_on_users_posts['total'] . ' mottagna kommentarer';
                         } ?>
-            </br> Medlem sedan 
+            </br>Medlem sedan 
             <time> <?= $dt->format('Y-m-d'); ?> </time></p>
         </div>
     </div>
@@ -111,60 +111,63 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
 
      //Loop through and display latest post (max 5)     
     for($i=0; $i<5; $i++):
-    //if the index $i is less than the total number of posts
-    if ($i < count($post))
-    {
-    $post_id = $post[$keys[$i]]['postid'];
-    $category_id = $post[$keys[$i]]['categoryid'];
-    $date = $post[$keys[$i]]['date'];
-    $dt = new datetime($date);
+        //if the index $i is less than the total number of posts
+        if ($i < count($post))
+        {
+        $post_id = $post[$keys[$i]]['postid'];
+        $category_id = $post[$keys[$i]]['categoryid'];
+        $date = $post[$keys[$i]]['date'];
+        $dt = new datetime($date);
 
-    $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
-    $number_of_comments = count_comments($post_id);
+        $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
+        $number_of_comments = count_comments($post_id);
 
-    //Puts post text into new variable, and uses a function for 
-    //limiting the number of characters to be displayed to 300
-    $post_text = make_string_shorter($post[$keys[$i]]['text'], 300);
+        //Puts post text into new variable, and uses a function for 
+        //limiting the number of characters to be displayed to 300
+        $post_text = make_string_shorter($post[$keys[$i]]['text'], 300);
 
-    ?>
-    <div class="row">
-        <div class="col-12 col-lg-8 offset-lg-2">    
-            <article class="post">
-                <header>  
-                <span class="uppercase grey"><?=$category_name?></span>
-                <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
-                <time class="grey">Publicerat den:  
-                    <?= $dt->format('Y-m-d'); ?>
-                </time>
-                <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
-                <?= 
-                '(' . $number_of_comments . ')'; 
-                if($number_of_comments == 1)
-                {
-                    echo ' kommentar'; 
-                } 
-                else
-                {
-                    echo ' kommentarer';
-                } 
-                ?>
-                </a>
-                </header>
-                <p><?=$post_text?></p>
-                <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
-                <!-- Link to edit-post will be added -->
-                <a href="#">Redigera inlägg</a>
-                <form action="../www/parts/deletepost.php" method="POST">
-                    <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                    <input type="submit" name="delete" value="Delete">   
-                </form>
+        ?>
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">    
+                <article class="post">
+                    <header>  
+                    <span class="uppercase grey"><?=$category_name?></span>
+                    <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
+                    <time class="grey">Publicerat den:  
+                        <?= $dt->format('Y-m-d'); ?>
+                    </time>
+                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
+                    <?= 
+                    '(' . $number_of_comments . ')'; 
+                    if($number_of_comments == 1)
+                    {
+                        echo ' kommentar'; 
+                    } 
+                    else
+                    {
+                        echo ' kommentarer';
+                    } 
+                    ?>
+                    </a>
+                    </header>
+                    <p><?=$post_text?></p>
+                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+                    <form action="./?page=editpost" method="POST">
+                        <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                        <input id="edit_button" type="submit" name="edit" value="Edit">
+                    </form>
+                    
+                    <form action="../www/parts/deletepost.php" method="POST">
+                        <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                        <input type="submit" name="delete" value="Delete">   
+                    </form>
                 
-            </article>
-        </div> <!-- Closing row for each post-->
-    </div> <!-- Closing col for each post -->
+                </article>
+            </div> <!-- Closing row for each post-->
+        </div> <!-- Closing col for each post -->
     <?php } endfor; ?>
 
-    
+        
 
     <div class="row">
         <div class="user_comments_wrapper col-12 col-lg-8 offset-lg-2">   
@@ -196,17 +199,17 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
             <div class="col-12 col-lg-8 offset-lg-2">    
                 <article class="comment_box">
                     <span class="uppercase grey"><?=$category_name?></span>
-                    <h3><?=$post_title?></h3>                
-                    <p>Din kommentar: 
-                    <?=$comments[$keys[$i]]['comment'];?></p>
-                    <time class="grey">Kommenterades den: 
-                    <?= $dt->format('Y-m-d'); ?>
-                    </time>
-                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
-                    
-                </article>
-            </div> <!-- Closing row for each comment-->
-        </div> <!-- Closing col for each post -->
+                    <h3><?=$post_title?></h3>     
+                        <p>Din kommentar: 
+                        <?=$comments[$keys[$i]]['comment'];?></p>
+                        <time class="grey">Kommenterades den: 
+                        <?= $dt->format('Y-m-d'); ?>
+                        </time>
+                        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+                        
+                    </article>
+                </div> <!-- Closing row for each comment-->
+            </div> <!-- Closing col for each post -->
         <?php } endfor; ?>
 </div> <!-- Closing container profile content -->
     

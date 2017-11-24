@@ -22,7 +22,7 @@
             }
             ?> 
             <li><a href="?page=categories">Kategorier</a></li>
-            <li><a href="?page=faq">FAQ</a></li>
+            <li><a href="?page=about">Om oss</a></li>
             <li>
 
             <!-- Displays "Log in to logged out/unregistered user, and vice versa -->

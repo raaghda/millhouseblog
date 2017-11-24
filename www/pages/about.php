@@ -1,7 +1,7 @@
-<div class="container-fluid faq_container">
+<div class="container-fluid about_container">
     <div class="row">
-        <div class="col-10 col-sm-8 offset-1 offset-sm-2 
-        col-md-6 offset-md-3 col-lg-4 offset-lg-4 faq_box">
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 
+        col-md-6 offset-md-3 col-lg-4 offset-lg-4 about_box">
             <span class="grey">
                 <h1>Om Millhouse</h1>    
                 Blogportalen för dig som vill utforska din egen- 
@@ -12,6 +12,7 @@
                 Som medlem kan du skriva inlägg och skapa din egen 
                 plattform för inspiration – och dela den med andra.</br></br>
             <span>
+
             <span class="smallcaps grey">
                 Millhouse Blogportal ägs av Millhouse AB.
             <span>

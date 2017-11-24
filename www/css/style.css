@@ -398,9 +398,9 @@ textarea{
     width: 300px;
 }
 
-/* FAQ-page */
+/* ABOUT-page */
 
-.faq_container{
+.about_container{
     background-image: url('../images/background_lightblue.jpg');
     margin: 0px;
     background-size: cover;
@@ -408,7 +408,7 @@ textarea{
     background-position: right 0;
 }
 
-.faq_box{
+.about_box{
     background-color: #fff;
     padding: 40px;
     margin-top: 150px;

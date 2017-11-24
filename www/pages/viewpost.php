@@ -50,7 +50,8 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                         </h2>
 
 
-                        <span id="viewpost_span">Publicerat av <?= $username.' '. '('.$user_email.')'; ?> den <time>
+                        <span id="viewpost_span">Publicerat av <?= $username.' '. '('.$user_email.')'; ?> den 
+                           <time>
                             <?= $dt->format('Y-m-d'); ?>
                             </time>
                        </span>

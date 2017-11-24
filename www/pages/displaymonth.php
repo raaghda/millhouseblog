@@ -87,6 +87,7 @@ $months = $statement->fetchAll(PDO::FETCH_ASSOC);
         $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
         $date = $monthpost["date"];
         $dt = new datetime($date);
+        $month_text = make_string_shorter($monthpost["text"], 500);
         ?>
 
 <article class="post">
@@ -115,7 +116,7 @@ $months = $statement->fetchAll(PDO::FETCH_ASSOC);
         } ?> 
         </a>
        
-       <p> <?= $monthpost["text"] ?> </p>
+       <p> <?= $month_text; ?> </p>
        <nav class=””>
             <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>">Läs hela inlägget</a>
         </nav> 

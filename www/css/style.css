@@ -384,17 +384,45 @@ textarea{
     margin-bottom:1em;
 }
 
-.page404{
-    text-align: center;
-    background: white;
-    max-width: 600px;
-    padding:2em;
-    margin: 1em auto;
+/* 404-page*/
+
+.background_404{  
+    background-image: url('../images/background_lightblue.jpg');
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right 0;
+    display: -webkit-box;
+    
 }
 
-.page404 img{
+.page_404{
+    margin: auto;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 100px;
+    max-width: 400px;
+    border-radius: 10px;
+    background: white;
+    padding: 30px;
+}
+
+.page_404_message{
+    margin: 20px;
+}
+
+.page_404 p{
+    font-style: italic;
+    font-size: 0.85em;
+    margin: 5px;
+}
+
+.page_404 a{
+    text-decoration: underline;
+}
+
+.page_404 img{
     opacity: 0.2;
-    margin: 2em;
     width: 300px;
 }
 
@@ -414,10 +442,6 @@ textarea{
     margin-top: 150px;
     margin-bottom: 150px;
     border-radius: 15px;
-}
-    
-.page404 a{
-    text-decoration: underline;
 }
 
 

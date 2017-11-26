@@ -72,11 +72,13 @@ color: #4D7E95; /* OBS! Temporary*/
 
 .sidebar {
     background: white;
+    margin-bottom:1em;
 }
 
 aside {
     margin-top: 1.6em;
 }
+
 .sidebar h3 {
     text-transform: uppercase;
     font-size: 1.2em;
@@ -157,10 +159,7 @@ input[type=submit]:hover{
     max-width: 900px;
 }
 
-.heading{
-    text-align: center;
-    margin: 70px;
-}
+
 .categories a{
     border: 10px solid #f2f2f2;
     box-sizing: border-box;
@@ -320,8 +319,8 @@ textarea{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right 0;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     margin: 0px;
     text-align: center;
 }
@@ -429,7 +428,9 @@ footer{
 
 footer a{
     color: #f2f2f2;
-    font-size: 1em;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    line-height: 140%;
     text-decoration: none;
 }
 
@@ -444,7 +445,6 @@ footer ul{
 footer li{
     list-style: none;
     text-align: center;
-    margin: 10px;
 }
 
 footer li .fa{
@@ -460,7 +460,6 @@ p{
     color: #2d2d2d;
 }
 
-
 /*  Links */
 a{
     color: #4D7E95;
@@ -472,7 +471,6 @@ a:hover{
 
 
 /*headings*/
-
 
 
 

@@ -72,11 +72,19 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
                 </div>
             </div>
 
-            <!--div class="form-group row">
+           
+           
+           
+            <div class="form-group row">
                 <div class="col-sm-10">
+                    
+                    <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail">
                     <input type="file" name="file" accept=".jpg, .jpeg, .png, .gif"><br><br>
+                    
                 </div>
-            </div-->
+            </div>
+            
+            
         </div>
 
         <div class="form-group row">

@@ -120,14 +120,14 @@ if(isset($_SESSION['loggedIn'])){
                             <div class="col-3" >
                                 <form action="../www/parts/deletepost.php" method="POST">
                                     <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
-                                    <input id = "delete_button" type="submit" name="delete" value="Delete">
+                                    <input id = "delete_button" type="submit" name="delete" value="Ta bort" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">
                                 </form>
                              </div>
                              
                            <div class="col-3">
                                 <form action="./?page=editpost" method="POST">
                                     <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
-                                    <input id="edit_button" type="submit" name="edit" value="Edit">
+                                    <input id="edit_button" type="submit" name="edit" value="Redigera">
                                 </form>
                             </div>  
                         </div>

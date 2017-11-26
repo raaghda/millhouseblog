@@ -2,6 +2,7 @@
 session_start();
 require 'database.php';
 include 'uploadimage.php';
+require 'notifyfunctions.php';
 
 
 if (isset($_POST["title"],$_POST["text"],$_POST["categoryid"])){
@@ -13,12 +14,13 @@ $image = $fileNameNew;
     
 //userid comes from the session, not the form
 $userid = $_SESSION["user"]["userid"];
-$no_comment = urlencode("Fyll i fälten korrekt!");
  
     if ($title == '' || $text == '' || $categoryid == null){
             
-            //tells the user to complete all fields
-            header("Location: /millhouseblog/www/?page=createpost&nocomment=".$no_comment);
+            //calling notify function, telling the user that not all fields are filled out
+            //need to notify user (see parts/notifyfunctions.php)
+            notify('danger', 'Fyll i fälten korrekt!');
+            header("Location: /millhouseblog/www/?page=createpost");
             
     }else{
         

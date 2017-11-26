@@ -2,61 +2,9 @@
 require 'parts/database.php';
 require 'parts/functions.php';
 require 'parts/logincheck.php';
+require 'parts/fetchprofile.php';
 
-// 1. VI BEHÖVER HÄMTA USERID (KOPIERA SAMMA LOGIK SOM VI HAR GET PARAMETERN PAGE OCH ÄNDRA DEN TILL USERID)
-$userid = $_SESSION["user"]["userid"];
-
-// 2. HÄMTA EN ANVÄNDARE FRÅN DATABASEN SOM HAR DET USERID SOM VI FICK FRÅN GET-PARAMETERN (SE KODEN I LOGIN HUR VI HÄMTAR USERINFORMATION FRÅN DATABASEN)
-$statement = $pdo->prepare(
-    "SELECT username, userid, email, name, role, registertime 
-    FROM user 
-    WHERE userid = :userid");
-
-$statement->execute(array(
-":userid" => $userid
-));
-
-//We save the profile details in an array, called fetched user
-$fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
-
-//Declares empty variables to avoid them being "undefined" before value is set
-$posts_by_user = '';
-$comments_on_users_posts = '';
-
-
-//Variable for formating date and time correctly
-$date = $fetched_user["registertime"];
-$dt = new datetime($date);
-
-
-
-//SQL-query fetching total number of POSTS made by user
-$statement = $pdo->prepare(
-    "SELECT COUNT(post.postid) 
-    AS total 
-    FROM post INNER JOIN user 
-    ON post.userid = user.userid 
-    WHERE user.userid = $userid");
-$statement->execute(array(
-    ":total" => $posts_by_user
-    ));
-$posts_by_user = $statement->fetch(PDO::FETCH_ASSOC);
-
-
-//SQL-query fetching total number of COMMENTS on posts made by user
-$statement = $pdo->prepare(
-    "SELECT COUNT(comment.commentid)
-    AS total
-    FROM comment
-    LEFT JOIN post
-    ON comment.postid = post.postid
-    WHERE post.userid = $userid");
-$statement->execute(array(
-":total" => $comments_on_users_posts
-));
-$comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
-
 
 
 <div class="container-fluid profile_header">
@@ -101,19 +49,30 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
     </div>
     
     <?php
+    if ($posts_by_user['total'] == 0)
+    { ?>
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <p>Du har inte gjort något inlägg ännu.</p>
+            </div>
+        </div>  
+    <?php }
 
-    //Fetches posts made by logged in user, using the same display posts-strucutre as in home
-    $statement = $pdo->prepare("SELECT * FROM post WHERE userid = $userid ORDER by date DESC");
-    $statement->execute();
-    $post = $statement->fetchAll(PDO::FETCH_ASSOC);
-    $keys = array_keys($post);
+    
+
+  
+
 
 
      //Loop through and display latest post (max 5)     
     for($i=0; $i<5; $i++):
+
+   
+
         //if the index $i is less than the total number of posts
         if ($i < count($post))
         {
+
         $post_id = $post[$keys[$i]]['postid'];
         $category_id = $post[$keys[$i]]['categoryid'];
         $date = $post[$keys[$i]]['date'];
@@ -177,10 +136,16 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <?php
-    $statement = $pdo->prepare("SELECT * FROM comment WHERE userid = $userid ORDER by date DESC");
-    $statement->execute();
-    $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
-    $keys = array_keys($comments);
+    if ($comments_by_user['total'] == 0)
+    { ?>
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <p>Du har inte skrivit några kommentarer ännu.</p>
+            </div>
+        </div>  
+    <?php }
+
+   
     
     //Loop through and display latest comments by user (max 5)     
     for ($i = 0; $i < 5; $i++):
@@ -193,15 +158,20 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
         $comment = $comments[$keys[$i]]['comment'];
         $date = $comments[$keys[$i]]['date'];
         $dt = new datetime($date);
+
         $post_title = get_row_with_input("title", "post", "postid", $post_id);
+
+        //Puts comment text into new variable, and uses a function for 
+        //limiting the number of characters to be displayed to 200
+        $comment_text = make_string_shorter($comments[$keys[$i]]['comment'], 200);
+
         ?>  
         <div class="row">
             <div class="col-12 col-lg-8 offset-lg-2">    
                 <article class="comment_box">
-                    <span class="uppercase grey"><?=$category_name?></span>
                     <h3><?=$post_title?></h3>     
                         <p>Din kommentar: 
-                        <?=$comments[$keys[$i]]['comment'];?></p>
+                        <?=$comment_text;?></p>
                         <time class="grey">Kommenterades den: 
                         <?= $dt->format('Y-m-d'); ?>
                         </time>

@@ -8,6 +8,7 @@ require 'database.php';
 // Defines the id of logged in user
 $userid = $_SESSION["user"]["userid"];
 
+
 //Fetches info about the logged in user from database
 $statement = $pdo->prepare(
     "SELECT username, userid, email, name, role, registertime 
@@ -22,7 +23,6 @@ $statement->execute(array(
 $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 
-
 //Declares empty variables to be used later in profile, 
 //This way we avoid them being "undefined" before the actual value is set
 $posts_by_user = '';
@@ -33,7 +33,6 @@ $comments_on_users_posts = '';
 //Variable for formating date and time correctly
 $date = $fetched_user["registertime"];
 $dt = new datetime($date);
-
 
 
 //SQL-query fetching total number of POSTS made by user
@@ -49,7 +48,6 @@ $statement->execute(array(
 $posts_by_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 
-
 //SQL-query fetching total number of COMMENTS made by user
 $statement = $pdo->prepare(
     "SELECT COUNT(comment.commentid) 
@@ -61,7 +59,6 @@ $statement->execute(array(
     ":total" => $comments_by_user
     ));
 $comments_by_user = $statement->fetch(PDO::FETCH_ASSOC);
-
 
 
 //SQL-query fetching total number of recived COMMENTS on posts MADE BY USER
@@ -96,4 +93,3 @@ $statement = $pdo->prepare("SELECT * FROM comment WHERE userid = $userid ORDER b
 $statement->execute();
 $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
 $keys = array_keys($comments);
-

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'database.php';
+require 'notifyfunctions.php';
 
 //var_dump($_SESSION);
 
@@ -15,13 +16,16 @@ foreach($posts as $post){
     $user_id = $post['userid'];
 }
 
-$not_authorized = urlencode("Du är inte behörig att ta bort det här inlägget!");
 
 // if session user isn't the author of the post
 if ((int)$_SESSION['user']['userid'] != $user_id){
+    
     //redirect to home page with error message (see above for error message)
-    header ("Location: /millhouseblog/www/?page=home&error=".$not_authorized);
-
+    $_SESSION['notify']['message'] = 'Du är inte behörig att ta bort det här inlägget!'; 
+    $_SESSION['notify']['type'] = 'danger'; 
+    header ("Location: /millhouseblog/www/?page=home");
+     
+      
 }else{
 
 $statement = $pdo->prepare("DELETE FROM comment WHERE postid = :postid");
@@ -31,8 +35,8 @@ $statement->execute(array(":postid" => $post_id));
 $statement = $pdo->prepare("DELETE FROM post WHERE postid = :postid");
 $statement->execute(array(":postid" => $post_id));
     
-
-    
+//calling notify function to display success+message (see parts/notifyfunctions.php)
+notify('success','Your post has been deleted');  
 
 
 //redirected to user's profile

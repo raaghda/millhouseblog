@@ -1,6 +1,7 @@
 <?php
 require './parts/database.php';
 
+
     $statement = $pdo->prepare(
         "SELECT * FROM category" 
     );
@@ -18,13 +19,11 @@ require './parts/database.php';
     
     
     <?php
-    //if any of the fields not filled, an error message will be returned (see savepost.php for message)
-    if (isset($_GET['nocomment'])){?>
+    //if any of the fields not filled, an error message will be returned
+    //using display_notification function from parts/notifyfunctions.php
     
-    <p style="color: red; text-align:center"><?= $_GET['nocomment'];?></p>
+    display_notification();
     
-    <?php
-    }
     ?>
     
     <form action="parts/savepost.php" method="POST" enctype="multipart/form-data">
@@ -32,7 +31,7 @@ require './parts/database.php';
         <div class="container form">
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <input required id="title" type="text" name="title" placeholder=" Titel">
+                    <input  id="title" type="text" name="title" placeholder=" Titel">
                 </div>
             </div>
             <div class="form-group row">

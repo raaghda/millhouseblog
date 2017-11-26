@@ -58,6 +58,12 @@ $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
 
 
+<?php    
+    
+display_notification();
+
+?>
+
 
 <div class="container-fluid profile_header">
      <div class="row">

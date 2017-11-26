@@ -31,7 +31,7 @@ require './parts/database.php';
         <div class="container form">
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <input  id="title" type="text" name="title" placeholder=" Titel">
+                    <input required id="title" type="text" name="title" placeholder=" Titel">
                 </div>
             </div>
             <div class="form-group row">

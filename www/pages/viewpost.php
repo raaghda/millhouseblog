@@ -6,6 +6,7 @@
 require 'parts/database.php';
 require 'parts/functions.php';
 
+
 $post_id = $_GET["id"];
 
 $statement = $pdo->prepare("SELECT * FROM post WHERE postid = $post_id");
@@ -34,7 +35,11 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         $number_of_comments = count($comments);
         
         //LOOPING OUT POST
+        
+        display_notification();
         ?>
+        
+        
 
     <div class="container viewpost">
         <h1></h1>

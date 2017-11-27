@@ -1,7 +1,7 @@
 <?php
 
 require 'parts/logincheck.php';
-require 'components/newpostform.php';
+require 'parts/newpostform.php';
 
 
 

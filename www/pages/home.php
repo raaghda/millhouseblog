@@ -48,7 +48,9 @@ display_notification();
     $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
     $date = $posts[$keys[$i]]['date'];
     $dt = new datetime($date);
-
+    $image = $posts[$keys[$i]]['image'];
+    $title = $posts[$keys[$i]]['title'];
+    
     //if post-text is longer than 500ch, shorten it
     $post_text = make_string_shorter($posts[$keys[$i]]['text'], 500);
 
@@ -58,6 +60,7 @@ display_notification();
     //LOOPING OUT THE POSTS
     ?>  
       <article class="post">
+      <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail" alt="<?=$title;?>">
       <header>  
             <span class="uppercase grey"><?=$category_name?></span>
         <!--<meta>kategorierna som meta???-->

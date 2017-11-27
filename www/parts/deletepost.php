@@ -21,8 +21,9 @@ foreach($posts as $post){
 if ((int)$_SESSION['user']['userid'] != $user_id && $_SESSION['user']['role']!='admin'){
     
     //redirect to home page with error message (see above for error message)
-    $_SESSION['notify']['message'] = 'Du är inte behörig att ta bort det här inlägget!'; 
-    $_SESSION['notify']['type'] = 'danger'; 
+    //$_SESSION['notify']['message'] = 'Du är inte behörig att ta bort det här inlägget!'; 
+    //$_SESSION['notify']['type'] = 'danger'; 
+    notify('danger','Du är inte behörig att ta bort det här inlägget!'); 
     header ("Location: /millhouseblog/www/?page=home");
      
       

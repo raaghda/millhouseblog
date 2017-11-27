@@ -81,7 +81,8 @@
 
         </div>
 
-        <? foreach($months as $monthpost){ 
+        <? 
+            foreach($months as $monthpost){ 
                 $userid = $monthpost["userid"];
                 $username = get_row_with_input("username", "user", "userid", $userid);
                 $category_id = $monthpost["categoryid"];

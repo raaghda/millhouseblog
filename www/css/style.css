@@ -333,13 +333,12 @@ textarea{
 #user_name{
     color: #fff;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
 }
 
 #user_stats{
     color: #fff;
     font-weight: lighter;
-    line-height: 190%;
     letter-spacing: 0.07em;
 }
 
@@ -352,8 +351,9 @@ textarea{
 .btn{
     background-color: #fff;
     padding: 15px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 .btn:hover{
@@ -502,6 +502,7 @@ a:hover{
 /*Span Classes*/
 .uppercase {
     text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 
 .smallcaps{

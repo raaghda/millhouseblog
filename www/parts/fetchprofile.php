@@ -14,12 +14,10 @@ $statement = $pdo->prepare(
     "SELECT username, userid, email, name, role, registertime 
     FROM user 
     WHERE userid = :userid");
-
+//We save this info in an array called fetched user
 $statement->execute(array(
 ":userid" => $userid
 ));
-
-//We save this info in an array called fetched user
 $fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
 
 

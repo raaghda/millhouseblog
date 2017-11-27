@@ -44,7 +44,6 @@ require 'parts/fetchprofile.php';
 </div> <!-- CLOSING PROFILE "HEADER" -->
 
 
-
 <!-- CONTENT FOR THE REST OF PROFILE STARTS HERE-->
 
 <!-- Latest posts -->

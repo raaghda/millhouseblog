@@ -5,7 +5,7 @@
     <div class="container login"> 
         <div class="row">
             <div class="col-12">
-                <img src="images/millhouse_logo.svg" width="230px">
+                <img src="images/Millhouse_logo.png" id=logo_image width="200px">
                 
                 <div class="messagebox">
                 

@@ -73,21 +73,4 @@ $statement->execute(array(
 ));
 $comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
 
-
-//SQL-query fetching posts made by user, and details about that post
-//Saves everything into an array ($post) with the help of array using array_keys-function
-$statement = $pdo->prepare("SELECT * 
-  FROM post 
-  WHERE userid = $userid 
-  ORDER by date DESC");
-$statement->execute();
-$post = $statement->fetchAll(PDO::FETCH_ASSOC);
-$keys = array_keys($post);
-
-
-//SQL-query fetching comments made by user, and details about that comment
-//Saves everything into an array ($comments) with the help of array using array_keys-function
-$statement = $pdo->prepare("SELECT * FROM comment WHERE userid = $userid ORDER by date DESC");
-$statement->execute();
-$comments = $statement->fetchAll(PDO::FETCH_ASSOC);
-$keys = array_keys($comments);
+?>

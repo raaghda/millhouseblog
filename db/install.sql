@@ -1,22 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 06, 2017 at 11:39 AM
--- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- Host: localhost:8889
+-- Generation Time: Nov 27, 2017 at 10:12 AM
+-- Server version: 5.6.35
+-- PHP Version: 7.0.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `millhouse`
@@ -43,8 +35,7 @@ INSERT INTO `category` (`categoryid`, `name`) VALUES
 (1, 'Solglasögon'),
 (2, 'Klockor'),
 (3, 'Inredningsartiklar'),
-(4, 'Lifestyle'),
-(5, 'Övrigt');
+(4, 'Lifestyle');
 
 -- --------------------------------------------------------
 
@@ -55,14 +46,16 @@ INSERT INTO `category` (`categoryid`, `name`) VALUES
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
   `commentid` int(11) NOT NULL AUTO_INCREMENT,
-  `userid` int(11) NOT NULL,
+  `userid` int(11) DEFAULT NULL,
   `postid` int(11) NOT NULL,
   `comment` varchar(500) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `email` varchar(200) NOT NULL,
+  `name` varchar(200) NOT NULL,
   PRIMARY KEY (`commentid`),
   KEY `f_userid_idx` (`userid`),
   KEY `f_postid_idx` (`postid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -96,10 +89,11 @@ CREATE TABLE IF NOT EXISTS `post` (
   `text` text NOT NULL,
   `thumbnail` varchar(250) DEFAULT NULL,
   `categoryid` int(11) NOT NULL,
+  `image` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`postid`),
   KEY `userid_idx` (`userid`),
   KEY `fpost_categoryid_idx` (`categoryid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -134,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `role` varchar(20) NOT NULL DEFAULT 'user',
   `name` varchar(70) NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Constraints for dumped tables
@@ -165,8 +159,3 @@ ALTER TABLE `post`
 --
 ALTER TABLE `profile`
   ADD CONSTRAINT `fprofile_userid` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

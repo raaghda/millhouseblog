@@ -6,7 +6,6 @@ require 'parts/fetchprofile.php';
 
 display_notification();
 ?>
-
 <!-- CONTENT FOR PROFILE "HEADER" -->
 
 <div class="container-fluid profile_header">
@@ -68,9 +67,19 @@ display_notification();
         </div>  
     <?php }
 
+    //SQL-query fetching posts made by user, and details about that post
+    //Saves everything into an array ($post) with the help of array using array_keys-function
+    $statement = $pdo->prepare("SELECT * 
+    FROM post 
+    WHERE userid = $userid 
+    ORDER by date DESC");
+    $statement->execute();
+    $post = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $keys = array_keys($post);
+
     //Loop displaying (max) five latest posts made by user
     for($i=0; $i<5; $i++):
-        
+
         //Checks if the index $i is less than the total number of posts
         if ($i < count($post))
         {
@@ -117,17 +126,15 @@ display_notification();
                         <p> <?=$post_text?> </p>
                         <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
                         <div class="row">
-                        <form action="./?page=editpost" method="POST">
-                            <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                            <input type="submit" name="edit" value="Edit">
-                        </form>
-                        <form action="../www/parts/deletepost.php" method="POST">
-                            <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                            <input type="submit" name="delete" value="Delete" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">   
-                        </form>
-                    
-                    </div>
-
+                            <form action="./?page=editpost" method="POST">
+                                <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                                <input type="submit" name="edit" value="Edit">
+                            </form>
+                            <form action="../www/parts/deletepost.php" method="POST">
+                                <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                                <input type="submit" name="delete" value="Delete" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">   
+                            </form>
+                        </div>
                     </article>
                 </div> <!-- Closing row for each post-->
             </div> <!-- Closing col for each post -->
@@ -154,7 +161,13 @@ display_notification();
         </div>  
     <?php }
 
-   
+    //SQL-query fetching comments made by user, and details about that comment
+    //Saves everything into an array ($comments) with the help of array using array_keys-function
+    $statement = $pdo->prepare("SELECT * FROM comment WHERE userid = $userid ORDER by date DESC");
+    $statement->execute();
+    $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $keys = array_keys($comments);
+
     //LOOP DISPLAYING (MAX) FIVE LATEST COMMENTS MADE BY USER
     for ($i = 0; $i < 5; $i++):
         

@@ -11,29 +11,29 @@
                 
                 <?php
       
-                /* NEW REG MESSAGE BELOW */
+                    /* NEW REG MESSAGE BELOW */
 
-                if(isset($_GET['newuser'])){
-                    echo '<div class="messagebox_success">' . $_GET['newuser'] . '</div>';
-                }
+                    if(isset($_GET['newuser'])){
+                        echo '<div class="messagebox_success">' . $_GET['newuser'] . '</div>';
+                    }
 
-                /* WRONG PASSWORD MESSAGE BELOW */
+                    /* WRONG PASSWORD MESSAGE BELOW */
 
-                if(isset($_GET['wrongpass'])){
-                    echo '<div class="messagebox_fail">' . $_GET['wrongpass'] . '</div>';
-                }
-                
-                /* LOGOUT MESSAGE BELOW */
+                    if(isset($_GET['wrongpass'])){
+                        echo '<div class="messagebox_fail">' . $_GET['wrongpass'] . '</div>';
+                    }
 
-                if(isset($_GET['logout'])){
-                    echo '<div class="messagebox_success">' . $_GET['logout'] . '</div>';
-                }
-                
-                /* SESSION EXPIRE MESSAGE BELOW */
+                    /* LOGOUT MESSAGE BELOW */
 
-                if(isset($_GET['expired'])){
-                    echo '<div class="messagebox_fail">' . $_GET['expired'] . '</div>';
-                }
+                    if(isset($_GET['logout'])){
+                        echo '<div class="messagebox_success">' . $_GET['logout'] . '</div>';
+                    }
+
+                    /* SESSION EXPIRE MESSAGE BELOW */
+
+                    if(isset($_GET['expired'])){
+                        echo '<div class="messagebox_fail">' . $_GET['expired'] . '</div>';
+                    }
 
                 ?>
                 

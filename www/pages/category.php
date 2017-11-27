@@ -1,15 +1,17 @@
-<? require 'parts/database.php'; 
-   require 'parts/functions.php';
+<? 
+    require 'parts/database.php'; 
+    require 'parts/functions.php';
 
-$categoryid = ($_GET["categoryid"]);
-$number_of_comments = count_comments($categoryid);
+    $categoryid = ($_GET["categoryid"]);
+    $number_of_comments = count_comments($categoryid);
 
-
-$dateorder = "DESC";
+    $dateorder = "DESC";
 
     if(isset($_GET["dateorder"])){
         $dateorder = $_GET["dateorder"];
     }
+
+    /* Selecting the choosen category */
 
     $statement = $pdo->prepare(
         "SELECT userid, title, date, text, postid, category.name as category_name FROM post INNER JOIN category ON post.categoryid = category.categoryid WHERE post.categoryid = :categoryid ORDER by date $dateorder" 
@@ -26,7 +28,19 @@ $dateorder = "DESC";
 
 <div class="container landingpage">
 
-<h1 class="heading"> <?= $posts[0]["category_name"] ?> </h1>
+<h1 class="light_spacious"> 
+<?
+if($_GET["categoryid"] == 01){
+echo 'Solglasögon';
+} else if($_GET["categoryid"] == 2){
+echo 'Klockor';
+} else if($_GET["categoryid"] == 3){
+echo 'Inredning';
+} else if($_GET["categoryid"] == 4){
+echo 'Lifestyle';
+}
+?>
+</h1>
 
 <div class="row">
     <div class="col-lg-9">
@@ -102,7 +116,7 @@ $dateorder = "DESC";
 
 
 if (empty($posts)){
-    echo 'There are no posts in this category.';
+    echo '<div class="post">' . 'Ingen har postat något i den här kategorin än...' . '</div>';
 }
         
 ?>

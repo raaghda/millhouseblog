@@ -5,8 +5,14 @@
 
 
 if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"] == true) 
-            {
-            exit('You must be logged in to view this page');
-            //'exit()' stops the page from rendering, so the user does not have access to the page if not logged in.
-            //http://php.net/manual/en/function.exit.php
-            }
+
+    {
+        //Calling function to notify with danger and message
+        //Calling funtion to display notification
+        notify('danger', 'Du måste vara inloggad för att kunna se den här sidan.');
+        display_notification();
+        exit();
+    
+        //'exit()' stops the page from rendering, so the user does not have access to the page if not logged in.
+        //http://php.net/manual/en/function.exit.php
+    }

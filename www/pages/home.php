@@ -11,10 +11,13 @@ display_notification();
 ?>
 
 
-<div class="container landingpage">    
-<h1 class="heading">Senaste inläggen</h1>
-        <div class="row">
-            <div class="col-lg-9">
+<div class="container landingpage"> 
+    <span class="uppercase">   
+        <h1 class="light_spacious">Senaste inläggen:</h1>
+    </span>
+
+    <div class="row">
+        <div class="col-lg-9">
 <?php
 //Looping out the 5 latest posts from posts table.
 //Information about the author of the post=user.

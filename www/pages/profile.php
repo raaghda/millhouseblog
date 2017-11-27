@@ -2,217 +2,194 @@
 require 'parts/database.php';
 require 'parts/functions.php';
 require 'parts/logincheck.php';
+require 'parts/fetchprofile.php';
 
-// 1. VI BEHÖVER HÄMTA USERID (KOPIERA SAMMA LOGIK SOM VI HAR GET PARAMETERN PAGE OCH ÄNDRA DEN TILL USERID)
-$userid = $_SESSION["user"]["userid"];
-
-// 2. HÄMTA EN ANVÄNDARE FRÅN DATABASEN SOM HAR DET USERID SOM VI FICK FRÅN GET-PARAMETERN (SE KODEN I LOGIN HUR VI HÄMTAR USERINFORMATION FRÅN DATABASEN)
-$statement = $pdo->prepare(
-    "SELECT username, userid, email, name, role, registertime 
-    FROM user 
-    WHERE userid = :userid");
-
-$statement->execute(array(
-":userid" => $userid
-));
-
-//We save the profile details in an array, called fetched user
-$fetched_user = $statement->fetch(PDO::FETCH_ASSOC);
-
-//Declares empty variables to avoid them being "undefined" before value is set
-$posts_by_user = '';
-$comments_on_users_posts = '';
-
-
-//Variable for formating date and time correctly
-$date = $fetched_user["registertime"];
-$dt = new datetime($date);
-
-
-
-//SQL-query fetching total number of POSTS made by user
-$statement = $pdo->prepare(
-    "SELECT COUNT(post.postid) 
-    AS total 
-    FROM post INNER JOIN user 
-    ON post.userid = user.userid 
-    WHERE user.userid = $userid");
-$statement->execute(array(
-    ":total" => $posts_by_user
-    ));
-$posts_by_user = $statement->fetch(PDO::FETCH_ASSOC);
-
-
-//SQL-query fetching total number of COMMENTS on posts made by user
-$statement = $pdo->prepare(
-    "SELECT COUNT(comment.commentid)
-    AS total
-    FROM comment
-    LEFT JOIN post
-    ON comment.postid = post.postid
-    WHERE post.userid = $userid");
-$statement->execute(array(
-":total" => $comments_on_users_posts
-));
-$comments_on_users_posts = $statement->fetch(PDO::FETCH_ASSOC);
-?>
-
-
-<?php    
-    
 display_notification();
-
 ?>
 
+<!-- CONTENT FOR PROFILE "HEADER" -->
 
 <div class="container-fluid profile_header">
      <div class="row">
         <div class="col-6 offset-3">
-            <img src="images/empty_avatar.png" id=profile_avatar alt="Avatar för användare" 
-            class="rounded-circle" width="150px" height="150px">
-            <h1 id=user_name> <?php echo $fetched_user["name"]; ?> </h1>
+            <img src="images/empty_avatar.png" id=profile_avatar 
+            alt="Avatar för användare" class="rounded-circle" width="150px" height="150px">
+            <h1 id=user_name> <?php echo $fetched_user['name']; ?> </h1>
         </div>
     </div>
-              
+          
+    <!-- User stats -->
     <div class="row">
-        <div class="col-6 offset-3 d-none d-md-block"> 
-            <p id=user_stats> <?= $posts_by_user['total'] ?> inlägg på bloggen </br>
+        <div class="col-10 offset-1 d-none d-md-block"> 
+            <p id=user_stats> <?= $posts_by_user['total'] ?> inlägg på bloggen | 
             <?php if($comments_on_users_posts['total'] == 1)
-                        {
-                        echo $comments_on_users_posts['total'] . ' mottagen kommentar'; 
-                        } 
-                        else
-                        {
-                            echo $comments_on_users_posts['total'] . ' mottagna kommentarer';
-                        } ?>
-            </br> Medlem sedan 
-            <time> <?= $dt->format('Y-m-d'); ?> </time></p>
+                    {
+                    //Fixes grammar for singular/plural posts
+                    echo $comments_on_users_posts['total'] . ' mottagen kommentar'; 
+                    } 
+                    else
+                    {
+                        echo $comments_on_users_posts['total'] . ' mottagna kommentarer';
+                    } ?>
+            | Medlem sedan <time> <?= $dt->format('Y-m-d'); ?> </time></p>
         </div>
     </div>
     
+    <!-- Create post-button -->
     <div class="row">
         <div class="mx-auto">
             <a class="btn" href="/millhouseblog/www/?page=createpost">Skriv nytt inlägg
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
         </div>
     </div>
-</div> <!-- Closing profile_header container -->
+</div> <!-- CLOSING PROFILE "HEADER" -->
 
 
+<!-- CONTENT FOR THE REST OF PROFILE STARTS HERE-->
+
+<!-- Latest posts -->
 <div class="container profile_content">
     <div class="row">
-        <div class="col-12 col-lg-8 offset-lg-2">    
-            <h1>Senaste inläggen:</h1>
+        <div class="col-12 col-lg-8 offset-lg-2">
+            <span class="uppercase">    
+                <h1 class="light_spacious">Senaste inläggen:</h1>
+            </span>
         </div>
     </div>
     
+    <!-- Displays message if user has made 0 posts -->
     <?php
+    if ($posts_by_user['total'] == 0)
+    { ?>
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <p>Du har inte gjort något inlägg ännu.</p>
+            </div>
+        </div>  
+    <?php }
 
-    //Fetches posts made by logged in user, using the same display posts-strucutre as in home
-    $statement = $pdo->prepare("SELECT * FROM post WHERE userid = $userid ORDER by date DESC");
-    $statement->execute();
-    $post = $statement->fetchAll(PDO::FETCH_ASSOC);
-    $keys = array_keys($post);
-
-
-     //Loop through and display latest post (max 5)     
+    //Loop displaying (max) five latest posts made by user
     for($i=0; $i<5; $i++):
-    //if the index $i is less than the total number of posts
-    if ($i < count($post))
-    {
-    $post_id = $post[$keys[$i]]['postid'];
-    $category_id = $post[$keys[$i]]['categoryid'];
-    $date = $post[$keys[$i]]['date'];
-    $dt = new datetime($date);
+        
+        //Checks if the index $i is less than the total number of posts
+        if ($i < count($post))
+        {
+            //Fetches information from array in "parts/fetchprofile.php" 
+            //Puts this into new variables for each post in loop
+            $post_id = $post[$keys[$i]]['postid'];
+            $category_id = $post[$keys[$i]]['categoryid'];
+            $date = $post[$keys[$i]]['date'];
+            
+            //Fetches category name from a row in a table,
+            // using an id to compare with the id's in the table
+            $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
 
-    $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
-    $number_of_comments = count_comments($post_id);
+            //Function for counting the total comments on each post displayed in the loop
+            $number_of_comments = count_comments($post_id);
 
-    //Puts post text into new variable, and uses a function for 
-    //limiting the number of characters to be displayed to 300
-    $post_text = make_string_shorter($post[$keys[$i]]['text'], 300);
+            //Puts post text into new variable, and uses a function for 
+            //limiting the number of characters to be displayed to 300
+            $post_text = make_string_shorter($post[$keys[$i]]['text'], 300);
+            ?>
+        
+            <!-- Single post-content -->
+            <div class="row">
+                <div class="col-12 col-lg-8 offset-lg-2">    
+                    <article class="post">
+                        <span class="uppercase grey"> <?=$category_name?> </span>
+                        <h2 class=”postheading” ><?=$post[$keys[$i]]['title'];?> </h2>
+                        <time class="grey"> Publicerat  
+                            <?= $dt->format('Y-m-d'); ?>
+                        </time>
+                        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
+                        <?= '(' . $number_of_comments . ')'; 
+                        if ($number_of_comments == 1)
+                        {
+                            //Fixes grammar for singular comment/plural comments
+                            echo ' kommentar'; 
+                        } 
+                        else
+                        {
+                            echo ' kommentarer';
+                        } 
+                        ?>
+                        </a>
+                        <p> <?=$post_text?> </p>
+                        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+                        <div class="row">
+                        <form action="./?page=editpost" method="POST">
+                            <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                            <input type="submit" name="edit" value="Edit">
+                        </form>
+                        <form action="../www/parts/deletepost.php" method="POST">
+                            <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                            <input type="submit" name="delete" value="Delete" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">   
+                        </form>
+                    
+                    </div>
 
-    ?>
-    <div class="row">
-        <div class="col-12 col-lg-8 offset-lg-2">    
-            <article class="post">
-                <header>  
-                <span class="uppercase grey"><?=$category_name?></span>
-                <h2 class=”postheading”><?=$post[$keys[$i]]['title'];?></h2>
-                <time class="grey">Publicerat den:  
-                    <?= $dt->format('Y-m-d'); ?>
-                </time>
-                <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
-                <?= 
-                '(' . $number_of_comments . ')'; 
-                if($number_of_comments == 1)
-                {
-                    echo ' kommentar'; 
-                } 
-                else
-                {
-                    echo ' kommentarer';
-                } 
-                ?>
-                </a>
-                </header>
-                <p><?=$post_text?></p>
-                <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
-                <!-- Link to edit-post will be added -->
-                <a href="#">Redigera inlägg</a>
-                <form action="../www/parts/deletepost.php" method="POST">
-                    <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                    <input type="submit" name="delete" value="Delete">   
-                </form>
-                
-            </article>
-        </div> <!-- Closing row for each post-->
-    </div> <!-- Closing col for each post -->
-    <?php } endfor; ?>
+                    </article>
+                </div> <!-- Closing row for each post-->
+            </div> <!-- Closing col for each post -->
+        <?php } endfor; ?>
 
-    
-
+        
+    <!-- Latest comments -->
     <div class="row">
         <div class="user_comments_wrapper col-12 col-lg-8 offset-lg-2">   
-            <!-- Put this in if-statement? Showing something different when comments == 0-->
-            <h1>Dina senaste kommentarer:</h1>
+            <span class="uppercase">    
+                <h1 class="light_spacious">Dina senaste kommentarer:</h1>
+            </span>
         </div>
     </div>
-
-    <?php
-    $statement = $pdo->prepare("SELECT * FROM comment WHERE userid = $userid ORDER by date DESC");
-    $statement->execute();
-    $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
-    $keys = array_keys($comments);
     
-    //Loop through and display latest comments by user (max 5)     
+    <!-- Displays message if user has made 0 comments -->
+    <?php
+    if ($comments_by_user['total'] == 0)
+    { ?>
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <p>Du har inte skrivit några kommentarer ännu.</p>
+            </div>
+        </div>  
+    <?php }
+
+   
+    //LOOP DISPLAYING (MAX) FIVE LATEST COMMENTS MADE BY USER
     for ($i = 0; $i < 5; $i++):
-        //if the index $i is less than the total number of posts
+        
+        //Checks if the index $i is less than the total number of posts
         if ($i < count($comments))
         {
-        $post_id = $comments[$keys[$i]]['postid'];
-        $comment_date = $comments[$keys[$i]]['date'];
-        $comment_id = $comments[$keys[$i]]['commentid'];
-        $comment = $comments[$keys[$i]]['comment'];
-        $date = $comments[$keys[$i]]['date'];
-        $dt = new datetime($date);
-        $post_title = get_row_with_input("title", "post", "postid", $post_id);
-        ?>  
-        <div class="row">
-            <div class="col-12 col-lg-8 offset-lg-2">    
-                <article class="comment_box">
-                    <span class="uppercase grey"><?=$category_name?></span>
-                    <h3><?=$post_title?></h3>                
-                    <p>Din kommentar: 
-                    <?=$comments[$keys[$i]]['comment'];?></p>
-                    <time class="grey">Kommenterades den: 
-                    <?= $dt->format('Y-m-d'); ?>
-                    </time>
-                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
-                    
-                </article>
-            </div> <!-- Closing row for each comment-->
-        </div> <!-- Closing col for each post -->
-        <?php } endfor; ?>
+            //Fetches information from array in "parts/fetchprofile.php" 
+            //Puts this into new variables for each comment in loop
+            $post_id = $comments[$keys[$i]]['postid'];
+            $comment_date = $comments[$keys[$i]]['date'];
+            $comment_id = $comments[$keys[$i]]['commentid'];
+            $comment = $comments[$keys[$i]]['comment'];
+            $date = $comments[$keys[$i]]['date'];
+
+            //Fetches post-title from a row in a table,
+            // using an id to compare with the id's in the table
+            $post_title = get_row_with_input("title", "post", "postid", $post_id);
+
+            //Puts comment text into new variable, and uses a function for 
+            //limiting the number of characters to be displayed to 200
+            $comment_text = make_string_shorter($comments[$keys[$i]]['comment'], 200);
+            ?>  
+            <div class="row">
+                <div class="col-12 col-lg-8 offset-lg-2">    
+                    <article class="comment_box">
+                        <h3><?=$post_title?></h3>     
+                            <p>Din kommentar: 
+                            <?=$comment_text;?></p>
+                            <time class="grey">Kommenterades  
+                            <?= $dt->format('Y-m-d'); ?>
+                            </time>
+                            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>
+                            ">Läs hela inlägget</a>
+                        </article>
+                    </div> <!-- Closing row for each comment-->
+                </div> <!-- Closing col for each post -->
+            <?php } endfor; ?>
 </div> <!-- Closing container profile content -->
-    

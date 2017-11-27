@@ -500,9 +500,14 @@ a:hover{
 }
 
 
-/*headings*/
-
-
+/*Special Headings*/
+.light_spacious{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 2em;
+    font-weight: lighter;
+    letter-spacing: 0.3em;
+}
 
 
 /*Span Classes*/

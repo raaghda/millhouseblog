@@ -50,8 +50,10 @@ display_notification();
 <!-- Latest posts -->
 <div class="container profile_content">
     <div class="row">
-        <div class="col-12 col-lg-8 offset-lg-2">    
-            <h1>Senaste inläggen:</h1>
+        <div class="col-12 col-lg-8 offset-lg-2">
+            <span class="uppercase">    
+                <h1 class="light_spacious">Senaste inläggen:</h1>
+            </span>
         </div>
     </div>
     
@@ -96,10 +98,10 @@ display_notification();
                     <article class="post">
                         <span class="uppercase grey"> <?=$category_name?> </span>
                         <h2 class=”postheading” ><?=$post[$keys[$i]]['title'];?> </h2>
-                        <time class="grey"> Publicerat den:  
+                        <time class="grey"> Publicerat  
                             <?= $dt->format('Y-m-d'); ?>
                         </time>
-                        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments"></a>
+                        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
                         <?= '(' . $number_of_comments . ')'; 
                         if ($number_of_comments == 1)
                         {
@@ -111,16 +113,21 @@ display_notification();
                             echo ' kommentarer';
                         } 
                         ?>
+                        </a>
                         <p> <?=$post_text?> </p>
                         <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+                        <div class="row">
                         <form action="./?page=editpost" method="POST">
                             <input type="hidden" name="post_id" value="<?= $post_id ?>">
                             <input type="submit" name="edit" value="Edit">
                         </form>
                         <form action="../www/parts/deletepost.php" method="POST">
                             <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                            <input type="submit" name="delete" value="Delete">   
+                            <input type="submit" name="delete" value="Delete" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">   
                         </form>
+                    
+                    </div>
+
                     </article>
                 </div> <!-- Closing row for each post-->
             </div> <!-- Closing col for each post -->
@@ -130,7 +137,9 @@ display_notification();
     <!-- Latest comments -->
     <div class="row">
         <div class="user_comments_wrapper col-12 col-lg-8 offset-lg-2">   
-            <h1>Dina senaste kommentarer:</h1>
+            <span class="uppercase">    
+                <h1 class="light_spacious">Dina senaste kommentarer:</h1>
+            </span>
         </div>
     </div>
     
@@ -174,7 +183,7 @@ display_notification();
                         <h3><?=$post_title?></h3>     
                             <p>Din kommentar: 
                             <?=$comment_text;?></p>
-                            <time class="grey">Kommenterades den: 
+                            <time class="grey">Kommenterades  
                             <?= $dt->format('Y-m-d'); ?>
                             </time>
                             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>

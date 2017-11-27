@@ -236,6 +236,11 @@ textarea{
     border: 1px solid #bdbdbd;
 }
 
+/* CK Editor height */
+.ck-editor__editable {
+    min-height: 200px;
+}
+
 /* View Post Page */
 
 .viewpost h2{

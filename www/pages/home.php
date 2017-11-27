@@ -4,19 +4,14 @@ require 'parts/functions.php';
 require 'parts/fetch_posts.php';
 ?>
 
-<div class="container landingpage">
+<?php 
+//if statement checking if there is a session message (parts/deletepost.php)
+//if true, display message
+display_notification();
+?>
 
 
-<?php
-    //error message from deletepost.php - if user tries to delete post they haven't created.
-   if (isset($_GET['error'])){?>
-    
-    <p style="color: red; text-align:center"><?= $_GET['error'];?></p>
-    
-    <?php
-    }
-    ?>   
-    
+<div class="container landingpage">    
 <h1 class="heading">Senaste inläggen</h1>
         <div class="row">
             <div class="col-lg-9">

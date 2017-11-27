@@ -1,5 +1,6 @@
 <?php
 require './parts/database.php';
+require './parts/functions.php';
 
 $post_id = $_POST["post_id"]; //Post sent from edit button input on viewpost.php
 
@@ -71,11 +72,25 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
                 </div>
             </div>
 
-            <!--div class="form-group row">
+           
+           
+           
+            <div class="form-group row">
                 <div class="col-sm-10">
+                    <?php
+                        if ($image != ''){
+                     ?>                                                            
+                    <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail">
+                       <?php
+                         }
+                        ?>
+                        
                     <input type="file" name="file" accept=".jpg, .jpeg, .png, .gif"><br><br>
+                    
                 </div>
-            </div-->
+            </div>
+            
+            
         </div>
 
         <div class="form-group row">
@@ -87,8 +102,14 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
 </div>
 <?php
   }else{
+    
     //can't use a header here as already echoed out, therefore need to echo not-authorized message
-    echo "You are not authorized to edit this post.";
+     $_SESSION['notify']['message'] = 'You are not authorized to edit this post.';   
+     $_SESSION['notify']['type'] = 'danger';   
+    
+    //calling function to display message (see parts/notifyfunctions.php)
+    display_notification();
+    
  }
 } 
 ?>

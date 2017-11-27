@@ -3,11 +3,12 @@ require 'parts/database.php';
 require 'parts/functions.php';
 require 'parts/logincheck.php';
 require 'parts/fetchprofile.php';
+
+display_notification();
 ?>
 
 <!-- CONTENT FOR PROFILE "HEADER" -->
 
-<!-- Avatar and username -->
 <div class="container-fluid profile_header">
      <div class="row">
         <div class="col-6 offset-3">

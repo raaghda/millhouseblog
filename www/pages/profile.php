@@ -143,6 +143,12 @@ display_notification();
             </div> <!-- Closing col for each post -->
         <?php } endfor; ?>
 
+    <!-- All posts by user - Obs! Currently empty!! -->
+    <div class="col-lg-10 offset-lg-1"> 
+        <div class="d-flex flex-row-reverse">
+            <a href="#">Alla inlägg</a>
+        </div>
+    </div>
         
     <!-- Latest comments -->
     <div class="row">

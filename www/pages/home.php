@@ -103,10 +103,10 @@ $keys = array_keys($posts);
   <?php }} 
 ?>
     <ul class="pager">
-        <li><a href="">1</a></li>
+        <li><a href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>
         <li><a href="/millhouseblog/www/?page=home&pagination_page=2">2</a></li>
         <li><a href="/millhouseblog/www/?page=home&pagination_page=3">3</a></li>
-        <li><a href="">4</a></li>
+        <li><a href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
     </ul>
     </div><!--/col-md-8-->
 

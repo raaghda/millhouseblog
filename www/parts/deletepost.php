@@ -37,7 +37,7 @@ $statement = $pdo->prepare("DELETE FROM post WHERE postid = :postid");
 $statement->execute(array(":postid" => $post_id));
     
 //calling notify function to display success+message (see parts/notifyfunctions.php)
-notify('success','Your post has been deleted');  
+notify('success','Ditt inlägg har tagits bort.');  
 
 
 //redirected to user's profile

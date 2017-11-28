@@ -99,12 +99,12 @@
                     $username = $comments[$keys[$i]]['email'];
                 } else {
                     $user_id = $comments[$keys[$i]]['userid'];
-                    $username = get_row_with_input("username", "user", "userid", $user_id);
+                    $username = get_column_with_input("username", "user", "userid", $user_id);
                     }
 
                 //use the stored variables to get info from each table
                 //FUNCTIONS is in function.php
-                $post_title = get_row_with_input("title", "post", "postid", $post_id);
+                $post_title = get_column_with_input("title", "post", "postid", $post_id);
                
             ?>
                 <li>

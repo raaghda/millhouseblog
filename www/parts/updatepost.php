@@ -49,3 +49,4 @@ if (isset($_POST["title"]) && isset($_POST["text"]) && isset($_POST["categoryid"
     
 header("Location: /millhouseblog/www/?page=viewpost&id=".$post_id);   
 }
+

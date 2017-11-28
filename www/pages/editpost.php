@@ -41,7 +41,8 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
             </div>
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <textarea required name="text" rows="10" cols="30" placeholder=""><?=$text;?></textarea>
+                   <!--Textarea using CK Edit 5 ID-->
+                   <textarea name="text" id="editor" rows="10" cols="30"><?=$text;?></textarea>
                 </div>
             </div>
 
@@ -99,6 +100,7 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
             </div>
         </div>
     </form>
+    
 </div>
 <?php
   }else{
@@ -113,3 +115,12 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
  }
 } 
 ?>
+
+<!-- JS for CK EDITOR 5 --> 
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

@@ -97,7 +97,7 @@ $keys = array_keys($posts);
       <p><?=$post_text?></p>
 
         <nav class=””>
-            <a href="/millhouseblog/www/?page=viewpost&id=<?= $page = 1; ?>">Läs hela inlägget</a>
+            <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">Läs hela inlägget</a>
         </nav>   
   </article><!--/post article-->
   <?php }} 

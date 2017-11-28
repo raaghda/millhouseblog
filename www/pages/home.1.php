@@ -1,13 +1,11 @@
 <?php
 require 'parts/database.php';
 require 'parts/functions.php';
-require 'parts/fetch_posts.php';
-?>
-
-<?php 
+ 
 //if statement checking if there is a session message (parts/deletepost.php)
 //if true, display message
 display_notification();
+
 ?>
 
 
@@ -25,8 +23,22 @@ display_notification();
 //Link to each specific post
 
 //$post is in fetch_posts                
-            
- for($i=0; $i<5; $i++){
+if(isset($_GET['showposts'])){
+    $start_limit = $start_limit + $pagination;
+}
+    else{
+        $start_limit = 0;
+    }        
+    
+//set the values of which posts should be displayed.
+$limit = $start_limit + 5;
+
+//selects 5 posts, $start_limit to $limit. using pagination.
+$statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC LIMIT $start_limit, $limit");
+$statement->execute();
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+$keys = array_keys($posts);  
+ for($i=$start_limit; $i<($start_limit + 5); $i++){
      
      //if the index $i is less than the total number of posts
      if ($i < count($posts)){
@@ -43,14 +55,12 @@ display_notification();
     
 
     //FUNCTIONS is in functions.php
-    $category_name = get_column_with_input('name', 'category', 'categoryid', $category_id);
-    $username = get_column_with_input('username', 'user', 'userid', $user_id);
-    $user_email = get_column_with_input('email', 'user', 'userid', $user_id);
+    $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
+    $username = get_row_with_input('username', 'user', 'userid', $user_id);
+    $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
     $date = $posts[$keys[$i]]['date'];
     $dt = new datetime($date);
-    $image = $posts[$keys[$i]]['image'];
-    $title = $posts[$keys[$i]]['title'];
-    
+
     //if post-text is longer than 500ch, shorten it
     $post_text = make_string_shorter($posts[$keys[$i]]['text'], 500);
 
@@ -60,7 +70,6 @@ display_notification();
     //LOOPING OUT THE POSTS
     ?>  
       <article class="post">
-      <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail" alt="<?=$title;?>">
       <header>  
             <span class="uppercase grey"><?=$category_name?></span>
         <!--<meta>kategorierna som meta???-->
@@ -87,7 +96,11 @@ display_notification();
   </article><!--/post article-->
   <?php }} 
 ?>
-
+    <ul class="pager">
+        <li class="previous"><a href="">Previous</a></li>
+        <li class="next"><a href="/millhouseblog/www/?page=home&$=value">Next</a></li>
+        <li><a href="">Last</a></li>
+    </ul>
     </div><!--/col-md-8-->
 
     <div class="col-lg-3 sidebar hidden-xs-down">

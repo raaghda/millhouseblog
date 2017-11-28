@@ -91,7 +91,7 @@ display_notification();
             
             //Fetches category name from a row in a table,
             // using an id to compare with the id's in the table
-            $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
+            $category_name = get_column_with_input('name', 'category', 'categoryid', $category_id);
 
             //Function for counting the total comments on each post displayed in the loop
             $number_of_comments = count_comments($post_id);
@@ -184,7 +184,7 @@ display_notification();
 
             //Fetches post-title from a row in a table,
             // using an id to compare with the id's in the table
-            $post_title = get_row_with_input("title", "post", "postid", $post_id);
+            $post_title = get_column_with_input("title", "post", "postid", $post_id);
 
             //Puts comment text into new variable, and uses a function for 
             //limiting the number of characters to be displayed to 200

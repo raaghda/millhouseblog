@@ -26,17 +26,19 @@ require './parts/database.php';
     
     ?>
     
+  
     <form action="parts/savepost.php" method="POST" enctype="multipart/form-data">
 
         <div class="container form">
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <input required id="title" type="text" name="title" placeholder=" Titel">
+                   <input required id="title" type="text" name="title" placeholder=" Titel"> 
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <textarea required name="text" rows="10" cols="30"></textarea>
+                    <!--Textarea using CK Edit 5 ID-->
+                    <textarea name="text" id="editor" rows="10" cols="30"></textarea>
                 </div>
             </div>
 
@@ -71,4 +73,13 @@ require './parts/database.php';
             </div>
         </div>
     </form>
+ 
+<!-- JS for CK EDITOR 5 -->       
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 </div>

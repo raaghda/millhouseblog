@@ -24,33 +24,23 @@ header li, footer li{
 /*  Body */
 body{
     background-color: #f2f2f2;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
-
-
 
 /*  Main */
 main{
     margin: auto;
-    font-family: "Helvetica Neue";
 }
 
-
-a:hover{
-color: #4D7E95; /* OBS! Temporary*/
-}
 
 .messagebox_fail{
-    color: #F03434;
+    color: #F64747;
     font-style: italic;
-    text-decoration: underline;
-    margin-bottom: 20px; 
 }
 
 .messagebox_success{
-    color: #2ECC71;
+    color: #26C281;
     font-style: italic;
-    text-decoration: underline;
-    margin-bottom: 20px; 
 }
 
 
@@ -60,11 +50,14 @@ color: #4D7E95; /* OBS! Temporary*/
 }
 
 .navbar-collapse>ul>li{
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    letter-spacing: 0.1em;
     text-align: right;
     }
     
 .navbar-collapse>ul>li>a{
     color: #6D6D6D;
+    margin: 10px;
 }
 
 
@@ -118,6 +111,10 @@ aside {
     margin-bottom: 100px;
     text-align: center;
     border-radius: 15px;
+}
+
+#logo_image{
+    margin-bottom: 20px;
 }
 
 .messagebox{
@@ -237,6 +234,11 @@ input, textarea, select{
 
 textarea{
     border: 1px solid #bdbdbd;
+}
+
+/* CK Editor height */
+.ck-editor__editable {
+    min-height: 200px;
 }
 
 /* View Post Page */
@@ -478,12 +480,13 @@ textarea{
 /* Footer */
 footer{
     background-color: #0E3147;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     padding: 20px;
 }
 
 footer a{
     color: #f2f2f2;
-    font-size: 0.9em;
+    font-size: 1em;
     letter-spacing: 0.1em;
     line-height: 140%;
     text-decoration: none;
@@ -498,6 +501,7 @@ footer ul{
 }
 
 footer li{
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     list-style: none;
     text-align: center;
 }

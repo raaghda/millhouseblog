@@ -23,9 +23,9 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         $date_of_post = $post_info['date'];
         $dt = new datetime($date_of_post);
         
-        $username = get_row_with_input('username', 'user', 'userid', $user_id);
-        $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
-        $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
+        $username = get_column_with_input('username', 'user', 'userid', $user_id);
+        $category_name = get_column_with_input('name', 'category', 'categoryid', $category_id);
+        $user_email = get_column_with_input('email', 'user', 'userid', $user_id);
 
         //FETCH COMMENTS
         //Select all from comments table where postid = $post_id from query above
@@ -178,7 +178,7 @@ if(isset($_SESSION['loggedIn'])){
                     $date = $comment_info["date"]; 
                     $dt = new datetime($date);
                     $role = '';
-                    $post_id = get_row_with_input('postid', 'comment', 'postid', $comment_info["postid"]);
+                    $post_id = get_column_with_input('postid', 'comment', 'postid', $comment_info["postid"]);
                     //if a person that made a comment isnt a user, and therefore has no userid..
                     //..get email from comment table.
                     //else store user id and get username from user table
@@ -186,7 +186,7 @@ if(isset($_SESSION['loggedIn'])){
                         $comment_name = $comment_info['email'];
                     } else {
                         $user_id = $comment_info['userid'];
-                        $comment_name = get_row_with_input('username', 'user', 'userid', $user_id);
+                        $comment_name = get_column_with_input('username', 'user', 'userid', $user_id);
                         }
                 //LOOPING OUT COMMENTS
                 ?>

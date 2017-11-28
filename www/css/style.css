@@ -424,7 +424,9 @@ textarea{
 
 .user_comments_wrapper{
     margin-top: 40px; 
-.profile_content h1{
+}
+
+    .profile_content h1{
     margin-top: 50px;
     margin-bottom: 10px;
     font-size: 1.6em;

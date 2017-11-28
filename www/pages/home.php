@@ -9,13 +9,14 @@ display_notification();
 ?>
 
 
-<div class="container landingpage"> 
+<div class="container_landingpage"> 
+   <div class="wrapper">
     <span class="uppercase">   
         <h1 class="light_spacious">Senaste inläggen:</h1>
     </span>
 
     <div class="row">
-        <div class="col-lg-9">
+        <div class="post_wrapper col-lg-9">
 <?php
 //Looping out 5 posts, starting from the latest posts.
 //Information about the author of the post=user.
@@ -73,7 +74,7 @@ $statement = $pdo->prepare("SELECT * FROM post
     $title = $posts[$keys[$i]]['title'];
 
     //if post-text is longer than 500ch, shorten it
-    $post_text = make_string_shorter($posts[$keys[$i]]['text'], 500);
+    $post_text = make_string_shorter($posts[$keys[$i]]['text'], 150);
 
     //count comments of this post
     $number_of_comments = count_comments($post_id);
@@ -81,16 +82,31 @@ $statement = $pdo->prepare("SELECT * FROM post
     //LOOPING OUT THE POSTS
     ?>  
       <article class="post">
+      <div class="row">
+      <div class="thumb_wrap col-md-4">
       <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail" alt="<?=$title;?>">
+      </div>
+      <div class="post_content col-md-8">
       <header>  
             <span class="uppercase grey"><?=$category_name?></span>
         <!--<meta>kategorierna som meta???-->
         <h2 class=”postheading”><?=$posts[$keys[$i]]['title'];?></h2>
+        
+        <span class="grey">
+            Publicerat 
         <time>
             <?= $dt->format('Y-m-d'); ?>
-        </time>
-        <span class="uppercase grey"><?= $username?></span>
-        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
+            </time>
+        av
+        </span>
+          <span class="uppercase grey"><?= $username?></span>
+
+      </header>
+      <p><?=$post_text?></p>
+
+        <nav class=””>
+            <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">Läs hela inlägget</a> | 
+            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
         <?= '(' . $number_of_comments . ')'; 
         
         if($number_of_comments == 1){
@@ -98,13 +114,9 @@ $statement = $pdo->prepare("SELECT * FROM post
             echo ' kommentarer';
         } ?> 
         </a><!--added comments anchor-->
-
-      </header>
-      <p><?=$post_text?></p>
-
-        <nav class=””>
-            <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">Läs hela inlägget</a>
-        </nav>   
+        </nav>
+        </div>
+        </div>   
   </article><!--/post article-->
   <?php }} 
 ?>  <nav>
@@ -115,7 +127,7 @@ $statement = $pdo->prepare("SELECT * FROM post
             <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
         </ul>
     </nav> 
-    </div><!--/col-md-8-->
+    </div><!--/col-md-9-->
 
     <div class="col-lg-3 sidebar hidden-xs-down">
         <?php
@@ -124,4 +136,5 @@ $statement = $pdo->prepare("SELECT * FROM post
     </div><!--/sidebar-->
 
   </div><!--/row-->
+  </div>
 </div><!--/container-->

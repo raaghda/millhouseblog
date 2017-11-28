@@ -73,10 +73,10 @@ $statement = $pdo->prepare("SELECT * FROM post
     $image = $posts[$keys[$i]]['image'];
     $title = $posts[$keys[$i]]['title'];
 
-    //if post-text is longer than 500ch, shorten it
+    //if post-text is longer than 120ch, shorten it
     $post_text = make_string_shorter($posts[$keys[$i]]['text'], 120);
          
-          //if post-text is longer than 500ch, shorten it
+          //if title-text is longer than 30ch, shorten it
     $post_title = make_string_shorter($posts[$keys[$i]]['title'], 30);
 
     //count comments of this post

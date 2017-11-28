@@ -26,7 +26,8 @@
 
 ?>
 
-<div class="container landingpage">
+<div class="container_feed">
+    <div class="wrapper">
 
     <h1 class="light_spacious"> 
         <?
@@ -43,7 +44,8 @@
     </h1>
 
     <div class="row">
-        <div class="col-lg-9">
+        <div class="post_wrapper col-lg-9">
+             
             <div class="dateorder">
             
             <!--Button to choose if you want to DESC or ASC-->
@@ -52,13 +54,13 @@
 
             <? if($dateorder == "ASC"){ ?>
 
-            <a class="dateorder_active" href="/millhouseblog/www/?page=displaymonth&month=<?= $month ?>&dateorder=ASC">Äldst först</a>
-            <a href="/millhouseblog/www/?page=displaymonth&month=<?= $month ?>&dateorder=DESC">Senaste först</a>
+            <a class="dateorder_active" href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=ASC">Äldst först</a>
+             <a href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=DESC">Senaste först</a>
 
             <? } else {?>
             
-            <a class="dateorder_active" href="/millhouseblog/www/?page=displaymonth&month=<?= $month ?>&dateorder=DESC">Senaste först</a>
-            <a href="/millhouseblog/www/?page=displaymonth&month=<?= $month ?>&dateorder=ASC">Äldst först</a>
+             <a class="dateorder_active" href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=DESC">Senaste först</a>
+             <a href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=ASC">Äldst först</a>
 
             <?  }  ?>
 
@@ -70,16 +72,43 @@
                 $username = get_column_with_input("username", "user", "userid", $userid);
                 $date = $postinfo["date"]; 
                 $dt = new datetime($date);
-                $post_text = make_string_shorter($postinfo["text"], 500);
+                $image = $postinfo['image'];
+                $title = $postinfo['title'];
+                $post_id = $postinfo['postid'];
+                
+            //if post-text is longer than 120ch, shorten it
+    $post_text = make_string_shorter($postinfo['text'], 120);
+         
+          //if title-text is longer than 30ch, shorten it
+    $post_title = make_string_shorter($postinfo['title'], 30);
             ?>
 
-            <article class="post">
+            <article class="feed">
+               
+               <div class="row">
+               
+               <div class="thumb_wrap col-md-4">
+      <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail" alt="<?=$title;?>"></a>
+      </div>
+              
+              <div class="post_content col-md-8">
+               
                 <header>
                     <span class="uppercase grey"><?= $postinfo["category_name"] ?></span>
-                    <h2 class=”postheading”><?= $postinfo["title"] ?></h2>
-                    <time><?= $dt->format('Y-m-d'); ?></time>
+                    <h2 class=”postheading”><a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><?=$post_title;?></a></h2>
+                    
+                     <span class="grey">
+            Publicerat 
+        <time>
+            <?= $dt->format('Y-m-d'); ?>
+            </time>
+        av
+        </span>
                     <span class="uppercase grey"> <?= $username ?></span>
-                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $postinfo["postid"]; ?>#comments">
+                         
+                    <p> <?= $post_text; ?> </p>
+                    <nav class=””>
+                        <a href="/millhouseblog/www/?page=viewpost&id=<?= $postinfo["postid"]; ?>">Läs hela inlägget</a> |  <a href="/millhouseblog/www/?page=viewpost&id=<?= $postinfo["postid"]; ?>#comments">
 
                         <!--#comments anchor-->        
                         <?= '(' . $number_of_comments . ')'; 
@@ -88,18 +117,20 @@
                         echo ' kommentar'; } else{
                         echo ' kommentarer';
                         } ?> 
-                    </a>       
-                    <p> <?= $post_text; ?> </p>
-                    <nav class=””>
-                        <a href="/millhouseblog/www/?page=viewpost&id=<?= $postinfo["postid"]; ?>">Läs hela inlägget</a>
+                    </a>  
                     </nav>     
                 </header>
+                   </div>
+                </div>
             </article>
 
             <? } 
 
                 if (empty($posts)){
-                    echo '<div class="post">' . 'Ingen har postat något i den här kategorin än...' . '</div>';
+                    echo 
+                '<div class="no_post">' . 
+                'Tyvärr finns det inga inlägg här...' .
+                '</div>';
                 }
 
             ?>
@@ -111,4 +142,5 @@
             ?>
         </div>
     </div> <!--row div-->
+    </div>
 </div> <!--container-->

@@ -166,7 +166,6 @@ input[type=submit]:hover{
     background-position: right 0;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
     padding: 0;
 }
 

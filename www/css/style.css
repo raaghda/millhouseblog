@@ -364,7 +364,6 @@ textarea{
     color: #fff;
 }
 
-
 .profile_content{
     margin-top: 40px; 
     margin-bottom: 40px;
@@ -373,10 +372,29 @@ textarea{
 .profile_content h1{
     margin-top: 50px;
     margin-bottom: 10px;
-    font-size: 2em;
+    font-size: 1.6em;
     text-align: left;
     font-weight: lighter;
     letter-spacing: 0.3em;
+}
+
+.profile_content h2{
+    font-size: 1.7em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.title_date{
+    margin: 0px;
+}
+
+.title_date>.postheading{
+    float: left; 
+}
+
+
+.post_actions{
+    margin: 0px;
 }
 
 .post{
@@ -389,10 +407,10 @@ textarea{
     margin-top: 40px; 
 }
 
-.comment_box{
-    background:#fff;
-    padding:2em;
-    margin-bottom:1em;
+#comment_text{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-style: italic;
 }
 
 #edit_post_via_profile, #delete_post_via_profile{
@@ -557,7 +575,7 @@ a:hover{
 }
 
 .grey {
-    color:#6D6D6D;
+    color:#969696;
 }
 
 .landingpage .post {
@@ -586,9 +604,11 @@ a:hover{
 .login{ 
 width: 320px;
 }
-    
- 
 
+
+.profile_content h1{
+    font-size: 2em;        
+}
     
 
 } /* Closing Tablet */

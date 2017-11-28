@@ -10,9 +10,9 @@ display_notification();
 
 <div class="container-fluid profile_header">
      <div class="row">
-        <div class="col-6 offset-3">
+        <div class="col-10 offset-1">
             <img src="images/empty_avatar.png" id=profile_avatar 
-            alt="Avatar för användare" class="rounded-circle" width="150px" height="150px">
+            alt="Avatar för användare" class="rounded-circle" width="120px" height="120px">
             <h1 id=user_name> <?php echo $fetched_user['name']; ?> </h1>
         </div>
     </div>
@@ -106,10 +106,12 @@ display_notification();
                 <div class="col-lg-10 offset-lg-1"> 
                     <article class="post">
                         <span class="uppercase grey"> <?=$category_name?> </span>
-                        <h2 class=”postheading” ><?=$post[$keys[$i]]['title'];?> </h2>
-                        <time class="grey"> Publicerat  
-                            <?= $dt->format('Y-m-d'); ?>
-                        </time>
+                         <h2 class=”postheading”> <?=$post[$keys[$i]]['title'];?> </h2>
+                        <span class=grey>
+                            <time> Publicerat  
+                                <?= $dt->format('Y-m-d'); ?>
+                            </time>
+                        </span>
                         <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
                         <?= '(' . $number_of_comments . ')'; 
                         if ($number_of_comments == 1)
@@ -124,15 +126,16 @@ display_notification();
                         ?>
                         </a>
                         <p> <?=$post_text?> </p>
-                        <div class="row">
+                        <div class="row post_actions">
                             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget | </a>
                             <form action="./?page=editpost" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                                <input type="submit" ID="edit_post_via_profile" name="edit" value=" Redigera inlägg |">
+                                <input type="submit" ID="edit_post_via_profile" name="edit" value=" Redigera inlägg | ">
                             </form>
                             <form action="../www/parts/deletepost.php" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                                <input type="submit" ID="delete_post_via_profile" name="delete" value=" Ta bort" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">   
+                                <input type="submit" ID="delete_post_via_profile" name="delete" 
+                                value="Ta bort" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">   
                             </form>
                         </div>
                     </article>
@@ -190,19 +193,22 @@ display_notification();
             //limiting the number of characters to be displayed to 200
             $comment_text = make_string_shorter($comments[$keys[$i]]['comment'], 200);
             ?>  
+
+            <!-- Comment-content -->
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">    
-                    <article class="comment_box">
-                        <h3><?=$post_title?></h3>     
-                            <p>Din kommentar: 
-                            <?=$comment_text;?></p>
-                            <time class="grey">Kommenterades  
+                    <article class="post">
+                        <span class="grey">
+                            Du kommenterade på
+                            <a href="/millhouseblog/www/?page=viewpost&id=
+                            <?= $post_id ?>"><?= '"' . $post_title . '"' ?> </a>
+                            <time class="grey"> den
                             <?= $dt->format('Y-m-d'); ?>
                             </time>
-                            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>
-                            ">Läs hela inlägget</a>
-                        </article>
-                    </div> <!-- Closing row for each comment-->
-                </div> <!-- Closing col for each post -->
-            <?php } endfor; ?>
+                            <p id="comment_text"> <?=$comment_text;?> </p>
+                        </span>
+                    </article>    
+                </div> <!-- Closing row for each comment-->
+            </div> <!-- Closing col for each post -->
+    <?php } endfor; ?>
 </div> <!-- Closing container profile content -->

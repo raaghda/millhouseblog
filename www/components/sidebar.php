@@ -21,7 +21,9 @@
                 Lifestyle</a>
         </li>
     </ul>
-
+    
+    
+    <div class="sidebar_underline"></div>
     <h3>Arkiv</h3>
     <ul>
         <li>
@@ -73,8 +75,9 @@
             December</a>
         </li>
     </ul>
+            <div class="sidebar_underline"></div>
 
-            <h3>Senaste kommentarerna</h3>
+            <h3>Senaste aktivteterna</h3>
             <ul class="comments_in_sidebar">
             <?php //loop out from the latest 5 comments: username and postname. link to that post
             

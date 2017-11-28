@@ -8,7 +8,9 @@
   //Select username from user where userid = userid. Where $input is the userid you have to compare.
 function get_column_with_input($column_name, $table_name, $compare_column_name, $input){
     require 'parts/database.php';
-    $statement = $pdo->prepare("SELECT $column_name FROM $table_name WHERE $compare_column_name = $input");
+    $statement = $pdo->prepare("SELECT $column_name 
+                                FROM $table_name 
+                                WHERE $compare_column_name = $input");
     $statement->execute();  
     //Store it in an array.
     $result = $statement->fetch(PDO::FETCH_ASSOC);
@@ -20,7 +22,10 @@ function get_column_with_input($column_name, $table_name, $compare_column_name, 
 //get all comments made on a specific post using post_id
 function count_comments($post_id){
     require 'parts/database.php';
-    $statement = $pdo->prepare("SELECT * FROM comment INNER JOIN post ON comment.postid = post.postid WHERE comment.postid = $post_id");
+    $statement = $pdo->prepare("SELECT * FROM comment 
+                                INNER JOIN post 
+                                ON comment.postid = post.postid 
+                                WHERE comment.postid = $post_id");
     $statement->execute();
     //store it in an array
     $comments = $statement->fetchAll(PDO::FETCH_ASSOC);

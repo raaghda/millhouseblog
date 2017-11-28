@@ -40,10 +40,13 @@ $start_limit = ($page - 1) * $limit;
 
 
 //selects 5 posts, $start_limit to $limit, depending on which page your on, using(?) pagination.
-$statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC LIMIT $start_limit, $limit");
-$statement->execute();
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-$keys = array_keys($posts); 
+$statement = $pdo->prepare("SELECT * FROM post 
+    ORDER by date DESC 
+    LIMIT $start_limit, $limit");
+    $statement->execute();
+    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $keys = array_keys($posts); 
+
  for($i=0; $i<count($posts); $i++){
      
      //if the index $i is less than the total number of posts

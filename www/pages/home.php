@@ -101,13 +101,14 @@ $keys = array_keys($posts);
         </nav>   
   </article><!--/post article-->
   <?php }} 
-?>
-    <ul class="pager">
-        <li><a href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>
-        <li><a href="/millhouseblog/www/?page=home&pagination_page=2">2</a></li>
-        <li><a href="/millhouseblog/www/?page=home&pagination_page=3">3</a></li>
-        <li><a href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
-    </ul>
+?>  <nav>
+        <ul class="pagination">
+            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>
+            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=2">2</a></li>
+            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=3">3</a></li>
+            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
+        </ul>
+    </nav> 
     </div><!--/col-md-8-->
 
     <div class="col-lg-3 sidebar hidden-xs-down">

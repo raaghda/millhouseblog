@@ -33,7 +33,7 @@ main{
 }
 
 .wrapper{
-    width: 90%;
+    width: 97%;
     margin: auto;
 }
 
@@ -72,7 +72,8 @@ main{
     background: white;
     margin-bottom:1em;
     display: none;
-    max-height: 1048px;
+    max-height: 930px;
+    margin: 15px;
 }
 
 aside{
@@ -83,7 +84,7 @@ aside{
 .sidebar h3 {
     color:#6D6D6D;
     text-transform: uppercase;
-    font-size: 1.4em;
+    font-size: 1.6em;
     margin-bottom:0.5em;
 }
 .sidebar ul{
@@ -97,8 +98,26 @@ aside{
 
 .sidebar_underline{
     border: 0.5px solid black;
+    width: 180px;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.aside_months{
+    display: none;
+}
+
+.aside_latest{
+    margin-left: 42%;
+}
+
+.aside_latest h3{
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.aside_latest li {
+    font-size: 0.7em;
 }
 
 /* Loginpage-styling, also applies to register page */  
@@ -161,7 +180,7 @@ input[type=submit]:hover{
 
 /* ----- LANDING PAGE ----- */
 
-.container_landingpage{
+.container_feed{
     background-image: url(../images/feed_background.jpg);
     background-position: right 0;
     background-repeat: no-repeat;
@@ -172,12 +191,13 @@ input[type=submit]:hover{
 /* ----- POST ----- */
 
 
-.post{
+.feed{
     background:white;
     margin-bottom:1em;
+    height: 250px;
 }
 
-.post h2{
+.feed h2{
     font-size: 1.7em;
 }
 
@@ -322,7 +342,7 @@ textarea{
 .viewpost .img-fluid{
     display: block;
     max-width: 100%;
-    max-height: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -392,6 +412,7 @@ textarea{
 #user_stats{
     color: #fff;
     font-weight: lighter;
+    text-align: center;
     letter-spacing: 0.07em;
 }
 
@@ -414,20 +435,77 @@ textarea{
     color: #fff;
 }
 
-
 .profile_content{
     margin-top: 40px; 
     margin-bottom: 40px;
 }
 
+
 .user_comments_wrapper{
     margin-top: 40px; 
 }
 
-.comment_box{
-    background:#fff;
+.profile_content h1{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 1.6em;
+    text-align: left;
+    font-weight: lighter;
+    letter-spacing: 0.3em;
+}
+
+.profile_content h2{
+    font-size: 1.7em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.title_date{
+    margin: 0px;
+}
+
+.title_date>.postheading{
+    float: left; 
+}
+
+
+.post_actions{
+    margin: 0px;
+}
+
+.post{
+    background:white;
     padding:2em;
     margin-bottom:1em;
+}
+
+
+#comment_text{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-style: italic;
+
+}
+
+#edit_post_via_profile, #delete_post_via_profile{
+    background: none;
+    border: 0px;
+    width: 180px;
+    padding: 0px;
+    margin: 0px;
+    width: auto;
+    border-radius: 0px;
+    display: inline-block;
+}
+
+#edit_post_via_profile, #delete_post_via_profile, p{
+    color: #4D7E95;
+    font-size: 1em;
+    text-align: left;
+}
+
+#edit_post_via_profile:hover, #delete_post_via_profile:hover{
+    text-decoration: underline;
 }
 
 /* 404-page*/
@@ -485,10 +563,16 @@ textarea{
 .about_box{
     background-color: #fff;
     padding: 40px;
-    margin-top: 150px;
+    margin-top: 100px;
     margin-bottom: 150px;
     border-radius: 15px;
 }
+
+.about_box h1{
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
 
 
 /* Footer */
@@ -567,7 +651,11 @@ a:hover{
 }
 
 .grey {
-    color:#6D6D6D;
+    color:#969696;
+}
+
+.darkgrey {
+    color:#505050;
 }
 /*/camilla*/
 
@@ -582,6 +670,11 @@ a:hover{
 .login{ 
 width: 320px;
 }
+    
+    .wrapper{
+    width: 90%;
+}
+
     .thumb_wrap{
     display: inline;
     }
@@ -593,9 +686,12 @@ width: 320px;
     .post{
     height: 250px;
 }
-    
- 
+   
 
+
+.profile_content h1{
+    font-size: 2em;        
+}
     
 
 } /* Closing Tablet */
@@ -613,8 +709,19 @@ width: 320px;
     .wrapper{
         max-width: 900px;
     }
-
-
+    
+    .aside_months{
+    display: inline;
+}
+    
+    .aside_latest{
+        margin-left: 0;
+    }
+    .sidebar {
+    margin: 0px;
+        padding-left: 30px;
+        margin-bottom: 150px;
+}
  
 
 

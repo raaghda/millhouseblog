@@ -1,5 +1,7 @@
 <div class="sidebar col-12">
     <aside>
+<div class="row">
+    <div class="aside_category">
     <h3>Kategorier</h3>
     <ul class="categories_in_sidebar">
 
@@ -21,7 +23,8 @@
                 Lifestyle</a>
         </li>
     </ul>
-    
+        </div>
+    <div class="aside_months">
     
     <div class="sidebar_underline"></div>
     <h3>Arkiv</h3>
@@ -75,7 +78,10 @@
             December</a>
         </li>
     </ul>
-            <div class="sidebar_underline"></div>
+          
+          <div class="sidebar_underline"></div>
+           </div>
+           <div class="aside_latest">
 
             <h3>Senaste aktivteterna</h3>
             <ul class="comments_in_sidebar">
@@ -120,5 +126,7 @@
         <?php
         } endfor; ?>
             </ul>
+            </div>
+        </div>
         </aside>
     </div>

@@ -45,7 +45,7 @@ if (isset($_POST["title"]) && isset($_POST["text"]) && isset($_POST["categoryid"
         $post_id = $_POST["postid"];
     }
     
-    notify('success','Your post has been updated!');
+    notify('success','Ditt inlägg har blivit uppdaterat!');
     
 header("Location: /millhouseblog/www/?page=viewpost&id=".$post_id);   
 }

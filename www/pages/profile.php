@@ -49,9 +49,9 @@ display_notification();
 <!-- Latest posts -->
 <div class="container profile_content">
     <div class="row">
-        <div class="col-12 col-lg-8 offset-lg-2">
+        <div class="col-lg-10 offset-lg-1">
             <span class="uppercase">    
-                <h1 class="light_spacious">Senaste inläggen:</h1>
+                <h1>Senaste inläggen:</h1>
             </span>
         </div>
     </div>
@@ -61,7 +61,7 @@ display_notification();
     if ($posts_by_user['total'] == 0)
     { ?>
         <div class="row">
-            <div class="col-12 col-lg-8 offset-lg-2">
+            <div class="col-lg-10 offset-lg-1">
                 <p>Du har inte gjort något inlägg ännu.</p>
             </div>
         </div>  
@@ -103,7 +103,7 @@ display_notification();
         
             <!-- Single post-content -->
             <div class="row">
-                <div class="col-12 col-lg-8 offset-lg-2">    
+                <div class="col-lg-10 offset-lg-1"> 
                     <article class="post">
                         <span class="uppercase grey"> <?=$category_name?> </span>
                         <h2 class=”postheading” ><?=$post[$keys[$i]]['title'];?> </h2>
@@ -124,15 +124,15 @@ display_notification();
                         ?>
                         </a>
                         <p> <?=$post_text?> </p>
-                        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
                         <div class="row">
+                            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget | </a>
                             <form action="./?page=editpost" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                                <input type="submit" name="edit" value="Edit">
+                                <input type="submit" ID="edit_post_via_profile" name="edit" value=" Redigera inlägg |">
                             </form>
                             <form action="../www/parts/deletepost.php" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                                <input type="submit" name="delete" value="Delete" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">   
+                                <input type="submit" ID="delete_post_via_profile" name="delete" value=" Ta bort" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">   
                             </form>
                         </div>
                     </article>
@@ -143,9 +143,9 @@ display_notification();
         
     <!-- Latest comments -->
     <div class="row">
-        <div class="user_comments_wrapper col-12 col-lg-8 offset-lg-2">   
+        <div class="user_comments_wrapper col-lg-10 offset-lg-1">   
             <span class="uppercase">    
-                <h1 class="light_spacious">Dina senaste kommentarer:</h1>
+                <h1>Dina senaste kommentarer:</h1>
             </span>
         </div>
     </div>
@@ -155,7 +155,7 @@ display_notification();
     if ($comments_by_user['total'] == 0)
     { ?>
         <div class="row">
-            <div class="col-12 col-lg-8 offset-lg-2">
+            <div class="col-lg-10 offset-lg-1">
                 <p>Du har inte skrivit några kommentarer ännu.</p>
             </div>
         </div>  
@@ -191,7 +191,7 @@ display_notification();
             $comment_text = make_string_shorter($comments[$keys[$i]]['comment'], 200);
             ?>  
             <div class="row">
-                <div class="col-12 col-lg-8 offset-lg-2">    
+                <div class="col-lg-10 offset-lg-1">    
                     <article class="comment_box">
                         <h3><?=$post_title?></h3>     
                             <p>Din kommentar: 

@@ -339,6 +339,7 @@ textarea{
 #user_stats{
     color: #fff;
     font-weight: lighter;
+    text-align: center;
     letter-spacing: 0.07em;
 }
 
@@ -367,6 +368,15 @@ textarea{
     margin-bottom: 40px;
 }
 
+.profile_content h1{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 2em;
+    text-align: left;
+    font-weight: lighter;
+    letter-spacing: 0.3em;
+}
+
 .post{
     background:white;
     padding:2em;
@@ -381,6 +391,27 @@ textarea{
     background:#fff;
     padding:2em;
     margin-bottom:1em;
+}
+
+#edit_post_via_profile, #delete_post_via_profile{
+    background: none;
+    border: 0px;
+    width: 180px;
+    padding: 0px;
+    margin: 0px;
+    width: auto;
+    border-radius: 0px;
+    display: inline-block;
+}
+
+#edit_post_via_profile, #delete_post_via_profile, p{
+    color: #4D7E95;
+    font-size: 1em;
+    text-align: left;
+}
+
+#edit_post_via_profile:hover, #delete_post_via_profile:hover{
+    text-decoration: underline;
 }
 
 /* 404-page*/

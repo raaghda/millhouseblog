@@ -43,9 +43,9 @@ display_notification();
     
 
     //FUNCTIONS is in functions.php
-    $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
-    $username = get_row_with_input('username', 'user', 'userid', $user_id);
-    $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
+    $category_name = get_column_with_input('name', 'category', 'categoryid', $category_id);
+    $username = get_column_with_input('username', 'user', 'userid', $user_id);
+    $user_email = get_column_with_input('email', 'user', 'userid', $user_id);
     $date = $posts[$keys[$i]]['date'];
     $dt = new datetime($date);
     $image = $posts[$keys[$i]]['image'];

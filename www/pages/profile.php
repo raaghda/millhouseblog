@@ -146,7 +146,7 @@ display_notification();
         
     <!-- Latest comments -->
     <div class="row">
-        <div class="user_comments_wrapper col-lg-10 offset-lg-1">   
+        <div class="col-lg-10 offset-lg-1">   
             <span class="uppercase">    
                 <h1>Dina senaste kommentarer:</h1>
             </span>

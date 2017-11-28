@@ -22,23 +22,24 @@ display_notification();
 //How many comments there is on each post. 
 //Link to each specific post
 
-//$post is in fetch_posts                
-if(isset($_GET['showposts'])){
-    $start_limit = $start_limit + $pagination;
+//$post is in fetch_posts   
+$limit = 5;
+if(isset($_GET['page'])){
+    $page = $_GET['page'];
 }
     else{
-        $start_limit = 0;
+        $start_limit = ($page - 1) * $limit;
     }        
     
 //set the values of which posts should be displayed.
-$limit = $start_limit + 5;
+
 
 //selects 5 posts, $start_limit to $limit. using pagination.
 $statement = $pdo->prepare("SELECT * FROM post ORDER by date DESC LIMIT $start_limit, $limit");
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 $keys = array_keys($posts);  
- for($i=$start_limit; $i<($start_limit + 5); $i++){
+ for($i=0; $i<count($posts); $i++){
      
      //if the index $i is less than the total number of posts
      if ($i < count($posts)){
@@ -55,9 +56,9 @@ $keys = array_keys($posts);
     
 
     //FUNCTIONS is in functions.php
-    $category_name = get_row_with_input('name', 'category', 'categoryid', $category_id);
-    $username = get_row_with_input('username', 'user', 'userid', $user_id);
-    $user_email = get_row_with_input('email', 'user', 'userid', $user_id);
+    $category_name = get_column_with_input('name', 'category', 'categoryid', $category_id);
+    $username = get_column_with_input('username', 'user', 'userid', $user_id);
+    $user_email = get_column_with_input('email', 'user', 'userid', $user_id);
     $date = $posts[$keys[$i]]['date'];
     $dt = new datetime($date);
 
@@ -91,15 +92,16 @@ $keys = array_keys($posts);
       <p><?=$post_text?></p>
 
         <nav class=””>
-            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+            <a href="/millhouseblog/www/?page=viewpost&id=<?= $page = 1; ?>">Läs hela inlägget</a>
         </nav>   
   </article><!--/post article-->
   <?php }} 
 ?>
     <ul class="pager">
-        <li class="previous"><a href="">Previous</a></li>
-        <li class="next"><a href="/millhouseblog/www/?page=home&$=value">Next</a></li>
-        <li><a href="">Last</a></li>
+        <li><a href="">1</a></li>
+        <li><a href="/millhouseblog/www/?page=home.1&page=<?= $post_id ?>#comments">2</a></li>
+        <li><a href="">3</a></li>
+        <li><a href="">4</a></li>
     </ul>
     </div><!--/col-md-8-->
 

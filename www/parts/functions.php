@@ -2,18 +2,18 @@
   require 'parts/database.php';
 
   
-  //get a specific value from a row in a table using an id to compare with the id's in the table
+  //get a specific value from a column in a table using an id to compare with the id's in the table
   //You have a userid. You want to get the persons username. 
   //so you compare the userid with all the userid's in the user table.
   //Select username from user where userid = userid. Where $input is the userid you have to compare.
-function get_row_with_input($row_name, $table_name, $compare_row_name, $input){
+function get_column_with_input($column_name, $table_name, $compare_column_name, $input){
     require 'parts/database.php';
-    $statement = $pdo->prepare("SELECT $row_name FROM $table_name WHERE $compare_row_name = $input");
+    $statement = $pdo->prepare("SELECT $column_name FROM $table_name WHERE $compare_column_name = $input");
     $statement->execute();  
     //Store it in an array.
     $result = $statement->fetch(PDO::FETCH_ASSOC);
-    //get the row_name from the array. Fex username
-    return $result["$row_name"];
+    //get the column_name from the array. Fex username
+    return $result["$column_name"];
 }         
 
 

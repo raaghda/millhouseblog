@@ -67,7 +67,7 @@
             <? 
             foreach($posts as $postinfo){ 
                 $userid = $postinfo["userid"];
-                $username = get_row_with_input("username", "user", "userid", $userid);
+                $username = get_column_with_input("username", "user", "userid", $userid);
                 $date = $postinfo["date"]; 
                 $dt = new datetime($date);
                 $post_text = make_string_shorter($postinfo["text"], 500);

@@ -66,6 +66,7 @@ main{
 .sidebar {
     background: white;
     margin-bottom:1em;
+
 }
 
 aside {
@@ -621,6 +622,9 @@ width: 320px;
 }
 .viewpost h6{
     font-size: 1em;
+}
+.sidebar {
+    max-width:220px;
 }
 
 

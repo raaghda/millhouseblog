@@ -1,13 +1,11 @@
 <?php
 require 'parts/database.php';
 require 'parts/functions.php';
-require 'parts/fetch_posts.php';
-?>
-
-<?php 
+ 
 //if statement checking if there is a session message (parts/deletepost.php)
 //if true, display message
 display_notification();
+
 ?>
 
 
@@ -19,14 +17,37 @@ display_notification();
     <div class="row">
         <div class="col-lg-9">
 <?php
-//Looping out the 5 latest posts from posts table.
+//Looping out 5 posts, starting from the latest posts.
 //Information about the author of the post=user.
 //How many comments there is on each post. 
 //Link to each specific post
 
-//$post is in fetch_posts                
-            
- for($i=0; $i<5; $i++){
+
+//PAGINATION
+//set $limit as the number of posts to show per page
+$limit = 5;
+    //if a page number has been selected, get that value
+    if(isset($_GET['pagination_page'])){
+        //store it in $page
+        $page = $_GET['pagination_page'];
+    }
+        else{
+            //else, user landed on home-page and page is 1
+            $page = 1;
+        }        
+//start limit(=which post to start to get from database) is set by the page number and the $limit of the posts to show
+$start_limit = ($page - 1) * $limit;  
+
+
+//selects 5 posts, $start_limit to $limit, depending on which page your on, using(?) pagination.
+$statement = $pdo->prepare("SELECT * FROM post 
+    ORDER by date DESC 
+    LIMIT $start_limit, $limit");
+    $statement->execute();
+    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $keys = array_keys($posts); 
+
+ for($i=0; $i<count($posts); $i++){
      
      //if the index $i is less than the total number of posts
      if ($i < count($posts)){
@@ -47,10 +68,10 @@ display_notification();
     $username = get_column_with_input('username', 'user', 'userid', $user_id);
     $user_email = get_column_with_input('email', 'user', 'userid', $user_id);
     $date = $posts[$keys[$i]]['date'];
-    $dt = new datetime($date);
+    $dt = new datetime($date); 
     $image = $posts[$keys[$i]]['image'];
     $title = $posts[$keys[$i]]['title'];
-    
+
     //if post-text is longer than 500ch, shorten it
     $post_text = make_string_shorter($posts[$keys[$i]]['text'], 500);
 
@@ -82,12 +103,18 @@ display_notification();
       <p><?=$post_text?></p>
 
         <nav class=””>
-            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+            <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">Läs hela inlägget</a>
         </nav>   
   </article><!--/post article-->
   <?php }} 
-?>
-
+?>  <nav>
+        <ul class="pagination">
+            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>
+            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=2">2</a></li>
+            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=3">3</a></li>
+            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
+        </ul>
+    </nav> 
     </div><!--/col-md-8-->
 
     <div class="col-lg-3 sidebar hidden-xs-down">

@@ -34,78 +34,68 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
         $number_of_comments = count($comments);
         
-        //LOOPING OUT POST
-        
+        //LOOPING OUT POST    
         display_notification();
-        ?>
-   <main class="main_viewpost">  
-    <div class="container viewpost">
-        
+?>
+    <main class="main_viewpost">
+        <div class="container viewpost">
             <div class="row">
-               <div class="col-lg-9">
-               <article class="post" id="postsection_viewpost">
-               
-                    <header>
-
-                        <!--<meta>kategorierna som meta???-->
-                        <span class="uppercase"> 
-                            <h1 class="light_spacious"><?=$post_info['title']?></h1>
-                        </span>
-
-
-                        <span id="viewpost_span">Publicerat av <?= $username.' '. '('.$user_email.')'; ?> den 
-                           <time>
-                            <?= $dt->format('Y-m-d'); ?>
-                            </time>
-                        </span>
-                       
-                        <h6 #id="category">
-                            <a href="/millhouseblog/www/?page=category&categoryid=<?=$category_id?>">
-                                <?=$category_name?>
-                            </a>
-                        </h6>
-
-                        <h6 id="comments">
-                            <a href="#comments">
-                                <?= '(' . $number_of_comments . ')'; 
+                <div class="col-lg-9">
+                    <article class="post" id="postsection_viewpost">
+                        <header>
+                            <!--<meta>kategorierna som meta???-->
+                            <span class="uppercase"> 
+                                <h1 class="light_spacious"><?=$post_info['title']?></h1>
+                            </span>
+                            <span id="viewpost_span">Publicerat av <?= $username.' '. '('.$user_email.')'; ?> den 
+                               <time>
+                                <?= $dt->format('Y-m-d'); ?>
+                                </time>
+                            </span>
+                            <h6 #id="category">
+                                <a href="/millhouseblog/www/?page=category&categoryid=<?=$category_id?>"><?=$category_name?>
+                                </a>
+                            </h6>
+                            <h6 id="comments">
+                                <a href="#comments">
+                                    <?= '(' . $number_of_comments . ')'; 
         
                                 if($number_of_comments == 1){
                                     echo ' kommentar'; } else{
                                     echo ' kommentarer';
                                 } 
-                    
                                 ?>
-                            </a>
-                        </h6>
-                    </header>
+                                </a>
+                            </h6>
+                        </header>
 
 
-                    <?php
+                        <?php
                         //if NOT no image (i.e. if there is an image)
                         if (!is_null($image)){?>
 
-                        <!--display image, and display title as alt tag-->
-                        <div class="blogpost_image">
-                            <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-fluid" alt="<?=$title;?>">
-                        </div>
-                    <?php
+                            <!--display image, and display title as alt tag-->
+                            <div class="blogpost_image">
+                                <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-fluid" alt="<?=$title;?>">
+                            </div>
+                            <?php
                         }
                     ?>
 
-                        <div class="text_container">
-                            <p>
-                                <?=$post_info['text'];?>
-                            </p>
-                        </div>
-                            
-                            
-                                          <?php
+                                <div class="text_container">
+                                    <p>
+                                        <?=$post_info['text'];?>
+                                    </p>
+                                </div>
 
-    $role = '';
+
+                                <?php
+
+                        $role = '';
     
-if(isset($_SESSION['loggedIn'])){
- $role = $_SESSION['user']['role'];
-}
+                            if(isset($_SESSION['loggedIn'])){
+                                $role = $_SESSION['user']['role'];
+                            }
 
 //           
 //    if($role = 'admin'){
@@ -116,61 +106,61 @@ if(isset($_SESSION['loggedIn'])){
     //If both conditions are true, the user can delete and edit posts.
            
     if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id ){ ?>
-                   
-                         <div class="row justify-content-end">
-                           <div class="col-6"></div>
-                            <div class="col-3" >
-                                <form action="../www/parts/deletepost.php" method="POST">
-                                    <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
-                                    <input id = "delete_button" type="submit" name="delete" value="Ta bort" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">
-                                </form>
-                             </div>
-                             
-                           <div class="col-3">
-                                <form action="./?page=editpost" method="POST">
-                                    <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
-                                    <input id="edit_button" type="submit" name="edit" value="Redigera">
-                                </form>
-                            </div>  
+
+                <div class="row justify-content-end">
+                    <div class="col-6"></div>
+                        <div class="col-3">
+                            <form action="../www/parts/deletepost.php" method="POST">
+                                <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
+                                <input id="delete_button" type="submit" name="delete" value="Ta bort" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">
+                            </form>
                         </div>
-                       
-                                            
 
-                    <? } else if ($role == 'admin'){  ?>
+                    <div class="col-3">
+                            <form action="./?page=editpost" method="POST">
+                                <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
+                                <input id="edit_button" type="submit" name="edit" value="Redigera">
+                            </form>
+                    </div>
+                </div>
 
-                        <form action="../www/parts/deletepost.php" method="POST">
-                            <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
-                            <input type="submit" name="delete" value="Delete">
-                        </form>
+               
+                <? } else if ($role == 'admin'){  ?>
 
+                            <form action="../www/parts/deletepost.php" method="POST">
+                                <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
+                                <input type="submit" name="delete" value="Delete">
+                            </form>
 
+                <?php
+                    }
+                ?>
+                    </article><!--/post article-->
 
-                        <?php
-    }
-            
-//var_dump((int)$_SESSION['user']['userid']);            
-?>
-                            
-                
-                 </article><!--/post article-->
-                 
-            
-         
-       
+                   
+                <div class="row">
+                    <div class="col-lg-12">
+                        <span class="uppercase">
+                            <h1 class="light_spacious" id="comments_h1">Kommentarer</h1>
+                        </span>
+                            <!--div class="user_comments_wrapper col-12 col-lg-8 "-->
+                            <!--article class="comments_displayed_on_viewpost_page"-->
+                                    
+                                <?php
+                                    //if statement when there are no comments
+                                    if ($number_of_comments == 0){?>
+                                        
+                                        <p>Det finns inga kommentarer här än.</p>
+                    
+                                <?php   
+                                    }else
+                                ?>
+                                    
+                                <!--anchor to comments section.#comments will bring use to this line-->
+                                <a name="comments"></a>
+                                       
 
-
-        <div class="row">
-            <div class="user_comments_wrapper col-12 col-lg-8 ">
-                <!-- Put this in if-statement? Showing something different when comments == 0-->
-                <h2>Kommentarer</h2>
-            </div>
-        </div>
-        
-       
-        <a name="comments"></a>
-        <!--anchor to comments section.#comments will bring use to this line-->
-
-        <?php
+            <?php
                 foreach($comments as $comment_info){
                     $date = $comment_info["date"]; 
                     $dt = new datetime($date);
@@ -187,25 +177,27 @@ if(isset($_SESSION['loggedIn'])){
                         }
                 //LOOPING OUT COMMENTS
                 ?>
-            <article class="comment_box">
-                <header>
-                    <time id="commentbox"><?=$dt->format('Y-m-d'); ?></time>
-                    <p id="commentbox">av</p>
-                    <span id="commentbox" class="uppercase grey"><?=$comment_name?></span>
-                </header>
+                <div class="row">
+                    <div class="col-lg-12 ">    
+                        <article class="comments_displayed_on_viewpost_page">
+                        <span class="grey">
+                           <time id="commentbox"><?=$dt->format('Y-m-d'); ?></time>
+                            <p id="commentbox">av</p>
+                            <span id="commentbox" class="uppercase grey"><?=$comment_name?></span>
+                            <p><?=$comment_info["comment"] ?></p>
 
-                <p>
-                    <?=$comment_info["comment"] ?>
-                </p>
+                        </span>
+                    </article>    
+                </div> <!-- Closing row for each comment-->
+            </div> <!-- Closing col for each post -->  
 
-
-                <?php
+            <?php
                     
-                    if(isset($_SESSION['loggedIn'])){
- $role = $_SESSION['user']['role'];
-}
+                if(isset($_SESSION['loggedIn'])){
+                    $role = $_SESSION['user']['role'];
+                }
                     
-                    if ($role == 'admin'){?>
+                if ($role == 'admin'){?>
 
                     <form action="../www/parts/deletecomment.php" method="GET">
                         <input type="hidden" name="post_id" value="<?= $post_id;?>">
@@ -213,48 +205,53 @@ if(isset($_SESSION['loggedIn'])){
                         <input type="submit" name="delete" value="Delete">
                     </form>
 
-                    <? }
+                <?}
+                }
+                ?>
                     
+                    </div><!--end of col-lg-12-->
+                </div><!--end of row-->
+                        
+<!--Add a comment section-->
+       <div class="row">
+            <div class="col-lg-12">
+                <span class="uppercase">
+                    <h1 class="light_spacious" id="addcomments_h1">Lägg till en kommentar</h1>
+                </span>
+       
+                <?php
                     }
-                    ?>
-            </article>
-            <!--/comment article-->
+                        if(isset($_GET['nocomment'])){
+                            echo $_GET['nocomment'];
+                    }
+                ?>
+                <div class="row" >
+                   <div class="col-lg-12" >
+                        <form action="parts/addcomment.php" method="post" id="add_comments_form_viewpost">
 
-            <?php
-    }
+                        <? if(!isset($_SESSION['loggedIn'])){ ?>
 
-
-if(isset($_GET['nocomment'])){
-    echo $_GET['nocomment'];
-            }
-
-?>
-
-                <form action="parts/addcomment.php" method="post">
-
-                    <? if(!isset($_SESSION['loggedIn'])){ ?>
-
-                        <input type="text" name="name" placeholder="Namn">
-                        <input type="text" name="email" placeholder="Email">
+                            <input type="text" name="name" placeholder="Namn">
+                            <input type="text" name="email" placeholder="Email">
 
                         <?  } else {} ?>
 
                             <input type="hidden" name="id" value="<?= $post_id ?>">
-                            <input type="text" name="comment" placeholder="Kommentar">
+                            <input type="text" name="comment" placeholder="Din kommentar:" id="comment_field_viewpost">
                             <input type="submit" name="addcomment" value="Skicka">
+                        </form>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div><!--col-lg-9-->
 
-                </form>
-
-
-     </div><!--col-lg-9-->
-       
         <!--SIDEBAR-->
-                <div class="col-lg-3 sidebar hidden-xs-down">
-                    <?php
-        require 'components/sidebar.php';
-        ?>
-                </div><!--/sidebar-->
-        </div><!--/row-->   
-    </div>
-    <!--end of container viewpost-->
-    </main>  
+            <div class="col-lg-3 sidebar hidden-xs-down">
+                <?php
+                    require 'components/sidebar.php';
+                ?>
+            </div><!--/sidebar-->
+        </div><!--/row-->
+    </div><!--end of container viewpost-->
+</main>

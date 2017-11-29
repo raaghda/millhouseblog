@@ -104,7 +104,7 @@ display_notification();
             <!-- Single post-content -->
             <div class="row">
                 <div class="col-lg-10 offset-lg-1"> 
-                    <article class="post">
+                    <article class="posts_displayed_on_profile_page">
                         <span class="uppercase grey"> <?=$category_name?> </span>
                          <h2 class=”postheading”> <?=$post[$keys[$i]]['title'];?> </h2>
                         <span class=grey>
@@ -203,7 +203,7 @@ display_notification();
             <!-- Comment-content -->
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">    
-                    <article class="post">
+                    <article class="comments_displayed_on_profile_page">
                         <span class="grey">
                             Du kommenterade på
                             <a href="/millhouseblog/www/?page=viewpost&id=

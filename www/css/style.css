@@ -321,19 +321,28 @@ input[type=submit]:hover{
 
 
 /* Create Post Form */
-.form{
+.createpost_page{
+   background-image: url(../images/feed_background.jpg);
+    background-position: right 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+}
+.createpost .form{
     padding-top: 30px;
     background-color: white;
     border: 1px solid #bdbdbd;    
 }
 
-.createpost h2{
-    text-align: center;
-    margin: 25px 0 25px 0;
+.createpost h1{
+    padding-top: 40px;
+    padding-bottom:20px;
 }
 
 .createpost{
     width: 100%;
+    height: 100%;
+    
 }
 input, textarea, select{
     width: 100%;

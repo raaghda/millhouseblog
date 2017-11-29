@@ -135,7 +135,7 @@ display_notification();
     
     <!-- Sidebar -->
     <div class="col-lg-2 d-none d-md-block sidebar">
-        <?= require 'components/sidebar.php'; ?>
+        <?php require 'components/sidebar.php'; ?>
     </div> <!-- Closing sidebar-->
     
     <!-- Pagination -->

@@ -74,7 +74,7 @@ display_notification();
             $title = $posts[$keys[$i]]['title'];
 
             //if post-text is longer than 120ch, shorten it
-            $post_text = make_string_shorter($posts[$keys[$i]]['text'], 120);
+            $post_text = make_string_shorter($posts[$keys[$i]]['text'], 150);
                 
                 //if title-text is longer than 30ch, shorten it
             $post_title = make_string_shorter($posts[$keys[$i]]['title'], 50);

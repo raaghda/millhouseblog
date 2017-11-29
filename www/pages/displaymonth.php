@@ -24,7 +24,8 @@
     $months = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<div class="container landingpage">
+<div class="container_feed">
+   <div class="wrapper">
     <h1 class="light_spacious">
         <? 
         
@@ -59,7 +60,7 @@
     </h1>
 
     <div class="row">
-        <div class="col-lg-9">
+        <div class="post_wrapper col-lg-9">
 
         <div class="dateorder">
             
@@ -89,16 +90,40 @@
                 $category_name = get_column_with_input('name', 'category', 'categoryid', $category_id);
                 $date = $monthpost["date"];
                 $dt = new datetime($date);
-                $month_text = make_string_shorter($monthpost["text"], 500);
+                $image = $monthpost['image'];
+    $title = $monthpost['title'];
+                $post_id = $monthpost['postid'];
+                
+            //if post-text is longer than 120ch, shorten it
+    $post_text = make_string_shorter($monthpost['text'], 120);
+         
+          //if title-text is longer than 30ch, shorten it
+    $post_title = make_string_shorter($monthpost['title'], 30);
         ?>
 
-        <article class="post">
+        <article class="feed">
+           
+           <div class="row">
+           <div class="thumb_wrap col-md-4">
+      <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail" alt="<?=$title;?>"></a>
+      </div>
+           
+           <div class="post_content col-md-8">
+           
             <header>
                 <span class="uppercase grey"><?= $category_name ?></span>
-                <h2 class=”postheading”><?= $monthpost["title"] ?></h2>
-                <time><?= $dt->format('Y-m-d'); ?></time>
-                <span class="uppercase grey"><?= $username ?></span>
-                <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>#comments">
+                <h2 class=”postheading”><a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><?=$post_title;?></a></h2>
+                <span class="grey">
+            Publicerat 
+        <time>
+            <?= $dt->format('Y-m-d'); ?>
+            </time>
+        av
+        </span>
+          <span class="uppercase grey"><?= $username?></span>
+                <p> <?= $post_text; ?> </p>
+                <nav class=””>
+                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>">Läs hela inlägget</a> | <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>#comments">
                 
                     <!--#comments anchor-->
                     <?= '(' . $number_of_comments . ')'; 
@@ -109,11 +134,11 @@
                     } ?> 
 
                 </a>
-                <p> <?= $month_text; ?> </p>
-                <nav class=””>
-                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>">Läs hela inlägget</a>
                 </nav> 
-            </header>    
+            </header> 
+            
+               </div>
+            </div>   
         </article>
 
         <? } 
@@ -121,7 +146,10 @@
         /* Message if there is no posts in selected month */
 
         if (empty($monthpost)){
-            echo '<div class="post">' . 'Tyvärr finns det inga inlägg för den här månaden...' . '</div>';
+            echo 
+                '<div class="no_post">' . 
+                'Tyvärr finns det inga inlägg här...' .
+                '</div>';
         } ?>
     </div><!--/col-lg-9-->
         <div class="col-lg-3 sidebar hidden-xs-down">
@@ -130,4 +158,5 @@
             ?>
         </div>
     </div> <!--row div-->
+    </div>
 </div> <!--container-->

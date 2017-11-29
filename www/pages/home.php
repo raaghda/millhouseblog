@@ -9,10 +9,10 @@ display_notification();
 ?>
 
 
-<div class="container_landingpage"> 
+<div class="container_feed"> 
    <div class="wrapper">
     <span class="uppercase">   
-        <h1 class="light_spacious">Senaste inläggen:</h1>
+        <h1 class="light_spacious">Senaste inläggen</h1>
     </span>
 
     <div class="row">
@@ -73,24 +73,27 @@ $statement = $pdo->prepare("SELECT * FROM post
     $image = $posts[$keys[$i]]['image'];
     $title = $posts[$keys[$i]]['title'];
 
-    //if post-text is longer than 500ch, shorten it
-    $post_text = make_string_shorter($posts[$keys[$i]]['text'], 150);
+    //if post-text is longer than 120ch, shorten it
+    $post_text = make_string_shorter($posts[$keys[$i]]['text'], 120);
+         
+          //if title-text is longer than 30ch, shorten it
+    $post_title = make_string_shorter($posts[$keys[$i]]['title'], 30);
 
     //count comments of this post
     $number_of_comments = count_comments($post_id);
 
     //LOOPING OUT THE POSTS
     ?>  
-      <article class="post">
+      <article class="feed">
       <div class="row">
       <div class="thumb_wrap col-md-4">
-      <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail" alt="<?=$title;?>">
+      <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail" alt="<?=$title;?>"></a>
       </div>
       <div class="post_content col-md-8">
       <header>  
             <span class="uppercase grey"><?=$category_name?></span>
         <!--<meta>kategorierna som meta???-->
-        <h2 class=”postheading”><?=$posts[$keys[$i]]['title'];?></h2>
+          <h2 class=”postheading”><a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><?=$post_title;?></a></h2>
         
         <span class="grey">
             Publicerat 

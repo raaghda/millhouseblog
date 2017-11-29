@@ -33,7 +33,7 @@ main{
 }
 
 .wrapper{
-    width: 90%;
+    width: 97%;
     margin: auto;
 }
 
@@ -72,7 +72,8 @@ main{
     background: white;
     margin-bottom:1em;
     display: none;
-    max-height: 1048px;
+    max-height: 930px;
+    margin: 15px;
 }
 
 aside{
@@ -83,7 +84,7 @@ aside{
 .sidebar h3 {
     color:#6D6D6D;
     text-transform: uppercase;
-    font-size: 1.4em;
+    font-size: 1.6em;
     margin-bottom:0.5em;
 }
 .sidebar ul{
@@ -97,8 +98,26 @@ aside{
 
 .sidebar_underline{
     border: 0.5px solid black;
+    width: 180px;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.aside_months{
+    display: none;
+}
+
+.aside_latest{
+    margin-left: 42%;
+}
+
+.aside_latest h3{
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.aside_latest li {
+    font-size: 0.7em;
 }
 
 /* Loginpage-styling, also applies to register page */  
@@ -161,24 +180,24 @@ input[type=submit]:hover{
 
 /* ----- LANDING PAGE ----- */
 
-.container_landingpage{
+.container_feed{
     background-image: url(../images/feed_background.jpg);
     background-position: right 0;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
     padding: 0;
 }
 
 /* ----- POST ----- */
 
 
-.post{
+.feed{
     background:white;
     margin-bottom:1em;
+    height: 250px;
 }
 
-.post h2{
+.feed h2{
     font-size: 1.7em;
 }
 
@@ -201,22 +220,53 @@ input[type=submit]:hover{
     border: none;
 }
 
-/* categories*/
-
-.categories{
-    margin-bottom: 100px;
-    max-width: 900px;
+.no_post{
+    background: white;
+    text-align: center;
+    padding: 40px;
+    font-size: 1.5em;
+    font-weight: 300;
 }
 
+/* ----- CATEGORIES ----- */
 
-.categories a{
-    border: 10px solid #f2f2f2;
+
+
+.container_categories{
+    background-image: url(../images/feed_background.jpg);
+    background-position: right 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+.categories_wrapper{
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 900px;
+    width: 97%;
+    margin: auto;
+    padding-bottom: 80px;
+}
+
+.light_spacious#categories{
+   padding: 60px 0px 50px 0px;
+}
+
+.categories_wrapper a{
+    border: 8px solid #fff;
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 250px;
-    text-decoration: none;
+}
+
+.image_wrappers{
+    width: 90%;
+    margin: auto;
 }
 
 #categoryid1{
@@ -235,13 +285,12 @@ input[type=submit]:hover{
     background-image: url('../images/other.jpg');
 }
 
-.categories h3{
-    margin: 30px;
+.categories_wrapper h3{
+    color: white;
+    background-color: rgba(000,0,0,0.7);
+    padding: 30px;
     margin-top: 70px;
     text-align: center;
-    color: white;
-    padding: 30px;
-    background-color: rgba(000,0,0,0.7);
 }
 
 .dateorder{
@@ -426,7 +475,11 @@ textarea{
     margin-top: 40px; 
 }
 
+<<<<<<< HEAD
     .profile_content h1{
+=======
+.profile_content h1{
+>>>>>>> master
     margin-top: 50px;
     margin-bottom: 10px;
     font-size: 1.6em;
@@ -591,7 +644,6 @@ footer li .fa{
 }
 
 
-
 /* General text styling */
 /*  Paragraphs */
 p{
@@ -651,6 +703,10 @@ a:hover{
 .login{ 
 width: 320px;
 }
+    
+    .wrapper{
+    width: 90%;
+}
 
     .thumb_wrap{
     display: inline;
@@ -686,9 +742,22 @@ width: 320px;
     .wrapper{
         max-width: 900px;
     }
-
-
- 
+    
+    .aside_months{
+    display: inline;
+}
+    
+    .aside_latest{
+        margin-left: 0;
+    }
+    .sidebar {
+    margin: 0px;
+        padding-left: 30px;
+        margin-bottom: 150px;
+}
+ .image_wrappers{
+    width: 80%;
+}
 
 
 

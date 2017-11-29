@@ -139,12 +139,15 @@ display_notification();
     </div> <!-- Closing sidebar-->
     
     <!-- Pagination -->
-    <nav>
-        <ul class="pagination">
-            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>
-            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=2">2</a></li>
-            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=3">3</a></li>
-            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
-        </ul>
-    </nav> 
+    
+    <div class="col-8 offset-1 pagination_container">
+        <nav>
+            <ul class="pagination">
+                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>
+                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=2">2</a></li>
+                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=3">3</a></li>
+                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
+            </ul>
+        </nav> 
+    </div>
 </div><!-- Closing entire feed wrapper container-->

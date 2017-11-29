@@ -188,6 +188,7 @@ input[type=submit]:hover{
     padding: 0;
 }
 
+
 /* ----- POST ----- */
 
 
@@ -470,6 +471,12 @@ textarea{
     margin-bottom: 40px;
 }
 
+.posts_displayed_on_profile_page{
+    background:white;
+    padding:2em;
+    margin-bottom:1em;
+}
+
 
 .user_comments_wrapper{
     margin-top: 40px; 
@@ -480,8 +487,9 @@ textarea{
     margin-bottom: 10px;
     font-size: 1.6em;
     text-align: left;
-    font-weight: lighter;
+    font-weight: 200;
     letter-spacing: 0.3em;
+    color: #6D6D6D;
 }
 
 .profile_content h2{
@@ -503,12 +511,11 @@ textarea{
     margin: 0px;
 }
 
-.post{
-    background:white;
-    padding:2em;
-    margin-bottom:1em;
+.comments_displayed_on_profile_page{
+background:white;
+padding:2em;
+margin-bottom:1em;
 }
-
 
 #comment_text{
     margin-top: 10px;
@@ -702,7 +709,7 @@ width: 320px;
     
     .wrapper{
     width: 90%;
-}
+    }
 
     .thumb_wrap{
     display: inline;

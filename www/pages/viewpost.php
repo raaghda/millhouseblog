@@ -143,6 +143,7 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <span class="uppercase">
                             <h1 class="light_spacious" id="comments_h1">Kommentarer</h1>
                         </span>
+                           <div class="comments_displayed_on_viewpost_page">
                             <!--div class="user_comments_wrapper col-12 col-lg-8 "-->
                             <!--article class="comments_displayed_on_viewpost_page"-->
                                     
@@ -157,7 +158,8 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 ?>
                                     
                                 <!--anchor to comments section.#comments will bring use to this line-->
-                                <a name="comments"></a>
+                               <a name="comments"></a>
+                            </div>
                                        
 
             <?php
@@ -231,8 +233,8 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
 
                         <? if(!isset($_SESSION['loggedIn'])){ ?>
 
-                            <input type="text" name="name" placeholder="Namn">
-                            <input type="text" name="email" placeholder="Email">
+                            <input type="text" name="name" placeholder="Namn" id="not_logged_in_user">
+                            <input type="text" name="email" placeholder="Email" id="not_logged_in_user">
 
                         <?  } else {} ?>
 

@@ -192,13 +192,13 @@ input[type=submit]:hover{
 /* ----- POST ----- */
 
 
-.feed{
+.single_post_box_in_feed{
     background:white;
     margin-bottom:1em;
     height: 250px;
 }
 
-.feed h2{
+.single_post_box_in_feed h2{
     font-size: 1.7em;
 }
 
@@ -206,20 +206,32 @@ input[type=submit]:hover{
     padding: 1.5em;
 }
 
-.thumb_wrap{
+.thumbnail_wrapper{
     display: none;
     height: 250px;
-    width: 100%;
     overflow: hidden;
-}
-
-.img-thumbnail{
-   max-width: 200%; 
-   max-height: 200%;
-   padding: 0;
+    padding: 0;
     border-radius: 0;
     border: none;
 }
+
+.thumbnail{
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.thumbnail img.post_image_in_feed{ 
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+  }
+
 
 .no_post{
     background: white;
@@ -711,9 +723,9 @@ width: 320px;
     width: 90%;
     }
 
-    .thumb_wrap{
+    .thumbnail_wrapper{
     display: inline;
-    }
+    } 
     
     .sidebar{
         display: inline;

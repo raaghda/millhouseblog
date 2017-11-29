@@ -84,27 +84,31 @@ $statement = $pdo->prepare("SELECT * FROM post
 
     //LOOPING OUT THE POSTS
     ?>  
-      <article class="feed">
-      <div class="row">
-      <div class="thumb_wrap col-md-4">
-      <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail" alt="<?=$title;?>"></a>
-      </div>
+      <article class="single_post_box_in_feed">
+        <div class="row">
+        <div class="thumbnail_wrapper col-md-4">
+            <div class="thumbnail">
+                <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">
+                <img src="/millhouseblog/www/postimages/<?=$image?>" 
+                class="post_image_in_feed" alt="<?=$title;?>"></a>
+            </div>
+        </div>
       <div class="post_content col-md-8">
-      <header>  
-            <span class="uppercase grey"><?=$category_name?></span>
-        <!--<meta>kategorierna som meta???-->
-          <h2 class=”postheading”><a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><?=$post_title;?></a></h2>
-        
-        <span class="grey">
-            Publicerat 
-        <time>
-            <?= $dt->format('Y-m-d'); ?>
-            </time>
-        av
-        </span>
-          <span class="uppercase grey"><?= $username?></span>
+        <header>  
+                <span class="uppercase grey"><?=$category_name?></span>
+            <!--<meta>kategorierna som meta???-->
+            <h2 class=”postheading”><a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><?=$post_title;?></a></h2>
+            
+            <span class="grey">
+                Publicerat 
+            <time>
+                <?= $dt->format('Y-m-d'); ?>
+                </time>
+            av
+            </span>
+            <span class="uppercase grey"><?= $username?></span>
 
-      </header>
+        </header>
       <p><?=$post_text?></p>
 
         <nav class=””>

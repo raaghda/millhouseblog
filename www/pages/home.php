@@ -104,7 +104,7 @@ display_notification();
                                 Publicerat 
                             <time>
                                 <?= $dt->format('Y-m-d'); ?>
-                                </time>
+                            </time>
                             av
                             </span>
                             <span class="uppercase grey"><?= $username?></span>

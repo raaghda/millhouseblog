@@ -369,15 +369,26 @@ textarea{
 }
 
 /* View Post Page */
+.main_viewpost{
+    padding: 20px 0 0 0;
+}
 
-.viewpost h2{
-    margin: 25px 0 10px 0;
+#postsection_viewpost{
+    height: auto;
+    background: #fff;
+    padding: 20px; 
+}
+.viewpost h1{
+    padding-top: 40px;
+    padding-bottom:20px;
+    text-align: left;
 }
 #viewpost_span{
     float: left;
     width: 100%;
     padding: 10px 0 10px 0;
 }
+
 .viewpost h6{
     font-size: 0.9em;
     padding: 10px 0 10px 0;

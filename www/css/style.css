@@ -197,7 +197,7 @@ input[type=submit]:hover{
 
 .single_post_box_in_feed h2{
     margin-top: 5px;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .post_content{
@@ -748,15 +748,13 @@ a:hover{
 @media screen and (min-width: 768px){
 
 
-/* Loginpage-styling, also applies to register page */
     
-.login{ 
-width: 320px;
-}
-    
+    .login{ 
+        width: 320px;
+    }
 
-    .thumbnail_wrapper{
-    display: inline;
+    .thumbnail_wrapper{ 
+        display: inline;
     } 
     
     .sidebar{
@@ -764,19 +762,23 @@ width: 320px;
     }
     
     .light_spacious{
-    padding-top: 80px;
-    padding-bottom: 80px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    
+    .single_post_box_in_feed h2{
+        margin-top: 5px;
+        font-size: 1.4em;
     }
 
-
-.profile_content h1{
-    font-size: 2em;        
-}
-    
-select{
- width: 140%;       
-}
-    
+    .profile_content h1{
+        font-size: 2em;        
+    }
+        
+    select{
+        width: 140%;       
+    }
+        
 /*Categories*/
 /*overlay over image + disappears(opacity:0) when hover*/
 .overlay {

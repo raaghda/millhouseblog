@@ -741,6 +741,10 @@ width: 320px;
     font-size: 2em;        
 }
     
+select{
+ width: 140%;       
+}
+    
 
 } /* Closing Tablet */
 
@@ -773,6 +777,7 @@ width: 320px;
  .image_wrappers{
     width: 80%;
 }
+
 
 
 

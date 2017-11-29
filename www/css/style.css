@@ -241,22 +241,22 @@ input[type=submit]:hover{
 
 /* ----- CATEGORIES ----- */
 
-
+.container_categories h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
 
 .container_categories{
     background-image: url(../images/feed_background.jpg);
     background-position: right 0;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 0;
-    padding-top: 80px;
     padding-bottom: 100px;
 }
 
 .categories_wrapper{
-    background-color: #fff;
     border-radius: 10px;
-    max-width: 900px;
+    max-width: 1000px;
     width: 97%;
     margin: auto;
     padding-bottom: 80px;
@@ -267,16 +267,30 @@ input[type=submit]:hover{
 }
 
 .categories_wrapper a{
-    border: 8px solid #fff;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box;  
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 250px;
+    border: 18px solid white;
 }
 
+.categories_wrapper h3{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+
+
 .image_wrappers{
-    width: 90%;
+    padding:2px;
     margin: auto;
 }
 
@@ -289,19 +303,11 @@ input[type=submit]:hover{
 }
 
 #categoryid3{
-    background-image: url('../images/interior.jpg');
+    background-image: url('../images/interior_ny.jpg');
 }
 
 #categoryid4{
     background-image: url('../images/other.jpg');
-}
-
-.categories_wrapper h3{
-    color: white;
-    background-color: rgba(000,0,0,0.7);
-    padding: 30px;
-    margin-top: 70px;
-    text-align: center;
 }
 
 .dateorder{
@@ -320,26 +326,26 @@ input[type=submit]:hover{
 }
 
 
-/* Create Post Form */
-.createpost_page{
+/* Create/Edit Post Forms */
+.createpost_page, .editpost_page{
    background-image: url(../images/feed_background.jpg);
     background-position: right 0;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0;
 }
-.createpost .form{
+.form{
     padding-top: 30px;
     background-color: white;
     border: 1px solid #bdbdbd;    
 }
 
-.createpost h1{
+.editpost h1, .createpost h1{
     padding-top: 40px;
     padding-bottom:20px;
 }
 
-.createpost{
+.createpost, .editpost{
     width: 100%;
     height: 100%;
     
@@ -363,15 +369,26 @@ textarea{
 }
 
 /* View Post Page */
+.main_viewpost{
+    padding: 20px 0 0 0;
+}
 
-.viewpost h2{
-    margin: 25px 0 10px 0;
+#postsection_viewpost{
+    height: auto;
+    background: #fff;
+    padding: 20px; 
+}
+.viewpost h1{
+    padding-top: 40px;
+    padding-bottom:20px;
+    text-align: left;
 }
 #viewpost_span{
     float: left;
     width: 100%;
     padding: 10px 0 10px 0;
 }
+
 .viewpost h6{
     font-size: 0.9em;
     padding: 10px 0 10px 0;
@@ -425,9 +442,20 @@ textarea{
 }
 
 #edit_button{
-    background: #2196f3;
-    border: #1e88e5;
+    background: #0E3147;
+    border: #0E3147;
 }
+#edit_button:hover{
+    background-color: #C5B2AB;
+    border: 1px solid #C5B2AB;
+    margin-bottom: 0px;
+}
+#delete_button:hover{
+    background-color: #C5B2AB;
+    border: 1px solid #C5B2AB;
+    margin-bottom: 0px;
+}
+
 
 #commentbox{
     padding:0;
@@ -749,13 +777,32 @@ select{
  width: 140%;       
 }
     
+/*Categories*/
+/*overlay over image + disappears(opacity:0) when hover*/
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(000,0,0,0.7);
+    opacity:0.7;
+}
+
+.categories_wrapper a:hover .overlay {
+    opacity:0;
+}
 
 } /* Closing Tablet */
 
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
     
-.createpost{
+.createpost, .editpost{
     width: 60%;
 }
     .viewpost h6{

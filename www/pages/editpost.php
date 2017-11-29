@@ -28,8 +28,11 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id){   
 ?>
 
-<div class="container createpost">
-    <h2>Redigera ditt inlägg</h2>
+<main class="editpost_page">
+<div class="container editpost">
+   <span class="uppercase"> 
+    <h1 class="light_spacious">Redigera inlägg</h1>
+    </span>
     <form action="../www/parts/updatepost.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="postid" value="<?=$post_id;?>">
 
@@ -101,7 +104,9 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
         </div>
     </form>
     
+    
 </div>
+</main>
 <?php
   }else{
     

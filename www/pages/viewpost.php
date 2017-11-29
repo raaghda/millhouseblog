@@ -38,28 +38,26 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
         
         display_notification();
         ?>
-        
-        
-
+   <main class="main_viewpost">  
     <div class="container viewpost">
-        <h1></h1>
+        
             <div class="row">
                <div class="col-lg-9">
-               <article class="post">
+               <article class="post" id="postsection_viewpost">
                
                     <header>
 
                         <!--<meta>kategorierna som meta???-->
-                        <h2>
-                            <?=$post_info['title']?>
-                        </h2>
+                        <span class="uppercase"> 
+                            <h1 class="light_spacious"><?=$post_info['title']?></h1>
+                        </span>
 
 
                         <span id="viewpost_span">Publicerat av <?= $username.' '. '('.$user_email.')'; ?> den 
                            <time>
                             <?= $dt->format('Y-m-d'); ?>
                             </time>
-                       </span>
+                        </span>
                        
                         <h6 #id="category">
                             <a href="/millhouseblog/www/?page=category&categoryid=<?=$category_id?>">
@@ -71,35 +69,34 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                             <a href="#comments">
                                 <?= '(' . $number_of_comments . ')'; 
         
-                    if($number_of_comments == 1){
-                        echo ' kommentar'; } else{
-                        echo ' kommentarer';
-                    } 
+                                if($number_of_comments == 1){
+                                    echo ' kommentar'; } else{
+                                    echo ' kommentarer';
+                                } 
                     
-                    ?>
-
+                                ?>
                             </a>
                         </h6>
                     </header>
 
 
                     <?php
-            //if NOT no image (i.e. if there is an image)
-            if (!is_null($image)){?>
+                        //if NOT no image (i.e. if there is an image)
+                        if (!is_null($image)){?>
 
                         <!--display image, and display title as alt tag-->
                         <div class="blogpost_image">
                             <img src="/millhouseblog/www/postimages/<?=$image?>" class="img-fluid" alt="<?=$title;?>">
                         </div>
-                        <?php
-            }
-            ?>
+                    <?php
+                        }
+                    ?>
 
-                            <div class="text_container">
-                                <p>
-                                    <?=$post_info['text'];?>
-                                </p>
-                            </div>
+                        <div class="text_container">
+                            <p>
+                                <?=$post_info['text'];?>
+                            </p>
+                        </div>
                             
                             
                                           <?php
@@ -260,3 +257,4 @@ if(isset($_GET['nocomment'])){
         </div><!--/row-->   
     </div>
     <!--end of container viewpost-->
+    </main>  

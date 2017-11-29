@@ -49,9 +49,9 @@ display_notification();
         //How many comments there is on each post. 
         //Link to each specific post
         for($i=0; $i<count($posts); $i++){
-     
-            //check if the index $i is less than the total number of posts
-            if ($i < count($posts)){
+        
+        //check if the index $i is less than the total number of posts
+        if ($i < count($posts)){
      
             //var_dump(count($keys), count($posts));
      

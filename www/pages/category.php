@@ -14,7 +14,7 @@
     /* Selecting the choosen category */
 
     $statement = $pdo->prepare(
-        "SELECT userid, title, date, text, postid, category.name as category_name FROM post INNER JOIN category ON post.categoryid = category.categoryid WHERE post.categoryid = :categoryid ORDER by date $dateorder" 
+        "SELECT userid, title, date, text, image, postid, category.name as category_name FROM post INNER JOIN category ON post.categoryid = category.categoryid WHERE post.categoryid = :categoryid ORDER by date $dateorder" 
     );
 
     $statement->execute(array(
@@ -26,10 +26,10 @@
 
 ?>
 
-<div class="container_feed">
-    <div class="wrapper">
-
+<div class="container-fluid feed_wrapper"> 
+<span class="uppercase">
     <h1 class="light_spacious"> 
+
         <?
             if($_GET["categoryid"] == 01){
                 echo 'Solglasögon';
@@ -42,9 +42,10 @@
             }
         ?>
     </h1>
+    </span>
 
     <div class="row">
-        <div class="post_wrapper col-lg-9">
+    <div class="post_wrapper col-10 offset-1 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
              
             <div class="dateorder">
             
@@ -75,7 +76,7 @@
                 $image = $postinfo['image'];
                 $title = $postinfo['title'];
                 $post_id = $postinfo['postid'];
-                
+        
             //if post-text is longer than 120ch, shorten it
     $post_text = make_string_shorter($postinfo['text'], 120);
          
@@ -83,13 +84,15 @@
     $post_title = make_string_shorter($postinfo['title'], 30);
             ?>
 
-            <article class="feed">
-               
-               <div class="row">
-               
-               <div class="thumb_wrap col-md-4">
-      <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail" alt="<?=$title;?>"></a>
-      </div>
+    <article class="single_post_box_in_feed">
+    <div class="row">
+        <div class="thumbnail_wrapper col-md-4">
+            <div class="thumbnail">
+                <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">
+                <img src="/millhouseblog/www/postimages/<?=$image?>" 
+                class="post_image_in_feed" alt="<?=$title;?>"></a>
+            </div>
+        </div>
               
               <div class="post_content col-md-8">
                
@@ -136,7 +139,7 @@
             ?>
 
         </div><!--/col-lg-9-->
-        <div class="col-lg-3 sidebar hidden-xs-down">
+        <div class="col-lg-2 d-none d-md-block sidebar">
             <?php
                 require 'components/sidebar.php';
             ?>

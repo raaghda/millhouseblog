@@ -30,7 +30,6 @@ body{
 /*  Main */
 main{
     margin: auto;
-    min-height: 100vh;
 }
 
 .messagebox_fail{
@@ -683,15 +682,14 @@ margin-bottom:1em;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right 0;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    min-height: 100vh;
 }
 
 .about_box{
     background-color: #fff;
     padding: 40px;
-    margin-top: 100px;
-    margin-bottom: 150px;
+    margin-top: 160px;
+    margin-bottom: 60px;
     border-radius: 15px;
 }
 

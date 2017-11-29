@@ -756,11 +756,12 @@ a:hover{
     .thumbnail_wrapper{ 
         display: inline;
     } 
-    
+
     .sidebar{
         display: none;
+        background: none;
     }
-    
+
     .light_spacious{
         padding-top: 80px;
         padding-bottom: 80px;

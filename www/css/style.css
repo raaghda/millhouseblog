@@ -642,6 +642,8 @@ margin-bottom:1em;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .about_box{
@@ -653,10 +655,12 @@ margin-bottom:1em;
 }
 
 .about_box h1{
+    text-align: left;
+    margin-bottom: 10px;
     font-size: 2em;
-    margin-bottom: 15px;
+    font-weight: 200;
+    letter-spacing: 0.3em;
 }
-
 
 
 /* Footer */

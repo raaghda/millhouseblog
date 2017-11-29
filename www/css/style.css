@@ -864,6 +864,7 @@ a:hover{
     
     .sidebar{
         display: inline;
+        background: #fff;
     }    
 
     .aside_months{

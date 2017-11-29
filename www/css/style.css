@@ -472,11 +472,13 @@ textarea{
 #comments_h1{
     margin-top: 2em;
     padding: 0;
+    font-size: 1.5em;
 }
 
 #addcomments_h1{
     margin-bottom: .2em;
     margin-top: 1em;
+    font-size: 1.5em;
 }
 
 

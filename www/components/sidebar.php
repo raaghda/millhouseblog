@@ -1,7 +1,7 @@
 <div class="sidebar col-12">
     <aside>
 <div class="row">
-    <div class="aside_category">
+    <div class="col-12 aside_category">
     <h3>Kategorier</h3>
     <ul class="categories_in_sidebar">
 
@@ -24,7 +24,7 @@
         </li>
     </ul>
         </div>
-    <div class="aside_months">
+    <div class="col-12 aside_months">
     
     <div class="sidebar_underline"></div>
     <h3>Arkiv</h3>
@@ -81,9 +81,9 @@
           
           <div class="sidebar_underline"></div>
            </div>
-           <div class="aside_latest">
+           <div class="col-12 aside_latest">
 
-            <h3>Senaste aktivteterna</h3>
+            <h3>Aktivitet</h3>
             <ul class="comments_in_sidebar">
             <?php //loop out from the latest 5 comments: username and postname. link to that post
             
@@ -117,10 +117,8 @@
                
             ?>
                 <li>
-                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">
-                        <span class="uppercase"><?= $username ?></span> om
-                        <span class="uppercase"><?= $post_title ?></span>
-                    </a>
+                    <span class=grey><?= $username ?> kommenterade </span>
+                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>"><?= $post_title ?></a>
                 </li>
 
         <?php

@@ -24,43 +24,42 @@
     $months = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<div class="container_feed">
-   <div class="wrapper">
-    <h1 class="light_spacious">
-        <? 
-        
-            /* Headings the selected month via $_GET */
-        
-            if($_GET["month"] == 01){
-                echo 'Januari';
-            } else if($_GET["month"] == 2){
-                echo 'Februari';
-            } else if($_GET["month"] == 3){
-                echo 'Mars';
-            } else if($_GET["month"] == 4){
-                echo 'April';
-            } else if($_GET["month"] == 5){
-                echo 'Maj';
-            } else if($_GET["month"] == 6){
-                echo 'Juni';
-            } else if($_GET["month"] == 7){
-                echo 'Juli';
-            } else if($_GET["month"] == 8){
-                echo 'Augusti';
-            } else if($_GET["month"] == 9){
-                echo 'September';
-            } else if($_GET["month"] == 10){
-                echo 'Oktober';
-            } else if($_GET["month"] == 11){
-                echo 'November';
-            } else if($_GET["month"] == 12){
-                echo 'December';
-            } 
-        ?>
-    </h1>
+<div class="container-fluid feed_wrapper">
+    <span class="uppercase"> 
+        <h1 class="light_spacious">
+            <?
+                /* Headings the selected month via $_GET */
+                if($_GET["month"] == 01){
+                    echo 'Januari';
+                } else if($_GET["month"] == 2){
+                    echo 'Februari';
+                } else if($_GET["month"] == 3){
+                    echo 'Mars';
+                } else if($_GET["month"] == 4){
+                    echo 'April';
+                } else if($_GET["month"] == 5){
+                    echo 'Maj';
+                } else if($_GET["month"] == 6){
+                    echo 'Juni';
+                } else if($_GET["month"] == 7){
+                    echo 'Juli';
+                } else if($_GET["month"] == 8){
+                    echo 'Augusti';
+                } else if($_GET["month"] == 9){
+                    echo 'September';
+                } else if($_GET["month"] == 10){
+                    echo 'Oktober';
+                } else if($_GET["month"] == 11){
+                    echo 'November';
+                } else if($_GET["month"] == 12){
+                    echo 'December';
+                } 
+            ?>
+        </h1>
+    </span>
 
     <div class="row">
-        <div class="post_wrapper col-lg-9">
+    <div class="post_wrapper col-10 offset-1 col-md-10 offset-md-1 col-lg-8 offset-lg-1">   
 
         <div class="dateorder">
             
@@ -101,12 +100,15 @@
     $post_title = make_string_shorter($monthpost['title'], 30);
         ?>
 
-        <article class="feed">
-           
-           <div class="row">
-           <div class="thumb_wrap col-md-4">
-      <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>"><img src="/millhouseblog/www/postimages/<?=$image?>" class="img-thumbnail" alt="<?=$title;?>"></a>
-      </div>
+        <article class="single_post_box_in_feed">
+        <div class="row">
+            <div class="thumbnail_wrapper col-md-4">
+                <div class="thumbnail">
+                    <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">
+                    <img src="/millhouseblog/www/postimages/<?=$image?>" 
+                    class="post_image_in_feed" alt="<?=$title;?>"></a>
+                </div>
+            </div>
            
            <div class="post_content col-md-8">
            
@@ -152,7 +154,7 @@
                 '</div>';
         } ?>
     </div><!--/col-lg-9-->
-        <div class="col-lg-3 sidebar hidden-xs-down">
+        <div class="col-lg-2 d-none d-md-block sidebar">
             <?php
                 require 'components/sidebar.php';
             ?>

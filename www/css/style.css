@@ -485,7 +485,7 @@ textarea{
 #add_comments_form_viewpost{
     background: #fff;
     margin-bottom: 1em;
-    padding: 1em;
+    padding: 1em;   
 }
 
 #comment_field_viewpost{
@@ -493,6 +493,17 @@ textarea{
     background: #f8f9fa;
     border: dimgray; 
     margin-bottom: 1em;
+    margin-top: 1em;
+    border:1px solid #e2e2e2;
+    border-radius: 10px;
+}
+
+#not_logged_in_user{
+    margin-top: 1em;
+    background: #f8f9fa;
+    padding: 1em;
+    border-radius: 10px;
+    border: 1px solid #e2e2e2;
 }
 
 

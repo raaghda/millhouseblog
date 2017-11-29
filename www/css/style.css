@@ -30,13 +30,8 @@ body{
 /*  Main */
 main{
     margin: auto;
+    min-height: 100vh;
 }
-
-/* .wrapper{
-    width: 97%;
-    margin: auto;
-} */
-
 
 .messagebox_fail{
     color: #F64747;
@@ -183,6 +178,7 @@ input[type=submit]:hover{
     background-position: right 0;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
     padding-bottom: 100px;
 }
 
@@ -197,7 +193,7 @@ input[type=submit]:hover{
 
 .single_post_box_in_feed h2{
     margin-top: 5px;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .post_content{
@@ -228,8 +224,11 @@ input[type=submit]:hover{
     -webkit-transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
             transform: translate(-50%,-50%);
-  }
+ }
 
+ .pagination a{
+    color: #4D7E95;
+ }
 
 .no_post{
     background: white;
@@ -794,35 +793,38 @@ a:hover{
 @media screen and (min-width: 768px){
 
 
-/* Loginpage-styling, also applies to register page */
     
-.login{ 
-width: 320px;
-}
-    
+    .login{ 
+        width: 320px;
+    }
 
-    .thumbnail_wrapper{
-    display: inline;
+    .thumbnail_wrapper{ 
+        display: inline;
     } 
-    
+
     .sidebar{
         display: none;
+        background: none;
     }
-    
+
     .light_spacious{
-    padding-top: 80px;
-    padding-bottom: 80px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    
+    .single_post_box_in_feed h2{
+        margin-top: 5px;
+        font-size: 1.4em;
     }
 
-
-.profile_content h1{
-    font-size: 2em;        
-}
+    .profile_content h1{
+        font-size: 2em;        
+    }
     
-select{
- width: 140%;       
-}
-    
+    select{
+        width: 140%;       
+    }
+        
 /*Categories*/
 /*overlay over image + disappears(opacity:0) when hover*/
 .overlay {
@@ -857,6 +859,7 @@ select{
     
     .sidebar{
         display: inline;
+        background: #fff;
     }    
 
     .aside_months{

@@ -49,9 +49,9 @@ display_notification();
         //How many comments there is on each post. 
         //Link to each specific post
         for($i=0; $i<count($posts); $i++){
-     
-            //check if the index $i is less than the total number of posts
-            if ($i < count($posts)){
+        
+        //check if the index $i is less than the total number of posts
+        if ($i < count($posts)){
      
             //var_dump(count($keys), count($posts));
      
@@ -74,7 +74,7 @@ display_notification();
             $title = $posts[$keys[$i]]['title'];
 
             //if post-text is longer than 120ch, shorten it
-            $post_text = make_string_shorter($posts[$keys[$i]]['text'], 120);
+            $post_text = make_string_shorter($posts[$keys[$i]]['text'], 150);
                 
                 //if title-text is longer than 30ch, shorten it
             $post_title = make_string_shorter($posts[$keys[$i]]['title'], 50);
@@ -139,12 +139,15 @@ display_notification();
     </div> <!-- Closing sidebar-->
     
     <!-- Pagination -->
-    <nav>
-        <ul class="pagination">
-            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>
-            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=2">2</a></li>
-            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=3">3</a></li>
-            <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
-        </ul>
-    </nav> 
+    
+    <div class="col-8 offset-1 pagination_container">
+        <nav>
+            <ul class="pagination">
+                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>
+                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=2">2</a></li>
+                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=3">3</a></li>
+                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
+            </ul>
+        </nav> 
+    </div>
 </div><!-- Closing entire feed wrapper container-->

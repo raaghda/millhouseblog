@@ -228,8 +228,11 @@ input[type=submit]:hover{
     -webkit-transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
             transform: translate(-50%,-50%);
-  }
+ }
 
+ .pagination a{
+    color: #4D7E95;
+ }
 
 .no_post{
     background: white;
@@ -775,7 +778,7 @@ a:hover{
     .profile_content h1{
         font-size: 2em;        
     }
-        
+    
     select{
         width: 140%;       
     }

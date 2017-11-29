@@ -33,12 +33,6 @@ main{
     min-height: 100vh;
 }
 
-/* .wrapper{
-    width: 97%;
-    margin: auto;
-} */
-
-
 .messagebox_fail{
     color: #F64747;
     font-style: italic;

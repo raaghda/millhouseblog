@@ -13,9 +13,11 @@ require './parts/database.php';
 
 
 ?>
-
+<main class="createpost_page">
 <div class="container createpost">
-    <h2>Skriv nytt inlägg</h2>
+   <span class="uppercase">  
+    <h1 class="light_spacious">Skriv nytt inlägg</h1>
+    </span>
     
     
     <?php
@@ -32,7 +34,7 @@ require './parts/database.php';
         <div class="container form">
             <div class="form-group row">
                 <div class="col-sm-12">
-                   <input required id="title" type="text" name="title" placeholder=" Titel"> 
+                   <input type="text" required id="title"  name="title" placeholder=" Titel"> 
                 </div>
             </div>
             <div class="form-group row">
@@ -62,17 +64,18 @@ require './parts/database.php';
 
             <div class="form-group row">
                 <div class="col-sm-10">
-                    <input type="file" name="file" accept=".jpg, .jpeg, .png, .gif"><br><br>
+                    <input type="file" id="file" name="file" accept=".jpg, .jpeg, .png, .gif"><br><br>
                 </div>
             </div>
         </div>
 
         <div class="form-group row">
             <div class="col-sm-10">
-                <input type="submit" name="submit" value="Publicera">
+                <input id="publish_button" type="submit" name="submit" value="Publicera">
             </div>
         </div>
     </form>
+    
  
 <!-- JS for CK EDITOR 5 -->       
 <script>
@@ -83,3 +86,4 @@ require './parts/database.php';
         } );
 </script>
 </div>
+</main>

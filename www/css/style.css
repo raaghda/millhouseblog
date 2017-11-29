@@ -44,6 +44,10 @@ main{
 
 
 /*  Navbar */
+.navbar{
+    background-color: #fff;
+}
+
 .navbar-toggler{
     border: 0px;
 }

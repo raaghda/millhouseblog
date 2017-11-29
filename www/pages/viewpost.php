@@ -143,23 +143,23 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <span class="uppercase">
                             <h1 class="light_spacious" id="comments_h1">Kommentarer</h1>
                         </span>
-                           <div class="comments_displayed_on_viewpost_page">
+                           
                             <!--div class="user_comments_wrapper col-12 col-lg-8 "-->
                             <!--article class="comments_displayed_on_viewpost_page"-->
                                     
                                 <?php
                                     //if statement when there are no comments
                                     if ($number_of_comments == 0){?>
-                                        
-                                        <p>Det finns inga kommentarer här än.</p>
-                    
+                                        <div class="comments_displayed_on_viewpost_page">
+                                            <p>Det finns inga kommentarer här än.</p>
+                                        </div>
                                 <?php   
                                     }else
                                 ?>
                                     
                                 <!--anchor to comments section.#comments will bring use to this line-->
                                <a name="comments"></a>
-                            </div>
+                            
                                        
 
             <?php

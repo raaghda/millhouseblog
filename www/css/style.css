@@ -32,10 +32,10 @@ main{
     margin: auto;
 }
 
-.wrapper{
+/* .wrapper{
     width: 97%;
     margin: auto;
-}
+} */
 
 
 .messagebox_fail{
@@ -72,13 +72,10 @@ main{
     background: white;
     margin-bottom:1em;
     display: none;
-    max-height: 930px;
-    margin: 15px;
 }
 
 aside{
-    margin: auto;
-    width: 90%;
+    margin: 15px;
 }
 
 .sidebar h3 {
@@ -180,7 +177,7 @@ input[type=submit]:hover{
 
 /* ----- LANDING PAGE ----- */
 
-.container_feed{
+.feed_wrapper{
     background-image: url(../images/feed_background.jpg);
     background-position: right 0;
     background-repeat: no-repeat;
@@ -195,20 +192,21 @@ input[type=submit]:hover{
 .single_post_box_in_feed{
     background:white;
     margin-bottom:1em;
-    height: 250px;
+    
 }
 
 .single_post_box_in_feed h2{
-    font-size: 1.7em;
+    margin-top: 5px;
+    font-size: 1.5em;
 }
 
 .post_content{
-    padding: 1.5em;
+    padding: 32px;
 }
 
 .thumbnail_wrapper{
     display: none;
-    height: 250px;
+    height: 280px;
     overflow: hidden;
     padding: 0;
     border-radius: 0;
@@ -217,7 +215,7 @@ input[type=submit]:hover{
 
 .thumbnail{
     position: relative;
-    height: 250px;
+    height: 280px;
     overflow: hidden;
 }
 
@@ -679,8 +677,8 @@ a:hover{
 .light_spacious{
     text-align: center;
     color: #6D6D6D;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     font-size: 2em;
     font-weight: 200;
     letter-spacing: 0.3em;
@@ -719,22 +717,19 @@ a:hover{
 width: 320px;
 }
     
-    .wrapper{
-    width: 90%;
-    }
 
     .thumbnail_wrapper{
     display: inline;
     } 
     
     .sidebar{
-        display: inline;
+        display: none;
     }
     
-    .post{
-    height: 250px;
-}
-   
+    .light_spacious{
+    padding-top: 80px;
+    padding-bottom: 80px;
+    }
 
 
 .profile_content h1{
@@ -750,14 +745,14 @@ width: 320px;
 .createpost{
     width: 60%;
 }
-.viewpost h6{
-    font-size: 1em;
-}
-    
-    .wrapper{
-        max-width: 900px;
+    .viewpost h6{
+        font-size: 1em;
     }
     
+    .sidebar{
+        display: inline;
+    }    
+
     .aside_months{
     display: inline;
 }
@@ -765,11 +760,8 @@ width: 320px;
     .aside_latest{
         margin-left: 0;
     }
-    .sidebar {
-    margin: 0px;
-        padding-left: 30px;
-        margin-bottom: 150px;
-}
+
+
  .image_wrappers{
     width: 80%;
 }

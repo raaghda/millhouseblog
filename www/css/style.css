@@ -442,9 +442,20 @@ textarea{
 }
 
 #edit_button{
-    background: #2196f3;
-    border: #1e88e5;
+    background: #0E3147;
+    border: #0E3147;
 }
+#edit_button:hover{
+    background-color: #C5B2AB;
+    border: 1px solid #C5B2AB;
+    margin-bottom: 0px;
+}
+#delete_button:hover{
+    background-color: #C5B2AB;
+    border: 1px solid #C5B2AB;
+    margin-bottom: 0px;
+}
+
 
 #commentbox{
     padding:0;

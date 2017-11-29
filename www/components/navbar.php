@@ -1,5 +1,5 @@
 <!-- NAVBAR USING BOOTSTRAP 4.0 -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="?page=home">
         <img src="images/millhouse_icon.svg" width="50px" height="50px" alt="Logga för Millhouse">
     </a>

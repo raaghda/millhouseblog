@@ -139,7 +139,7 @@ display_notification();
         <?php endfor; ?>  <!-- Ends loop -->
         
         
-       <?  
+       <?php  
         
         /* Message if there is no posts in selected month */
 

@@ -233,6 +233,12 @@ input[type=submit]:hover{
     color: #4D7E95;
  }
 
+ /* TEMPORARY */
+.pagination{
+    display: none;
+}
+ /* TEMPORARY */
+
 .no_post{
     background: white;
     text-align: center;

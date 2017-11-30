@@ -237,7 +237,7 @@ input[type=submit]:hover{
     background: white;
     text-align: center;
     padding: 20px 0px;
-    font-size: 1.5em;
+    font-size: 0.9em;
     font-weight: 300;
 }
 
@@ -889,7 +889,6 @@ a:hover{
 }
 
 .no_post{
-    margin-right: 15px;
     padding: 50px;
     font-size: 1.4em;
     max-height: 170px;

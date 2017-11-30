@@ -15,7 +15,7 @@ display_notification();
 
     <!-- Post wrapper, containing all posts-->
     <div class="row">
-        <div class="post_wrapper col-md-10 offset-md-1 col-lg-8 offset-lg-1">
+        <div class="post_wrapper col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
         <?php
         //PAGINATION
         
@@ -130,6 +130,19 @@ display_notification();
                 </div> <!-- Closing row for post-->
             </article> <!-- Closing article (works as wrapper for post-row) -->
         <?php }} ?>  <!-- Ends loop -->
+        
+        
+       <?  
+        
+        /* Message if there is no posts in selected month */
+
+        if (empty($posts)){
+            echo 
+                '<div class="no_post">' . 
+                'Tyvärr finns det inga inlägg på den här sidan än...' . '<br>' .
+                '<a href="/millhouseblog/www/?page=createpost">' . 'Klicka här för att bli först med att skriva ett inlägg' . '</a>' .
+                '</div>';
+        } ?>
 
     </div> <!-- Closing post_wrapper row -->
     

@@ -243,7 +243,7 @@ input[type=submit]:hover{
     background: white;
     text-align: center;
     padding: 20px 0px;
-    font-size: 1.5em;
+    font-size: 0.9em;
     font-weight: 300;
 }
 
@@ -706,7 +706,8 @@ margin-bottom:1em;
 .about_box h1{
     text-align: left;
     margin-bottom: 10px;
-    font-size: 2em;
+    line-height: 160%;
+    font-size: 1.7em;
     font-weight: 200;
     letter-spacing: 0.3em;
 }
@@ -801,7 +802,7 @@ a:hover{
 @media screen and (min-width: 768px){
 
 
-    
+
     .login{ 
         width: 320px;
     }
@@ -829,8 +830,18 @@ a:hover{
         font-size: 2em;        
     }
     
+
+    .about_box h1{
+        font-size: 2em;
+    }
+
     select{
         width: 140%;       
+    }
+    
+    .no_post{
+    padding: 40px;
+    font-size: 1.1em;
     }
         
 /*Categories*/
@@ -883,7 +894,11 @@ a:hover{
     width: 80%;
 }
 
-
+.no_post{
+    padding: 50px;
+    font-size: 1.4em;
+    max-height: 170px;
+}
 
 
    

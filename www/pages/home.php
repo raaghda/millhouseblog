@@ -15,7 +15,7 @@ display_notification();
 
     <!-- Post wrapper, containing all posts-->
     <div class="row">
-        <div class="post_wrapper col-10 offset-1 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
+        <div class="post_wrapper col-md-10 offset-md-1 col-lg-8 offset-lg-1">
         <?php
         //PAGINATION
         

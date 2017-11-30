@@ -87,7 +87,8 @@ display_notification();
             //Puts this into new variables for each post in loop
             $post_id = $post[$keys[$i]]['postid'];
             $category_id = $post[$keys[$i]]['categoryid'];
-            $date = $post[$keys[$i]]['date'];
+            $post_date = $post[$keys[$i]]['date']; 
+            $dt = new datetime($post_date); 
             
             //Fetches category name from a row in a table,
             // using an id to compare with the id's in the table
@@ -190,6 +191,7 @@ display_notification();
             $comment_id = $comments[$keys[$i]]['commentid'];
             $comment = $comments[$keys[$i]]['comment'];
             $date = $comments[$keys[$i]]['date'];
+            $dt = new datetime($date); 
 
             //Fetches post-title from a row in a table,
             // using an id to compare with the id's in the table

@@ -3,8 +3,6 @@
     require 'parts/functions.php';
 
     $month = $_GET["month"];
-    $number_of_comments = count_comments($month);
-
     $dateorder = "DESC";
 
     if(isset($_GET["dateorder"])){
@@ -90,8 +88,10 @@
                 $date = $monthpost["date"];
                 $dt = new datetime($date);
                 $image = $monthpost['image'];
-    $title = $monthpost['title'];
+                $title = $monthpost['title'];
                 $post_id = $monthpost['postid'];
+
+    $number_of_comments = count_comments($post_id);
                 
             //if post-text is longer than 120ch, shorten it
     $post_text = make_string_shorter($monthpost['text'], 120);

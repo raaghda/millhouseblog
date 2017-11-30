@@ -832,6 +832,11 @@ a:hover{
     select{
         width: 140%;       
     }
+    
+    .no_post{
+    padding: 40px;
+    font-size: 1.1em;
+    }
         
 /*Categories*/
 /*overlay over image + disappears(opacity:0) when hover*/
@@ -883,7 +888,12 @@ a:hover{
     width: 80%;
 }
 
-
+.no_post{
+    margin-right: 15px;
+    padding: 50px;
+    font-size: 1.4em;
+    max-height: 170px;
+}
 
 
    

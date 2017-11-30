@@ -1,4 +1,4 @@
-<?
+<?php
 
     $pagename = $_GET ['page'];
 

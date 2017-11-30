@@ -146,11 +146,6 @@ display_notification();
 
     </div> <!-- Closing post_wrapper row -->
     
-      
-    
-        
-        
-    
     <!-- Sidebar -->
     <div class="col-lg-2 d-none d-md-block sidebar">
         <?php require 'components/sidebar.php'; ?>

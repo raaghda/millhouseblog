@@ -97,7 +97,7 @@
     $post_text = make_string_shorter($monthpost['text'], 120);
          
           //if title-text is longer than 30ch, shorten it
-    $post_title = make_string_shorter($monthpost['title'], 30);
+    $post_title = make_string_shorter($monthpost['title'], 50);
         ?>
 
         <article class="single_post_box_in_feed">

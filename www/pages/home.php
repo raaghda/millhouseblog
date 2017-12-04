@@ -24,17 +24,17 @@ display_notification();
         //if a page number has been selected, get that value
         if(isset($_GET['pagination_page']))
             {
-                //store it in $page
-                $page = $_GET['pagination_page'];
+                //store it in $page_number
+                $page_number = $_GET['pagination_page'];
             }
         else
             {
                 //else, user landed on home-page and page is 1
-                $page = 1;
+                $page_number = 1;
             }        
 
         //start limit(=which post to start to get from database) is set by the page number and the $limit of the posts to show
-        $start_limit = ($page - 1) * $limit;  
+        $start_limit = ($page_number - 1) * $limit;  
 
         //selects 5 posts, $start_limit to $limit, depending on which page your on, using(?) pagination.
         $statement = $pdo->prepare("SELECT * FROM post 
@@ -163,10 +163,34 @@ display_notification();
         <nav>
             <ul class="pagination">
             <?php 
+            //SKA GÖRAS TILL FUNTION OCH FLYTTAS, TEX: set_start_end_page
+                if($page_number==1){
+                    $start_page = 1;
+                    $end_page = 3;
+                    } elseif($page_number == $total_pages){
+                        $start_page = $page_number - 2; 
+                        $end_page = $total_pages; 
+                        }
+                    else{
+                        $start_page = $page_number -1;
+                         $end_page = $page_number + 1;
+                    }
+                    
              //looping out page links with id of each page.
-            for ($i=1; $i<=$total_pages; $i++):?>
-                 <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?></a></li>
-            <?php endfor; ?>
+            for ($i=$start_page; $i<=$end_page; $i++):
+                //if index==page_number set class=active to show which page user is on
+                if($i == $page_number){?>
+                    <li class="page-item active">
+                        <a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?><span class="sr-only">(current)</span></a>
+                    </li>
+                <?php
+                }   else { ?>
+                        <li class="page-item">
+                            <a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?></a>
+                        </li>
+                    <?php
+                    }
+            endfor; ?>
             </ul>
         </nav> 
     </div>

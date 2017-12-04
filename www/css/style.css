@@ -176,7 +176,7 @@ input[type=submit]:hover{
 
 /* ----- LANDING PAGE ----- */
 
-.feed_wrapper{
+.feed_container{
     background-image: url(../images/feed_background_blue_gradient.jpg);
     background-position: right 0;
     background-repeat: no-repeat;
@@ -189,7 +189,7 @@ input[type=submit]:hover{
 /* ----- POST ----- */
 
 
-.single_post_box_in_feed{
+.single_post_in_feed{
     background: white;
     width: 100%;
     margin-bottom: 2em;
@@ -200,13 +200,13 @@ input[type=submit]:hover{
     
 }
 
-.single_post_box_in_feed h2>a{
+.single_post_in_feed h2>a{
     margin-top: 5px;
     font-size: 0.9em;
     color: #2d2d2d;
 }
 
-.single_post_box_in_feed h2>a:hover{
+.single_post_in_feed h2>a:hover{
     color: #4D7E95;
 }
 
@@ -849,7 +849,7 @@ a:hover{
         padding-bottom: 80px;
     }
     
-    .single_post_box_in_feed{
+    .single_post_in_feed{
         margin-bottom: 1em;
     }
 

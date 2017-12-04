@@ -8,15 +8,14 @@ require 'parts/fetch_posts.php';
 display_notification();
 ?>
 
-<!-- FEED WRAPPER - WRAPS ENTIRE HOME, POSTS AND SIDEBAR -->
-<div class="container-fluid feed_wrapper"> 
+<!-- FEED CONTAINER - WRAPS ENTIRE HOME, POSTS AND SIDEBAR -->
+<div class="container-fluid feed_container"> 
     <span class="uppercase">   
         <h1 class="light_spacious">Senaste inläggen</h1>
     </span>
 
-    <!-- Post wrapper, containing all posts-->
     <div class="row">
-        <div class="post_wrapper col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
+        <div class="five_latest_posts_container col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
         <?php
         //PAGINATION
         
@@ -50,11 +49,10 @@ display_notification();
         //Information about the author of the post=user.
         //How many comments there is on each post. 
         //Link to each specific post
-        for($i=0; $i<count($posts); $i++){
+        for($i=0; $i<count($posts); $i++):
         
         //check if the index $i is less than the total number of posts
-        if ($i < count($posts)){
-     
+        if ($i < count($posts)):
      
             //storing user_id to get to get user_name from user-table
             $user_id = $posts[$keys[$i]]['userid'];
@@ -85,7 +83,7 @@ display_notification();
             
             //LOOPING OUT THE CONTENT OF THE POSTS:
             ?>  
-            <article class="single_post_box_in_feed">
+            <article class="single_post_in_feed">
                 <div class="row">
                     <div class="thumbnail_wrapper col-md-4">
                         <div class="thumbnail">
@@ -131,7 +129,8 @@ display_notification();
                     </div> <!-- Closing post-content column -->
                 </div> <!-- Closing row for post-->
             </article> <!-- Closing article (works as wrapper for post-row) -->
-        <?php }} ?>  <!-- Ends loop -->
+        <?php endif; ?>
+        <?php endfor; ?>  <!-- Ends loop -->
         
         
        <?  
@@ -146,15 +145,15 @@ display_notification();
                 '</div>';
         } ?>
 
-    </div> <!-- Closing post_wrapper row -->
+    </div> <!-- Closing five latests posts container -->
     
     <!-- Sidebar -->
     <div class="col-lg-2 d-none d-md-block sidebar">
         <?php require 'components/sidebar.php'; ?>
-    </div> <!-- Closing sidebar-->
+    </div> 
     
-    <!-- Pagination links-->
 
+    <!-- Pagination links-->
     <?php
     //diving the total number of posts in db with the limit of posts per page to get total number of pages.
     //using ceil so if its fex 6.5 its going to be 7 pages
@@ -165,12 +164,10 @@ display_notification();
             <ul class="pagination">
             <?php 
              //looping out page links with id of each page.
-            for ($i=1; $i<=$total_pages; $i++){?>
+            for ($i=1; $i<=$total_pages; $i++):?>
                  <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?></a></li>
-            <?php } //end for-loop?>
-            
-               
+            <?php endfor; ?>
             </ul>
         </nav> 
     </div>
-</div><!-- Closing entire feed wrapper container-->
+</div><!-- Closing entire feed container-->

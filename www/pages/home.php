@@ -78,7 +78,7 @@ display_notification();
             $post_text = make_string_shorter($posts[$keys[$i]]['text'], 150);
                 
                 //if title-text is longer than 30ch, shorten it
-            $post_title = make_string_shorter($posts[$keys[$i]]['title'], 50);
+            $post_title = make_string_shorter($posts[$keys[$i]]['title'], 30);
 
             //count comments of this post
             $number_of_comments = count_comments($post_id);

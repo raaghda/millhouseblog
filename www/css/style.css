@@ -316,6 +316,7 @@ input[type=submit]:hover{
 .dateorder{
     text-align: right;
     margin-bottom: 7px;
+    font-size: 0.8em;
 }
 
 .dateorder a{
@@ -337,15 +338,16 @@ input[type=submit]:hover{
     background-size: cover;
     padding: 0;
 }
+
 .form{
-    padding-top: 30px;
+    padding: 40px 20px 20px 20px;
     background-color: white;
-    border: 1px solid #bdbdbd;    
+    border-radius: 15px;
+    margin-bottom: 50px;
 }
 
 .editpost h1, .createpost h1{
-    padding-top: 40px;
-    padding-bottom:20px;
+    padding: 60px;
 }
 
 .createpost, .editpost{
@@ -357,9 +359,24 @@ input, textarea, select{
     width: 100%;
 }
 
+select{
+    height: 40px;
+}
+
 #title{
     height: 40px;
     border: 1px solid #bdbdbd;
+}
+
+.inputfile{
+    height: 40px;
+    margin-top: 5px;
+}
+
+
+#publish_button{
+    margin: 0;
+    width: 100%;
 }
 
 textarea{
@@ -665,6 +682,7 @@ margin-bottom:1em;
 }
 
 .page_404 p{
+    text-align: center;
     font-style: italic;
     font-size: 0.85em;
     margin: 5px;
@@ -799,6 +817,15 @@ a:hover{
     .login{ 
         width: 320px;
     }
+    
+    .dateorder{
+    font-size: 1em;
+}
+    
+    .form{
+    padding: 50px;
+    margin-bottom: 150px;
+}
 
     .thumbnail_wrapper{ 
         display: inline;
@@ -836,6 +863,10 @@ a:hover{
     padding: 40px;
     font-size: 1.1em;
     }
+    
+    .ck-editor__editable {
+    min-height: 300px;
+}
         
 /*Categories*/
 /*overlay over image + disappears(opacity:0) when hover*/

@@ -790,6 +790,11 @@ a:hover{
     color:#969696;
 }
 
+/* Also our color used for links*/
+.lightblue{ 
+    color: #4D7E95;
+}
+
 .darkgrey {
     color:#505050;
 }

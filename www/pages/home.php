@@ -114,7 +114,8 @@ display_notification();
                         <p><?=$post_text?></p>
                         <nav>
                             <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">
-                            Läs hela inlägget</a> | 
+                            Läs hela inlägget</a>
+                            <span class=lightblue>|</span> 
                             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
                             <?= '(' . $number_of_comments . ')'; 
                             if($number_of_comments == 1)

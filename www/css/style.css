@@ -190,8 +190,10 @@ input[type=submit]:hover{
 
 
 .single_post_box_in_feed{
-    background:white;
-    margin-bottom:1em;
+    background: white;
+    width: 100%;
+    margin-bottom: 2em;
+    border-radius: 10px;
     box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
     -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
     -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
@@ -213,29 +215,23 @@ input[type=submit]:hover{
 }
 
 .thumbnail_wrapper{
-    display: none;
-    height: 290px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; 
     overflow: hidden;
-    padding: 0;
-    border-radius: 0;
-    border: none;
 }
 
 .thumbnail{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; 
     position: relative;
     height: 290px;
     overflow: hidden;
 }
 
 .thumbnail img.post_image_in_feed{ 
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    height: 100%;
-    width: auto;
-    -webkit-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);
+    object-fit: cover;
+    width: 100%;
+    height: 290px;
  }
 
  .pagination a{
@@ -815,8 +811,33 @@ a:hover{
     }
 
     .thumbnail_wrapper{ 
-        display: inline;
+        margin: 0px;
+        padding: 0px;
+        height: 290px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 0px; 
+        box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
+        -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
+            -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
     } 
+
+    .thumbnail{
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 0px; 
+    }
+
+    .thumbnail img.post_image_in_feed{ 
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+     }
 
     .sidebar{
         display: none;
@@ -828,9 +849,8 @@ a:hover{
         padding-bottom: 80px;
     }
     
-    .single_post_box_in_feed h2{
-        margin-top: 5px;
-        font-size: 1.4em;
+    .single_post_box_in_feed{
+        margin-bottom: 1em;
     }
 
     .profile_content h1{
@@ -886,9 +906,10 @@ a:hover{
     .sidebar{
         display: inline;
         background: #fff;
+        border-radius: 10px;
         box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
         -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
-        -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
+            -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
     }    
 
     .aside_months{

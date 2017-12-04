@@ -177,7 +177,7 @@ input[type=submit]:hover{
 /* ----- LANDING PAGE ----- */
 
 .feed_wrapper{
-    background-image: url(../images/feed_background.jpg);
+    background-image: url(../images/feed_background_blue_gradient.jpg);
     background-position: right 0;
     background-repeat: no-repeat;
     background-size: cover;
@@ -192,6 +192,10 @@ input[type=submit]:hover{
 .single_post_box_in_feed{
     background:white;
     margin-bottom:1em;
+    box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
+    -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
+    -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
+    
 }
 
 .single_post_box_in_feed h2{
@@ -250,7 +254,7 @@ input[type=submit]:hover{
 }
 
 .container_categories{
-    background-image: url(../images/feed_background.jpg);
+    background-image: url(../images/feed_background_blue_gradient.jpg);
     background-position: right 0;
     background-repeat: no-repeat;
     background-size: cover;
@@ -331,7 +335,7 @@ input[type=submit]:hover{
 
 /* Create/Edit Post Forms */
 .createpost_page, .editpost_page{
-   background-image: url(../images/feed_background.jpg);
+   background-image: url(../images/feed_background_blue_gradient.jpg);
     background-position: right 0;
     background-repeat: no-repeat;
     background-size: cover;
@@ -872,6 +876,9 @@ a:hover{
     .sidebar{
         display: inline;
         background: #fff;
+        box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
+        -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
+        -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
     }    
 
     .aside_months{

@@ -198,9 +198,14 @@ input[type=submit]:hover{
     
 }
 
-.single_post_box_in_feed h2{
+.single_post_box_in_feed h2>a{
     margin-top: 5px;
-    font-size: 1.3em;
+    font-size: 0.9em;
+    color: #2d2d2d;
+}
+
+.single_post_box_in_feed h2>a:hover{
+    color: #4D7E95;
 }
 
 .post_content{

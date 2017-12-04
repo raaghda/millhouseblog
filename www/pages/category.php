@@ -90,7 +90,7 @@
             <div class="thumbnail">
                 <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">
                 <img src="/millhouseblog/www/postimages/<?=$image?>" 
-                class="post_image_in_feed" alt="<?=$title;?>"></a>
+                class="post_image" alt="<?=$title;?>"></a>
             </div>
         </div>
               

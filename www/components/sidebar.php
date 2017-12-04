@@ -1,3 +1,9 @@
+<?php
+$query = "";    
+if(isset($_GET['query'])) {
+    $query=$_GET['query'];
+}    
+?>
 <div class="sidebar col-12">
     <aside>
 <div class="row">
@@ -5,7 +11,7 @@
         <h3>Sök</h3>
         <form method="get">
             <input type="hidden" name="page" value="home">
-            <input type="text" name="query" value="" placeholder="Sök i bloggen">
+            <input type="text" name="query" value="<?php echo $query; ?>" placeholder="Sök i bloggen">
             <input type="submit" value="Sök">
         </form>        
     </div>

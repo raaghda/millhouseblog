@@ -167,6 +167,7 @@ display_notification();
             for ($i=1; $i<=$total_pages; $i++){?>
                  <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?></a></li>
             <?php } //end for-loop?>
+            
                
             </ul>
         </nav> 

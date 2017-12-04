@@ -2,28 +2,36 @@
     <aside>
 <div class="row">
     <div class="col-12 aside_category">
-    <h3>Kategorier</h3>
-    <ul class="categories_in_sidebar">
+        <h3>Sök</h3>
+        <form method="get">
+            <input type="hidden" name="page" value="home">
+            <input type="text" name="query" value="" placeholder="Sök i bloggen">
+            <input type="submit" value="Sök">
+        </form>        
+    </div>
+    <div class="col-12 aside_category">
+        <h3>Kategorier</h3>
+        <ul class="categories_in_sidebar">
 
-        <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=1">
-            Solglasögon</a>
-        </li>
-        <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=2">
-                Klockor</a>
-        </li>
-        <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=3">
-                Inredning</a>
-        </li>
-        <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=4">
+            <li>
+                <a href="/millhouseblog/www/?page=category&categoryid=1">
+                Solglasögon</a>
+            </li>
+            <li>
+                <a href="/millhouseblog/www/?page=category&categoryid=2">
+                    Klockor</a>
+            </li>
+            <li>
+                <a href="/millhouseblog/www/?page=category&categoryid=3">
+                    Inredning</a>
+            </li>
+            <li>
+                <a href="/millhouseblog/www/?page=category&categoryid=4">
 
-                Lifestyle</a>
-        </li>
-    </ul>
-        </div>
+                    Lifestyle</a>
+            </li>
+        </ul>
+    </div>
     <div class="col-12 aside_months">
     
     <div class="sidebar_underline"></div>

@@ -1,6 +1,7 @@
 <?php
 require 'parts/database.php';
 require 'parts/functions.php';
+require 'parts/fetch_posts.php';
  
 //if statement checking if there is a session message (parts/deletepost.php)
 //if true, display message
@@ -42,7 +43,8 @@ display_notification();
             LIMIT $start_limit, $limit");
             $statement->execute();
             $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-            $keys = array_keys($posts); 
+            $keys = array_keys($posts);
+
 
         //Looping out 5 posts, starting from the latest posts.
         //Information about the author of the post=user.
@@ -53,7 +55,6 @@ display_notification();
         //check if the index $i is less than the total number of posts
         if ($i < count($posts)){
      
-            //var_dump(count($keys), count($posts));
      
             //storing user_id to get to get user_name from user-table
             $user_id = $posts[$keys[$i]]['userid'];
@@ -93,7 +94,7 @@ display_notification();
                             class="post_image_in_feed" alt="<?=$title;?>"></a>
                         </div>
                     </div>
-                
+
                     <div class="post_content col-md-8">
                         <header>  
                             <span class="uppercase grey"><?=$category_name?></span>
@@ -151,15 +152,22 @@ display_notification();
         <?php require 'components/sidebar.php'; ?>
     </div> <!-- Closing sidebar-->
     
-    <!-- Pagination -->
-    
+    <!-- Pagination links-->
+
+    <?php
+    //diving the total number of posts in db with the limit posts number(=5) per page to get total pages.
+    //using ceil so if it has a desicmal its going to be the higher number.
+    $total_pages = ceil($number_of_posts_in_db / $limit);
+    ?>
     <div class="col-8 offset-md-1 pagination_container">
         <nav>
             <ul class="pagination">
-                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>
-                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=2">2</a></li>
-                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=3">3</a></li>
-                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
+            <?php 
+             //looping out page links with id of each page.
+            for ($i=1; $i<=$total_pages; $i++){?>
+                 <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?></a></li>
+            <?php } //end for-loop?>
+               
             </ul>
         </nav> 
     </div>

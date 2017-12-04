@@ -26,7 +26,7 @@
 
 ?>
 
-<div class="container-fluid feed_wrapper"> 
+<div class="container-fluid feed_container"> 
 <span class="uppercase">
     <h1 class="light_spacious"> 
 
@@ -84,13 +84,13 @@
     $post_title = make_string_shorter($postinfo['title'], 30);
             ?>
 
-    <article class="single_post_box_in_feed">
+    <article class="single_post_in_feed">
     <div class="row">
         <div class="thumbnail_wrapper col-md-4">
             <div class="thumbnail">
                 <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">
                 <img src="/millhouseblog/www/postimages/<?=$image?>" 
-                class="post_image_in_feed" alt="<?=$title;?>"></a>
+                class="post_image" alt="<?=$title;?>"></a>
             </div>
         </div>
               

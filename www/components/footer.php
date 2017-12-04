@@ -22,6 +22,5 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <!-- fontawesome-->
         <script src="https://use.fontawesome.com/67b80e2b65.js"></script>
-        <script src="javascript.js"></script> 
     </body>
 </html>

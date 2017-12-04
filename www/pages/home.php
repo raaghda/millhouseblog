@@ -155,8 +155,8 @@ display_notification();
     <!-- Pagination links-->
 
     <?php
-    //diving the total number of posts in db with the limit posts number(=5) per page to get total pages.
-    //using ceil so if it has a desicmal its going to be the higher number.
+    //diving the total number of posts in db with the limit of posts per page to get total number of pages.
+    //using ceil so if its fex 6.5 its going to be 7 pages
     $total_pages = ceil($number_of_posts_in_db / $limit);
     ?>
     <div class="col-8 offset-md-1 pagination_container">

@@ -153,7 +153,7 @@ display_notification();
     
     <!-- Pagination -->
     
-    <div class="col-8 offset-1 pagination_container">
+    <div class="col-8 offset-md-1 pagination_container">
         <nav>
             <ul class="pagination">
                 <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>

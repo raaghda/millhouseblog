@@ -42,9 +42,16 @@ display_notification();
         
         //start limit(=which post to start to get from database) is set by the page number and the $limit of the posts to show
         $start_limit = ($page_number - 1) * $limit;  
-
+        
+        $query = "";    
+        if(isset($_GET['query'])) {
+            $q=$_GET['query'];
+            $query = "WHERE title like '%$q%'";
+        }    
+        
         //selects 5 posts, $start_limit to $limit, depending on which page your on, using(?) pagination.
-        $statement = $pdo->prepare("SELECT * FROM post 
+        $statement = $pdo->prepare("SELECT * FROM post
+            $query
             ORDER by date DESC 
             LIMIT $start_limit, $limit");
             $statement->execute();

@@ -16,13 +16,13 @@
 
                         <? if(!isset($_SESSION['loggedIn'])){ ?>
 
-                            <input type="text" name="name" placeholder="Namn" id="not_logged_in_user">
-                            <input type="text" name="email" placeholder="Email" id="not_logged_in_user">
+                            <input required type="text" name="name" placeholder="Namn" id="not_logged_in_user">
+                            <input required type="text" name="email" placeholder="Email" id="not_logged_in_user">
 
                         <?  } else {} ?>
 
                             <input type="hidden" name="id" value="<?= $post_id ?>">
-                            <input type="text" name="comment" placeholder="Din kommentar" id="comment_field_viewpost">
+                            <input required type="text" name="comment" placeholder="Din kommentar" id="comment_field_viewpost">
                             <input type="submit" name="addcomment" value="Skicka">
                         </form>
                     </div><!--END OF col-lg-12-->

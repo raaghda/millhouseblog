@@ -96,7 +96,6 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
     if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id ){ ?>
 
                 <div class="row justify-content-end">
-                    <div class="col-6"></div>
                         <div class="col-3">
                             <form action="../www/parts/deletepost.php" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
@@ -104,12 +103,12 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                             </form>
                         </div>
 
-                    <div class="col-3">
+                        <div class="col-3">
                             <form action="./?page=editpost" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
                                 <input id="edit_button" type="submit" name="edit" value="Redigera">
                             </form>
-                    </div>
+                        </div>
                 </div>
 
                

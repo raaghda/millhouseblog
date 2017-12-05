@@ -178,29 +178,39 @@ display_notification();
             <ul class="pagination">
             <?php 
                     //settig the values for start_page and end_page when looping out pagination links
-                    //if its the last page the start_page will be -2, so then if there if only 1 or 2 pages
-                    //it will display 0 or -1, it is checking if total pages is under 3 and setting the start_page to 1
-                    //and end_page to 2.
-                    if ($page_number == 1 && $total_pages < 3 || $page_number == 2 && $total_pages < 3)
-                        {
-                        $start_page = 1;
-                        $end_page = 2;
+                
+
+                    //if there is only 1 page, set start_page to 1 to make sure it wont loop out -1
+                    //and set end_page to 1 so it wont loop out more pages than it is
+                    if($total_pages == 1){
+                            $start_page = 1;
+                            $end_page = 1;
                         }
+                        //do the same if there is only 2 pages, but set end_page=2
+                        elseif ($total_pages == 2)
+                            {
+                            $start_page = 1;
+                            $end_page = 2;
+                            }
+                            //if age_number is 1 and there is at least 3 pages, set start_page to 1
+                            //and end page to 3
                             elseif($page_number == 1)
                                     {
                                     $start_page = 1;
                                     $end_page = 3;
                                     } 
-                                elseif($page_number == $total_pages)
-                                        {
-                                        $start_page = $page_number - 2; 
-                                        $end_page = $total_pages; 
-                                        }
-                    else
-                        {
-                        $start_page = $page_number -1;
-                        $end_page = $page_number + 1;
-                        }
+                                    //if youre on the last page, set start_page to -2 and end_page as the total_pages
+                                    elseif($page_number == $total_pages)
+                                            {
+                                            $start_page = $page_number - 2; 
+                                            $end_page = $total_pages; 
+                                            }
+                        //else start_page should be -1 and end_page +1 :)                    
+                        else
+                            {
+                            $start_page = $page_number -1;
+                            $end_page = $page_number + 1;
+                            }
                     
              //looping out page links with id of each page.
             for ($i=$start_page; $i<=$end_page; $i++):

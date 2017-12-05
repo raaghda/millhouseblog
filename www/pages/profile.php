@@ -149,7 +149,7 @@ display_notification();
     <!-- All posts by user - Obs! Currently empty!! -->
     <div class="col-lg-10 offset-lg-1"> 
         <div class="d-flex flex-row-reverse">
-            <a href="#">(Se alla inlägg)</a>
+        <a href="/millhouseblog/www/?page=myposts">(Se alla inlägg)</a>
         </div>
     </div>
         

@@ -70,8 +70,16 @@ main{
     background: white;
     margin-bottom:1em;
     display: none;
-    padding-top: 20px;
 }
+
+aside{
+    margin: 0px;
+}
+
+.aside_search{
+    margin-top: 20px;
+}
+
 aside input[type="text"]{
     height: 40px;
     margin-top: 10px;
@@ -109,6 +117,24 @@ aside input[type="submit"]:hover{
     width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.aside_months{
+    display: none;
+    margin-bottom: 20px;
+}
+
+.aside_latest{
+    padding: 0;
+}
+
+.aside_latest h3{
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.aside_latest li {
+    font-size: 1em;
 }
 
 /* Loginpage-styling, also applies to register page */  
@@ -207,7 +233,7 @@ input[type=submit]:hover{
 
 .post_content{
     padding: 32px;
-    line-height: 160%;
+    line-height: 170%;
 }
 
 #post_paragraph{
@@ -903,12 +929,16 @@ a:hover{
         background: none;
     }
     
+    aside{
+        display: none;
+    }
+
     .single_post_in_feed{
         margin-bottom: 1em;
     }
 
     .profile_content{
-        margin-top: 60px;
+        margin-top: 70px;
     }
 
     .profile_content h1{
@@ -973,6 +1003,10 @@ a:hover{
     .viewpost h6{
         font-size: 1em;
     }
+
+    aside{
+        display: inline;
+    }
     
     .sidebar{
         display: inline;
@@ -981,7 +1015,12 @@ a:hover{
         box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
         -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
             -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
-    } 
+    }    
+
+    .aside_months{
+    display: inline;
+}
+  
 
  .image_wrappers{
     width: 80%;

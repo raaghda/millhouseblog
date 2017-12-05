@@ -1,4 +1,4 @@
-<?php /* cleaned */
+<?php
     require './parts/database.php';
 
     /* Fetches the categories*/

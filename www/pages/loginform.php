@@ -1,6 +1,5 @@
 <!-------- LOGIN-FORM WITH MESSAGE ---------->
   
-
 <div class="background_loginpage">
     <div class="container login"> 
         <div class="row">

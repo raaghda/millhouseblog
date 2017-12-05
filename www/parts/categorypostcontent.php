@@ -1,5 +1,5 @@
 
-<?php /*cleaned*/
+<?php
 
     $userid = $postinfo["userid"];
     $username = get_column_with_input("username", "user", "userid", $userid);

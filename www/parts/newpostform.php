@@ -1,4 +1,4 @@
-<?php /*cleaned*/
+<?php
     require './parts/database.php';
 
     /* Fetches the categories*/
@@ -23,7 +23,6 @@
             //using display_notification function from parts/notifyfunctions.php
 
             display_notification();
-
         ?>
 
         <form action="parts/savepost.php" method="POST" enctype="multipart/form-data">

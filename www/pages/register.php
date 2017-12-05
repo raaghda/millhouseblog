@@ -22,16 +22,15 @@
                         }
 
                     ?>
-                    
-                    
+                     
                 </div>  
                 <form action="/millhouseblog/www/parts/adduser.php" method="post">
-                    <input type="name" name="name" placeholder="Ditt namn"></br>
-                    <input type="email" name="email" placeholder="E-post"></br>
-                    <input type="username" name="username" placeholder="Användarnamn"></br>
-                    <input type="password" name="password" placeholder="Lösenord"></br>
-                    <input type="password" name="validPassword" placeholder="Bekräfta lösenord"></br>
-                    <input type="submit" value="Registrera"></br>
+                    <input type="name" name="name" placeholder="Ditt namn"><br>
+                    <input type="email" name="email" placeholder="E-post"><br>
+                    <input type="username" name="username" placeholder="Användarnamn"><br>
+                    <input type="password" name="password" placeholder="Lösenord"><br>
+                    <input type="password" name="validPassword" placeholder="Bekräfta lösenord"><br>
+                    <input type="submit" value="Registrera"><br>
                     <a href="/millhouseblog/www/index.php">Gå tillbaka till login</a>
                 </form>
             </div>

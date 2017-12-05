@@ -214,6 +214,10 @@ input[type=submit]:hover{
     padding: 32px;
 }
 
+#post_paragraph{
+    display: none;
+}
+
 .thumbnail_wrapper{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px; 
@@ -856,7 +860,10 @@ a:hover{
     .profile_content h1{
         font-size: 2em;        
     }
-    
+
+    #post_paragraph{
+        display: inline;
+    }
 
     .about_box h1{
         font-size: 2em;

@@ -70,12 +70,8 @@ main{
     background: white;
     margin-bottom:1em;
     display: none;
+    padding-top: 20px;
 }
-
-aside{
-    margin: 0px;
-}
-
 aside input[type="text"]{
     height: 40px;
     margin-top: 10px;
@@ -113,24 +109,6 @@ aside input[type="submit"]:hover{
     width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-.aside_months{
-    display: none;
-    margin-bottom: 20px;
-}
-
-.aside_latest{
-    padding: 0;
-}
-
-.aside_latest h3{
-    font-size: 0.9em;
-    margin-bottom: 20px;
-}
-
-.aside_latest li {
-    font-size: 1em;
 }
 
 /* Loginpage-styling, also applies to register page */  
@@ -971,12 +949,7 @@ a:hover{
         box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
         -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
             -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
-    }    
-
-    .aside_months{
-    display: inline;
-}
-  
+    } 
 
  .image_wrappers{
     width: 80%;

@@ -109,7 +109,7 @@ display_notification();
                             <span class="uppercase grey"><?= $username?></span>
                         </header>
 
-                        <p><?=$post_text?></p>
+                        <p id="post_paragraph"><?=$post_text?></p>
                         <nav>
                             <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">
                             Läs hela inlägget</a>

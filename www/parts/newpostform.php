@@ -45,7 +45,7 @@ require './parts/database.php';
             </div>
 
             <div class="form-group row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <select required name="categoryid"> 
                         <option value="" >Välja Kategori</option>  
       
@@ -59,21 +59,19 @@ require './parts/database.php';
                             }
                             ?>
                     </select>
+                    
+                </div>
+                <div class="offset-sm-3 col-sm-5">
+                    <input type="file" id="file" class="inputfile" name="file" accept=".jpg, .jpeg, .png, .gif">
                 </div>
             </div>
-
             <div class="form-group row">
-                <div class="col-sm-10">
-                    <input type="file" id="file" name="file" accept=".jpg, .jpeg, .png, .gif"><br><br>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-sm-10">
+            <div class="col-sm-12">
                 <input id="publish_button" type="submit" name="submit" value="Publicera">
             </div>
         </div>
+        </div>
+
     </form>
     
  

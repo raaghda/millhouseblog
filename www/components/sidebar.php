@@ -1,4 +1,18 @@
 <?php
+require './parts/database.php';
+
+
+    $statement = $pdo->prepare(
+        "SELECT * FROM category" 
+    );
+
+    $statement->execute();
+
+    $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+   
+
 $query = "";    
 if(isset($_GET['query'])) {
     $query=$_GET['query'];
@@ -16,28 +30,25 @@ if(isset($_GET['query'])) {
         </form>        
     </div>
     <div class="col-12 aside_category">
-        <h3>Kategorier</h3>
-        <ul class="categories_in_sidebar">
 
-            <li>
-                <a href="/millhouseblog/www/?page=category&categoryid=1">
-                Solglasögon</a>
-            </li>
-            <li>
-                <a href="/millhouseblog/www/?page=category&categoryid=2">
-                    Klockor</a>
-            </li>
-            <li>
-                <a href="/millhouseblog/www/?page=category&categoryid=3">
-                    Inredning</a>
-            </li>
-            <li>
-                <a href="/millhouseblog/www/?page=category&categoryid=4">
-
-                    Lifestyle</a>
-            </li>
-        </ul>
+    <h3>Kategorier</h3>
+    <ul class="categories_in_sidebar">
+        
+        <?
+        foreach($categories as $category){ 
+        
+        ?>
+    
+         <li>
+            <a href="/millhouseblog/www/?page=category&categoryid=<?= $i++; ?>">
+            <?= $category["name"];?> </a>
+        </li>
+<? } ?>
+   
+    </ul>
+        </div>
     </div>
+
     <div class="col-12 aside_months">
     
     <div class="sidebar_underline"></div>

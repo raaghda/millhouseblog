@@ -22,7 +22,7 @@
                         <?  } else {} ?>
 
                             <input type="hidden" name="id" value="<?= $post_id ?>">
-                            <input type="text" name="comment" placeholder="Din kommentar:" id="comment_field_viewpost">
+                            <input type="text" name="comment" placeholder="Din kommentar" id="comment_field_viewpost">
                             <input type="submit" name="addcomment" value="Skicka">
                         </form>
                     </div><!--END OF col-lg-12-->

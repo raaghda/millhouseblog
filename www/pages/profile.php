@@ -128,10 +128,12 @@ display_notification();
                         </a>
                         <p> <?=$post_text?> </p>
                         <div class="row post_actions">
-                            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget | </a>
+                            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+                            <span class="lightblue indent_left indent_right">|</span>
                             <form action="./?page=editpost" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                                <input type="submit" ID="edit_post_via_profile" name="edit" value=" Redigera inlägg | ">
+                                <input type="submit" ID="edit_post_via_profile" name="edit" value="Redigera inlägg">
+                            <span class="lightblue indent_left indent_right">|</span>
                             </form>
                             <form action="../www/parts/deletepost.php" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_id ?>">

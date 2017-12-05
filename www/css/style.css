@@ -860,6 +860,13 @@ a:hover{
     color:#505050;
 }
 
+.indent_left{
+    margin-left: 0.2em;
+}
+
+.indent_right{
+    margin-right: 0.2em;
+}
 
 /* ---------------------------------- Tablet styling goes here ------------------------------ */
 @media screen and (min-width: 768px){

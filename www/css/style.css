@@ -76,6 +76,22 @@ aside{
     margin: 0px;
 }
 
+aside input[type="text"]{
+    height: 40px;
+    margin-top: 10px;
+}
+
+aside input[type="submit"]{
+    margin: 10px 0 30px 0;
+    height: 40px;
+    padding: 0;
+    width: 100%;
+}
+
+aside input[type="submit"]:hover{
+    margin: 10px 0 30px 0;
+}
+
 .sidebar h3 {
     color:#6D6D6D;
     text-transform: uppercase;
@@ -95,16 +111,17 @@ aside{
 .sidebar_underline{
     border-top: 0.3em dotted #c2c2c2;
     width: 80%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .aside_months{
     display: none;
+    margin-bottom: 20px;
 }
 
 .aside_latest{
-    margin-left: 42%;
+    padding: 0;
 }
 
 .aside_latest h3{
@@ -948,11 +965,7 @@ a:hover{
     .aside_months{
     display: inline;
 }
-    
-    .aside_latest{
-        margin-left: 0;
-    }
-
+  
 
  .image_wrappers{
     width: 80%;

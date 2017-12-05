@@ -1,59 +1,71 @@
 <?php
 require 'parts/database.php';
 require 'parts/functions.php';
+require 'parts/fetch_posts.php';
+
  
 //if statement checking if there is a session message (parts/deletepost.php)
 //if true, display message
 display_notification();
 ?>
 
-<!-- FEED WRAPPER - WRAPS ENTIRE HOME, POSTS AND SIDEBAR -->
-<div class="container-fluid feed_wrapper"> 
+<!-- FEED CONTAINER - WRAPS ENTIRE HOME, POSTS AND SIDEBAR -->
+<div class="container-fluid feed_container"> 
     <span class="uppercase">   
         <h1 class="light_spacious">Senaste inläggen</h1>
     </span>
 
-    <!-- Post wrapper, containing all posts-->
     <div class="row">
-        <div class="post_wrapper col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
+        <div class="five_latest_posts_container col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
         <?php
         //PAGINATION
+        //var lägga denna function? 
+        function get_page_number(){
+            //if a page number has been selected, get that value
+            if(isset($_GET['pagination_page']))
+                {
+                    //store it in $page_number
+                    $page_number = $_GET['pagination_page'];
+                }
+            else
+                {
+                    //else, user landed on home-page and page is 1
+                    $page_number = 1;
+                }        
+                return $page_number;
+            }
+
+        $page_number= get_page_number();
         
         //set $limit as the number of posts to show per page
         $limit = 5;
-        //if a page number has been selected, get that value
-        if(isset($_GET['pagination_page']))
-            {
-                //store it in $page
-                $page = $_GET['pagination_page'];
-            }
-        else
-            {
-                //else, user landed on home-page and page is 1
-                $page = 1;
-            }        
-
+        
         //start limit(=which post to start to get from database) is set by the page number and the $limit of the posts to show
-        $start_limit = ($page - 1) * $limit;  
-
+        $start_limit = ($page_number - 1) * $limit;  
+        
+        $query = "";    
+        if(isset($_GET['query'])) {
+            $q=$_GET['query'];
+            $query = "WHERE title like '%$q%'";
+        }    
+        
         //selects 5 posts, $start_limit to $limit, depending on which page your on, using(?) pagination.
-        $statement = $pdo->prepare("SELECT * FROM post 
+        $statement = $pdo->prepare("SELECT * FROM post
+            $query
             ORDER by date DESC 
             LIMIT $start_limit, $limit");
             $statement->execute();
             $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-            $keys = array_keys($posts); 
-
+            $keys = array_keys($posts);
+    
         //Looping out 5 posts, starting from the latest posts.
         //Information about the author of the post=user.
         //How many comments there is on each post. 
         //Link to each specific post
-        for($i=0; $i<count($posts); $i++){
+        for($i=0; $i<count($posts); $i++):
         
         //check if the index $i is less than the total number of posts
-        if ($i < count($posts)){
-     
-            //var_dump(count($keys), count($posts));
+        if ($i < count($posts)):
      
             //storing user_id to get to get user_name from user-table
             $user_id = $posts[$keys[$i]]['userid'];
@@ -77,23 +89,23 @@ display_notification();
             $post_text = make_string_shorter($posts[$keys[$i]]['text'], 150);
                 
                 //if title-text is longer than 30ch, shorten it
-            $post_title = make_string_shorter($posts[$keys[$i]]['title'], 50);
+            $post_title = make_string_shorter($posts[$keys[$i]]['title'], 30);
 
             //count comments of this post
             $number_of_comments = count_comments($post_id);
             
             //LOOPING OUT THE CONTENT OF THE POSTS:
             ?>  
-            <article class="single_post_box_in_feed">
+            <article class="single_post_in_feed">
                 <div class="row">
                     <div class="thumbnail_wrapper col-md-4">
                         <div class="thumbnail">
                             <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">
                             <img src="/millhouseblog/www/postimages/<?=$image?>" 
-                            class="post_image_in_feed" alt="<?=$title;?>"></a>
+                            class="post_image" alt="<?=$title;?>"></a>
                         </div>
                     </div>
-                
+
                     <div class="post_content col-md-8">
                         <header>  
                             <span class="uppercase grey"><?=$category_name?></span>
@@ -113,7 +125,8 @@ display_notification();
                         <p><?=$post_text?></p>
                         <nav>
                             <a href="/millhouseblog/www/?page=viewpost&id=<?=$post_id?>">
-                            Läs hela inlägget</a> | 
+                            Läs hela inlägget</a>
+                            <span class=lightblue>|</span> 
                             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
                             <?= '(' . $number_of_comments . ')'; 
                             if($number_of_comments == 1)
@@ -129,10 +142,11 @@ display_notification();
                     </div> <!-- Closing post-content column -->
                 </div> <!-- Closing row for post-->
             </article> <!-- Closing article (works as wrapper for post-row) -->
-        <?php }} ?>  <!-- Ends loop -->
+        <?php endif; ?>
+        <?php endfor; ?>  <!-- Ends loop -->
         
         
-       <?  
+       <?php  
         
         /* Message if there is no posts in selected month */
 
@@ -144,23 +158,62 @@ display_notification();
                 '</div>';
         } ?>
 
-    </div> <!-- Closing post_wrapper row -->
+    </div> <!-- Closing five latests posts container -->
     
     <!-- Sidebar -->
     <div class="col-lg-2 d-none d-md-block sidebar">
         <?php require 'components/sidebar.php'; ?>
-    </div> <!-- Closing sidebar-->
+    </div> 
     
-    <!-- Pagination -->
-    
+
+    <!-- Pagination links-->
+    <?php
+    //diving the total number of posts in db with the limit of posts per page to get total number of pages.
+    //using ceil so if its fex 6.5 its going to be 7 pages
+    $total_pages = ceil($number_of_posts_in_db / $limit);
+    ?>
     <div class="col-8 offset-md-1 pagination_container">
         <nav>
             <ul class="pagination">
-                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=1">1</a></li>
-                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=2">2</a></li>
-                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=3">3</a></li>
-                <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=4">4</a></li>
+            <?php 
+            //SKA GÖRAS TILL FUNTION OCH FLYTTAS, TEX: set_start_end_page
+            //frågan är hur med två return..?
+                if($page_number==1)
+                    {
+                    $start_page = 1;
+                    $end_page = 3;
+                    } 
+                    elseif($page_number == $total_pages)
+                        {
+                        $start_page = $page_number - 2; 
+                        $end_page = $total_pages; 
+                        }
+                else
+                    {
+                    $start_page = $page_number -1;
+                    $end_page = $page_number + 1;
+                    }
+                    
+             //looping out page links with id of each page.
+            for ($i=$start_page; $i<=$end_page; $i++):
+                //if index==page_number set class=active to show thats the page user is on
+                if($i == $page_number)
+                    {?>
+                    <li class="page-item active">
+                        <a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?><span class="sr-only">(current)</span></a>
+                    </li>
+                    <?php
+                    }   
+                    //else loop out "regular" page link
+                    else 
+                        {?>
+                        <li class="page-item">
+                            <a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?></a>
+                        </li>
+                        <?php
+                        }
+            endfor; ?>
             </ul>
         </nav> 
     </div>
-</div><!-- Closing entire feed wrapper container-->
+</div><!-- Closing entire feed container-->

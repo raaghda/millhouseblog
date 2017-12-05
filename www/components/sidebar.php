@@ -11,15 +11,26 @@ require './parts/database.php';
     $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
-?>
-  
-
    
 
+$query = "";    
+if(isset($_GET['query'])) {
+    $query=$_GET['query'];
+}    
+?>
 <div class="sidebar col-12">
     <aside>
 <div class="row">
     <div class="col-12 aside_category">
+        <h3>Sök</h3>
+        <form method="get">
+            <input type="hidden" name="page" value="home">
+            <input type="text" name="query" value="<?php echo $query; ?>" placeholder="Sök i bloggen">
+            <input type="submit" value="Sök">
+        </form>        
+    </div>
+    <div class="col-12 aside_category">
+
     <h3>Kategorier</h3>
     <ul class="categories_in_sidebar">
         
@@ -36,6 +47,8 @@ require './parts/database.php';
    
     </ul>
         </div>
+    </div>
+
     <div class="col-12 aside_months">
     
     <div class="sidebar_underline"></div>

@@ -18,6 +18,16 @@ display_notification();
     <div class="row">
         <div class="five_latest_posts_container col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
         <?php
+
+
+        
+        $query = "";    
+        if(isset($_GET['query'])) {
+            $q=$_GET['query'];
+            $query = "WHERE title like '%$q%'";
+        }    
+
+
         //PAGINATION
         //var lägga denna function? 
         //PAGINATION.PHP?
@@ -48,13 +58,6 @@ display_notification();
         $posts = fetch_posts_from_start_to_limit($start_limit, $limit);
 
         $keys = array_keys($posts);
-
-        
-        $query = "";    
-        if(isset($_GET['query'])) {
-            $q=$_GET['query'];
-            $query = "WHERE title like '%$q%'";
-        }    
 
         //Looping out 5 posts, starting from the latest posts.
         //Information about the author of the post=user.

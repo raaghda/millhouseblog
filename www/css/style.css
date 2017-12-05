@@ -718,9 +718,9 @@ margin-bottom:1em;
 
 .about_box h1{
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     line-height: 160%;
-    font-size: 1.7em;
+    font-size: 1.2em;
     font-weight: 200;
     letter-spacing: 0.3em;
 }
@@ -852,7 +852,7 @@ a:hover{
     
 
     .about_box h1{
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     select{

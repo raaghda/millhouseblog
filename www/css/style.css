@@ -378,10 +378,18 @@ input[type=submit]:hover{
     padding: 60px;
 }
 
+.prev_img{
+    overflow: hidden;
+    height: 200px;
+}
+
 .createpost, .editpost{
     width: 100%;
-    height: 100%;
-    
+    height: 100%;   
+}
+
+.editpost img{
+    width: 100%;
 }
 input, textarea, select{
     width: 100%;
@@ -856,7 +864,7 @@ a:hover{
 }
     
     .form{
-    padding: 50px;
+    padding: 50px 50px 35px 50px;
     margin-bottom: 150px;
 }
 

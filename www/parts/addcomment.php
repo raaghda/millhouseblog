@@ -1,5 +1,6 @@
 <?php session_start();
     require 'database.php';
+    require 'notifyfunctions.php';
 
     $nocomment = urlencode("Fyll i fälten korrekt!");
     $userid = null;
@@ -31,10 +32,11 @@
             ":name" => $name
         ));
         
-        header ("Location: /millhouseblog/www/?page=viewpost&nocomment=Tack för din kommentar!&id=".$postid);
+        notify ('success','Tack för din kommentar!');
+        header ("Location: /millhouseblog/www/?page=viewpost&id=".$postid);
     
  } else {
-        
-        header ("Location: /millhouseblog/www/?page=viewpost&nocomment=Fyll i fälten korrekt!&id=".$postid);
+        notify ('warning','Fyll i fälten korrekt!');
+        header ("Location: /millhouseblog/www/?page=viewpost&id=".$postid);
         
         }

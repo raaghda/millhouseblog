@@ -7,7 +7,7 @@
                     <a href="#"><i class="fa fa-facebook-square"></i></a>
                     <a href="#"><i class="fa fa-linkedin-square"></i></a>
                 </li>
-                <span class="smallcaps">
+                <span class="uppercase">
                     <li>
                         <a href="https://github.com/raaghda/millhouseblog">info@millhouse.se</a>
                     </li>

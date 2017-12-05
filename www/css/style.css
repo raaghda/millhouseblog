@@ -772,9 +772,9 @@ a:hover{
 .light_spacious{
     text-align: center;
     color: #6D6D6D;
-    padding-top: 40px;
-    padding-bottom: 40px;
     font-size: 2em;
+    padding-top: 60px;  /* Remove? */
+    padding-bottom: 60px; /* Remove? */
     font-weight: 200;
     letter-spacing: 0.3em;
 }

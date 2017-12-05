@@ -241,6 +241,7 @@ input[type=submit]:hover{
 
 .no_post{
     background: white;
+    border-radius: 10px;
     text-align: center;
     padding: 20px 0px;
     font-size: 0.9em;
@@ -321,6 +322,8 @@ input[type=submit]:hover{
 .dateorder{
     text-align: right;
     margin-bottom: 7px;
+    margin-right: 10px;
+    font-size: 0.8em;
 }
 
 .dateorder a{
@@ -342,15 +345,16 @@ input[type=submit]:hover{
     background-size: cover;
     padding: 0;
 }
+
 .form{
-    padding-top: 30px;
+    padding: 40px 20px 20px 20px;
     background-color: white;
-    border: 1px solid #bdbdbd;    
+    border-radius: 15px;
+    margin-bottom: 50px;
 }
 
 .editpost h1, .createpost h1{
-    padding-top: 40px;
-    padding-bottom:20px;
+    padding: 60px;
 }
 
 .createpost, .editpost{
@@ -362,9 +366,24 @@ input, textarea, select{
     width: 100%;
 }
 
+select{
+    height: 40px;
+}
+
 #title{
     height: 40px;
     border: 1px solid #bdbdbd;
+}
+
+.inputfile{
+    height: 40px;
+    margin-top: 5px;
+}
+
+
+#publish_button{
+    margin: 0;
+    width: 100%;
 }
 
 textarea{
@@ -670,6 +689,7 @@ margin-bottom:1em;
 }
 
 .page_404 p{
+    text-align: center;
     font-style: italic;
     font-size: 0.85em;
     margin: 5px;
@@ -705,9 +725,9 @@ margin-bottom:1em;
 
 .about_box h1{
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     line-height: 160%;
-    font-size: 1.7em;
+    font-size: 1.2em;
     font-weight: 200;
     letter-spacing: 0.3em;
 }
@@ -722,8 +742,8 @@ footer{
 
 footer a{
     color: #f2f2f2;
-    font-size: 1em;
-    letter-spacing: 0.1em;
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
     line-height: 140%;
     text-decoration: none;
 }
@@ -742,9 +762,9 @@ footer li{
     text-align: center;
 }
 
-footer li .fa{
+footer ul>li .fa{
     margin: 5px;
-    font-size: 2em;
+    font-size: 2.7em;
 }
 
 
@@ -809,6 +829,15 @@ a:hover{
     .login{ 
         width: 320px;
     }
+    
+    .dateorder{
+    font-size: 1em;
+}
+    
+    .form{
+    padding: 50px;
+    margin-bottom: 150px;
+}
 
     .thumbnail_wrapper{ 
         margin: 0px;
@@ -859,7 +888,7 @@ a:hover{
     
 
     .about_box h1{
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     select{
@@ -870,6 +899,10 @@ a:hover{
     padding: 40px;
     font-size: 1.1em;
     }
+    
+    .ck-editor__editable {
+    min-height: 300px;
+}
         
 /*Categories*/
 /*overlay over image + disappears(opacity:0) when hover*/

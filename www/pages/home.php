@@ -49,6 +49,13 @@ display_notification();
 
         $keys = array_keys($posts);
 
+        
+        $query = "";    
+        if(isset($_GET['query'])) {
+            $q=$_GET['query'];
+            $query = "WHERE title like '%$q%'";
+        }    
+
         //Looping out 5 posts, starting from the latest posts.
         //Information about the author of the post=user.
         //How many comments there is on each post. 
@@ -137,7 +144,7 @@ display_notification();
         <?php endfor; ?>  <!-- Ends loop -->
         
         
-       <?  
+       <?php  
         
         /* Message if there is no posts in selected month */
 

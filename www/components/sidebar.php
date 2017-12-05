@@ -1,29 +1,55 @@
+<?php
+require './parts/database.php';
+
+
+    $statement = $pdo->prepare(
+        "SELECT * FROM category" 
+    );
+
+    $statement->execute();
+
+    $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+$i = 0;
+   
+
+$query = "";    
+if(isset($_GET['query'])) {
+    $query=$_GET['query'];
+}    
+?>
 <div class="sidebar col-12">
     <aside>
 <div class="row">
     <div class="col-12 aside_category">
+        <h3>Sök</h3>
+        <form method="get">
+            <input type="hidden" name="page" value="home">
+            <input type="text" name="query" value="<?php echo $query; ?>" placeholder="Sök i bloggen">
+            <input type="submit" value="Sök">
+        </form>        
+    </div>
+    <div class="col-12 aside_category">
+
     <h3>Kategorier</h3>
     <ul class="categories_in_sidebar">
+        
+        <?
+        foreach($categories as $category){ 
 
-        <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=1">
-            Solglasögon</a>
+        $i = $i+1;
+        ?>
+    
+         <li>
+            <a href="/millhouseblog/www/?page=category&categoryid=<?= $i; ?>">
+            <?= $category["name"];?> </a>
         </li>
-        <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=2">
-                Klockor</a>
-        </li>
-        <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=3">
-                Inredning</a>
-        </li>
-        <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=4">
-
-                Lifestyle</a>
-        </li>
+<? } ?>
+   
     </ul>
         </div>
+    </div>
+
     <div class="col-12 aside_months">
     
     <div class="sidebar_underline"></div>

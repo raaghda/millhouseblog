@@ -1,6 +1,10 @@
-<?
+<?php
 
-    $pagename = $_GET ['page'];
+    $pagename = "home";
+
+    if(isset($_GET['page'])) {
+        $pagename = $_GET ['page'];
+    }    
 
     if($pagename == "loginform"){
         echo 'Logga in';

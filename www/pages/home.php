@@ -53,7 +53,6 @@ display_notification();
         
         //start limit(=which post to start to get from database) is set by the page number and the $limit of the posts to show
         $start_limit = ($page_number - 1) * $limit;  
-
         //fetch 5 latest posts, from $start_limit to start_limit + number set as limit, depending on which page youre on, using pagination.
         $posts = fetch_posts_from_start_to_limit($start_limit, $limit);
 
@@ -178,32 +177,34 @@ display_notification();
         <nav>
             <ul class="pagination">
             <?php 
-            //SKA GÖRAS TILL FUNTION OCH FLYTTAS, TEX: set_start_end_page
-            //frågan är hur med två return..?
-                if($page_number == 1)
-                    {
-                    $start_page = 1;
-                    $end_page = 3;
-                    } 
-                    elseif ($page_number == 2 && $total_pages < 3)
+                    //settig the values for start_page and end_page when looping out pagination links
+                    //if its the last page the start_page will be -2, so then if there if only 1 or 2 pages
+                    //it will display 0 or -1, it is checking if total pages is under 3 and setting the start_page to 1
+                    //and end_page to 2.
+                    if ($page_number == 1 && $total_pages < 3 || $page_number == 2 && $total_pages < 3)
                         {
                         $start_page = 1;
                         $end_page = 2;
                         }
-                        elseif($page_number == $total_pages)
-                            {
-                            $start_page = $page_number - 2; 
-                            $end_page = $total_pages; 
-                            }
-                else
-                    {
-                    $start_page = $page_number -1;
-                    $end_page = $page_number + 1;
-                    }
+                            elseif($page_number == 1)
+                                    {
+                                    $start_page = 1;
+                                    $end_page = 3;
+                                    } 
+                                elseif($page_number == $total_pages)
+                                        {
+                                        $start_page = $page_number - 2; 
+                                        $end_page = $total_pages; 
+                                        }
+                    else
+                        {
+                        $start_page = $page_number -1;
+                        $end_page = $page_number + 1;
+                        }
                     
              //looping out page links with id of each page.
             for ($i=$start_page; $i<=$end_page; $i++):
-                //if index==page_number set class=active to show thats the page user is on
+                //if index==page_number set class=active to show that thatss the page user is on
                 if($i == $page_number)
                     {?>
                     <li class="page-item active">

@@ -51,28 +51,27 @@ display_notification();
     <div class="row">
         <div class="col-lg-10 offset-lg-1">
             <span class="uppercase">    
-                <h1>Senaste inläggen:</h1>
+                <h1>Senaste inläggen</h1>
             </span>
         </div>
     </div>
     
     <!-- Displays message if user has made 0 posts -->
     <?php
-    if ($posts_by_user['total'] == 0)
-    { ?>
+    if ($posts_by_user['total'] == 0): ?>
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <p>Du har inte gjort något inlägg ännu.</p>
             </div>
         </div>  
-    <?php }
+    <?php endif;
 
     //SQL-query fetching posts made by user, and details about that post
     //Saves everything into an array ($post) with the help of array using array_keys-function
     $statement = $pdo->prepare("SELECT * 
-    FROM post 
-    WHERE userid = $userid 
-    ORDER by date DESC");
+                                FROM post 
+                                WHERE userid = $userid 
+                                ORDER by date DESC");
     $statement->execute();
     $post = $statement->fetchAll(PDO::FETCH_ASSOC);
     $keys = array_keys($post);
@@ -81,8 +80,7 @@ display_notification();
     for($i=0; $i<5; $i++):
 
         //Checks if the index $i is less than the total number of posts
-        if ($i < count($post))
-        {
+        if ($i < count($post)):
             //Fetches information from array in "parts/fetchprofile.php" 
             //Puts this into new variables for each post in loop
             $post_id = $post[$keys[$i]]['postid'];
@@ -107,7 +105,8 @@ display_notification();
                 <div class="col-lg-10 offset-lg-1"> 
                     <article class="posts_displayed_on_profile_page">
                         <span class="uppercase grey"> <?=$category_name?> </span>
-                         <h2 class=”postheading”> <?=$post[$keys[$i]]['title'];?> </h2>
+                        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">
+                        <h2> <?=$post[$keys[$i]]['title'];?> </h2></a>
                         <span class=grey>
                             <time> Publicerat  
                                 <?= $dt->format('Y-m-d'); ?>
@@ -144,81 +143,85 @@ display_notification();
                     </article>
                 </div> <!-- Closing row for each post-->
             </div> <!-- Closing col for each post -->
-        <?php } endfor; ?>
+            <?php endif; ?>
+        <?php endfor; ?>
 
     <!-- All posts by user - Obs! Currently empty!! -->
     <div class="col-lg-10 offset-lg-1"> 
         <div class="d-flex flex-row-reverse">
-            <a href="#">Alla inlägg</a>
+            <a href="#">(Se alla inlägg)</a>
         </div>
     </div>
         
     <!-- Latest comments -->
-    <div class="row">
-        <div class="col-lg-10 offset-lg-1">   
-            <span class="uppercase">    
-                <h1>Dina senaste kommentarer:</h1>
-            </span>
-        </div>
-    </div>
-    
-    <!-- Displays message if user has made 0 comments -->
-    <?php
-    if ($comments_by_user['total'] == 0)
-    { ?>
+    <div class="container_comments_displayed_on_profile_page">
         <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <p>Du har inte skrivit några kommentarer ännu.</p>
+            <div class="col-lg-10 offset-lg-1">   
+                <span class="uppercase">    
+                    <h1>Dina senaste kommentarer</h1>
+                </span>
             </div>
-        </div>  
-    <?php }
-
-    //SQL-query fetching comments made by user, and details about that comment
-    //Saves everything into an array ($comments) with the help of array using array_keys-function
-    $statement = $pdo->prepare("SELECT * FROM comment WHERE userid = $userid ORDER by date DESC");
-    $statement->execute();
-    $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
-    $keys = array_keys($comments);
-
-    //LOOP DISPLAYING (MAX) FIVE LATEST COMMENTS MADE BY USER
-    for ($i = 0; $i < 5; $i++):
+        </div>
         
-        //Checks if the index $i is less than the total number of posts
-        if ($i < count($comments))
-        {
-            //Fetches information from array in "parts/fetchprofile.php" 
-            //Puts this into new variables for each comment in loop
-            $post_id = $comments[$keys[$i]]['postid'];
-            $comment_date = $comments[$keys[$i]]['date'];
-            $comment_id = $comments[$keys[$i]]['commentid'];
-            $comment = $comments[$keys[$i]]['comment'];
-            $date = $comments[$keys[$i]]['date'];
-            $dt = new datetime($date); 
-
-            //Fetches post-title from a row in a table,
-            // using an id to compare with the id's in the table
-            $post_title = get_column_with_input("title", "post", "postid", $post_id);
-
-            //Puts comment text into new variable, and uses a function for 
-            //limiting the number of characters to be displayed to 200
-            $comment_text = make_string_shorter($comments[$keys[$i]]['comment'], 200);
-            ?>  
-
-            <!-- Comment-content -->
+        <!-- Displays message if user has made 0 comments -->
+        <?php
+        if ($comments_by_user['total'] == 0): ?>
             <div class="row">
-                <div class="col-lg-10 offset-lg-1">    
-                    <article class="comments_displayed_on_profile_page">
-                        <span class="grey">
-                            Du kommenterade på
-                            <a href="/millhouseblog/www/?page=viewpost&id=
-                            <?= $post_id ?>"><?= '"' . $post_title . '"' ?> </a>
-                            <time class="grey"> den
-                            <?= $dt->format('Y-m-d'); ?>
-                            </time>
-                            <p id="comment_text"> <?=$comment_text;?> </p>
-                        </span>
-                    </article>    
-                </div> <!-- Closing row for each comment-->
-            </div> <!-- Closing col for each post -->
-    <?php } endfor; ?>
+                <div class="col-lg-10 offset-lg-1">
+                    <p>Du har inte skrivit några kommentarer ännu.</p>
+                </div>
+            </div>  
+        <?php endif;
+
+        //SQL-query fetching comments made by user, and details about that comment
+        //Saves everything into an array ($comments) with the help of array using array_keys-function
+        $statement = $pdo->prepare("SELECT * FROM comment 
+                                    WHERE userid = $userid 
+                                    ORDER by date DESC");
+        $statement->execute();
+        $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $keys = array_keys($comments);
+
+        //LOOP DISPLAYING (MAX) FIVE LATEST COMMENTS MADE BY USER
+        for ($i = 0; $i < 5; $i++):
+            
+            //Checks if the index $i is less than the total number of posts
+            if ($i < count($comments)):
+                //Fetches information from array in "parts/fetchprofile.php" 
+                //Puts this into new variables for each comment in loop
+                $post_id = $comments[$keys[$i]]['postid'];
+                $comment_date = $comments[$keys[$i]]['date'];
+                $comment_id = $comments[$keys[$i]]['commentid'];
+                $comment = $comments[$keys[$i]]['comment'];
+                $date = $comments[$keys[$i]]['date'];
+                $dt = new datetime($date); 
+
+                //Fetches post-title from a row in a table,
+                // using an id to compare with the id's in the table
+                $post_title = get_column_with_input("title", "post", "postid", $post_id);
+
+                //Puts comment text into new variable, and uses a function for 
+                //limiting the number of characters to be displayed to 200
+                $comment_text = make_string_shorter($comments[$keys[$i]]['comment'], 200);
+                ?>  
+
+                <!-- Comment-content -->
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">    
+                        <article class="comments_displayed_on_profile_page">
+                            <span class="grey">
+                                Du kommenterade på
+                                <a href="/millhouseblog/www/?page=viewpost&id=
+                                <?= $post_id ?>"><?= '"' . $post_title . '"' ?> </a>
+                                <time class="grey"> den
+                                <?= $dt->format('Y-m-d'); ?>
+                                </time>
+                                <p id="comment_text"> <?=$comment_text;?> </p>
+                            </span>
+                        </article>    
+                    </div> <!-- Closing row for each comment-->
+                </div> <!-- Closing col for each post -->
+        <?php endif; ?>
+    <?php endfor; ?>
+    </div> <!-- Closing container for comments_displayed_on_profile_page -->
 </div> <!-- Closing container profile content -->

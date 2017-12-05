@@ -219,7 +219,7 @@ input[type=submit]:hover{
 
 .single_post_in_feed h2>a{
     margin-top: 5px;
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: #2d2d2d;
 }
 
@@ -229,6 +229,10 @@ input[type=submit]:hover{
 
 .post_content{
     padding: 32px;
+}
+
+#post_paragraph{
+    display: none;
 }
 
 .thumbnail_wrapper{
@@ -241,14 +245,14 @@ input[type=submit]:hover{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px; 
     position: relative;
-    height: 290px;
+    height: 240px;
     overflow: hidden;
 }
 
 .thumbnail img.post_image{ 
     object-fit: cover;
     width: 100%;
-    height: 290px;
+    height: 240px;
  }
 
  .pagination a{
@@ -645,9 +649,9 @@ textarea{
 }
 
 .comments_displayed_on_profile_page{
-background:white;
-padding:2em;
-margin-bottom:1em;
+    background:white;
+    padding:2em;
+    margin-bottom:1em;
 }
 
 #comment_text{
@@ -805,9 +809,9 @@ a:hover{
 .light_spacious{
     text-align: center;
     color: #6D6D6D;
-    padding-top: 40px;
-    padding-bottom: 40px;
     font-size: 2em;
+    padding-top: 60px;  /* Remove? */
+    padding-bottom: 60px; /* Remove? */
     font-weight: 200;
     letter-spacing: 0.3em;
 }
@@ -872,6 +876,7 @@ a:hover{
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         border-top-right-radius: 0px; 
+        height: 290px;
     }
 
     .thumbnail img.post_image{ 
@@ -889,11 +894,6 @@ a:hover{
         display: none;
         background: none;
     }
-
-    .light_spacious{
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
     
     .single_post_in_feed{
         margin-bottom: 1em;
@@ -902,7 +902,10 @@ a:hover{
     .profile_content h1{
         font-size: 2em;        
     }
-    
+
+    #post_paragraph{
+        display: inline;
+    }
 
     .about_box h1{
         font-size: 1.8em;

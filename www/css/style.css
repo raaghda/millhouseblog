@@ -241,6 +241,7 @@ input[type=submit]:hover{
 
 .no_post{
     background: white;
+    border-radius: 10px;
     text-align: center;
     padding: 20px 0px;
     font-size: 0.9em;
@@ -321,6 +322,7 @@ input[type=submit]:hover{
 .dateorder{
     text-align: right;
     margin-bottom: 7px;
+    margin-right: 10px;
     font-size: 0.8em;
 }
 

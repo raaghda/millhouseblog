@@ -10,7 +10,7 @@ require './parts/database.php';
 
     $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-
+$i = 0;
    
 
 $query = "";    
@@ -36,11 +36,12 @@ if(isset($_GET['query'])) {
         
         <?
         foreach($categories as $category){ 
-        
+
+        $i = $i+1;
         ?>
     
          <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=<?= $i++; ?>">
+            <a href="/millhouseblog/www/?page=category&categoryid=<?= $i; ?>">
             <?= $category["name"];?> </a>
         </li>
 <? } ?>

@@ -722,8 +722,8 @@ footer{
 
 footer a{
     color: #f2f2f2;
-    font-size: 1em;
-    letter-spacing: 0.1em;
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
     line-height: 140%;
     text-decoration: none;
 }
@@ -742,9 +742,9 @@ footer li{
     text-align: center;
 }
 
-footer li .fa{
+footer ul>li .fa{
     margin: 5px;
-    font-size: 2em;
+    font-size: 2.7em;
 }
 
 

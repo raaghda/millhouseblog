@@ -229,6 +229,7 @@ input[type=submit]:hover{
 
 .post_content{
     padding: 32px;
+    line-height: 160%;
 }
 
 #post_paragraph{
@@ -255,10 +256,20 @@ input[type=submit]:hover{
     height: 240px;
  }
 
- .pagination a{
+/* Pagination */
+
+ .page-item.active .page-link{
+     background-color: #4D7E95;
+     border: 0px;
+ }
+
+.page-item a{
     color: #4D7E95;
  }
 
+.page-item a:hover{
+    color: #4D7E95;
+ }
 
 .no_post{
     background: white;

@@ -4,12 +4,10 @@
                 <span class="uppercase">
                     <h1 class="light_spacious" id="addcomments_h1">Lägg till en kommentar</h1>
                 </span>
-       
-                
-                       
+             
                 <?php       
-                        if(isset($_GET['nocomment'])){
-                            echo $_GET['nocomment'];
+                    if(isset($_GET['nocomment'])){
+                        echo $_GET['nocomment'];
                     }
                 ?>
                 <div class="row" >

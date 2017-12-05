@@ -12,27 +12,35 @@
 <!-- Main navbar, connecting to collapsed-toggle with id  --> 
     <div class="collapse navbar-collapse justify-content-end" id="hamburgerMenu">
         <ul class="navbar-nav justify-content-end">
-            <li><a href="?page=home">Hem</a></li>
+            <li>
+                <a href="?page=home">Hem</a>
+            </li>
 
             <!-- Displays "My Profile" if user is logged in -->
             <?php
-            if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) 
-            {
-            echo '<li><a href="?page=profile">Min profil</a></li>';
-            }
+            
+                if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
+                    echo '<li><a href="?page=profile">Min profil</a></li>';
+                }
+            
             ?> 
-            <li><a href="?page=categories">Kategorier</a></li>
-            <li><a href="?page=about">Om oss</a></li>
+            <li>
+                <a href="?page=categories">Kategorier</a>
+            </li>
+            <li>
+                <a href="?page=about">Om oss</a>
+            </li>
             <li>
 
             <!-- Displays "Log in to logged out/unregistered user, and vice versa -->
             <?php
-            if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
-            echo '<a href="parts/logout.php">Logga ut</a>';
-            }
-            else{
-            echo '<a href="?page=loginform">Logga in</a>';   
-            }
+                
+                if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
+                    echo '<a href="parts/logout.php">Logga ut</a>';
+                } else{
+                    echo '<a href="?page=loginform">Logga in</a>';   
+                }
+                
             ?>
 
             </li>

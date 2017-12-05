@@ -1,4 +1,4 @@
-<?php /*cleaned*/
+<?php
 
     $userid = $monthpost["userid"];
     $username = get_column_with_input("username", "user", "userid", $userid);

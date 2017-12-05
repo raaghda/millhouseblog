@@ -70,8 +70,16 @@ main{
     background: white;
     margin-bottom:1em;
     display: none;
-    padding-top: 20px;
 }
+
+aside{
+    margin: 0px;
+}
+
+.aside_search{
+    margin-top: 20px;
+}
+
 aside input[type="text"]{
     height: 40px;
     margin-top: 10px;
@@ -995,6 +1003,10 @@ a:hover{
     .viewpost h6{
         font-size: 1em;
     }
+
+    aside{
+        display: inline;
+    }
     
     .sidebar{
         display: inline;
@@ -1003,7 +1015,12 @@ a:hover{
         box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
         -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
             -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
-    } 
+    }    
+
+    .aside_months{
+    display: inline;
+}
+  
 
  .image_wrappers{
     width: 80%;

@@ -180,16 +180,21 @@ display_notification();
             <?php 
             //SKA GÖRAS TILL FUNTION OCH FLYTTAS, TEX: set_start_end_page
             //frågan är hur med två return..?
-                if($page_number==1)
+                if($page_number == 1)
                     {
                     $start_page = 1;
                     $end_page = 3;
                     } 
-                    elseif($page_number == $total_pages)
+                    elseif ($page_number == 2 && $total_pages < 3)
                         {
-                        $start_page = $page_number - 2; 
-                        $end_page = $total_pages; 
+                        $start_page = 1;
+                        $end_page = 2;
                         }
+                        elseif($page_number == $total_pages)
+                            {
+                            $start_page = $page_number - 2; 
+                            $end_page = $total_pages; 
+                            }
                 else
                     {
                     $start_page = $page_number -1;

@@ -50,29 +50,24 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
             </div>
 
             <div class="form-group row">
-                <div class="col-sm-3">
-                   
-                   <!--category dropdown list-->
+                <div class="col-sm-4">
                     <select required name="categoryid"> 
-                         
+                        <option value="" >Välja Kategori</option>  
+      
                           <?php
                             foreach ($categories as $category){
-                                
-                                //if post-table categoryid is the same as the category-dropdown
-                                if ($category_id == $category['categoryid']){
-                                    
                             ?>
-                        <!--Select the option dropdown that corresponds with the post's original category-->   
-                        <option selected value="<?=$category['categoryid'];?>"><?=$category['name'];?></option> 
+                   
+                        <option value="<?=$category['categoryid'];?>"><?=$category['name'];?></option> 
                
                           <?php
-                            }else{
-                                ?>
-                            <option value="<?=$category['categoryid'];?>"><?=$category['name'];?></option> 
-                            <?php   
-                            }}
+                            }
                             ?>
                     </select>
+                    
+                </div>
+                <div class="offset-sm-3 col-sm-5">
+                    <input type="file" id="file" class="inputfile" name="file" accept=".jpg, .jpeg, .png, .gif">
                 </div>
             </div>
 
@@ -80,7 +75,7 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
            
            
             <div class="form-group row">
-                <div class="col-sm-10">
+                <div class="col-sm-12 prev_img">
                     <?php
                         if ($image != ''){
                      ?>                                                            
@@ -89,15 +84,15 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
                          }
                         ?>
                         
-                    <input type="file" name="file" accept=".jpg, .jpeg, .png, .gif"><br><br>
                     
                 </div>
-                 <div class="form-group row">
-            <div class="col-sm-10">
-                <input type="submit" name="submit" value="Publicera">
+            </div>
+            
+            <div class="form-group row">
+            <div class="col-sm-12">
+                <input id="publish_button" type="submit" name="submit" value="Publicera">
             </div>
         </div>
-            </div>
             
             
         </div>

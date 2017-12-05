@@ -1,12 +1,11 @@
+
                 <!--DISPLAYS COMMENTS-->   
                 <div class="row">
                     <div class="col-lg-12">
                         <span class="uppercase">
                             <h1 class="light_spacious" id="comments_h1">Kommentarer</h1>
+                            <a name="comments"></a>
                         </span>
-                           
-                            <!--div class="user_comments_wrapper col-12 col-lg-8 "-->
-                            <!--article class="comments_displayed_on_viewpost_page"-->
                                     
                                 <?php
                                     //if statement when there are no comments
@@ -19,7 +18,7 @@
                                 ?>
                                     
                                 <!--anchor to comments section.#comments will bring use to this line-->
-                               <a name="comments"></a>
+                        
                             
                                        
 
@@ -43,16 +42,16 @@
                 <div class="row">
                     <div class="col-lg-12 ">    
                         <article class="comments_displayed_on_viewpost_page">
-                        <span class="grey">
-                           <time id="commentbox"><?=$dt->format('Y-m-d'); ?></time>
-                            <p id="commentbox">av</p>
-                            <span id="commentbox" class="uppercase grey"><?=$comment_name?></span>
-                            <p><?=$comment_info["comment"] ?></p>
+                            <span class="grey">
+                               <time id="commentbox"><?=$dt->format('Y-m-d'); ?></time>
+                                <p id="commentbox">av</p>
+                                <span id="commentbox" class="uppercase grey"><?=$comment_name?></span>
+                                <p><?=$comment_info["comment"] ?></p>
 
-                        </span>
-                    </article>    
-                </div> <!-- Closing col for each post -->
-            </div>  <!-- Closing row for each comment-->
+                            </span>
+                        </article>    
+                    </div> <!-- Closing col for each post -->
+                </div>  <!-- Closing row for each comment-->
 
             <?php
                     

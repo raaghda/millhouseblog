@@ -20,6 +20,7 @@ display_notification();
         <?php
         //PAGINATION
         //var lägga denna function? 
+        //PAGINATION.PHP?
         function get_page_number(){
             //if a page number has been selected, get that value
             if(isset($_GET['pagination_page']))
@@ -42,22 +43,19 @@ display_notification();
         
         //start limit(=which post to start to get from database) is set by the page number and the $limit of the posts to show
         $start_limit = ($page_number - 1) * $limit;  
+
+        //fetch 5 latest posts, from $start_limit to start_limit + number set as limit, depending on which page youre on, using pagination.
+        $posts = fetch_posts_from_start_to_limit($start_limit, $limit);
+
+        $keys = array_keys($posts);
+
         
         $query = "";    
         if(isset($_GET['query'])) {
             $q=$_GET['query'];
             $query = "WHERE title like '%$q%'";
         }    
-        
-        //selects 5 posts, $start_limit to $limit, depending on which page your on, using(?) pagination.
-        $statement = $pdo->prepare("SELECT * FROM post
-            $query
-            ORDER by date DESC 
-            LIMIT $start_limit, $limit");
-            $statement->execute();
-            $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-            $keys = array_keys($posts);
-    
+
         //Looping out 5 posts, starting from the latest posts.
         //Information about the author of the post=user.
         //How many comments there is on each post. 
@@ -170,7 +168,8 @@ display_notification();
     <?php
     //diving the total number of posts in db with the limit of posts per page to get total number of pages.
     //using ceil so if its fex 6.5 its going to be 7 pages
-    $total_pages = ceil($number_of_posts_in_db / $limit);
+
+    $total_pages = ceil($number_of_posts_in_db["count"] / $limit);
     ?>
     <div class="col-8 offset-md-1 pagination_container">
         <nav>

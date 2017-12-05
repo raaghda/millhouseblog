@@ -10,7 +10,7 @@ require './parts/database.php';
 
     $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-$i = 0;
+$i = 1;
    
 
 $query = "";    
@@ -20,8 +20,8 @@ if(isset($_GET['query'])) {
 ?>
 <div class="sidebar col-12">
     <aside>
-<div class="row">
-    <div class="col-12 aside_category">
+
+    <div class="aside_search">
         <h3>Sök</h3>
         <form method="get">
             <input type="hidden" name="page" value="home">
@@ -29,28 +29,25 @@ if(isset($_GET['query'])) {
             <input type="submit" value="Sök">
         </form>        
     </div>
-    <div class="col-12 aside_category">
+    <div class="aside_category">
 
     <h3>Kategorier</h3>
     <ul class="categories_in_sidebar">
         
         <?
         foreach($categories as $category){ 
-
-        $i = $i+1;
         ?>
     
          <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=<?= $i; ?>">
-            <?= $category["name"];?> </a>
+            <a href="/millhouseblog/www/?page=category&categoryid=<?= $i++; ?>">
+            <?= $category["name"];?></a>
         </li>
 <? } ?>
-   
     </ul>
         </div>
-    </div>
 
-    <div class="col-12 aside_months">
+
+    <div class="aside_months">
     
     <div class="sidebar_underline"></div>
     <h3>Arkiv</h3>
@@ -107,7 +104,7 @@ if(isset($_GET['query'])) {
           
           <div class="sidebar_underline"></div>
            </div>
-           <div class="col-12 aside_latest">
+           <div class="aside_latest">
 
             <h3>Aktivitet</h3>
             <ul class="comments_in_sidebar">

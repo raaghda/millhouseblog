@@ -111,6 +111,24 @@ aside input[type="submit"]:hover{
     margin-bottom: 20px;
 }
 
+.aside_months{
+    display: none;
+    margin-bottom: 20px;
+}
+
+.aside_latest{
+    padding: 0;
+}
+
+.aside_latest h3{
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.aside_latest li {
+    font-size: 1em;
+}
+
 /* Loginpage-styling, also applies to register page */  
 .background_loginpage{  
     background-image: url('../images/background_lightblue.jpg');
@@ -903,6 +921,10 @@ a:hover{
         background: none;
     }
     
+    aside{
+        display: none;
+    }
+
     .single_post_in_feed{
         margin-bottom: 1em;
     }

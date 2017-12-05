@@ -2,6 +2,7 @@
 require 'parts/database.php';
 require 'parts/functions.php';
 require 'parts/fetch_posts.php';
+
  
 //if statement checking if there is a session message (parts/deletepost.php)
 //if true, display message
@@ -18,33 +19,45 @@ display_notification();
         <div class="five_latest_posts_container col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
         <?php
         //PAGINATION
+        //var lägga denna function? 
+        function get_page_number(){
+            //if a page number has been selected, get that value
+            if(isset($_GET['pagination_page']))
+                {
+                    //store it in $page_number
+                    $page_number = $_GET['pagination_page'];
+                }
+            else
+                {
+                    //else, user landed on home-page and page is 1
+                    $page_number = 1;
+                }        
+                return $page_number;
+            }
+
+        $page_number= get_page_number();
         
         //set $limit as the number of posts to show per page
         $limit = 5;
-        //if a page number has been selected, get that value
-        if(isset($_GET['pagination_page']))
-            {
-                //store it in $page
-                $page = $_GET['pagination_page'];
-            }
-        else
-            {
-                //else, user landed on home-page and page is 1
-                $page = 1;
-            }        
-
+        
         //start limit(=which post to start to get from database) is set by the page number and the $limit of the posts to show
-        $start_limit = ($page - 1) * $limit;  
-
+        $start_limit = ($page_number - 1) * $limit;  
+        
+        $query = "";    
+        if(isset($_GET['query'])) {
+            $q=$_GET['query'];
+            $query = "WHERE title like '%$q%'";
+        }    
+        
         //selects 5 posts, $start_limit to $limit, depending on which page your on, using(?) pagination.
-        $statement = $pdo->prepare("SELECT * FROM post 
+        $statement = $pdo->prepare("SELECT * FROM post
+            $query
             ORDER by date DESC 
             LIMIT $start_limit, $limit");
             $statement->execute();
             $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
             $keys = array_keys($posts);
-
-
+    
         //Looping out 5 posts, starting from the latest posts.
         //Information about the author of the post=user.
         //How many comments there is on each post. 
@@ -133,7 +146,7 @@ display_notification();
         <?php endfor; ?>  <!-- Ends loop -->
         
         
-       <?  
+       <?php  
         
         /* Message if there is no posts in selected month */
 
@@ -163,10 +176,43 @@ display_notification();
         <nav>
             <ul class="pagination">
             <?php 
+            //SKA GÖRAS TILL FUNTION OCH FLYTTAS, TEX: set_start_end_page
+            //frågan är hur med två return..?
+                if($page_number==1)
+                    {
+                    $start_page = 1;
+                    $end_page = 3;
+                    } 
+                    elseif($page_number == $total_pages)
+                        {
+                        $start_page = $page_number - 2; 
+                        $end_page = $total_pages; 
+                        }
+                else
+                    {
+                    $start_page = $page_number -1;
+                    $end_page = $page_number + 1;
+                    }
+                    
              //looping out page links with id of each page.
-            for ($i=1; $i<=$total_pages; $i++):?>
-                 <li><a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?></a></li>
-            <?php endfor; ?>
+            for ($i=$start_page; $i<=$end_page; $i++):
+                //if index==page_number set class=active to show thats the page user is on
+                if($i == $page_number)
+                    {?>
+                    <li class="page-item active">
+                        <a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?><span class="sr-only">(current)</span></a>
+                    </li>
+                    <?php
+                    }   
+                    //else loop out "regular" page link
+                    else 
+                        {?>
+                        <li class="page-item">
+                            <a class="page-link" href="/millhouseblog/www/?page=home&pagination_page=<?=$i?>"><?=$i?></a>
+                        </li>
+                        <?php
+                        }
+            endfor; ?>
             </ul>
         </nav> 
     </div>

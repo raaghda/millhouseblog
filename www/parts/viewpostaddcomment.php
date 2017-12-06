@@ -23,6 +23,7 @@
 
                             <input type="hidden" name="id" value="<?= $post_id ?>">
                             <input required type="text" name="comment" placeholder="Din kommentar" id="comment_field_viewpost">
+                            <div id="comment_length">10 av 150 tecken</div>
                             <input type="submit" name="addcomment" value="Skicka">
                         </form>
                     </div><!--END OF col-lg-12-->

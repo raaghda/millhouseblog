@@ -14,7 +14,7 @@
                                 <div class="row">
                                     <div class="col-lg-12 "> 
                                         <div class="comments_displayed_on_viewpost_page">
-                                            <p>Det finns inga kommentarer här än.</p>
+                                            <span class="grey">Det finns inga kommentarer här än.</span>
                                         </div>
                                     </div>
                                 </div>

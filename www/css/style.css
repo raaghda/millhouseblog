@@ -21,6 +21,11 @@ header li, footer li{
     margin: 10px;
 }
 
+.alert{
+    margin: 0;
+    border-radius: 0;
+}
+
 /*  Body */
 body{
     background-color: #f2f2f2;

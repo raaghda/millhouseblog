@@ -1,11 +1,16 @@
 <!-- User profile with image and statistics -->
 <div class="row">
         <div class="col-10 offset-1">
-            <img src="images/empty_avatar.png" id=profile_avatar 
+            <img title="klicka för att ändra din avatar" src="profilephotos/<?php echo $fetched_user['profilephoto']; ?>" id=profile_avatar 
             alt="Avatar för användare" class="rounded-circle" width="120px" height="120px">
             <h1 id=user_name> <?php echo $fetched_user['name']; ?> </h1>
         </div>
     </div>
+    
+    <form id="profilephotopicker" action="/millhouseblog/www/parts/uploadprofilephoto.php" method="POST" enctype="multipart/form-data">
+             <input type="file" id="file" name="profilePhoto" accept=".jpg, .jpeg, .png, .gif"><br><br>
+            <input type="submit" id="submitphoto" value="Change!" name="submitPhoto">
+    </form>  
           
 <div class="row">
     <div class="col-10 offset-1 d-none d-md-block"> 

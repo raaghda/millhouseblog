@@ -459,6 +459,7 @@ textarea{
     padding-top: 40px;
     padding-bottom:20px;
     text-align: left;
+    font-size: 1.5em;
 }
 #viewpost_span{
     float: left;
@@ -1021,6 +1022,10 @@ a:hover{
     }
     .viewpost h6{
         font-size: 1em;
+    }
+    
+    .viewpost h1{
+        font-size: 2em;
     }
 
     aside{

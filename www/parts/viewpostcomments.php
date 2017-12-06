@@ -69,6 +69,7 @@
                                     </form>
 
                                     <?php
+                                        notify('success', 'Kommentaren har tagits bort.');                      
                                         }//END OF IF STATEMENT CHECKING ADMIN LOGIN
                                     ?>  
                                                     

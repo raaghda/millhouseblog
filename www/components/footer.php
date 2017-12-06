@@ -22,5 +22,19 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <!-- fontawesome-->
         <script src="https://use.fontawesome.com/67b80e2b65.js"></script>
+
+    <script>
+        //If the avatar is clicked
+        jQuery( "#profile_avatar" ).click(function() {
+           //Then the file picker will open
+            jQuery('#file').trigger('click');
+        });
+        //If a file is picked
+         jQuery('#file').change(function(evt) {
+             //Then the submit-photo button will be clicked
+             jQuery('#submitphoto').trigger('click');
+         });
+    </script> 
+
     </body>
 </html>

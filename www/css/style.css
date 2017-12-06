@@ -482,6 +482,7 @@ textarea{
     background-color: white;
     padding: 20px 0 20px 0;
     margin-top: 10px;
+    word-wrap: break-word;
 }
 
 .viewpost .img-fluid{

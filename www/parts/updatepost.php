@@ -2,7 +2,7 @@
 
     session_start();
     require 'database.php';
-    include 'uploadimage.php';
+    require 'uploadimage.php';
     require 'notifyfunctions.php';
 
     //if the POSTtitle, POSTcreatedBy and POSTid are true (input into field)

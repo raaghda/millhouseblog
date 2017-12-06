@@ -40,27 +40,23 @@ if(isset($_POST['submitPhoto']) && $_FILES['profilePhoto']['error'] == UPLOAD_ER
     
     //boolean in_array checks the file extention ($file_ActualExt) against the types listed in the array   
     if (in_array($fileActualExt, $allowed)){
-        if ($fileError === 0){
-            if($fileSize < 5000000){
-                
-                //start uploading the file
-                //variable created for new file name in order to avoid overwriting (unique id function using time stamp and file ext)
-                $fileNameNew = uniqid('',true).".".$fileActualExt;
-                
-                //variable created to place file in location 
-                $fileDestination = '../profilepictures/'.$fileNameNew;
-                
-                //function movest the file from old temp location  to new location ($fileDestination)
-                move_uploaded_file($fileTmpName,$fileDestination);
-                
-                
-            }else{
-               echo "Your file is too big."; 
-            }
+        if($fileSize < 5000000){
+
+            //start uploading the file
+            //variable created for new file name in order to avoid overwriting (unique id function using time stamp and file ext)
+            $fileNameNew = uniqid('',true).".".$fileActualExt;
+
+            //variable created to place file in location 
+            $fileDestination = '../profilepictures/'.$fileNameNew;
+
+            //function movest the file from old temp location  to new location ($fileDestination)
+            move_uploaded_file($fileTmpName,$fileDestination);
+
+
         }else{
-            echo "There was an error uploading this file.";
+           echo "Your file is too big."; 
         }
-        
+
     }else{
         echo "You cannot upload files of this type.";
     }

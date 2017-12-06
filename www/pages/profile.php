@@ -11,7 +11,7 @@ display_notification();
      <?php require 'parts/userprofile.php' ?>
 </div> <!-- Closing Profile header  -->
 
-
+s
 <!-- Container for five latest posts and comments by user -->
 <div class="container profile_content">
     <div class="row">

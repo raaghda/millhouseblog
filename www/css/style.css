@@ -452,7 +452,8 @@ textarea{
 #postsection_viewpost{
     height: auto;
     background: #fff;
-    padding: 20px; 
+    padding: 20px;
+    border-radius: 10px;
 }
 .viewpost h1{
     padding-top: 40px;
@@ -537,6 +538,7 @@ textarea{
     background:white;
     padding:2em;
     margin-bottom:0em; 
+    border-radius: 10px;
 }
 
 #commentbox{
@@ -560,7 +562,8 @@ textarea{
 #add_comments_form_viewpost{
     background: #fff;
     margin-bottom: 1em;
-    padding: 1em;   
+    padding: 1em; 
+    border-radius: 10px;
 }
 
 #comment_field_viewpost{

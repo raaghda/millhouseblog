@@ -67,12 +67,11 @@
                                         <input type="hidden" name="comment_id" value="<?= $comment_info['commentid'];?>">
                                         <input type="submit" id="delete_post_via_profile" name="delete" value="Ta bort">
                                     </form>
-
-                                    <?php
-                                        notify('success', 'Kommentaren har tagits bort.');                      
-                                        }//END OF IF STATEMENT CHECKING ADMIN LOGIN
-                                    ?>  
-                                                    
+                                    
+                                    <?php                     
+                                        }//END OF IF STATEMENT CHECKING ADMIN LOGIN  
+                                    ?> 
+                                                  
                                 </article>  
                             </div> <!-- Closing col for each comment -->                
                         </div>  <!-- Closing row for each comment--> 

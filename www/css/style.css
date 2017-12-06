@@ -459,6 +459,7 @@ textarea{
     padding-top: 40px;
     padding-bottom:20px;
     text-align: left;
+    font-size: 1.5em;
 }
 #viewpost_span{
     float: left;
@@ -550,14 +551,14 @@ textarea{
     margin-top: 2em;
     padding: 0;
     font-size: 1.5em;
+    margin-bottom: 0.2em;
 }
 
 #addcomments_h1{
     margin-bottom: .2em;
-    margin-top: 1em;
+    margin-top: 0.3em;
     font-size: 1.5em;
 }
-
 
 #add_comments_form_viewpost{
     background: #fff;
@@ -582,6 +583,13 @@ textarea{
     padding: 1em;
     border-radius: 10px;
     border: 1px solid #e2e2e2;
+}
+#admin_delete_comment_viewpost{
+    margin-top: 10px;
+}
+
+.fa-trash{
+    color: #f44336;
 }
 
 
@@ -1005,11 +1013,19 @@ a:hover{
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
     
-.createpost, .editpost{
-    width: 60%;
-}
+    .createpost, .editpost{
+        width: 60%;
+    }
+    
+    .viewpost{
+        width: 80%;
+    }
     .viewpost h6{
         font-size: 1em;
+    }
+    
+    .viewpost h1{
+        font-size: 2em;
     }
 
     aside{
@@ -1022,23 +1038,23 @@ a:hover{
         border-radius: 10px;
         box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
         -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
-            -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
+        -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
     }    
 
     .aside_months{
-    display: inline;
-}
+        display: inline;
+    }
   
 
- .image_wrappers{
-    width: 80%;
-}
+    .image_wrappers{
+        width: 80%;
+    }
 
-.no_post{
-    padding: 50px;
-    font-size: 1.4em;
-    max-height: 170px;
-}
+    .no_post{
+        padding: 50px;
+        font-size: 1.4em;
+        max-height: 170px;
+    }
 
 
    

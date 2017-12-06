@@ -1,7 +1,7 @@
 <?php
 require 'parts/database.php';
 require 'parts/functions.php';
-require 'parts/fetch_posts.php';
+require 'parts/fetchposts.php';
 
  
 //if statement checking if there is a session message (parts/deletepost.php)

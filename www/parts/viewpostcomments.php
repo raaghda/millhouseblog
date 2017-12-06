@@ -28,6 +28,8 @@
                                             $role = '';
                                             $post_id = get_column_with_input('postid', 'comment', 'postid', $comment_info["postid"]);
                                             
+                                            
+                                            
                                             //if a person that made a comment isnt a user, and therefore has no userid..
                                             //..get email from comment table.
                                             //else store user id and get username from user table
@@ -43,12 +45,13 @@
                         <div class="row">
                             <div class="col-lg-12 ">    
                                 <article class="comments_displayed_on_viewpost_page">
-                                    <span class="grey">
-                                       <time id="commentbox"><?=$dt->format('Y-m-d'); ?></time>
-                                        <p id="commentbox">av</p>
-                                        <span id="commentbox" class="uppercase grey"><?=$comment_name?>       </span>
+                                    <span class="grey">Kommentar lämnade av 
+                                        <span id="commentbox" class="uppercase lightblue"><?=$comment_name?></span>
+                                        den  
+                                        <time id="commentbox">
+                                              <?=$dt->format('Y-m-d, G:i');?>
+                                        </time>
                                         <p id="comment_text"><?=$comment_info["comment"] ?></p>
-
                                     </span>
                                     
                                     <?php
@@ -58,17 +61,17 @@
                     
                                         if ($role == 'admin'){?>
 
-                                    <form action="../www/parts/deletecomment.php" method="GET">
+                                    <form id="admin_delete_comment_viewpost" action="../www/parts/deletecomment.php" method="GET">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                         <input type="hidden" name="post_id" value="<?= $post_id;?>">
                                         <input type="hidden" name="comment_id" value="<?= $comment_info['commentid'];?>">
                                         <input type="submit" id="delete_post_via_profile" name="delete" value="Ta bort">
                                     </form>
-
-                                    <?php
-                                        }//END OF IF STATEMENT CHECKING ADMIN LOGIN
-                                    ?>  
-                                                    
+                                    
+                                    <?php                     
+                                        }//END OF IF STATEMENT CHECKING ADMIN LOGIN  
+                                    ?> 
+                                                  
                                 </article>  
                             </div> <!-- Closing col for each comment -->                
                         </div>  <!-- Closing row for each comment--> 

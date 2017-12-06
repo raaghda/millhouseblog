@@ -35,10 +35,8 @@ display_notification();
     <!-- Latest posts made by user -->
     <div class="row">
         <div class="col-lg-10 offset-lg-1"> 
-            <article class="posts_displayed_on_profile_page">
             <!-- We fetch the content of the post from parts/profilepost -->
             <?php require 'parts/profilepostcontent.php'; ?>
-            </article>
         </div> 
     </div>
 

@@ -33,46 +33,48 @@ for($i=0; $i<5; $i++):
         $post_text = make_string_shorter($post[$keys[$i]]['text'], 300); ?>
         
         <!-- Post-content -->
-        <span class="uppercase grey"> <?=$category_name?> </span>
-        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">
-        <h2> <?=$post[$keys[$i]]['title'];?> </h2></a>
-        <span class=grey>
-            <time> Publicerat  
-                <?= $dt->format('Y-m-d'); ?>
-            </time>
-        </span>
-        <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
-        <?php '(' . $number_of_comments . ')'; 
+        <article class="posts_displayed_on_profile_page">
+            <span class="uppercase grey"> <?=$category_name?> </span>
+            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">
+            <h2> <?=$post[$keys[$i]]['title'];?> </h2></a>
+            <span class=grey>
+                <time> Publicerat  
+                    <?= $dt->format('Y-m-d'); ?>
+                </time>
+            </span>
+            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
+            <?php '(' . $number_of_comments . ')'; 
 
-        if ($number_of_comments == 1)
-        {
-            //Fixes grammar for singular comment/plural comments
-            echo ' kommentar'; 
-        } 
-        else
-        {
-            echo ' kommentarer';
-        } 
-        ?>
+            if ($number_of_comments == 1)
+                {
+                    //Fixes grammar for singular comment/plural comments
+                    echo ' kommentar'; 
+                } 
+                else
+                {
+                    echo ' kommentarer';
+                } 
+                ?>
 
-        </a>
-        <p> <?=$post_text?> </p>
+                </a>
+                <p> <?=$post_text?> </p>
 
-        <div class="row post_actions">
-            <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
-            <span class="lightblue indent_left indent_right">|</span>
+                <div class="row post_actions">
+                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">Läs hela inlägget</a>
+                    <span class="lightblue indent_left indent_right">|</span>
 
-            <form action="./?page=editpost" method="POST">
-                <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                <input type="submit" ID="edit_post_via_profile" name="edit" value="Redigera inlägg">
-            <span class="lightblue indent_left indent_right">|</span>
-            </form>
+                    <form action="./?page=editpost" method="POST">
+                        <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                        <input type="submit" ID="edit_post_via_profile" name="edit" value="Redigera inlägg">
+                    <span class="lightblue indent_left indent_right">|</span>
+                    </form>
 
-            <form action="../www/parts/deletepost.php" method="POST">
-                <input type="hidden" name="post_id" value="<?= $post_id ?>">
-                <input type="submit" ID="delete_post_via_profile" name="delete" 
-                value="Ta bort" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">   
-            </form>
-        </div>           
-    <?php endif; ?>
+                    <form action="../www/parts/deletepost.php" method="POST">
+                        <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                        <input type="submit" ID="delete_post_via_profile" name="delete" 
+                        value="Ta bort" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">   
+                    </form>
+                </div>    
+            </article>       
+    <?php endif; ?> 
 <?php endfor; ?>

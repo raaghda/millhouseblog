@@ -157,13 +157,21 @@ aside input[type="submit"]:hover{
     width: 260px;
     background-color: #fff;
     padding-top: 40px;
-    padding-bottom: 40px; 
+    padding-bottom: 20px; 
     margin-top: 60px;
     margin-bottom: 100px;
     text-align: center;
     border-radius: 15px;
 }
-
+.continue {
+    display: block;
+    float: right;
+    clear: both;
+    width: 100%;
+    text-align: right;
+    font-size: 12px;
+    padding-top: 10px;
+}
 #logo_image{
     margin-bottom: 20px;
 }
@@ -569,9 +577,6 @@ textarea{
     border-radius: 10px;
 }
 
-#comment_length {
-    float: right;
-}
 #comment_field_viewpost{
     padding: 1em;
     background: #f8f9fa;

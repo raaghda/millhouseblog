@@ -56,11 +56,20 @@ if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id)
       
                           <?php
                             foreach ($categories as $category){
+                                //if-sats checking if category is same as post's original category id
+                                //so user doesn't have to enter it when editing the post
+                                if ($category['categoryid'] == $category_id) { 
                             ?>
-                   
+                                    <!--added 'selected' to option in order to remain on the original category id related to the post-->
+                                    <option selected value="<?=$category['categoryid'];?>"><?=$category['name'];?></option>  
+                            <?php                                          
+                                } else {
+                            ?>
+                       
                         <option value="<?=$category['categoryid'];?>"><?=$category['name'];?></option> 
                
                           <?php
+                                }
                             }
                             ?>
                     </select>

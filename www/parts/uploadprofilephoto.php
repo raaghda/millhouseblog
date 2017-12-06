@@ -54,7 +54,7 @@ if(isset($_POST['submitPhoto']) && $_FILES['profilePhoto']['error'] == UPLOAD_ER
 
 
         }else{
-           echo "Your file is too big."; 
+           echo "Your file is too big. Max. allowed size is 5MB"; 
         }
 
     }else{

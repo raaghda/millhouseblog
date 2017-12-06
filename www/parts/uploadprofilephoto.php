@@ -44,6 +44,17 @@ if(isset($_POST['submitPhoto']) && $_FILES['profilePhoto']['error'] == UPLOAD_ER
     
             //function moves the file from old temp location  to new location ($fileDestination)
             if (move_uploaded_file($fileTmpName,$fileDestination)){
+                session_start();
+                require 'database.php';
+                $userid = $_SESSION["user"]["userid"];
+                
+                $statement = $pdo->prepare("UPDATE user SET profilephoto = :profilephoto WHERE userid = :userid");
+
+                $statement->execute(array(
+                    ":userid" => $userid,
+                    ":profilephoto" => $fileNameNew
+                ));
+                
                 header("Location: /millhouseblog/www/?page=profile");      
             }
             else{

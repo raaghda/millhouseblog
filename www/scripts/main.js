@@ -13,8 +13,8 @@ jQuery('#file').change(function (evt) {
 
 jQuery("#comment_field_viewpost").on('keyup',function(){
     if(jQuery(this).val().length > 0) {
-        jQuery("#comment_length").html(jQuery(this).val().length + "/150 tecken.");
         jQuery(this).val(jQuery(this).val().substring(0,150));
+        jQuery("#comment_length").html(jQuery(this).val().length + "/150 tecken.");
     } else {
          jQuery("#comment_length").html("");
     }

@@ -623,6 +623,12 @@ textarea{
     letter-spacing: 0.07em;
 }
 
+#profilephotopicker {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
 .profile_header .fa{
     font-size: 1.3em;
     vertical-align: bottom;

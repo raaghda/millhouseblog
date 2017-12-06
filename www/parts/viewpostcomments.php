@@ -28,6 +28,8 @@
                                             $role = '';
                                             $post_id = get_column_with_input('postid', 'comment', 'postid', $comment_info["postid"]);
                                             
+                                            
+                                            
                                             //if a person that made a comment isnt a user, and therefore has no userid..
                                             //..get email from comment table.
                                             //else store user id and get username from user table
@@ -43,12 +45,13 @@
                         <div class="row">
                             <div class="col-lg-12 ">    
                                 <article class="comments_displayed_on_viewpost_page">
-                                    <span class="grey">
-                                       <time id="commentbox"><?=$dt->format('Y-m-d'); ?></time>
-                                        <p id="commentbox">av</p>
-                                        <span id="commentbox" class="uppercase grey"><?=$comment_name?>       </span>
+                                    <span class="grey">Kommentar lämnade av 
+                                        <span id="commentbox" class="uppercase lightblue"><?=$comment_name?></span>
+                                        den  
+                                        <time id="commentbox">
+                                              <?=$dt->format('Y-m-d, G:i');?>
+                                        </time>
                                         <p id="comment_text"><?=$comment_info["comment"] ?></p>
-
                                     </span>
                                     
                                     <?php

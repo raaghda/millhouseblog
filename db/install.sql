@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `registertime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `role` varchar(20) NOT NULL DEFAULT 'user',
   `name` varchar(70) NOT NULL,
-  `profilephoto` varchar(300) NOT NULL DEFAULT 'photo.jpg',
+  `profilephoto` varchar(300) NOT NULL DEFAULT 'empty_avatar.png',
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 

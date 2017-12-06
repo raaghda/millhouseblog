@@ -568,6 +568,9 @@ textarea{
     border-radius: 10px;
 }
 
+#comment_length {
+    float: right;
+}
 #comment_field_viewpost{
     padding: 1em;
     background: #f8f9fa;

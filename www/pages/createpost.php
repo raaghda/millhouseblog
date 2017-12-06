@@ -12,6 +12,13 @@
     $statement->execute();
 
     $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+    //if any of the fields not filled, an error message will be returned
+    //using display_notification function from parts/notifyfunctions.php
+
+    display_notification();
+        
 ?>
 
 <main class="createpost_page">
@@ -20,12 +27,7 @@
             <h1 class="light_spacious">Skriv nytt inlägg</h1>
         </span>
 
-        <?php
-            //if any of the fields not filled, an error message will be returned
-            //using display_notification function from parts/notifyfunctions.php
-
-            display_notification();
-        ?>
+        
 
         <form action="parts/savepost.php" method="POST" enctype="multipart/form-data">
             <div class="container form">

@@ -47,7 +47,7 @@
                                        <time id="commentbox"><?=$dt->format('Y-m-d'); ?></time>
                                         <p id="commentbox">av</p>
                                         <span id="commentbox" class="uppercase grey"><?=$comment_name?>       </span>
-                                        <p><?=$comment_info["comment"] ?></p>
+                                        <p id="comment_text"><?=$comment_info["comment"] ?></p>
 
                                     </span>
                                     

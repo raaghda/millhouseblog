@@ -12,5 +12,9 @@ jQuery('#file').change(function (evt) {
 });
 
 jQuery("#comment_field_viewpost").on('keyup',function(){
-    jQuery("#comment_length").html(jQuery(this).val().length + "/150 tecken.");
+    if(jQuery(this).val().length > 0) {
+        jQuery("#comment_length").html(jQuery(this).val().length + "/150 tecken.");
+    } else {
+         jQuery("#comment_length").html("");
+    }
 });

@@ -11,7 +11,7 @@ $userid = $_SESSION["user"]["userid"];
 
 //Fetches info about the logged in user from database
 $statement = $pdo->prepare(
-    "SELECT username, userid, email, name, role, registertime 
+    "SELECT username, userid, email, name, role, registertime, profilephoto
     FROM user 
     WHERE userid = :userid");
 //We save this info in an array called fetched user

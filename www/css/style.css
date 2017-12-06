@@ -280,6 +280,7 @@ input[type=submit]:hover{
     color: #4D7E95;
  }
 
+
 .no_post{
     background: white;
     border-radius: 10px;
@@ -1022,6 +1023,9 @@ a:hover{
 .categories_wrapper a:hover .overlay {
     opacity:0;
 }
+
+/*Fixing the issue with padding and not aligning on Pagination links in home*/
+ .pagination_container {padding:0px;}
 
 } /* Closing Tablet */
 

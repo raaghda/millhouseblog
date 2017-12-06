@@ -42,11 +42,13 @@ if(isset($_POST['submitPhoto']) && $_FILES['profilePhoto']['error'] == UPLOAD_ER
             //variable created to place file in location 
             $fileDestination = '../profilephotos/'.$fileNameNew;
     
-            //function movest the file from old temp location  to new location ($fileDestination)
-            move_uploaded_file($fileTmpName,$fileDestination);
-            
-            header("Location: /millhouseblog/www/?page=profile");  
-
+            //function moves the file from old temp location  to new location ($fileDestination)
+            if (move_uploaded_file($fileTmpName,$fileDestination)){
+                header("Location: /millhouseblog/www/?page=profile");      
+            }
+            else{
+                echo "Could not upload the file.";
+            }
 
         }else{
            echo "Your file is too big. Max. allowed size is 5MB"; 

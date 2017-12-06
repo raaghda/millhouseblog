@@ -10,3 +10,7 @@ jQuery('#file').change(function (evt) {
     //Then the submit-photo button will be clicked
     jQuery('#submitphoto').trigger('click');
 });
+
+jQuery("#comment_field_viewpost").on('keyup',function(){
+    jQuery("#comment_length").html(jQuery(this).val().length + "/150 tecken.");
+});

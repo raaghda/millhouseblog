@@ -32,7 +32,7 @@
     <header>
         <span class="uppercase grey"> <?=$category_name?> </span>
         <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>">
-        <h2> <?=$title;?> </h2></a>
+        <h1> <?=$title;?> </h1></a>
         <span class="grey">
             Publicerat 
             <time>

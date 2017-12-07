@@ -3,9 +3,9 @@
         <footer>
             <ul>
                 <li>
-                    <a href="#" aria-label="Gå till vår instagram sida" target="_blank"><i class="fa fa-instagram" role="link" alt="instagram ikon"></i></a>
-                    <a href="#" aria-label="Gå till vår facebook sida" target="_blank"><i class="fa fa-facebook-square" role="link" alt="facebook ikon"></i></a>
-                    <a href="#" aria-label="Gå till vår linkedin sida" target="_blank"><i class="fa fa-linkedin-square" role="link" alt="linkedin ikon"></i></a>
+                    <a href="https://github.com/raaghda/millhouseblog" aria-label="Gå till vår instagram sida" target="_blank"><i class="fa fa-instagram" role="link" alt="instagram ikon"></i></a>
+                    <a href="https://github.com/raaghda/millhouseblog" aria-label="Gå till vår facebook sida" target="_blank"><i class="fa fa-facebook-square" role="link" alt="facebook ikon"></i></a>
+                    <a href="https://github.com/raaghda/millhouseblog" aria-label="Gå till vår linkedin sida" target="_blank"><i class="fa fa-linkedin-square" role="link" alt="linkedin ikon"></i></a>
                 </li>
                 <span class="uppercase">
                     <li>

@@ -1,9 +1,15 @@
 <?php
 
     session_start();
+
+    // Target page variable created to hold part of the URL,
+    // enabling redirect on uploadimage.php to return to a specific
+    // post on viewpost page.
+    $target_page="viewpost&id=".$_POST["postid"];
     require 'database.php';
-    require 'uploadimage.php';
     require 'notifyfunctions.php';
+    require 'uploadimage.php';
+    
 
     //if the POSTtitle, POSTcreatedBy and POSTid are true (input into field)
     if (isset($_POST["title"]) && isset($_POST["text"]) && isset($_POST["categoryid"])){  

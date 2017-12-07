@@ -1,9 +1,11 @@
 <?php
     require 'parts/logincheck.php';
     require 'parts/database.php';
+    require 'parts/storepostdata.php';
+    
+
 
     /* Fetches the categories*/
-
     $statement = $pdo->prepare(
         "SELECT * FROM category" 
     );
@@ -12,10 +14,8 @@
 
     $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-
     //if any of the fields not filled, an error message will be returned
     //using display_notification function from parts/notifyfunctions.php
-
     display_notification();
         
 ?>
@@ -26,19 +26,17 @@
             <h1 class="light_spacious">Skriv nytt inlägg</h1>
         </span>
 
-        
-
         <form action="parts/savepost.php" method="POST" enctype="multipart/form-data">
             <div class="container form">
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <input type="text" required id="title" aria-label="Titel" name="title" placeholder=" Titel"> 
+                        <input type="text" required id="title" aria-label="Titel" name="title" value="<?=$saved_title;?>" placeholder=" Titel"> 
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12">
                     <!--Textarea using CK Edit 5 ID-->
-                        <textarea name="text" id="editor" rows="10" cols="30"></textarea>
+                        <textarea name="text" id="editor" rows="10" cols="30"><?=$saved_text;?></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -48,12 +46,27 @@
                                 Välja Kategori
                             </option>       
                             
-                            <?php foreach ($categories as $category): ?>                   
-                            <option value="<?=$category['categoryid'];?>">
-                                <?=$category['name'];?>
-                            </option>   
-                            <?php endforeach; ?>
-                        </select>                    
+                            <?php 
+                            foreach ($categories as $category){ 
+                                //if category id is same as session saved category
+                                //set to selected 
+                                //so if user misses out another field, 
+                                //the category field info will remain
+                                if ($category['categoryid'] == $saved_category){ ?>
+                                   
+                                    <option selected value="<?=$category['categoryid'];?>"> <?=$category['name'];?></option>
+                             
+                            <?php 
+                                }else{
+                            ?>
+                                    <option value="<?=$category['categoryid'];?>"><?=$category['name'];?></option> 
+                                    
+                            <?php 
+                                } 
+                            }
+                            ?>
+                            
+                        </select>                                                                                                                                               
                     </div>
                     <div class="offset-sm-3 col-sm-5">
                         <input type="file" id="file" class="inputfile" aria-label="Välja en fil" name="file" accept=".jpg, .jpeg, .png, .gif">

@@ -38,7 +38,7 @@
         ?>
 
         <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=<?= $i++; ?>"><?= $category["name"];?></a>
+            <a href="/millhouseblog/www/?page=sortbycategory&categoryid=<?= $i++; ?>"><?= $category["name"];?></a>
         </li>
         <? endforeach; ?>
     </ul>

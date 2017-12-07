@@ -141,19 +141,27 @@ aside input[type="submit"]:hover{
     padding-top: 40px;
     padding-bottom: 20px; 
     margin-top: 60px;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
     text-align: center;
     border-radius: 15px;
 }
+
 .continue {
     display: block;
+    letter-spacing: 0.02em;
     float: right;
     clear: both;
+    font-style: italic;
     width: 100%;
-    text-align: right;
-    font-size: 12px;
-    padding-top: 10px;
+    text-align: center;
+    font-size: 1em;
+    margin-top: 15px;
 }
+
+.continue .fa{
+    font-size: 0.7em;
+}
+
 #logo_image{
     margin-bottom: 20px;
 }
@@ -190,7 +198,7 @@ input[type=submit]:hover{
     margin-bottom: 20px;
 }
 
-/* ----- FEED ----- */
+/* ----- Feed ----- */
 
 .feed_container{
     background-image: url(../images/feed_background_blue_gradient.jpg);
@@ -219,13 +227,13 @@ input[type=submit]:hover{
 }
 
 
-/* ----- POST ----- */
+/* Post */
 
 
 .single_post_in_feed{
     background: white;
     width: 100%;
-    margin-bottom: 2em;
+    margin-bottom: 16px;
     border-radius: 10px;
     box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
     -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
@@ -295,7 +303,7 @@ input[type=submit]:hover{
     color: #4D7E95;
  }
 
-/* ----- CATEGORIES ----- */
+/* Categories */
 
 .container_categories h1 {
     text-transform: uppercase;
@@ -501,29 +509,30 @@ textarea{
 
 #delete_button, #edit_button{
     background: #f44336;
-    border: #e53935;
-    width: 100%;
+    border: none;
+    width: 100px;
     min-width: 60px;
     padding: 0.9vw;
     float: right;
-    margin-top: -10px;
+    margin: -10px 10px 0px 5px;
 }
 
 #edit_button{
     background: #0E3147;
-    border: #0E3147;
+    border: none;
 }
 #edit_button:hover{
     background-color: #C5B2AB;
-    border: 1px solid #C5B2AB;
     margin-bottom: 0px;
+    border: none;
 }
 #delete_button:hover{
     background-color: #C5B2AB;
-    border: 1px solid #C5B2AB;
     margin-bottom: 0px;
+    border: none;
 }
 
+/* Comments on viewpost */
 .comments_displayed_on_viewpost_page{
     margin-top: 20px;
     background: white;
@@ -987,13 +996,8 @@ header li, footer li{
     aside{
         display: none;
     }
-
-    .single_post_in_feed{
-        margin-bottom: 1px;
-    }
     
     /* Profile */
-
     .profile_content{
         margin-top: 70px;
     }

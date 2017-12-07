@@ -93,17 +93,17 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
     //If-statement to check if a user is logged in and if that user is the author.
     //If both conditions are true, the user can delete and edit posts.
            
-    if(isset($_SESSION['loggedIn']) && (int)$_SESSION['user']['userid'] == $user_id ){ ?>
+    if( isset($_SESSION['loggedIn']) && $_SESSION['user']['userid'] == $user_id ) { ?>
 
                 <div class="row justify-content-end">
-                        <div class="col-3">
+                        <div class="col-xs-3 ">
                             <form action="../www/parts/deletepost.php" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
                                 <input id="delete_button" type="submit" name="delete" value="Ta bort" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">
                             </form>
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-xs-3 ">
                             <form action="./?page=editpost" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
                                 <input id="edit_button" type="submit" name="edit" value="Redigera">
@@ -114,10 +114,14 @@ $post = $statement->fetchAll(PDO::FETCH_ASSOC);
                
                 <? } else if ($role == 'admin'){  ?>
 
+                    <div class="row justify-content-end">
+                        <div class="col-xs-3 ">
                             <form action="../www/parts/deletepost.php" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_info['postid'];?>">
-                                <input type="submit" name="delete" value="Delete">
+                                <input id="delete_button" type="submit" name="delete" value="Ta bort" onclick="return confirm('Är du säker att du vill ta bort inlägget?')">
                             </form>
+                        </div>
+                    </div>
 
                 <?php
                     }

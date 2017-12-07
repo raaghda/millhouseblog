@@ -335,7 +335,7 @@ input[type=submit]:hover{
     border: 5px solid white;
 }
 
-.categories_wrapper h3{
+.categories_wrapper h2{
     color: white;
     position: absolute;
     top: 50%;
@@ -1104,7 +1104,9 @@ header li, footer li{
     {
         padding: 0px;
     }
+
     /* Sidebar */
+
     .sidebar{
         display: block;
         padding: 20px;

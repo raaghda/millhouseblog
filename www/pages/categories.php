@@ -1,6 +1,6 @@
 <div class="container_categories">
     <div class="categories_wrapper">
-        <h1 class="light_spacious" id="categories">Kategorier</h1>
+        <h1 class="light_spacious">Kategorier</h1>
         
         <div class="image_wrappers">
             

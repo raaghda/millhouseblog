@@ -45,7 +45,7 @@
                         <div class="row">
                             <div class="col-lg-12 ">    
                                 <article class="comments_displayed_on_viewpost_page">
-                                    <span class="grey">Kommentar lämnade av 
+                                    <span class="grey">Kommentar lämnad av 
                                         <span id="commentbox" class="uppercase lightblue"><?=$comment_name?></span>
                                         den  
                                         <time id="commentbox">

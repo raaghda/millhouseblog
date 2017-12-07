@@ -56,8 +56,8 @@
             echo 'December';
         }
 
-    } else if($pagename == "faq"){
-        echo 'FAQ';
+    } else if($pagename == "about"){
+        echo 'Om Millhouse';
     } else if($pagename == "profile"){
         echo 'Min profil';
     } else if($pagename == "404"){
@@ -68,4 +68,8 @@
         echo 'Skapa inlägg';
     } else if($pagename == "editpost"){
         echo 'Redigera inlägg';
+    } else if($pagename == "myposts"){
+        echo 'Mina inlägg';
+    } else {
+        echo '404';
     }

@@ -1,5 +1,4 @@
 <?php
-
     require 'database.php';
 
     $username = $_POST["username"];

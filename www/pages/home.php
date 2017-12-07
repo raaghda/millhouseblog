@@ -17,6 +17,11 @@
 
     <div class="row">
         <div class="five_latest_posts_container col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
+            <nav>
+                <ul class="pagination">
+                    <?php require 'parts/homepaginationlinks.php';?>
+                </ul>
+            </nav> 
             <?php require 'parts/homepostcontent.php';?>
             
             <!-- Pagination links-->

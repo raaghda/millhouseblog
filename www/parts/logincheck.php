@@ -9,7 +9,7 @@ if (!isset($_SESSION["loggedIn"]) || !$_SESSION["loggedIn"] == true)
     {
         //Calling function to notify with danger and message
         //Calling funtion to display notification
-        notify('danger', 'Du måste vara inloggad för att kunna se den här sidan.');
+        notify('danger', 'Du måste vara inloggad för att kunna se den här sidan. <a href="/millhouseblog/www/?page=home">');
         display_notification();
         exit();
     

@@ -1,4 +1,4 @@
-<?php
+5<?php
 
     require 'parts/logincheck.php';
     require 'parts/database.php';

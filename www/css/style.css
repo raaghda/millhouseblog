@@ -8,24 +8,6 @@
 
 /* --------------------------------- Mobile styling goes here ----------------------------- */
 
-
-
-/*General styling*/
-ul{
-    list-style: none;
-    padding: 0px;
-}
-
-header li, footer li{
-    text-align: center;
-    margin: 10px;
-}
-
-.alert{
-    margin: 0;
-    border-radius: 0;
-}
-
 /*  Body */
 body{
     background-color: #f2f2f2;
@@ -208,7 +190,7 @@ input[type=submit]:hover{
     margin-bottom: 20px;
 }
 
-/* ----- LANDING PAGE ----- */
+/* ----- FEED ----- */
 
 .feed_container{
     background-image: url(../images/feed_background_blue_gradient.jpg);
@@ -217,6 +199,23 @@ input[type=submit]:hover{
     background-size: cover;
     min-height: 100vh;
     padding-bottom: 50px;
+}
+
+.dateorder{
+    text-align: right;
+    margin-bottom: 7px;
+    margin-right: 10px;
+    font-size: 0.8em;
+}
+
+.dateorder a{
+    background-color: white;
+    color: black;
+    padding: 10px;
+}
+
+.dateorder_active{
+    text-decoration: underline;
 }
 
 
@@ -272,6 +271,15 @@ input[type=submit]:hover{
     height: 240px;
  }
 
+.no_post{
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
 /* Pagination */
 
  .page-item.active .page-link{
@@ -286,16 +294,6 @@ input[type=submit]:hover{
 .page-item a:hover{
     color: #4D7E95;
  }
-
-
-.no_post{
-    background: white;
-    border-radius: 10px;
-    text-align: center;
-    padding: 20px 0px;
-    font-size: 0.9em;
-    font-weight: 300;
-}
 
 /* ----- CATEGORIES ----- */
 
@@ -368,23 +366,6 @@ input[type=submit]:hover{
 
 #categoryid4{
     background-image: url('../images/other.jpg');
-}
-
-.dateorder{
-    text-align: right;
-    margin-bottom: 7px;
-    margin-right: 10px;
-    font-size: 0.8em;
-}
-
-.dateorder a{
-    background-color: white;
-    color: black;
-    padding: 10px;
-}
-
-.dateorder_active{
-    text-decoration: underline;
 }
 
 
@@ -514,9 +495,7 @@ textarea{
     position: relative;
     overflow: hidden;
     background-color:white;
-    //padding: 75% 0 0 0; /* 4:3 aspect ratio */ 
     padding: 56.25% 0 0 0; /* 16:9 aspect ratio */
-    //padding: 66.66% 0 0 0; /* 3:2 aspect ratio */
     
 }
 
@@ -648,20 +627,6 @@ textarea{
     vertical-align: bottom;
 }
 
-/* Write post-button */
-.btn{
-    background-color: #fff;
-    padding: 15px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-}
-
-.btn:hover{
-    background-color: #0E3147;
-    color: #fff;
-}
-
 .profile_content{
     margin-top: 40px; 
     margin-bottom: 40px;
@@ -752,6 +717,21 @@ textarea{
 #edit_post_via_profile:hover, #delete_post_via_profile:hover{
     text-decoration: underline;
 }
+
+/* Write post-button */
+.btn{
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.btn:hover{
+    background-color: #0E3147;
+    color: #fff;
+}
+
 
 /* 404-page*/
 
@@ -920,24 +900,54 @@ a:hover{
     margin-right: 3px;
 }
 
+/*General styling*/
+ul{
+    list-style: none;
+    padding: 0px;
+}
+
+header li, footer li{
+    text-align: center;
+    margin: 10px;
+}
+
+.alert{
+    margin: 0;
+    border-radius: 0;
+}
+
 /* ---------------------------------- Tablet styling goes here ------------------------------ */
 @media screen and (min-width: 768px){
-
-
 
     .login{ 
         width: 320px;
     }
     
-    .dateorder{
-    font-size: 1em;
-}
+    .no_post{
+        padding: 40px;
+        font-size: 1.1em;
+    }
     
+    /* Date in feed */
+    .dateorder{
+        font-size: 1em;
+    }
+    
+    /* Create/Editpost */
     .form{
-    padding: 50px 50px 35px 50px;
-    margin-bottom: 150px;
-}
-
+        padding: 50px 50px 35px 50px;
+        margin-bottom: 150px;
+    }
+    
+    .ck-editor__editable {
+        min-height: 300px;
+    }
+    
+    select{
+        width: 140%;       
+    }
+    
+    /* Thumbnail */
     .thumbnail_wrapper{ 
         margin: 0px;
         padding: 0px;
@@ -968,6 +978,7 @@ a:hover{
                 transform: translate(-50%,-50%);
      }
 
+    /* Sidebar */
     .sidebar{
         display: none;
         background: none;
@@ -980,6 +991,8 @@ a:hover{
     .single_post_in_feed{
         margin-bottom: 1px;
     }
+    
+    /* Profile */
 
     .profile_content{
         margin-top: 70px;
@@ -998,64 +1011,66 @@ a:hover{
     .container_comments_displayed_on_profile_page{
         margin-top: 60px;
     }
-
+    
+    /* Displaying the posttext when not in mobile */
     #post_paragraph{
         display: inline;
     }
 
+    /* About */
     .about_box h1{
         font-size: 1.8em;
     }
-
-    select{
-        width: 140%;       
-    }
     
-    .no_post{
-    padding: 40px;
-    font-size: 1.1em;
-    }
-    
-    .ck-editor__editable {
-    min-height: 300px;
-}
         
-/*Categories*/
-/*overlay over image + disappears(opacity:0) when hover*/
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: rgba(000,0,0,0.7);
-    opacity:0.7;
-}
+    /*Categories*/
+    /*overlay over image + disappears(opacity:0) when hover*/
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: rgba(000,0,0,0.7);
+        opacity:0.7;
+    }
 
-.categories_wrapper a:hover .overlay {
-    opacity:0;
-}
+    .categories_wrapper a:hover .overlay {
+        opacity:0;
+    }
     
- .image_wrappers{
+    .image_wrappers{
         padding: 50px 60px;
     }
-
-/*Fixing the issue with padding and not aligning on Pagination links in home*/
- .pagination_container {padding:0px;}
+    
+    /*Fixing the issue with padding and not aligning on Pagination links in home*/
+     .pagination_container {
+         padding:0px;
+    }
 
 } /* Closing Tablet */
 
 /* -------------------------------- Desktop styling goes here ----------------------------------- */
 @media screen and (min-width: 992px){
     
+    /* Feed */
+    .no_post{
+        padding: 50px;
+        font-size: 1.4em;
+        max-height: 170px;
+    }
+    
+    /* Creat/Editpost */
+    
     .createpost, .editpost{
         width: 60%;
     }
     
+    /* Viewpost */
     .viewpost{
         width: 80%;
     }
@@ -1066,11 +1081,8 @@ a:hover{
     .viewpost h1{
         font-size: 2em;
     }
-
-    aside{
-        display: inline;
-    }
     
+    /* Sidebar */
     .sidebar{
         display: inline;
         background: #fff;
@@ -1078,18 +1090,11 @@ a:hover{
         box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
         -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
         -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
-    }    
-
-    .aside_months{
+    }
+    
+     aside{
         display: inline;
     }
-
-    .no_post{
-        padding: 50px;
-        font-size: 1.4em;
-        max-height: 170px;
-    }
-
 
    
 } /* Closing Desktop */

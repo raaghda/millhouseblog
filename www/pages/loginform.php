@@ -44,7 +44,10 @@
                     <input type="submit" value="Logga in">
                 </form>       
                 <a href="/millhouseblog/www/?page=register">Bli medlem</a>
-                <a class="continue" href="/millhouseblog/www/?page=home">Fortsätt utan konto</a>
+                <span class="smallcaps">
+                <a class="continue" href="/millhouseblog/www/?page=home">Eller fortsätt utan konto
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i></i></a>
+                </span>
             </div>
         </div>
     </div>

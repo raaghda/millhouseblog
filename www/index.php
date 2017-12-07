@@ -2,6 +2,8 @@
     session_start();
     require 'parts/notifyfunctions.php';   
     
+
+    // Sets the Session to expire after 60min
     if (!isset($_SESSION['loginExpire'])) {
         $_SESSION['loginExpire'] = time();
     } else if (time() - $_SESSION['loginExpire'] > 3600) {
@@ -14,13 +16,14 @@
 
     include 'components/head.php';
 
-
+    // Takes you to loginpage, instead of home if logged out
     if(isset($_SESSION['loggedIn'])){
         $pagename = "home";
     } else {
         $pagename = "loginform";
     }
 
+    //Gets the choosen page, if files not exist, you get 404
     if(isset($_GET['page'])) {
         $pagename = $_GET ['page'];
     }

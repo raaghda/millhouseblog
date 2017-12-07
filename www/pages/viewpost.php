@@ -27,7 +27,7 @@ display_notification();
             </div><!--col-lg-9--><!--CONTAINS ALL CONTENT PARTS-->
 
             <!--SIDEBAR-->
-            <div class="col-lg-2 sidebar hidden-xs-down">
+            <div class="col-lg-2 hidden-xs-down sidebar_container">
                 <?php require 'components/sidebar.php';?>
             </div><!--/sidebar-->
                 

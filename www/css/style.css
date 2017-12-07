@@ -463,8 +463,15 @@ textarea{
 }
 
 /* View Post Page */
-.main_viewpost{
-    padding: 20px 0 0 0;
+.viewpost{
+    background-image: url(../images/feed_background_blue_gradient.jpg);
+    background-position: right 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 #postsection_viewpost{
@@ -499,8 +506,21 @@ textarea{
 .viewpost .text_container{
     background-color: white;
     padding: 20px 0 20px 0;
-    margin-top: 10px;
+    line-height: 190%;
     word-wrap: break-word;
+}
+
+#postsection_viewpost h2{
+    color: #2d2d2d;
+    font-size: 1.7em;
+}
+
+#postsection_viewpost h2:hover{
+    color: #4D7E95;
+}
+
+#postsection_viewpost header{
+    margin-bottom: 20px;
 }
 
 .viewpost .img-fluid{
@@ -518,7 +538,6 @@ textarea{
 .blogpost_image{
     display: block;
     width: 100%;
-    height: 10px;
     position: relative;
     overflow: hidden;
     background-color:white;
@@ -985,6 +1004,14 @@ a:hover{
         display: none;
     }
 
+    #postsection_viewpost{
+        padding: 40px;
+    }
+
+    #postsection_viewpost h2{
+        font-size: 1.9em;
+    }
+    
 
     .profile_content{
         margin-top: 70px;

@@ -226,7 +226,7 @@ input[type=submit]:hover{
 .single_post_in_feed{
     background: white;
     width: 100%;
-    margin-bottom: 2em;
+    margin-bottom: 16px;
     border-radius: 10px;
     box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
     -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
@@ -977,9 +977,6 @@ a:hover{
         display: none;
     }
 
-    .single_post_in_feed{
-        margin-bottom: 1px;
-    }
 
     .profile_content{
         margin-top: 70px;

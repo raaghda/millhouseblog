@@ -3,13 +3,13 @@
         <footer>
             <ul>
                 <li>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-facebook-square"></i></a>
-                    <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                    <a href="#" aria-label="Gå till vår instagram sida" target="_blank"><i class="fa fa-instagram" role="link" alt="instagram ikon"></i></a>
+                    <a href="#" aria-label="Gå till vår facebook sida" target="_blank"><i class="fa fa-facebook-square" role="link" alt="facebook ikon"></i></a>
+                    <a href="#" aria-label="Gå till vår linkedin sida" target="_blank"><i class="fa fa-linkedin-square" role="link" alt="linkedin ikon"></i></a>
                 </li>
                 <span class="uppercase">
                     <li>
-                        <a href="https://github.com/raaghda/millhouseblog">info@millhouse.se</a>
+                        <a href="mailto:info@millhouse.se">info@millhouse.se</a>
                     </li>
                     <li>
                         <a href="https://github.com/raaghda/millhouseblog">millhouse.se</a>
@@ -24,6 +24,5 @@
         <script src="https://use.fontawesome.com/67b80e2b65.js"></script>
         <script src="scripts/main.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tota11y@0.1.6/build/tota11y.min.js"></script>
-
     </body>
 </html>

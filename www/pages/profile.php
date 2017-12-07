@@ -1,9 +1,9 @@
 <?php
-require 'parts/database.php';
-require 'parts/functions.php';
-require 'parts/logincheck.php';
-require 'parts/fetchprofile.php';
-display_notification();
+    require 'parts/database.php';
+    require 'parts/functions.php';
+    require 'parts/logincheck.php';
+    require 'parts/fetchprofile.php';
+    display_notification();
 ?>
 
 <!-- Profile "header" with user stats etc -->

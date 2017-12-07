@@ -3,7 +3,7 @@
 /* #0E3147 dark blue */
 /* #6D6D6D dark grey */
 /* #D4D0D1 lighter grey */
-/* #4D7E95 lighter blue */
+/* #4b7d94 lighter blue */
 /* #C5B2AB beige */
 
 /* --------------------------------- Mobile styling goes here ----------------------------- */
@@ -25,7 +25,7 @@ main{
 }
 
 .messagebox_success{
-    color: #26C281;
+    color: #008a00;
     font-style: italic;
 }
 
@@ -53,33 +53,31 @@ main{
 
 /* Sidebar */
 
-.sidebar {
-    background: white;
-    margin-bottom: 70px;
+.sidebar_container {
     display: none;
 }
 
-aside{
-    margin: 0px;
+.sidebar{
+    display: none;
 }
 
-.aside_search{
+.sidebar_search{
     margin-top: 20px;
 }
 
-aside input[type="text"]{
+.sidebar input[type="text"]{
     height: 40px;
     margin-top: 10px;
 }
 
-aside input[type="submit"]{
+.sidebar input[type="submit"]{
     margin: 10px 0 30px 0;
     height: 40px;
     padding: 0;
     width: 100%;
 }
 
-aside input[type="submit"]:hover{
+.sidebar input[type="submit"]:hover{
     margin: 10px 0 30px 0;
 }
 
@@ -247,7 +245,7 @@ input[type=submit]:hover{
 }
 
 .single_post_in_feed h2>a:hover{
-    color: #4D7E95;
+    color: #4b7d94;
 }
 
 .post_content{
@@ -291,16 +289,16 @@ input[type=submit]:hover{
 /* Pagination */
 
  .page-item.active .page-link{
-     background-color: #4D7E95;
+     background-color: #4b7d94;
      border: 0px;
  }
 
 .page-item a{
-    color: #4D7E95;
+    color: #4b7d94;
  }
 
 .page-item a:hover{
-    color: #4D7E95;
+    color: #4b7d94;
  }
 
 /* Categories */
@@ -337,7 +335,7 @@ input[type=submit]:hover{
     border: 5px solid white;
 }
 
-.categories_wrapper h3{
+.categories_wrapper h2{
     color: white;
     position: absolute;
     top: 50%;
@@ -462,6 +460,7 @@ textarea{
     padding-bottom:20px;
     text-align: left;
     font-size: 1.5em;
+    color: #2D2D2D;
 }
 #viewpost_span{
     float: left;
@@ -493,7 +492,7 @@ textarea{
 }
 
 #postsection_viewpost h2:hover{
-    color: #4D7E95;
+    color: #4b7d94;
 }
 
 #postsection_viewpost header{
@@ -688,7 +687,7 @@ textarea{
 }
 
 .profile_content h2:hover{
-    color: #4D7E95;
+    color: #4b7d94;
 }
 
 .title_date{
@@ -718,7 +717,7 @@ textarea{
     margin-top: 10px;
     margin-bottom: 0px;
     font-style: italic;
-
+    word-wrap: break-word;
 }
 
 #edit_post_via_profile, #delete_post_via_profile{
@@ -733,7 +732,7 @@ textarea{
 }
 
 #edit_post_via_profile, #delete_post_via_profile, p{
-    color: #4D7E95;
+    color: #4b7d94;
     font-size: 1em;
     text-align: left;
 }
@@ -872,11 +871,11 @@ p{
 
 /*  Links */
 a{
-    color: #4D7E95;
+    color: #4b7d94;
 }
 
 a:hover{
-    color: #4D7E95;
+    color: #4b7d94;
 }
 
 
@@ -904,12 +903,12 @@ a:hover{
 }
 
 .grey {
-    color:#969696;
+    color:#767676;
 }
 
 /* Also our color used for links*/
 .lightblue{ 
-    color: #4D7E95;
+    color: #4b7d94;
 }
 
 .darkgrey {
@@ -1002,15 +1001,6 @@ header li, footer li{
                 transform: translate(-50%,-50%);
      }
 
-    /* Sidebar */
-    .sidebar{
-        display: none;
-        background: none;
-    }
-    
-    aside{
-        display: none;
-    }
 
     #postsection_viewpost{
         padding: 40px;
@@ -1109,19 +1099,27 @@ header li, footer li{
     
     .viewpost h1{
         font-size: 2em;
+        color: #2D2D2D;
     }
     
+    .sidebar_container
+    {
+        padding: 0px;
+    }
+
     /* Sidebar */
+
     .sidebar{
-        display: inline;
+        display: block;
+        padding: 20px;
         background: #fff;
         border-radius: 10px;
         box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
         -webkit-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
         -moz-box-shadow: -9px 15px 53px -34px rgba(0,0,0,0.62);
-    }
-    
-     aside{
+    } 
+
+    .sidebar_container{
         display: inline;
     }
 

@@ -100,7 +100,7 @@
                     '</div>';
                 } ?>
         </div><!--/col-->
-        <div class="col-lg-2 d-none d-md-block sidebar">
+        <div class="col-lg-2 d-none d-md-block sidebar_container">
             <?php
                 require 'components/sidebar.php';
             ?>

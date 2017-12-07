@@ -56,7 +56,9 @@
         $end_page = $page_number + 1;
         }
 
-
+// Only shows pagination if there are more than five posts made by the user
+if ($number_of_posts_in_db["count"] > 5):
+    
     /* LOOPING OUT THE ACTUAL LINKS:) */
     for ($i=$start_page; $i<=$end_page; $i++):
         //if index==page_number set class=active to show that thatss the page user is on
@@ -83,3 +85,5 @@
                 <?php
                 }
     endfor;
+    
+endif;

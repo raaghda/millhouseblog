@@ -19,12 +19,12 @@
     }    
 ?>   
 
-<aside>
-    <div class="aside_search">
+<div class="sidebar">
+    <div class="sidebar_search">
         <h3>Sök</h3>
         <form method="get">
             <input type="hidden" name="page" value="home">
-            <input type="text" name="query" value="<?php echo $query; ?>" placeholder="Sök i bloggen">
+            <input type="text" aria-label="Sök i bloggen" name="query" value="<?php echo $query; ?>" placeholder="Sök i bloggen">
             <input type="submit" value="Sök">
         </form>        
     </div>
@@ -38,7 +38,7 @@
         ?>
 
         <li>
-            <a href="/millhouseblog/www/?page=category&categoryid=<?= $i++; ?>"><?= $category["name"];?></a>
+            <a href="/millhouseblog/www/?page=sortbycategory&categoryid=<?= $i++; ?>"><?= $category["name"];?></a>
         </li>
         <? endforeach; ?>
     </ul>
@@ -131,4 +131,4 @@
 
          <?php } endfor; ?>
     </ul>
-</aside>
+</div>

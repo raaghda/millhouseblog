@@ -54,19 +54,19 @@
 
                 <?php if($dateorder == "ASC"){ ?>
 
-                    <a class="dateorder_active" href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=ASC">
+                    <a class="dateorder_active" href="/millhouseblog/www/?page=sortbycategory&categoryid=<?= $categoryid ?>&dateorder=ASC">
                         Äldst först
                     </a>
-                    <a href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=DESC">
+                    <a href="/millhouseblog/www/?page=sortbycategory&categoryid=<?= $categoryid ?>&dateorder=DESC">
                         Senaste först
                     </a>
 
                 <?php } else {?>
 
-                    <a class="dateorder_active" href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=DESC">
+                    <a class="dateorder_active" href="/millhouseblog/www/?page=sortbycategory&categoryid=<?= $categoryid ?>&dateorder=DESC">
                         Senaste först
                     </a>
-                    <a href="/millhouseblog/www/?page=category&categoryid=<?= $categoryid ?>&dateorder=ASC">
+                    <a href="/millhouseblog/www/?page=sortbycategory&categoryid=<?= $categoryid ?>&dateorder=ASC">
                         Äldst först
                     </a>
 
@@ -93,7 +93,7 @@
 
             ?>
         </div><!--/col-->
-        <div class="col-lg-2 d-none d-md-block sidebar">
+        <div class="col-lg-2 d-none d-md-block sidebar_container">
             <?php
                 require 'components/sidebar.php';
             ?>

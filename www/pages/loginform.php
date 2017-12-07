@@ -39,14 +39,19 @@
                 </div>
                
                 <form action="/millhouseblog/www/parts/login.php" method="post">
-                    <input type="username" name ="username" placeholder="Användarnamn"><br>
-                    <input type="password" name ="password" placeholder="Lösenord"><br>
-                    <input type="submit" value="Logga in">
+
+                    <input type="username" name ="username" aria-label="Användarnamn" placeholder="Användarnamn"><br>
+                    <input type="password" name ="password" aria-label="Lösenord" placeholder="Lösenord"><br>
+                    <input type="submit" aria-label="Logga in" value="Logga in">
+
                 </form>       
                 <a href="/millhouseblog/www/?page=register">Bli medlem</a>
                 <span class="smallcaps">
-                <a class="continue" href="/millhouseblog/www/?page=home">Eller fortsätt utan konto
-                <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+
+                    <a class="continue" href="/millhouseblog/www/?page=home">
+                        Eller fortsätt utan konto
+                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    </a>
                 </span>
             </div>
         </div>

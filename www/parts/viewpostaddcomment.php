@@ -22,7 +22,7 @@
                         <?  } else {} ?>
 
                             <input type="hidden" name="id" value="<?= $post_id ?>">
-                            <input required type="text" name="comment" placeholder="Din kommentar" id="comment_field_viewpost">
+                            <input required type="text" name="comment" aria-label="Din kommentar" placeholder="Din kommentar" id="comment_field_viewpost">
                             <div id="comment_length"></div>
                             <input type="submit" name="addcomment" value="Skicka">
                         </form>

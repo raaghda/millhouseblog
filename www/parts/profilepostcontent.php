@@ -21,6 +21,7 @@
             $post_date = $post[$keys[$i]]['date']; 
             $dt = new datetime($post_date); 
 
+
             //Fetches category name from a row in a table,
             // using an id to compare with the id's in the table
             $category_name = get_column_with_input('name', 'category', 'categoryid', $category_id);
@@ -43,7 +44,7 @@
                     </time>
                 </span>
                 <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
-                <?php '(' . $number_of_comments . ')'; 
+                <?php echo '(' . $number_of_comments . ')'; 
 
                 if ($number_of_comments == 1)
                     {

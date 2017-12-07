@@ -43,7 +43,8 @@
                     <input type="password" name ="password" placeholder="Lösenord"><br>
                     <input type="submit" value="Logga in">
                 </form>       
-                <a href="/millhouseblog/www/?page=register">Registrera ny användare</a>
+                <a href="/millhouseblog/www/?page=register">Bli medlem</a>
+                <a class="continue" href="/millhouseblog/www/?page=home">Fortsätt utan konto</a>
             </div>
         </div>
     </div>

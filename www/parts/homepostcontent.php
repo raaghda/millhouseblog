@@ -1,6 +1,5 @@
 <?php
 
-//search functions
 //Looping out 5 posts, starting from the latest posts.
 //Information about the author of the post=user.
 //How many comments there is on each post. 

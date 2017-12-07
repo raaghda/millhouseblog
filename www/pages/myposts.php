@@ -1,7 +1,7 @@
 <?php
 require 'parts/database.php';
 require 'parts/functions.php';
-require 'parts/fetch_posts.php';
+require 'parts/homefetchposts.php';
 require 'parts/fetchprofile.php';
 
  

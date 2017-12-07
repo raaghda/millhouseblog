@@ -1,8 +1,7 @@
 <?php
 require 'parts/database.php';
 require 'parts/functions.php';
-// require 'parts/homefetchposts.php';
-require 'parts/fetchprofile.php';
+require 'parts/mypostsfetchposts.php';
 
 //if statement checking if there is a session message (parts/deletepost.php)
 //if true, display message
@@ -27,6 +26,14 @@ if(isset($_GET['query'])) {
     <div class="row">
         <div class="five_latest_posts_container col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1">
         <?php require 'parts/mypostscontentpost.php'; ?>
+    
+    <!-- Pagination links-->
+    <nav>
+        <ul class="pagination">
+            <?php require 'parts/mypostspaginationlinks.php';?>
+        </ul>
+    </nav> 
+
     </div>
 
     <!-- Sidebar -->

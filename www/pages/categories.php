@@ -8,12 +8,12 @@
             
                 <a href="/millhouseblog/www/?page=category&categoryid=1" id="categoryid1" class="col-sm-12 col-md-6">
                     <div class="overlay"></div>
-                    <h3>SOLGLASÖGON</h3>
+                    <h2>SOLGLASÖGON</h2>
                 </a>
                 
                 <a href="/millhouseblog/www/?page=category&categoryid=2" id="categoryid2" class="col-sm-12 col-md-6">
                     <div class="overlay"></div>
-                    <h3>KLOCKOR</h3>
+                    <h2>KLOCKOR</h2>
                 </a>
                 
             </div>
@@ -22,12 +22,12 @@
 
                 <a href="/millhouseblog/www/?page=category&categoryid=3" id="categoryid3" class="col-sm-12 col-md-6">
                     <div class="overlay"></div>
-                    <h3>INREDNING</h3>
+                    <h2>INREDNING</h2>
                 </a>
                 
                 <a href="/millhouseblog/www/?page=category&categoryid=4" id="categoryid4" class="col-sm-12 col-md-6">
-                    <div class="overlay"></div
-                    ><h3>LIFESTYLE</h3>
+                    <div class="overlay"></div>
+                    <h2>LIFESTYLE</h2>
                 </a>
 
             </div>

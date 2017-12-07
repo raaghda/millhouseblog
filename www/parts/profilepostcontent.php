@@ -43,7 +43,7 @@ for($i=0; $i<5; $i++):
                 </time>
             </span>
             <a href="/millhouseblog/www/?page=viewpost&id=<?= $post_id ?>#comments">
-            <?php '(' . $number_of_comments . ')'; 
+            <?php echo '(' . $number_of_comments . ')'; 
 
             if ($number_of_comments == 1)
                 {

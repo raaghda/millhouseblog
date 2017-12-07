@@ -26,7 +26,7 @@ display_notification();
     <?php
     if ($posts_by_user['total'] == 0): ?>
         <div class="row">
-            <div class="col-lg-10 offset-lg-1">
+            <div class="no_content_on_profile_message col-lg-10 offset-lg-1">
                 <p>Du har inte gjort något inlägg ännu.</p>
             </div>
         </div>  
@@ -62,7 +62,7 @@ display_notification();
         <!-- Displays message if user has made 0 comments -->
         <?php if ($comments_by_user['total'] == 0): ?>
             <div class="row">
-                <div class="col-lg-10 offset-lg-1">
+                <div class="no_content_on_profile_message col-lg-10 offset-lg-1">
                     <p>Du har inte skrivit några kommentarer ännu.</p>
                 </div>
             </div>  

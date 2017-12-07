@@ -670,6 +670,14 @@ textarea{
     margin-bottom: 40px;
 }
 
+.no_content_on_profile_message{
+    margin-bottom: 80px;
+}
+
+.no_content_on_profile_message p{
+    text-align: center;
+}
+
 .posts_displayed_on_profile_page{
     background:white;
     padding:2em;
@@ -984,6 +992,10 @@ a:hover{
         font-size: 1.7em;
         text-align: left;
         line-height: 150%;
+    }
+
+    .no_content_on_profile_message p{
+        text-align: left;
     }
 
     .container_comments_displayed_on_profile_page{

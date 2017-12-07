@@ -23,10 +23,17 @@
     //10 = (2 - 1) * 10.
     $start_limit = ($page_number - 1) * $limit;  
 
+    //search function
+    $query = "";    
+    if(isset($_GET['query'])) {
+        $q=$_GET['query'];
+        $query = "WHERE title like '%$q%'";
+    }    
 
     //fetch posts within the span of $start_limit --to-- ($start_limit + $limit).
     //example: posts 5 - 15. $start_limit=5, $limit=10 
     $statement = $pdo->prepare("SELECT * FROM post 
+    $query
     ORDER by date DESC 
     LIMIT $start_limit, $limit");
     $statement->execute();

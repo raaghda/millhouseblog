@@ -522,27 +522,27 @@ textarea{
 
 #delete_button, #edit_button{
     background: #f44336;
-    border: #e53935;
-    width: 100%;
+    border: none;
+    width: 100px;
     min-width: 60px;
     padding: 0.9vw;
     float: right;
-    margin-top: -10px;
+    margin: -10px 10px 0px 5px;
 }
 
 #edit_button{
     background: #0E3147;
-    border: #0E3147;
+    border: none;
 }
 #edit_button:hover{
     background-color: #C5B2AB;
-    border: 1px solid #C5B2AB;
     margin-bottom: 0px;
+    border: none;
 }
 #delete_button:hover{
     background-color: #C5B2AB;
-    border: 1px solid #C5B2AB;
     margin-bottom: 0px;
+    border: none;
 }
 
 .comments_displayed_on_viewpost_page{

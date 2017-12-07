@@ -1,8 +1,14 @@
 <?php
     session_start();
+    $_SESSION['new_post_data'] = $_POST; // store data from the form temporarily
     require 'database.php';
-    include 'uploadimage.php';
+
+    // Target page variable created to hold part of the URL,
+    // enabling redirect on uploadimage.php to 
+    // return to createpost page.  
+    $target_page="createpost";
     require 'notifyfunctions.php';
+    require 'uploadimage.php';
 
 
     if (isset($_POST["title"],$_POST["text"],$_POST["categoryid"])){
@@ -11,6 +17,7 @@
     $text = $_POST["text"];
     $categoryid = $_POST["categoryid"];
     $image = $fileNameNew;   
+       
 
     //userid comes from the session, not the form
     $userid = $_SESSION["user"]["userid"];

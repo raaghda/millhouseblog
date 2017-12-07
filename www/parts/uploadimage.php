@@ -53,21 +53,34 @@
 
                     //function movest the file from old temp location  to new location ($fileDestination)
                     move_uploaded_file($fileTmpName,$fileDestination);
-
+                    
+                    // Once file has been moved to folder,
+                    // can begin to crop image to 16:9 ratio.
                     require 'cropimage.php';
 
 
                 }else{
-                   echo "Your file is too big."; 
+                   notify('warning', 'Din fil är för stor.');
+                   // Redirects to target page (either viewpost or createpost page)
+                   // See parts/updatepost.php and parts/savepost.php.    
+                   header("Location: /millhouseblog/www/?page=".$target_page);
+                   exit();    
+                    
                 }
             }else{
-                echo "There was an error uploading this file.";
+                notify('warning', 'Det uppstod ett fel vid uppladdning av den här filen.');
+                header("Location: /millhouseblog/www/?page=".$target_page);
+                exit(); 
             }
         
         }else{
-            echo "You cannot upload files of this type.";
+            notify('warning', 'Du kan inte ladda upp filer av denna typ.');
+            header("Location: /millhouseblog/www/?page=".$target_page);
+            exit();
         }   
-   } else {
+   } 
+
+else {
        //else $fileNameNew is empty
        $fileNameNew = null;
 }

@@ -7,8 +7,8 @@
 
     if(!isset($_SESSION['loggedIn'])){
 
-    $name = $_POST["name"];
-    $email = $_POST["email"];
+        $name = $_POST["name"];
+        $email = $_POST["email"];
         
     } else {
         
@@ -35,8 +35,8 @@
         notify ('success','Tack för din kommentar!');
         header ("Location: /millhouseblog/www/?page=viewpost&id=".$postid);
     
- } else {
+    } else {
         notify ('warning','Fyll i fälten korrekt!');
         header ("Location: /millhouseblog/www/?page=viewpost&id=".$postid);
         
-        }
+    }

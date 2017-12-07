@@ -4,7 +4,8 @@
 
     $categoryid = ($_GET["categoryid"]);
     $number_of_comments = count_comments($categoryid);
-
+    
+    // Default dateorder is set to desceding
     $dateorder = "DESC";
 
     if(isset($_GET["dateorder"])){

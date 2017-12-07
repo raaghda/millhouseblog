@@ -14,7 +14,7 @@
         echo 'Hem'; 
     } else if($pagename == "categories"){
         echo 'Kategorier';
-    } else if($pagename == "category"){
+    } else if($pagename == "sortbycategory"){
 
         /* Naming the title after choosen category */
         if($_GET["categoryid"] == 1){

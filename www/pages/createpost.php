@@ -1,5 +1,4 @@
 <?php
-
     require 'parts/logincheck.php';
     require 'parts/database.php';
 

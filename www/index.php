@@ -1,6 +1,7 @@
 <?php
-session_start();
-require 'parts/notifyfunctions.php';   
+    session_start();
+    require 'parts/notifyfunctions.php';   
+    
     if (!isset($_SESSION['loginExpire'])) {
         $_SESSION['loginExpire'] = time();
     } else if (time() - $_SESSION['loginExpire'] > 3600) {
@@ -11,17 +12,13 @@ require 'parts/notifyfunctions.php';
         header("Location: /millhouseblog/www/?page=loginform&expired=".$expired);
     }
 
-include 'components/head.php';
+    include 'components/head.php';
 
 
     if(isset($_SESSION['loggedIn'])){
-        
         $pagename = "home";
-        
     } else {
-        
         $pagename = "loginform";
-        
     }
 
     if(isset($_GET['page'])) {

@@ -326,10 +326,6 @@ input[type=submit]:hover{
     padding-bottom: 80px;
 }
 
-.light_spacious#categories{
-   padding: 60px 0px 50px 0px;
-}
-
 .categories_wrapper a{
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box;    

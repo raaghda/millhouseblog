@@ -62,12 +62,18 @@ main{
 }
 
 .sidebar_search{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .sidebar input[type="text"]{
-    height: 40px;
-    margin-top: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #dfdfdf;
+    font-size: 0.9em;
+    font-style: italic;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    display: inline-block;
 }
 
 .sidebar input[type="submit"]{

@@ -24,7 +24,7 @@
         <h3>Sök</h3>
         <form method="get">
             <input type="hidden" name="page" value="home">
-            <input type="text" name="query" value="<?php echo $query; ?>" placeholder="Sök i bloggen">
+            <input type="text" aria-label="Sök i bloggen" name="query" value="<?php echo $query; ?>" placeholder="Sök i bloggen">
             <input type="submit" value="Sök">
         </form>        
     </div>

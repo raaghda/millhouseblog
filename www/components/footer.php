@@ -23,7 +23,6 @@
         <!-- fontawesome-->
         <script src="https://use.fontawesome.com/67b80e2b65.js"></script>
         <script src="scripts/main.js"></script>
-
         <script src="https://cdn.jsdelivr.net/npm/tota11y@0.1.6/build/tota11y.min.js"></script>
     </body>
 </html>

@@ -209,21 +209,24 @@ input[type=submit]:hover{
 
 .dateorder{
     text-align: right;
-    margin-bottom: 7px;
-    margin-right: 10px;
-    font-size: 0.8em;
+    font-size: 1em;
+    margin-right: 30px;
+    margin-bottom: 10px;
 }
 
 .dateorder a{
-    background-color: white;
-    color: black;
+    color: #4b7d94;
     padding: 10px;
+    padding-bottom: 20px;
+    margin-left: 8px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: white;
 }
 
 .dateorder_active{
     text-decoration: underline;
 }
-
 
 /* Post */
 
@@ -954,6 +957,12 @@ header li, footer li{
     /* Date in feed */
     .dateorder{
         font-size: 1em;
+        margin-right: 0px;
+    }
+
+    .dateorder a{
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
     }
     
     /* Create/Editpost */
@@ -1010,7 +1019,6 @@ header li, footer li{
         font-size: 1.9em;
     }
     
-
     
     /* Profile */
     .profile_content{

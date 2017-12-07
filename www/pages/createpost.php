@@ -32,7 +32,7 @@
             <div class="container form">
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <input type="text" required id="title"  name="title" placeholder=" Titel"> 
+                        <input type="text" required id="title" aria-label="Titel" name="title" placeholder=" Titel"> 
                     </div>
                 </div>
                 <div class="form-group row">
@@ -56,7 +56,7 @@
                         </select>                    
                     </div>
                     <div class="offset-sm-3 col-sm-5">
-                        <input type="file" id="file" class="inputfile" name="file" accept=".jpg, .jpeg, .png, .gif">
+                        <input type="file" id="file" class="inputfile" aria-label="Välja en fil" name="file" accept=".jpg, .jpeg, .png, .gif">
                     </div>
                 </div>
                 <div class="form-group row">

@@ -8,7 +8,7 @@
     </div>
     
     <form id="profilephotopicker" action="/millhouseblog/www/parts/uploadprofilephoto.php" method="POST" enctype="multipart/form-data">
-             <input type="file" id="file" name="profilePhoto" accept=".jpg, .jpeg, .png, .gif"><br><br>
+             <input type="file" id="file" name="profilePhoto" aria-label="Profilbild" accept=".jpg, .jpeg, .png, .gif"><br><br>
             <input type="submit" id="submitphoto" value="Change!" name="submitPhoto">
     </form>  
           

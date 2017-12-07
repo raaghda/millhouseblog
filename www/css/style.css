@@ -716,7 +716,7 @@ textarea{
     margin-top: 10px;
     margin-bottom: 0px;
     font-style: italic;
-
+    word-wrap: break-word;
 }
 
 #edit_post_via_profile, #delete_post_via_profile{

@@ -54,6 +54,8 @@
                 //function movest the file from old temp location  to new location ($fileDestination)
                 move_uploaded_file($fileTmpName,$fileDestination);
                 
+                require 'cropimage.php';
+  
                 
             }else{
                echo "Your file is too big."; 
@@ -69,5 +71,10 @@
        //else $fileNameNew is empty
        $fileNameNew = null;
    }
+
+
+
+
+
 
 

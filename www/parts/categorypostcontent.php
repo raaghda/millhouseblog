@@ -1,4 +1,3 @@
-
 <?php
 
     $userid = $postinfo["userid"];

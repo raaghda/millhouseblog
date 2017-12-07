@@ -21,7 +21,6 @@
 
 <div class="sidebar">
     <div class="sidebar_search">
-        <h3>Sök</h3>
         <form method="get">
             <input type="hidden" name="page" value="home">
             <input type="text" aria-label="Sök i bloggen" name="query" value="<?php echo $query; ?>" placeholder="Sök i bloggen">

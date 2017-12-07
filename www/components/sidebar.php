@@ -19,8 +19,8 @@
     }    
 ?>   
 
-<aside>
-    <div class="aside_search">
+<div class="sidebar">
+    <div class="sidebar_search">
         <h3>Sök</h3>
         <form method="get">
             <input type="hidden" name="page" value="home">
@@ -131,4 +131,4 @@
 
          <?php } endfor; ?>
     </ul>
-</aside>
+</div>

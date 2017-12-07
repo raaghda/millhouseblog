@@ -1,26 +1,17 @@
 <?php
-//SQL-query fetching posts made by user, and details about that post
-//Saves everything into an array ($post) with the help of array using array_keys-function
-$statement = $pdo->prepare("SELECT * 
-    FROM post 
-    WHERE userid = $userid 
-    ORDER by date DESC");
-$statement->execute();
-$post = $statement->fetchAll(PDO::FETCH_ASSOC);
-$keys = array_keys($post);
 
 //Loop displaying (max) five latest posts made by user
 for($i=0; $i<5; $i++):
 
     //Checks if the index $i is less than the total number of posts
-    if ($i < count($post)):
+    if ($i < count($posts)):
         //Fetches information from array in "parts/fetchprofile.php" 
         //Puts this into new variables for each post in loop
-        $post_id = $post[$keys[$i]]['postid'];
-        $title = $post[$keys[$i]]['title'];
-        $image = $post[$keys[$i]]['image'];
-        $category_id = $post[$keys[$i]]['categoryid'];
-        $post_date = $post[$keys[$i]]['date']; 
+        $post_id = $posts[$keys[$i]]['postid'];
+        $title = $posts[$keys[$i]]['title'];
+        $image = $posts[$keys[$i]]['image'];
+        $category_id = $posts[$keys[$i]]['categoryid'];
+        $post_date = $posts[$keys[$i]]['date']; 
         $dt = new datetime($post_date); 
 
         //Fetches category name from a row in a table,
@@ -32,7 +23,7 @@ for($i=0; $i<5; $i++):
 
         //Puts post text into new variable, and uses a function for 
         //limiting the number of characters to be displayed to 300
-        $post_text = make_string_shorter($post[$keys[$i]]['text'], 150); ?>
+        $post_text = make_string_shorter($posts[$keys[$i]]['text'], 150); ?>
 
         <article class="single_post_in_feed">
             <div class="row">
@@ -95,7 +86,7 @@ for($i=0; $i<5; $i++):
 
 <?php
 /* Message if there is no posts in selected month */
-if (empty($post)):
+if (empty($posts)):
     echo 
         '<div class="no_post">' . 
         'Tyvärr finns det inga inlägg på den här sidan än...' . '<br>' .

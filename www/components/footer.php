@@ -9,7 +9,7 @@
                 </li>
                 <span class="uppercase">
                     <li>
-                        <a href="https://github.com/raaghda/millhouseblog">info@millhouse.se</a>
+                        <a href="mailto:info@millhouse.se">info@millhouse.se</a>
                     </li>
                     <li>
                         <a href="https://github.com/raaghda/millhouseblog">millhouse.se</a>

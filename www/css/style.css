@@ -315,7 +315,7 @@ input[type=submit]:hover{
 
 .categories_wrapper{
     border-radius: 10px;
-    max-width: 1000px;
+    max-width: 900px;
     width: 97%;
     margin: auto;
     padding-bottom: 80px;
@@ -333,7 +333,7 @@ input[type=submit]:hover{
     background-size: cover;
     background-position: center;
     height: 250px;
-    border: 18px solid white;
+    border: 5px solid white;
 }
 
 .categories_wrapper h3{
@@ -349,7 +349,9 @@ input[type=submit]:hover{
 
 
 .image_wrappers{
-    padding:2px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
     margin: auto;
 }
 
@@ -1028,6 +1030,10 @@ a:hover{
 .categories_wrapper a:hover .overlay {
     opacity:0;
 }
+    
+ .image_wrappers{
+        padding: 50px 60px;
+    }
 
 /*Fixing the issue with padding and not aligning on Pagination links in home*/
  .pagination_container {padding:0px;}
@@ -1067,11 +1073,6 @@ a:hover{
 
     .aside_months{
         display: inline;
-    }
-  
-
-    .image_wrappers{
-        width: 80%;
     }
 
     .no_post{

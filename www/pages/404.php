@@ -5,7 +5,7 @@
             <img src="/millhouseblog/www/images/sorry.png" alt="Sad Smiley">
             <div class="page_404_message">
                 <p>Det här är tyvärr inte sidan du är ute efter!</p>
-                <p><a href="/millhouseblog/www/?page=home">Klicka här för att återvänta till Startsidan</a></p>
+                <p><a href="/millhouseblog/www/?page=home">Klicka här för att återvända till Startsidan</a></p>
             </div>
         </div>
     </div>

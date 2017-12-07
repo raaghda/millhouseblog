@@ -1,18 +1,18 @@
 <?php
-require 'parts/database.php';
-require 'parts/functions.php';
-require 'parts/homefetchposts.php';
+    require 'parts/database.php';
+    require 'parts/functions.php';
+    require 'parts/homefetchposts.php';
  
-//if statement checking if there is a session message (parts/deletepost.php)
-//if true, display message
-display_notification();    
+    //if statement checking if there is a session message (parts/deletepost.php)
+    //if true, display message
+    display_notification();    
 
-//search function
-$query = "";    
-if(isset($_GET['query'])) {
-    $q=$_GET['query'];
-    $query = "WHERE title like '%$q%'";
-}    
+    //search function
+    $query = "";    
+    if(isset($_GET['query'])) {
+        $q=$_GET['query'];
+        $query = "WHERE title like '%$q%'";
+    }    
 
 ?>
 

@@ -82,8 +82,8 @@
                             <form action="../www/parts/deletepost.php" method="POST">
                                 <input type="hidden" name="post_id" value="<?= $post_id ?>">
                                 <input type="submit" ID="delete_post_via_profile" name="delete" 
-                                value="Ta bort" onclick="return confirm('Är du säker att du 
-                                vill ta bort inlägget?')">   
+                                value="Ta bort" onclick="return confirm('Är du säker att du \
+                                vill ta bort inlägget?')">
                             </form>
                         </div> 
                     </div> <!-- Closing post-content col 8-md -->

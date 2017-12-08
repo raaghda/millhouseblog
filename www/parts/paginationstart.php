@@ -1,5 +1,4 @@
 <?php
-
     /*GET PAGE NUMBER TO KNOW WHICH POSTS TO LOOP OUT*/
     //if a user has selected a specific page number
     if(isset($_GET['pagination_page']))
@@ -29,17 +28,3 @@
         $q=$_GET['query'];
         $query = "WHERE title like '%$q%'";
     }    
-
-    //fetch posts within the span of $start_limit --to-- ($start_limit + $limit).
-    //example: posts 5 - 15. $start_limit=5, $limit=10 
-    $statement = $pdo->prepare("SELECT * FROM post 
-    $query
-    ORDER by date DESC 
-    LIMIT $start_limit, $limit");
-    $statement->execute();
-    //store assocciative array in $posts
-    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-    //unlock the ass array??:) and ready to loop
-    $keys = array_keys($posts);

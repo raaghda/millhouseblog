@@ -42,7 +42,7 @@
                     av
                 </span>
                 <span class="uppercase grey"><?= $username?></span>
-                <p> <?= $post_text; ?> </p>
+                <p id="post_paragraph"> <?= $post_text; ?> </p>
                 <nav class=””>
                     <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>">Läs hela inlägget</a> | <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>#comments">
                 

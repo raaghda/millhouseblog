@@ -475,6 +475,15 @@ textarea{
     color: #4b7d94;
 }
 
+.viewpost h2{
+    font-weight: 200;
+    color: #2d2d2d;
+    font-size: 1.5em;
+    letter-spacing: 0.3em;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
 #viewpost_span{
     float: left;
     width: 100%;
@@ -497,15 +506,6 @@ textarea{
     padding: 20px 0 20px 0;
     line-height: 190%;
     word-wrap: break-word;
-}
-
-#postsection_viewpost h2{
-    color: #2d2d2d;
-    font-size: 1.7em;
-}
-
-#postsection_viewpost h2:hover{
-    color: #4b7d94;
 }
 
 #postsection_viewpost header{
@@ -561,7 +561,7 @@ textarea{
 
 /* Comments on viewpost */
 .comments_displayed_on_viewpost_page{
-    margin-top: 20px;
+    margin-bottom: 20px;
     background: white;
     padding: 30px;
     border-radius: 10px;
@@ -1020,15 +1020,6 @@ header li, footer li{
                 transform: translate(-50%,-50%);
      }
 
-
-    #postsection_viewpost{
-        padding: 40px;
-    }
-
-    #postsection_viewpost h2{
-        font-size: 1.9em;
-    }
-    
     
     /* Profile */
     .profile_content{

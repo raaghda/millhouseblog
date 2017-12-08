@@ -22,7 +22,7 @@
     //userid comes from the session, not the form
     $userid = $_SESSION["user"]["userid"];
 
-        if ($title == '' || $text == '' || $categoryid == null || $image == null){
+        if ($title == '' || $text == '' || $text == '<p>&nbsp;</p>' || $categoryid == null || $image == null){
 
                 //calling notify function, telling the user that not all fields are filled out
                 //need to notify user (see parts/notifyfunctions.php)
@@ -47,6 +47,7 @@
 
 
             header("Location: /millhouseblog/www/?page=viewpost&id=".$last_id);
+            unset($_SESSION['new_post_data']);
 
             //print_r($statement->errorInfo());
 

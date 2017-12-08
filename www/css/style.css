@@ -215,8 +215,8 @@ input[type=submit]:hover{
 
 .dateorder{
     text-align: right;
-    font-size: 1em;
-    margin-right: 30px;
+    font-size: 0.7em;
+    margin-right: 0px;
     margin-bottom: 10px;
 }
 
@@ -1083,6 +1083,13 @@ header li, footer li{
     /*Fixing the issue with padding and not aligning on Pagination links in home*/
      .pagination_container {
          padding:0px;
+    }
+    
+    .dateorder{
+        text-align: right;
+        font-size: 1em;
+        margin-right: 0px;
+        margin-bottom: 10px;
     }
 
 } /* Closing Tablet */

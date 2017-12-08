@@ -1137,6 +1137,7 @@ header li, footer li{
 
     .sidebar{
         display: block;
+        word-wrap: break-word;
         padding: 20px;
         background: #fff;
         border-radius: 10px;

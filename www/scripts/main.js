@@ -11,11 +11,19 @@ jQuery('#file').change(function (evt) {
     jQuery('#submitphoto').trigger('click');
 });
 
+
+/* Comments */
+
+// When the user is typing in the comment field, 
 jQuery("#comment_field_viewpost").on('keyup',function(){
+    //When the typed text exceeds 0
     if(jQuery(this).val().length > 0) {
+        //The text is cropped to max. 150 chars
         jQuery(this).val(jQuery(this).val().substring(0,150));
+        //The typed text length is displayed out of 150 chars.
         jQuery("#comment_length").html(jQuery(this).val().length + "/150 tecken.");
     } else {
+        //If text is 0, display nothing
          jQuery("#comment_length").html("");
     }
 });

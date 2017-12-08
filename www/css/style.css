@@ -345,6 +345,7 @@ input[type=submit]:hover{
 }
 
 .categories_wrapper h2{
+    font-size: 1.4em;
     color: white;
     position: absolute;
     top: 50%;
@@ -1075,6 +1076,10 @@ header li, footer li{
     .categories_wrapper a:hover .overlay {
         opacity:0;
     }
+    
+    .categories_wrapper h2{
+        font-size: 1.9em;
+        }
     
     .image_wrappers{
         padding: 50px 60px;

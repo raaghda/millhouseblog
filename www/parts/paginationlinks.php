@@ -1,23 +1,4 @@
 <?php     
-    require 'database.php';
-
-    //get how many posts there is in db. --to be able to set $total_pages, depending on the limit...
-    //example, you show 10(=$limit) posts per page. there is 120 posts, 120/10 = 12 pages.
-
-    $statement = $pdo->prepare("SELECT COUNT(postid) as count 
-    FROM post 
-    WHERE userid = $userid");
-    $statement->execute();
-    $number_of_posts_in_db = $statement->fetch(PDO::FETCH_ASSOC);
-    /*
-    //get how many posts there is in db. --to be able to set $total_pages, depending on the limit...
-    //example, you show 10(=$limit) posts per page. there is 120 posts, 120/10 = 12 pages.
-    $statement = $pdo->prepare("SELECT COUNT(postid) as count
-                                FROM post");
-    $statement->execute();
-    $number_of_posts_in_db = $statement->fetch(PDO::FETCH_ASSOC);*/
-
-
     //diving the total number of posts in db with the limit of posts per page to get total number of pages.
     //using ceil so if its fex 6.5 its going to be 7 pages
     $total_pages = ceil($number_of_posts_in_db["count"] / $limit);
@@ -65,7 +46,7 @@ if ($number_of_posts_in_db["count"] > 5):
         if($i == $page_number)
             {?>
             <li class="page-item active">
-                <a class="page-link" href="/millhouseblog/www/?page=myposts&pagination_page=<?=$i?>">
+                <a class="page-link" href="/millhouseblog/www/?page=myposts&page_number=<?=$i?>">
                     <?=$i?>
                     <span class="sr-only">
                         (current)
@@ -78,7 +59,7 @@ if ($number_of_posts_in_db["count"] > 5):
             else 
                 {?>
                 <li class="page-item">
-                    <a class="page-link" href="/millhouseblog/www/?page=myposts&pagination_page=<?=$i?>">
+                    <a class="page-link" href="/millhouseblog/www/?page=myposts&page_number=<?=$i?>">
                         <?=$i?>
                     </a>
                 </li>

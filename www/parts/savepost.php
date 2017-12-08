@@ -47,6 +47,7 @@
 
 
             header("Location: /millhouseblog/www/?page=viewpost&id=".$last_id);
+            unset($_SESSION['new_post_data']);
 
             //print_r($statement->errorInfo());
 

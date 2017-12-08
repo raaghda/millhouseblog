@@ -466,12 +466,15 @@ textarea{
     border-radius: 10px;
 }
 .viewpost h1{
-    padding-top: 40px;
-    padding-bottom:20px;
     text-align: left;
     font-size: 1.5em;
     color: #2D2D2D;
 }
+
+.viewpost h1:hover{
+    color: #4b7d94;
+}
+
 #viewpost_span{
     float: left;
     width: 100%;

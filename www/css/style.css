@@ -19,16 +19,6 @@ main{
     margin: auto;
 }
 
-.messagebox_fail{
-    color: #F64747;
-    font-style: italic;
-}
-
-.messagebox_success{
-    color: #008a00;
-    font-style: italic;
-}
-
 
 /*  Navbar */
 .navbar{
@@ -174,6 +164,17 @@ main{
     margin-bottom: 20px;
 }
 
+.messagebox_fail{
+    color: #F64747;
+    font-style: italic;
+}
+
+.messagebox_success{
+    color: #008a00;
+    font-style: italic;
+}
+
+/* This applies as general styling for other buttons on blog as well */
 input[type=username], input[type=password], 
 input[type=email], input[type=name], input[type=submit]{
     background-color: #f2f2f2;
@@ -465,6 +466,7 @@ textarea{
     padding: 20px;
     border-radius: 10px;
 }
+
 .viewpost h1{
     text-align: left;
     font-size: 1.5em;
@@ -473,6 +475,15 @@ textarea{
 
 .viewpost h1:hover{
     color: #4b7d94;
+}
+
+.viewpost h2{
+    font-weight: 200;
+    color: #2d2d2d;
+    font-size: 1.5em;
+    letter-spacing: 0.3em;
+    margin-top: 40px;
+    margin-bottom: 15px;
 }
 
 #viewpost_span{
@@ -497,15 +508,6 @@ textarea{
     padding: 20px 0 20px 0;
     line-height: 190%;
     word-wrap: break-word;
-}
-
-#postsection_viewpost h2{
-    color: #2d2d2d;
-    font-size: 1.7em;
-}
-
-#postsection_viewpost h2:hover{
-    color: #4b7d94;
 }
 
 #postsection_viewpost header{
@@ -561,7 +563,7 @@ textarea{
 
 /* Comments on viewpost */
 .comments_displayed_on_viewpost_page{
-    margin-top: 20px;
+    margin-bottom: 20px;
     background: white;
     padding: 30px;
     border-radius: 10px;
@@ -897,8 +899,8 @@ a:hover{
     text-align: center;
     color: #6D6D6D;
     font-size: 2em;
-    padding-top: 60px;  /* Remove? */
-    padding-bottom: 60px; /* Remove? */
+    padding-top: 60px;  
+    padding-bottom: 60px; 
     font-weight: 200;
     letter-spacing: 0.3em;
 }
@@ -1020,15 +1022,6 @@ header li, footer li{
                 transform: translate(-50%,-50%);
      }
 
-
-    #postsection_viewpost{
-        padding: 40px;
-    }
-
-    #postsection_viewpost h2{
-        font-size: 1.9em;
-    }
-    
     
     /* Profile */
     .profile_content{

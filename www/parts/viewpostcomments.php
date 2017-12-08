@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-lg-12">
         <span class="uppercase">
-            <h1 class="light_spacious" id="comments_h1">Kommentarer</h1>
+            <h2>Kommentarer</h2>
             <a name="comments"></a><!--anchor to comments section.#comments will bring user to this line-->
         </span>
                                     

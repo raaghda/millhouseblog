@@ -2,7 +2,7 @@
        <div class="row">
             <div class="col-lg-12">
                 <span class="uppercase">
-                    <h1 class="light_spacious" id="addcomments_h1">Lägg till en kommentar</h1>
+                    <h2>Lägg till en kommentar</h2>
                 </span>
              
                 <?php       

@@ -39,8 +39,8 @@
                 </div>
                
                 <form action="/millhouseblog/www/parts/login.php" method="post">
-                    <input type="username" name ="username" placeholder="Användarnamn"><br>
-                    <input type="password" name ="password" placeholder="Lösenord"><br>
+                    <input type="username" name ="username" aria-label="Användernamn"placeholder="Användarnamn"><br>
+                    <input type="password" name ="password" aria-label="Lösenord"placeholder="Lösenord"><br>
                     <input type="submit" value="Logga in">
                 </form>       
                 <a href="/millhouseblog/www/?page=register">Bli medlem</a>

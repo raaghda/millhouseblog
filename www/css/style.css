@@ -632,7 +632,7 @@ textarea{
 }
 
 #profile_avatar:hover{
-    border: 2px solid #000;
+    border: 2px dashed #fff;
     cursor: pointer;
 }
 

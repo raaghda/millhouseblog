@@ -50,7 +50,7 @@
 
     //fetch posts within the span of $start_limit --to-- ($start_limit + $limit).
     //example: posts 5 - 15. $start_limit=5, $limit=10 
-    //...query fo search function
+    //...$query is for search function
     function fetch_all_posts_from_start_to_limit($start_limit, $limit, $query){
         require 'database.php';
         //fetch posts within the span of $start_limit --to-- ($start_limit + $limit).

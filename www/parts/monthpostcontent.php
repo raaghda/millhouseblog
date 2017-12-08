@@ -44,7 +44,9 @@
                 <span class="uppercase grey"><?= $username?></span>
                 <p id="post_paragraph"> <?= $post_text; ?> </p>
                 <nav class=””>
-                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>">Läs hela inlägget</a> | <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>#comments">
+                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>">Läs hela inlägget</a> 
+                    <span class="lightblue"> | </span> 
+                    <a href="/millhouseblog/www/?page=viewpost&id=<?= $monthpost["postid"]; ?>#comments">
                 
                     <!--#comments anchor-->
                     <?= '(' . $number_of_comments . ')'; 

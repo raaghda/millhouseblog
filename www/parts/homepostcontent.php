@@ -1,5 +1,10 @@
 <?php
 
+    $posts = fetch_all_posts_from_start_to_limit($start_limit, $limit);
+
+    //unlock the ass array??:) and ready to loop
+    $keys = array_keys($posts); 
+
     //Looping out 5 posts, starting from the latest posts.
     //Information about the author of the post=user.
     //How many comments there is on each post. 

@@ -1,4 +1,12 @@
 <?php
+    
+    // Defines the id of logged in user
+    $userid = $_SESSION["user"]["userid"];
+    
+    $posts = fetch_user_posts_from_start_to_limit($start_limit, $limit, $userid);
+
+    //unlock the ass array??:) and ready to loop
+    $keys = array_keys($posts);
 
     //Loop displaying (max) five latest posts made by user
     for($i=0; $i<5; $i++):

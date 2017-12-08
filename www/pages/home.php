@@ -1,7 +1,7 @@
 <?php
     require 'parts/database.php';
     require 'parts/functions.php';
-    require 'parts/homefetchposts.php';
+    require 'parts/paginationstart.php';
  
     //if statement checking if there is a session message (parts/deletepost.php)
     //if true, display message

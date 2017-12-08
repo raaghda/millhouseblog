@@ -7,9 +7,6 @@
     //if true, display message
     display_notification();    
 
-    //set page_name for pagination links
-    $page_name = "home";
-
     //search function
     $query = "";    
     if(isset($_GET['query'])) {

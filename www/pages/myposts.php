@@ -3,9 +3,6 @@
     require 'parts/functions.php';
     require 'parts/paginationstart.php';
     
-    //set page_name for pagination links
-    $page_name = "myposts";
-
     //if statement checking if there is a session message (parts/deletepost.php)
     //if true, display message
     display_notification();

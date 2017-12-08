@@ -46,7 +46,7 @@ if ($number_of_posts_in_db["count"] > 5):
         if($i == $page_number)
             {?>
             <li class="page-item active">
-                <a class="page-link" href="/millhouseblog/www/?page=<?=$page_name?>&page_number=<?=$i?>">
+                <a class="page-link" href="/millhouseblog/www/?page=<?=$pagename?>&page_number=<?=$i?>">
                     <?=$i?>
                     <span class="sr-only">
                         (current)
@@ -59,7 +59,7 @@ if ($number_of_posts_in_db["count"] > 5):
             else 
                 {?>
                 <li class="page-item">
-                    <a class="page-link" href="/millhouseblog/www/?page<?=$page_name?>&page_number=<?=$i?>">
+                    <a class="page-link" href="/millhouseblog/www/?page=<?=$pagename?>&page_number=<?=$i?>">
                         <?=$i?>
                     </a>
                 </li>

@@ -7,6 +7,8 @@
     //if true, display message
     display_notification();    
 
+    //set page_name for pagination links
+    $page_name = "home";
 
     //search function
     $query = "";    
@@ -31,7 +33,7 @@
             <!-- Pagination links below posts -->
             <nav>
                 <ul class="pagination">
-                    <?php require 'parts/homepaginationlinks.php';?>
+                    <?php require 'parts/paginationlinks.php';?>
                 </ul>
             </nav> 
             

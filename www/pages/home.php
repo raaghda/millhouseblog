@@ -7,6 +7,13 @@
     //if true, display message
     display_notification();    
 
+
+    //search function
+    $query = "";    
+    if(isset($_GET['query'])) {
+        $q=$_GET['query'];
+        $query = "WHERE title like '%$q%'";
+    }    
 ?>
 
 <!-- FEED CONTAINER - WRAPS ENTIRE HOME, POSTS AND SIDEBAR -->

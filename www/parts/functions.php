@@ -48,8 +48,10 @@
         }
         return $string;}
 
-
-    function fetch_all_posts_from_start_to_limit ($start_limit, $limit){
+    //fetch posts within the span of $start_limit --to-- ($start_limit + $limit).
+    //example: posts 5 - 15. $start_limit=5, $limit=10 
+    //...query fo search function
+    function fetch_all_posts_from_start_to_limit($start_limit, $limit, $query){
         require 'database.php';
         //fetch posts within the span of $start_limit --to-- ($start_limit + $limit).
         //example: posts 5 - 15. $start_limit=5, $limit=10 
@@ -62,9 +64,6 @@
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    //fetch posts within the span of $start_limit --to-- ($start_limit + $limit).
-    //example: posts 5 - 15. $start_limit=5, $limit=10 
-    //...
     //SQL-query fetching posts made by user, and details about that post
     //Saves everything into an array ($post) with the help of array using array_keys-function
     function fetch_user_posts_from_start_to_limit($start_limit, $limit, $userid){

@@ -1,6 +1,6 @@
 <?php
 
-    $posts = fetch_all_posts_from_start_to_limit($start_limit, $limit);
+    $posts = fetch_all_posts_from_start_to_limit($start_limit, $limit, $query);
 
     //unlock the ass array??:) and ready to loop
     $keys = array_keys($posts); 

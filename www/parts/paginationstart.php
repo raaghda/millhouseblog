@@ -21,10 +21,3 @@
     //= the post with index 10. 
     //10 = (2 - 1) * 10.
     $start_limit = ($page_number - 1) * $limit;  
-
-    //search function
-    $query = "";    
-    if(isset($_GET['query'])) {
-        $q=$_GET['query'];
-        $query = "WHERE title like '%$q%'";
-    }    

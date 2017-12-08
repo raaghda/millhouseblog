@@ -460,6 +460,7 @@ textarea{
     padding-bottom:20px;
     text-align: left;
     font-size: 1.5em;
+    color: #2D2D2D;
 }
 #viewpost_span{
     float: left;
@@ -1098,6 +1099,7 @@ header li, footer li{
     
     .viewpost h1{
         font-size: 2em;
+        color: #2D2D2D;
     }
     
     .sidebar_container

@@ -101,4 +101,15 @@
             '<a href="/millhouseblog/www/?page=createpost">' . 
             'Klicka här för att bli först med att skriva ett inlägg' . '</a>' .
             '</div>';
-    endif; ?>
+    endif;
+
+
+    //get how many posts there is in db. --to be able to set $total_pages, depending on the limit...
+    //example, you show 10(=$limit) posts per page. there is 120 posts, 120/10 = 12 pages.
+
+    require 'database.php';
+    $statement = $pdo->prepare("SELECT COUNT(postid) as count 
+    FROM post 
+    WHERE userid = $userid");
+    $statement->execute();
+    $number_of_posts_in_db = $statement->fetch(PDO::FETCH_ASSOC);

@@ -32,7 +32,7 @@
     <!-- Pagination links-->
     <nav>
         <ul class="pagination">
-            <?php require 'parts/mypostspaginationlinks.php';?>
+            <?php require 'parts/paginationlinks.php';?>
         </ul>
     </nav> 
 

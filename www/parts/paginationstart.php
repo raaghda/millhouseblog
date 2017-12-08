@@ -1,10 +1,10 @@
 <?php
     /*GET PAGE NUMBER TO KNOW WHICH POSTS TO LOOP OUT*/
     //if a user has selected a specific page number
-    if(isset($_GET['pagination_page']))
+    if(isset($_GET['page_number']))
     {
         //store it in $page_number
-        $page_number = $_GET['pagination_page'];
+        $page_number = $_GET['page_number'];
     }
     else
     {
